@@ -189,30 +189,6 @@ git commit -m "mo ta thay doi"
 git push
 ```
 
-Khôi phục 1 file từ commit cũ:
-
-```bash
-git restore --source <commit-id> -- pages/admin.html
-```
-
-Khôi phục toàn bộ source về một commit:
-
-```bash
-git restore --source <commit-id> -- .
-```
-
-## Lưu ý bảo mật
-
-Không commit các file/runtime sau:
-
-- `backend/.env`
-- `backend/node_modules/`
-- `backend/uploads/`
-- `.vscode/`
-- binary như `deploy/caddy.exe`
-
-`.gitignore` hiện đã chặn các mục này.
-
 ## Hướng phát triển tiếp
 
 - chuẩn hóa README ảnh chụp màn hình
