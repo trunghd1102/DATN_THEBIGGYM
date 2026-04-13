@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html class="dark page-preload" lang="vi">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <style id="page-preload-style">
+    html.page-preload body { opacity: 0; }
+    body { transition: opacity .12s ease; }
+  </style>
+  <script>
+    (() => {
+      const reveal = () => document.documentElement.classList.remove("page-preload");
+      window.addEventListener("DOMContentLoaded", reveal, { once: true });
+      window.addEventListener("load", reveal, { once: true });
+      setTimeout(reveal, 1200);
+    })();
+  </script>
+  <title>Đơn hàng của tôi | THE BIG GYM</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700;900&family=Manrope:wght@300;400;500;600;800&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: "#f2ca50",
+            background: "#131313",
+            "surface-container": "#201f1f",
+            "surface-container-low": "#1c1b1b",
+            "surface-container-high": "#2a2a2a",
+            "on-surface": "#e5e2e1",
+            "on-surface-variant": "#d0c5af",
+            secondary: "#ffb693",
+            success: "#75d89a",
+            warning: "#ffcf66",
+            error: "#ffb4ab",
+            info: "#8fb7ff"
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 24;
+    }
+    body { font-family: "Manrope", sans-serif; background: #131313; color: #e5e2e1; }
+    .serif { font-family: "Noto Serif", serif; }
+    .mega-menu { opacity: 0; visibility: hidden; transition: all 0.3s ease; }
+    .group:hover .mega-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+  </style>
+</head>
+<body class="min-h-screen bg-background text-on-surface">
+  <nav class="fixed top-0 z-50 w-full bg-[#131313]/80 backdrop-blur-md shadow-2xl shadow-black/20">
+    <div class="mx-auto flex max-w-screen-2xl items-center justify-between px-12 py-6">
+      <div class="serif text-2xl font-bold uppercase tracking-tighter text-[#f2ca50]">
+        THE BIG GYM
+      </div>
+      <div class="hidden items-center gap-10 font-['Noto_Serif'] text-sm uppercase tracking-widest md:flex">
+        <a class="text-gray-400 transition-colors duration-300 hover:text-[#f2ca50]" href="../index.html">Trang chủ</a>
+        <div class="group relative">
+          <a class="flex items-center gap-1 pb-1 text-gray-400 transition-colors duration-300 hover:text-[#f2ca50]" href="#">
+            Dịch vụ <span class="material-symbols-outlined text-xs">expand_more</span>
+          </a>
+          <div class="mega-menu absolute left-1/2 top-full mt-4 grid w-[800px] -translate-x-1/2 translate-y-2 grid-cols-3 gap-8 rounded-lg bg-surface-container-low p-8 shadow-2xl">
+            <div>
+              <h4 class="mb-4 border-b border-white/10 pb-2 font-bold text-primary">Huấn luyện</h4>
+              <ul class="space-y-3 tracking-normal text-gray-400">
+                <li class="cursor-pointer transition-colors hover:text-primary">Personal Training 1:1</li>
+                <li class="cursor-pointer transition-colors hover:text-primary">Yoga Sanctuary</li>
+              </ul>
+            </div>
+            <div>
+              <h4 class="mb-4 border-b border-white/10 pb-2 font-bold text-primary">Tiện nghi</h4>
+              <ul class="space-y-3 tracking-normal text-gray-400">
+                <li class="cursor-pointer transition-colors hover:text-primary">Spa Recovery</li>
+                <li class="cursor-pointer transition-colors hover:text-primary">Tủ đồ thông minh</li>
+              </ul>
+            </div>
+            <div class="group/img relative overflow-hidden rounded-md">
+              <img alt="Ưu đãi hội viên" class="h-full w-full object-cover opacity-60 transition-transform duration-700 group-hover/img:scale-110" src="../assets/images/hero-training.jpg"/>
+              <div class="absolute inset-0 flex items-end bg-gradient-to-t from-black/80 to-transparent p-4">
+                <span class="text-xs font-bold uppercase text-white">Ưu đãi thành viên mới</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a class="text-gray-400 transition-colors duration-300 hover:text-[#f2ca50]" href="baitap.html">Bài tập</a>
+        <a class="text-gray-400 transition-colors duration-300 hover:text-[#f2ca50]" href="shop.html">Cửa hàng</a>
+        <a class="text-gray-400 transition-colors duration-300 hover:text-[#f2ca50]" href="congcu.html">Công cụ</a>
+        <a class="text-gray-400 transition-colors duration-300 hover:text-[#f2ca50]" href="contact.html">Liên hệ</a>
+      </div>
+      <div class="flex items-center gap-3">
+        <button class="rounded-full bg-gradient-to-r from-[#f2ca50] to-[#d4af37] px-8 py-3 text-xs font-bold uppercase tracking-widest text-[#3c2f00] shadow-lg shadow-[#f2ca50]/20 transition-transform duration-300 hover:scale-105">
+          Đặt lịch PT
+        </button>
+        <a class="rounded-full border border-[#f2ca50]/40 px-6 py-3 text-xs font-bold uppercase tracking-widest text-[#f2ca50] transition-colors duration-300 hover:bg-[#f2ca50] hover:text-[#3c2f00]" data-auth-link="" data-base-prefix="../" href="login.html">
+          Đăng nhập
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="mx-auto max-w-screen-2xl px-6 pb-20 pt-32 md:px-12">
+    <section class="mb-10 grid gap-8 rounded-[32px] border border-white/5 bg-surface-container p-8 shadow-2xl shadow-black/30 lg:grid-cols-[1.1fr_0.9fr] lg:p-10">
+      <div>
+        <p class="mb-4 text-xs uppercase tracking-[0.35em] text-secondary">Theo dõi đơn hàng</p>
+        <h1 class="serif text-4xl font-black tracking-tight text-primary md:text-6xl">Đơn hàng của tôi</h1>
+        <p class="mt-5 max-w-2xl text-base leading-relaxed text-on-surface-variant">
+          Kiểm tra trạng thái thanh toán, xử lý và giao hàng cho các đơn bạn đã đặt tại BigGym.
+          Nếu mua nhanh không đăng nhập, bạn vẫn có thể tra cứu bằng mã đơn và số điện thoại.
+        </p>
+        <div class="mt-8 grid gap-4 sm:grid-cols-2">
+          <div class="rounded-2xl border border-white/5 bg-white/[0.02] p-5">
+            <p class="text-[10px] font-bold uppercase tracking-[0.22em] text-gray-500">Phiên tài khoản</p>
+            <p class="mt-3 text-sm leading-relaxed text-on-surface-variant" id="orders-user-state">Đang kiểm tra trạng thái đăng nhập...</p>
+          </div>
+          <div class="rounded-2xl border border-primary/15 bg-primary/5 p-5">
+            <p class="text-[10px] font-bold uppercase tracking-[0.22em] text-primary">Theo dõi nhanh</p>
+            <p class="mt-3 text-sm leading-relaxed text-on-surface-variant">
+              Các đơn chưa hoàn tất thanh toán hoặc đang xử lý sẽ được cập nhật trạng thái mới nhất khi bạn mở trang này.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="rounded-[28px] border border-primary/10 bg-primary/5 p-6 lg:mt-10">
+        <p class="text-[10px] font-bold uppercase tracking-[0.24em] text-primary">Tra cứu đơn mua nhanh</p>
+        <h2 class="mt-3 serif text-3xl text-on-surface">Tìm theo mã đơn</h2>
+        <p class="mt-3 text-sm leading-relaxed text-on-surface-variant">
+          Dùng cách này nếu bạn đặt hàng mà không đăng nhập tài khoản.
+        </p>
+
+        <form class="mt-6 space-y-4" id="order-lookup-form">
+          <div class="space-y-2">
+            <label class="text-[11px] font-bold uppercase tracking-[0.18em] text-gray-500" for="lookup-order-code">Mã đơn hàng</label>
+            <input class="w-full rounded-2xl border border-white/10 bg-surface-container px-5 py-4 text-sm text-on-surface focus:border-primary focus:ring-0" id="lookup-order-code" inputmode="numeric" placeholder="Ví dụ: 1712900123456" required type="text"/>
+          </div>
+          <div class="space-y-2">
+            <label class="text-[11px] font-bold uppercase tracking-[0.18em] text-gray-500" for="lookup-phone">Số điện thoại nhận hàng</label>
+            <input class="w-full rounded-2xl border border-white/10 bg-surface-container px-5 py-4 text-sm text-on-surface focus:border-primary focus:ring-0" id="lookup-phone" placeholder="0901 234 567" required type="tel"/>
+          </div>
+          <button class="w-full rounded-full bg-gradient-to-r from-[#f2ca50] to-[#d4af37] px-6 py-4 text-xs font-bold uppercase tracking-[0.18em] text-[#3c2f00]" id="lookup-submit-button" type="submit">
+            Tra cứu đơn hàng
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <div class="hidden mb-8 rounded-[24px] border px-6 py-5 text-sm" id="orders-feedback"></div>
+
+    <section class="grid gap-8 xl:grid-cols-[380px_minmax(0,1fr)]">
+      <aside class="rounded-[28px] border border-white/5 bg-surface-container p-6 shadow-2xl shadow-black/30">
+        <div class="flex items-center justify-between gap-4 border-b border-white/10 pb-5">
+          <div>
+            <p class="text-xs uppercase tracking-[0.3em] text-secondary">Lịch sử của bạn</p>
+            <h2 class="serif mt-2 text-3xl text-on-surface">Danh sách đơn</h2>
+          </div>
+          <span class="rounded-full border border-white/10 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-gray-300" id="orders-count-badge">0 đơn</span>
+        </div>
+
+        <div class="mt-6 hidden rounded-2xl border border-primary/15 bg-primary/5 px-5 py-4 text-sm leading-relaxed text-on-surface-variant" id="orders-login-tip">
+          Đăng nhập để xem toàn bộ lịch sử mua hàng của bạn tại BigGym.
+        </div>
+
+        <div class="mt-6 hidden rounded-2xl border border-white/5 bg-white/[0.02] px-5 py-4 text-sm leading-relaxed text-gray-400" id="orders-empty-state">
+          Bạn chưa có đơn hàng nào. Hãy quay lại cửa hàng để chọn sản phẩm phù hợp.
+        </div>
+
+        <div class="mt-6 max-h-[720px] space-y-4 overflow-y-auto pr-1" id="orders-list"></div>
+      </aside>
+
+      <section class="rounded-[28px] border border-white/5 bg-surface-container p-6 shadow-2xl shadow-black/30">
+        <div class="flex flex-col gap-5 border-b border-white/10 pb-5 lg:flex-row lg:items-end lg:justify-between">
+          <div>
+            <p class="text-xs uppercase tracking-[0.3em] text-secondary">Chi tiết đơn</p>
+            <h2 class="serif mt-2 text-3xl text-on-surface">Theo dõi trạng thái</h2>
+          </div>
+          <div class="rounded-2xl border border-white/5 bg-white/[0.02] px-4 py-3 text-sm text-on-surface-variant" id="order-detail-note">
+            Chọn một đơn hàng ở danh sách bên trái hoặc tra cứu nhanh theo mã đơn.
+          </div>
+        </div>
+
+        <div class="mt-6" id="order-detail-shell">
+          <div class="rounded-[24px] border border-white/5 bg-surface-container-low p-8 text-center text-sm leading-relaxed text-gray-500">
+            Chưa có dữ liệu đơn hàng để hiển thị.
+          </div>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <footer class="border-t border-white/5 bg-[#131313] px-12 pb-10 pt-20">
+    <div class="mx-auto grid max-w-screen-2xl grid-cols-1 gap-12 md:grid-cols-4">
+      <div class="md:col-span-1">
+        <div class="font-['Noto_Serif'] mb-6 text-3xl font-bold uppercase tracking-tighter text-[#f2ca50]">
+          The Big Gym
+        </div>
+        <p class="font-['Manrope'] font-light leading-relaxed tracking-wide text-gray-400">
+          Nâng tầm trải nghiệm thể hình tại Hải Phòng. Không gian đẳng cấp, dịch vụ thượng lưu.
+        </p>
+      </div>
+      <div class="space-y-6">
+        <h5 class="text-xs font-bold uppercase tracking-widest text-white">Liên kết nhanh</h5>
+        <ul class="font-['Manrope'] space-y-4 font-light tracking-wide text-gray-400">
+          <li><a class="transition-colors duration-300 hover:text-[#ffb693]" href="../index.html">Trang chủ</a></li>
+          <li><a class="transition-colors duration-300 hover:text-[#ffb693]" href="shop.html">Cửa hàng</a></li>
+          <li><a class="transition-colors duration-300 hover:text-[#ffb693]" href="congcu.html">Công cụ</a></li>
+          <li><a class="transition-colors duration-300 hover:text-[#ffb693]" href="profile.html">Hồ sơ</a></li>
+        </ul>
+      </div>
+      <div class="space-y-6">
+        <h5 class="text-xs font-bold uppercase tracking-widest text-white">Liên hệ</h5>
+        <ul class="font-['Manrope'] space-y-4 font-light tracking-wide text-gray-400">
+          <li>219 Hồ Sen, Hải Phòng</li>
+          <li>thebiggym@phamductrung.id.vn</li>
+          <li>1900 1009</li>
+        </ul>
+      </div>
+      <div class="space-y-6">
+        <h5 class="text-xs font-bold uppercase tracking-widest text-white">Theo dõi đơn</h5>
+        <p class="font-['Manrope'] text-sm font-light leading-relaxed tracking-wide text-gray-400">
+          Kiểm tra trạng thái xử lý, giao hàng và thanh toán bất cứ lúc nào ngay trên website.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/auth-ui.js?v=20260413-footer1"></script>
+  <script src="../assets/js/orders.js"></script>
+</body>
+</html>

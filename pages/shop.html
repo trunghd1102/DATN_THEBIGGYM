@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<html class="dark page-preload" lang="vi">
+<head>
+  <meta charset="utf-8"/>
+  
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/><style id="page-preload-style">
+  html.page-preload body { opacity: 0; }
+  body { transition: opacity .12s ease; }
+</style>
+<script>
+  (() => {
+    const reveal = () => document.documentElement.classList.remove("page-preload");
+    window.addEventListener("DOMContentLoaded", reveal, { once: true });
+    window.addEventListener("load", reveal, { once: true });
+    setTimeout(reveal, 1200);
+  })();
+</script>
+<title>Cửa hàng | THE BIG GYM</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&family=Manrope:wght@300;400;500;600;800&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <script src="../assets/js/shop-detail-routing.js"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            surface: "#131313",
+            background: "#131313",
+            primary: "#f2ca50",
+            secondary: "#ffb693",
+            "on-primary": "#3c2f00",
+            "on-background": "#e5e2e1",
+            "on-surface": "#e5e2e1",
+            "on-surface-variant": "#d0c5af",
+            "surface-container-low": "#1c1b1b",
+            "surface-container": "#201f1f",
+            "surface-container-high": "#2a2a2a",
+            "outline-variant": "#4d4635",
+            outline: "#99907c",
+            error: "#ffb4ab"
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 24;
+    }
+    body { font-family: "Manrope", sans-serif; background: #131313; color: #e5e2e1; }
+    .serif { font-family: "Noto Serif", serif; }
+    .mega-menu { opacity: 0; visibility: hidden; transition: all 0.3s ease; }
+    .group:hover .mega-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+    .hero-grid {
+      background:
+        radial-gradient(circle at top right, rgba(242, 202, 80, 0.12), transparent 35%),
+        linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0));
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background selection:bg-primary selection:text-on-primary">
+  <nav class="fixed top-0 z-50 w-full bg-[#131313]/80 backdrop-blur-md shadow-2xl shadow-black/20">
+    <div class="mx-auto flex max-w-screen-2xl items-center justify-between px-12 py-6">
+      <div class="serif text-2xl font-bold uppercase tracking-tighter text-primary">THE BIG GYM</div>
+      <div class="hidden items-center gap-10 font-['Noto_Serif'] text-sm uppercase tracking-widest md:flex">
+        <a class="text-gray-400 transition-colors duration-300 hover:text-primary" href="../index.html">Trang chủ</a>
+        <div class="group relative">
+          <a class="flex items-center gap-1 pb-1 text-gray-400 transition-colors duration-300 hover:text-primary" href="#">
+            Dịch vụ <span class="material-symbols-outlined text-xs">expand_more</span>
+          </a>
+          <div class="mega-menu absolute left-1/2 top-full mt-4 grid w-[800px] -translate-x-1/2 translate-y-2 grid-cols-3 gap-8 rounded-lg bg-surface-container-low p-8 shadow-2xl">
+            <div>
+              <h4 class="mb-4 border-b border-white/10 pb-2 font-bold text-primary">Huấn luyện</h4>
+              <ul class="space-y-3 tracking-normal text-gray-400">
+                <li class="cursor-pointer transition-colors hover:text-primary">Personal Training 1:1</li>
+                <li class="cursor-pointer transition-colors hover:text-primary">Yoga Sanctuary</li>
+              </ul>
+            </div>
+            <div>
+              <h4 class="mb-4 border-b border-white/10 pb-2 font-bold text-primary">Tiện nghi</h4>
+              <ul class="space-y-3 tracking-normal text-gray-400">
+                <li class="cursor-pointer transition-colors hover:text-primary">Spa Recovery</li>
+                <li class="cursor-pointer transition-colors hover:text-primary">Tủ đồ thông minh</li>
+              </ul>
+            </div>
+            <div class="group/img relative overflow-hidden rounded-md">
+              <img alt="Ưu đãi hội viên" class="h-full w-full object-cover opacity-60 transition-transform duration-700 group-hover/img:scale-110" src="../assets/images/hero-training.jpg"/>
+              <div class="absolute inset-0 flex items-end bg-gradient-to-t from-black/80 to-transparent p-4">
+                <span class="text-xs font-bold uppercase text-white">Ưu đãi thành viên mới</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a class="text-gray-400 transition-colors duration-300 hover:text-primary" href="baitap.html">Bài tập</a>
+        <a class="border-b-2 border-primary pb-1 text-primary" href="shop.html">Cửa hàng</a>
+        <a class="text-gray-400 transition-colors duration-300 hover:text-primary" href="congcu.html">Công cụ</a>
+        <a class="text-gray-400 transition-colors duration-300 hover:text-primary" href="contact.html">Liên hệ</a>
+      </div>
+      <div class="flex items-center gap-3">
+        <button class="bg-gradient-to-r from-[#f2ca50] to-[#d4af37] text-[#3c2f00] px-8 py-3 font-bold uppercase tracking-widest text-xs rounded-full hover:scale-105 transition-transform duration-300 shadow-lg shadow-[#f2ca50]/20">
+                Đặt lịch PT
+            </button>
+        <a class="border border-[#f2ca50]/40 text-[#f2ca50] px-6 py-3 font-bold uppercase tracking-widest text-xs rounded-full hover:bg-[#f2ca50] hover:text-[#3c2f00] transition-colors duration-300" data-auth-link="" data-base-prefix="../" href="login.html">
+          Đăng nhập
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="mx-auto max-w-screen-2xl px-6 pb-32 pt-32 md:px-12 md:pb-20">
+    <section class="hero-grid mb-16 overflow-hidden rounded-[32px] border border-white/5">
+      <div class="grid items-stretch gap-10 lg:grid-cols-[1.1fr_0.9fr]">
+        <div class="p-10 md:p-14">
+          <p class="mb-4 block text-xs font-medium uppercase tracking-[0.35em] text-secondary">BigGym Nutrition Store</p>
+          <h1 class="serif mb-8 text-5xl font-bold leading-[0.95] tracking-tighter md:text-7xl">
+            Nhiên liệu<br/>cho <span class="italic text-primary">hiệu suất</span>
+          </h1>
+          <p class="max-w-2xl text-lg font-light leading-relaxed text-gray-300">
+            Chọn lọc các dòng whey, creatine, pre-workout và vitamin phù hợp cho mục tiêu tăng cơ, hồi phục
+            và tối ưu buổi tập. Tất cả được gom về một khu mua sắm sạch, nhanh và dễ so sánh.
+          </p>
+          <div class="mt-10 flex flex-wrap gap-4 text-xs uppercase tracking-[0.22em]">
+            <span class="rounded-full border border-primary/20 bg-primary/10 px-4 py-2 text-primary">Whey Isolate</span>
+            <span class="rounded-full border border-white/10 px-4 py-2 text-gray-300">Creatine</span>
+            <span class="rounded-full border border-white/10 px-4 py-2 text-gray-300">Pre-Workout</span>
+            <span class="rounded-full border border-white/10 px-4 py-2 text-gray-300">Vitamin</span>
+          </div>
+        </div>
+        <div class="relative min-h-[360px] overflow-hidden">
+          <img alt="Khu supplement" class="absolute inset-0 h-full w-full object-cover opacity-60" src="../assets/images/weight-room.jpg"/>
+          <div class="absolute inset-0 bg-gradient-to-l from-background/10 via-background/50 to-background"></div>
+          <div class="absolute bottom-0 left-0 right-0 grid grid-cols-2 gap-3 p-6">
+            <div class="rounded-2xl border border-white/10 bg-black/30 p-4 backdrop-blur">
+              <p class="text-[10px] uppercase tracking-[0.25em] text-gray-400">Ưu đãi tháng này</p>
+              <p class="mt-2 text-lg font-semibold text-primary">Giảm 15% Whey Isolate</p>
+            </div>
+            <div class="rounded-2xl border border-white/10 bg-black/30 p-4 backdrop-blur">
+              <p class="text-[10px] uppercase tracking-[0.25em] text-gray-400">Dành cho member</p>
+              <p class="mt-2 text-lg font-semibold text-primary">Miễn phí giao hàng nội thành</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="grid grid-cols-1 gap-8 xl:grid-cols-[260px_minmax(0,1fr)_360px]">
+      <aside class="order-1 h-fit rounded-[24px] border border-white/5 bg-surface-container-low p-6">
+        <div class="mb-8">
+          <h2 class="serif mb-3 text-2xl text-primary">Danh mục</h2>
+          <p class="text-sm leading-relaxed text-gray-400">Lọc sản phẩm theo nhóm để tìm đúng loại bổ sung bạn cần.</p>
+        </div>
+        <div class="space-y-3" id="category-filters">
+          <button class="shop-filter w-full rounded-full border border-primary bg-primary px-5 py-3 text-xs font-bold uppercase tracking-[0.2em] text-on-primary" data-category="all" type="button">Tất cả</button>
+          <button class="shop-filter w-full rounded-full border border-white/10 px-5 py-3 text-xs font-bold uppercase tracking-[0.2em] text-gray-300 transition-colors hover:border-primary/30 hover:text-primary" data-category="whey" type="button">Whey</button>
+          <button class="shop-filter w-full rounded-full border border-white/10 px-5 py-3 text-xs font-bold uppercase tracking-[0.2em] text-gray-300 transition-colors hover:border-primary/30 hover:text-primary" data-category="creatine" type="button">Creatine</button>
+          <button class="shop-filter w-full rounded-full border border-white/10 px-5 py-3 text-xs font-bold uppercase tracking-[0.2em] text-gray-300 transition-colors hover:border-primary/30 hover:text-primary" data-category="preworkout" type="button">Pre-Workout</button>
+          <button class="shop-filter w-full rounded-full border border-white/10 px-5 py-3 text-xs font-bold uppercase tracking-[0.2em] text-gray-300 transition-colors hover:border-primary/30 hover:text-primary" data-category="vitamin" type="button">Vitamin</button>
+        </div>
+
+        <div class="mt-10 rounded-2xl border border-primary/10 bg-primary/5 p-5">
+          <p class="text-[10px] font-bold uppercase tracking-[0.25em] text-primary">Gợi ý từ BigGym</p>
+          <p class="mt-3 text-sm leading-relaxed text-gray-300">
+            Nếu bạn mới bắt đầu, hãy ưu tiên một combo nền tảng gồm Whey + Creatine + Multivitamin
+            trước khi thêm các sản phẩm tăng hiệu suất.
+          </p>
+        </div>
+      </aside>
+
+      <section class="order-3 xl:order-2">
+        <div class="mb-6 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+          <div>
+            <p class="mb-2 text-xs uppercase tracking-[0.3em] text-secondary">Bộ sưu tập hiện có</p>
+            <h2 class="serif text-3xl text-on-surface">Sản phẩm nổi bật</h2>
+          </div>
+          <div class="flex items-center gap-3">
+            <label class="text-xs uppercase tracking-[0.2em] text-gray-500" for="sort-products">Sắp xếp</label>
+            <select class="rounded-full border border-white/10 bg-surface-container px-4 py-3 text-sm text-on-surface focus:border-primary focus:ring-0" id="sort-products">
+              <option value="featured">Nổi bật</option>
+              <option value="price-asc">Giá tăng dần</option>
+              <option value="price-desc">Giá giảm dần</option>
+              <option value="name-asc">Tên A-Z</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="hidden rounded-2xl border border-primary/15 bg-primary/5 px-5 py-4 text-sm text-gray-200" id="shop-status"></div>
+        <div class="mt-6 grid grid-cols-1 gap-8 md:grid-cols-2 2xl:grid-cols-3" id="product-grid"></div>
+      </section>
+
+      <aside class="order-2 h-fit scroll-mt-28 rounded-[24px] border border-white/5 bg-surface-container-low p-6 xl:order-3 xl:sticky xl:top-32" id="cart-panel">
+        <div class="border-b border-white/10 pb-4">
+          <div class="flex items-center justify-between">
+            <div>
+              <p class="text-xs uppercase tracking-[0.25em] text-gray-500">Giỏ hàng</p>
+              <h3 class="serif text-2xl text-primary">Mua nhanh</h3>
+            </div>
+            <span class="rounded-full border border-white/10 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-gray-300" id="cart-badge">0 mục</span>
+          </div>
+        </div>
+
+        <div class="max-h-[420px] space-y-4 overflow-y-auto py-6" id="cart-items">
+          <p class="text-sm leading-relaxed text-gray-500" id="cart-empty-state">Giỏ hàng đang trống. Hãy thêm vài sản phẩm để bắt đầu đơn hàng của bạn.</p>
+        </div>
+
+        <div class="space-y-3 border-t border-white/10 pt-5">
+          <div class="flex items-center justify-between text-sm">
+            <span class="text-gray-500">Tạm tính</span>
+            <span class="text-on-surface" id="cart-subtotal">0d</span>
+          </div>
+          <div class="flex items-center justify-between text-sm">
+            <span class="text-gray-500">Vận chuyển</span>
+            <span class="text-on-surface" id="cart-shipping">Miễn phí</span>
+          </div>
+          <div class="flex items-end justify-between pt-3">
+            <span class="serif text-lg text-on-surface">Tổng cộng</span>
+            <span class="text-3xl font-light tracking-tight text-primary" id="cart-total">0d</span>
+          </div>
+          <button class="w-full rounded-full bg-primary py-4 text-sm font-bold uppercase tracking-[0.2em] text-on-primary shadow-lg shadow-primary/10 transition-all hover:shadow-primary/20" id="checkout-button" type="button">
+            Thanh toán ngay
+          </button>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <div class="fixed inset-x-4 bottom-4 z-40 md:hidden" id="mobile-cart-dock">
+    <button class="flex w-full items-center justify-between gap-4 rounded-[22px] border border-primary/20 bg-[#171717]/95 px-5 py-4 text-left shadow-2xl shadow-black/40 backdrop-blur" id="mobile-cart-dock-button" type="button">
+      <div class="min-w-0">
+        <p class="text-[10px] font-bold uppercase tracking-[0.24em] text-primary">Giỏ hàng</p>
+        <p class="mt-1 truncate text-sm text-gray-200" id="mobile-cart-dock-summary">Giỏ hàng đang trống</p>
+      </div>
+      <div class="flex items-center gap-3">
+        <div class="text-right">
+          <p class="text-[10px] uppercase tracking-[0.22em] text-gray-500">Tạm tính</p>
+          <p class="mt-1 text-lg font-semibold text-primary" id="mobile-cart-dock-total">0d</p>
+        </div>
+        <span class="material-symbols-outlined text-primary">shopping_bag</span>
+      </div>
+    </button>
+  </div>
+
+  <footer class="w-full pt-20 pb-10 px-12 border-t border-white/5 bg-[#131313]">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-12 max-w-screen-2xl mx-auto">
+      <div class="md:col-span-1">
+        <div class="font-['Noto_Serif'] text-3xl text-[#f2ca50] mb-6 font-bold uppercase tracking-tighter">
+          The Big Gym
+        </div>
+        <p class="font-['Manrope'] text-gray-400 font-light tracking-wide leading-relaxed">
+          Nâng tầm trải nghiệm thực hành tại Hải Phòng. Không gian đẳng cấp, dịch vụ thượng lưu.
+        </p>
+      </div>
+      <div class="space-y-6">
+        <h5 class="text-white font-bold uppercase text-xs tracking-widest">Liên kết nhanh</h5>
+        <ul class="font-['Manrope'] text-gray-400 font-light tracking-wide space-y-4">
+          <li><a class="hover:text-[#ffb693] transition-colors duration-300" href="#">Về chúng tôi</a></li>
+          <li><a class="hover:text-[#ffb693] transition-colors duration-300" href="#">Tuyển dụng</a></li>
+          <li><a class="hover:text-[#ffb693] transition-colors duration-300" href="#">Hỏi đáp</a></li>
+          <li><a class="hover:text-[#ffb693] transition-colors duration-300" href="#">Điều khoản dịch vụ</a></li>
+        </ul>
+      </div>
+      <div class="space-y-6">
+        <h5 class="text-white font-bold uppercase text-xs tracking-widest">Địa điểm</h5>
+        <p class="font-['Manrope'] text-gray-400 font-light tracking-wide leading-relaxed">
+          219, Hồ Sen,<br />Phường Lê Chân, TP. Hải Phòng
+        </p>
+        <p class="text-primary font-bold">Hotline: 1900 1009</p>
+      </div>
+      <div class="space-y-6">
+        <h5 class="text-white font-bold uppercase text-xs tracking-widest">Đăng ký nhận tin</h5>
+        <div class="flex flex-col gap-4">
+          <input class="bg-surface-container-high border-none rounded-lg p-4 text-white placeholder:text-gray-600 focus:ring-1 focus:ring-primary" placeholder="Email của bạn" type="email" />
+          <button class="bg-primary text-on-primary font-bold py-4 rounded-lg uppercase text-xs tracking-widest hover:bg-primary-fixed transition-colors">Đăng ký ngay</button>
+        </div>
+      </div>
+    </div>
+    <div class="max-w-screen-2xl mx-auto mt-20 pt-8 border-t border-white/5 flex flex-col md:row justify-between items-center gap-4">
+      <span class="font-['Manrope'] text-gray-400 font-light tracking-wide text-xs">© 2024 THE BIG GYM HẢI PHÒNG. ALL RIGHTS RESERVED.</span>
+      <div class="flex gap-6">
+        <a class="text-gray-500 hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">social_leaderboard</span></a>
+        <a class="text-gray-500 hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">photo_camera</span></a>
+        <a class="text-gray-500 hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">smart_display</span></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/auth-ui.js?v=20260413-footer1"></script>
+  <script>
+    const API_BASE_URL = window.BIGGYM_API_BASE_URL || (window.location.protocol === "file:" ? "http://localhost:4000/api" : `${window.location.origin}/api`);
+    const productGrid = document.getElementById("product-grid");
+    const categoryButtons = Array.from(document.querySelectorAll(".shop-filter"));
+    const sortSelect = document.getElementById("sort-products");
+    const statusBox = document.getElementById("shop-status");
+    const cartItemsContainer = document.getElementById("cart-items");
+    const cartBadge = document.getElementById("cart-badge");
+    const cartSubtotal = document.getElementById("cart-subtotal");
+    const cartTotal = document.getElementById("cart-total");
+    const cartEmptyState = document.getElementById("cart-empty-state");
+    const checkoutButton = document.getElementById("checkout-button");
+    const cartPanel = document.getElementById("cart-panel");
+    const mobileCartDock = document.getElementById("mobile-cart-dock");
+    const mobileCartDockButton = document.getElementById("mobile-cart-dock-button");
+    const mobileCartDockSummary = document.getElementById("mobile-cart-dock-summary");
+    const mobileCartDockTotal = document.getElementById("mobile-cart-dock-total");
+
+    function getStoredUser() {
+      try {
+        return JSON.parse(localStorage.getItem("biggym_user") || "null");
+      } catch (error) {
+        return null;
+      }
+    }
+
+    function getStoredToken() {
+      return localStorage.getItem("biggym_token");
+    }
+
+    function isLoggedIn() {
+      return Boolean(getStoredUser() && getStoredToken());
+    }
+
+    function getCartStorageKey() {
+      const user = getStoredUser();
+      return user && user.id ? `biggym_shop_cart_user_${user.id}` : "biggym_shop_cart_guest";
+    }
+
+    let cartStorageKey = getCartStorageKey();
+    let activeCategory = "all";
+    let products = [];
+    let cart = JSON.parse(localStorage.getItem(cartStorageKey) || "[]");
+    let cartRefreshPromise = null;
+    let lastCartRefreshAt = 0;
+    function formatCurrency(value) {
+      return `${Number(value).toLocaleString("vi-VN")}d`;
+    }
+
+    function getProductDetailHref(product) {
+      return typeof window.getBigGymProductDetailHref === "function"
+        ? window.getBigGymProductDetailHref(product, "shop_pages")
+        : null;
+    }
+
+    function updateMobileCartDock(totalQuantity, subtotal) {
+      if (!mobileCartDock || !mobileCartDockSummary || !mobileCartDockTotal) {
+        return;
+      }
+
+      if (totalQuantity > 0) {
+        mobileCartDockSummary.textContent = `${totalQuantity} mục trong giỏ`;
+        mobileCartDockTotal.textContent = formatCurrency(subtotal);
+        mobileCartDock.classList.remove("hidden");
+        return;
+      }
+
+      mobileCartDockSummary.textContent = "Giỏ hàng đang trống";
+      mobileCartDockTotal.textContent = formatCurrency(0);
+      mobileCartDock.classList.remove("hidden");
+    }
+
+    function setStatus(message, type = "info") {
+      if (!message) {
+        statusBox.classList.add("hidden");
+        statusBox.textContent = "";
+        return;
+      }
+
+      statusBox.classList.remove("hidden");
+      statusBox.textContent = message;
+      statusBox.className = "rounded-2xl px-5 py-4 text-sm";
+
+      if (type === "error") {
+        statusBox.classList.add("border", "border-red-400/20", "bg-red-500/10", "text-red-100");
+        return;
+      }
+
+      statusBox.classList.add("border", "border-primary/15", "bg-primary/5", "text-gray-200");
+    }
+
+    function saveCart() {
+      cartStorageKey = getCartStorageKey();
+      localStorage.setItem(cartStorageKey, JSON.stringify(cart));
+    }
+
+    function loadCart() {
+      cartStorageKey = getCartStorageKey();
+      cart = JSON.parse(localStorage.getItem(cartStorageKey) || "[]");
+    }
+
+    function buildAuthHeaders() {
+      const token = getStoredToken();
+      return token
+        ? {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`
+          }
+        : {
+            "Content-Type": "application/json"
+          };
+    }
+
+    async function fetchServerCart() {
+      const response = await fetch(`${API_BASE_URL}/cart`, {
+        headers: buildAuthHeaders()
+      });
+      const payload = await response.json();
+
+      if (!response.ok || !payload.success) {
+        throw new Error(payload.message || "Không thể tải giỏ hàng");
+      }
+
+      return payload.data || [];
+    }
+
+    function getActiveVariants(product) {
+      return (product?.variants || []).filter((variant) => variant.is_active !== false);
+    }
+
+    function getPrimaryVariant(product) {
+      return getActiveVariants(product)
+        .sort((a, b) => Number(a.sort_order || 0) - Number(b.sort_order || 0))[0] || null;
+    }
+
+    function getVariantById(product, productVariantId) {
+      return getActiveVariants(product).find((variant) => Number(variant.id) === Number(productVariantId)) || null;
+    }
+
+    function getCartItemKey(item) {
+      return String(Number(item.product_variant_id || item.variant_id || 0));
+    }
+
+    function normalizeLocalCartItem(item) {
+      return {
+        product_id: Number(item.product_id || item.id || 0),
+        product_variant_id: Number(item.product_variant_id || item.variant_id || 0),
+        quantity: Number(item.quantity || 0),
+        product_name: item.product_name || item.name || "",
+        product_slug: item.product_slug || item.slug || "",
+        product_image_url: item.product_image_url || item.image_url || "",
+        variant_flavor: item.variant_flavor || "",
+        variant_size: item.variant_size || "",
+        unit_price: Number(item.unit_price ?? item.sale_price ?? item.price ?? 0),
+        base_price: Number(item.base_price ?? item.price ?? item.unit_price ?? item.sale_price ?? 0)
+      };
+    }
+
+    function buildCartSnapshot(product, variant, quantity) {
+      return normalizeLocalCartItem({
+        product_id: Number(product.id),
+        product_variant_id: Number(variant.id),
+        quantity: Number(quantity),
+        product_name: product.name,
+        product_slug: product.slug,
+        product_image_url: variant.image_url || product.image_url,
+        variant_flavor: variant.flavor_label || "",
+        variant_size: variant.size_label || "",
+        unit_price: Number(variant.price ?? product.sale_price ?? product.price ?? 0),
+        base_price: Number(variant.original_price ?? variant.price ?? product.price ?? 0)
+      });
+    }
+
+    function mapServerCartItemsToLocal(items) {
+      return items.map((item) => normalizeLocalCartItem({
+        product_id: Number(item.product_id),
+        product_variant_id: Number(item.product_variant_id),
+        quantity: Number(item.quantity),
+        product_name: item.product?.name,
+        product_slug: item.product?.slug,
+        product_image_url: item.variant?.image_url || item.product?.image_url,
+        variant_flavor: item.variant?.flavor_label,
+        variant_size: item.variant?.size_label,
+        unit_price: item.variant?.price ?? item.product?.sale_price ?? item.product?.price,
+        base_price: item.variant?.original_price ?? item.product?.price
+      }));
+    }
+
+    async function replaceServerCart(items) {
+      const response = await fetch(`${API_BASE_URL}/cart`, {
+        method: "PUT",
+        headers: buildAuthHeaders(),
+        body: JSON.stringify({
+          items: items.map((item) => ({
+            product_id: Number(item.product_id || item.id),
+            product_variant_id: Number(item.product_variant_id || item.variant_id),
+            quantity: Number(item.quantity)
+          }))
+        })
+      });
+      const payload = await response.json();
+
+      if (!response.ok || !payload.success) {
+        throw new Error(payload.message || "Không thể đồng bộ giỏ hàng");
+      }
+
+      return payload.data || [];
+    }
+
+    async function syncCartItemToServer(productId, productVariantId, quantity) {
+      const response = await fetch(`${API_BASE_URL}/cart/items`, {
+        method: "POST",
+        headers: buildAuthHeaders(),
+        body: JSON.stringify({
+          product_id: Number(productId),
+          product_variant_id: Number(productVariantId),
+          quantity: Number(quantity)
+        })
+      });
+      const payload = await response.json();
+
+      if (!response.ok || !payload.success) {
+        throw new Error(payload.message || "Không thể cập nhật giỏ hàng");
+      }
+
+      return payload.data || [];
+    }
+
+    async function removeCartItemFromServer(productVariantId) {
+      const response = await fetch(`${API_BASE_URL}/cart/items/${productVariantId}`, {
+        method: "DELETE",
+        headers: buildAuthHeaders()
+      });
+      const payload = await response.json();
+
+      if (!response.ok || !payload.success) {
+        throw new Error(payload.message || "Không thể xóa sản phẩm khỏi giỏ hàng");
+      }
+
+      return payload.data || [];
+    }
+
+    async function initializeCart() {
+      if (!isLoggedIn()) {
+        loadCart();
+        cart = cart.map(normalizeLocalCartItem).filter((item) => item.product_variant_id > 0 && item.quantity > 0);
+        saveCart();
+        return;
+      }
+
+      const guestCartKey = "biggym_shop_cart_guest";
+      const guestCart = JSON.parse(localStorage.getItem(guestCartKey) || "[]").map(normalizeLocalCartItem);
+
+      try {
+        let serverItems = await fetchServerCart();
+
+        if (guestCart.length) {
+          const mergedMap = new Map();
+
+          mapServerCartItemsToLocal(serverItems).forEach((item) => {
+            mergedMap.set(getCartItemKey(item), { ...item });
+          });
+
+          guestCart.forEach((item) => {
+            const key = getCartItemKey(item);
+            const currentItem = mergedMap.get(key);
+            if (currentItem) {
+              currentItem.quantity += Number(item.quantity);
+            } else {
+              mergedMap.set(key, { ...item });
+            }
+          });
+
+          const mergedItems = Array.from(mergedMap.values()).map((item) => normalizeLocalCartItem(item));
+          serverItems = await replaceServerCart(mergedItems);
+          localStorage.removeItem(guestCartKey);
+        }
+
+        cart = mapServerCartItemsToLocal(serverItems);
+        saveCart();
+      } catch (error) {
+        loadCart();
+        cart = cart.map(normalizeLocalCartItem).filter((item) => item.product_variant_id > 0 && item.quantity > 0);
+        saveCart();
+        setStatus(error.message || "Không thể đồng bộ giỏ hàng tài khoản.", "error");
+      }
+    }
+
+    async function refreshCartState(force = false) {
+      const now = Date.now();
+      if (!force && (cartRefreshPromise || now - lastCartRefreshAt < 400)) {
+        return cartRefreshPromise || Promise.resolve();
+      }
+
+      lastCartRefreshAt = now;
+      cartRefreshPromise = (async () => {
+        await initializeCart();
+        renderCart();
+      })();
+
+      try {
+        await cartRefreshPromise;
+      } finally {
+        cartRefreshPromise = null;
+      }
+    }
+
+    function getProductAggregateStock(product) {
+      const variants = getActiveVariants(product);
+
+      if (variants.length) {
+        return variants.reduce((sum, variant) => sum + Number(variant.stock_quantity || 0), 0);
+      }
+
+      return Number(product?.stock_quantity || 0);
+    }
+
+    function getPrimaryDisplayVariant(product) {
+      return getPrimaryVariant(product);
+    }
+
+    function productRequiresSelection(product) {
+      const variants = getActiveVariants(product);
+
+      if (!variants.length) {
+        return false;
+      }
+
+      if (product?.requires_configuration) {
+        return true;
+      }
+
+      if (variants.length > 1) {
+        return true;
+      }
+
+      return variants.some((variant) => (variant.flavor_label || "").trim() || (variant.size_label || "").trim());
+    }
+
+    function getDisplayPrice(product) {
+      const primaryVariant = getPrimaryDisplayVariant(product);
+      return Number(primaryVariant?.price ?? product.sale_price ?? product.price ?? 0);
+    }
+
+    function getDisplayOriginalPrice(product) {
+      const primaryVariant = getPrimaryDisplayVariant(product);
+      const originalPrice = primaryVariant?.original_price;
+
+      if (originalPrice !== null && originalPrice !== undefined) {
+        return Number(originalPrice);
+      }
+
+      return Number(product.price ?? 0);
+    }
+
+    function resolveCartItem(item) {
+      const normalizedItem = normalizeLocalCartItem(item);
+      const product = products.find((entry) => Number(entry.id) === Number(normalizedItem.product_id));
+      const variant = product ? getVariantById(product, normalizedItem.product_variant_id) : null;
+
+      if (product && variant) {
+        const snapshot = buildCartSnapshot(product, variant, normalizedItem.quantity);
+        return {
+          ...snapshot,
+          quantity: Number(normalizedItem.quantity),
+          name: product.name,
+          category_name: product.category_name,
+          image_url: variant.image_url || product.image_url || "../assets/images/weight-room.jpg",
+          stock_quantity: Number(variant.stock_quantity || 0)
+        };
+      }
+
+      return {
+        ...normalizedItem,
+        quantity: Number(normalizedItem.quantity),
+        name: normalizedItem.product_name || "Sản phẩm trong giỏ",
+        category_name: normalizedItem.variant_flavor || normalizedItem.variant_size ? "Phiên bản đã chọn" : "Sản phẩm",
+        image_url: normalizedItem.product_image_url || "../assets/images/weight-room.jpg",
+        stock_quantity: Number(normalizedItem.stock_quantity || 0)
+      };
+    }
+
+    function getRatingIcon(ratingValue, index) {
+      const starNumber = index + 1;
+
+      if (ratingValue >= starNumber) {
+        return {
+          icon: "star",
+          filled: true
+        };
+      }
+
+      if (ratingValue >= starNumber - 0.5) {
+        return {
+          icon: "star_half",
+          filled: true
+        };
+      }
+
+      return {
+        icon: "star",
+        filled: false
+      };
+    }
+
+    function renderProductRating(product) {
+      const reviewCount = Number(product.review_count || 0);
+      const averageRating = product.average_rating === null || product.average_rating === undefined
+        ? null
+        : Number(product.average_rating);
+
+      const starMarkup = Array.from({ length: 5 }, (_, index) => {
+        const state = getRatingIcon(averageRating || 0, index);
+        return `<span class="material-symbols-outlined !text-[14px] ${state.filled ? "text-primary" : "text-gray-600"}" style="font-variation-settings:'FILL' ${state.filled ? 1 : 0}">${state.icon}</span>`;
+      }).join("");
+
+      return `
+        <div class="mt-4 flex flex-wrap items-center gap-x-3 gap-y-2">
+          <div class="flex">${starMarkup}</div>
+          <span class="text-sm font-semibold text-on-background">${reviewCount ? averageRating.toFixed(1) : "Chưa có đánh giá"}</span>
+          ${reviewCount ? `<span class="text-[11px] uppercase tracking-[0.18em] text-gray-500">${reviewCount} đánh giá</span>` : ""}
+        </div>
+      `;
+    }
+
+    function sortProducts(list) {
+      const copied = [...list];
+
+      switch (sortSelect.value) {
+        case "price-asc":
+          return copied.sort((a, b) => getDisplayPrice(a) - getDisplayPrice(b));
+        case "price-desc":
+          return copied.sort((a, b) => getDisplayPrice(b) - getDisplayPrice(a));
+        case "name-asc":
+          return copied.sort((a, b) => a.name.localeCompare(b.name, "vi"));
+        default:
+          return copied.sort((a, b) => {
+            if (Number(b.is_featured) !== Number(a.is_featured)) {
+              return Number(b.is_featured) - Number(a.is_featured);
+            }
+            return (a.sort_order ?? 0) - (b.sort_order ?? 0);
+          });
+      }
+    }
+
+    function getFilteredProducts() {
+      const filtered = activeCategory === "all"
+        ? products
+        : products.filter((product) => product.category_slug === activeCategory);
+
+      return sortProducts(filtered);
+    }
+
+    function renderProducts() {
+      const filteredProducts = getFilteredProducts();
+
+      if (!filteredProducts.length) {
+        productGrid.innerHTML = `
+          <div class="col-span-full rounded-[24px] border border-white/5 bg-surface-container-low p-8 text-center">
+            <p class="text-sm uppercase tracking-[0.25em] text-gray-500">Không có dữ liệu</p>
+            <p class="mt-4 text-lg text-gray-300">Chưa có sản phẩm phù hợp với bộ lọc hiện tại.</p>
+          </div>
+        `;
+        return;
+      }
+
+      productGrid.innerHTML = filteredProducts.map((product) => {
+        const displayPrice = getDisplayPrice(product);
+        const originalPrice = getDisplayOriginalPrice(product);
+        const hasSalePrice = originalPrice > displayPrice;
+        const badgeLabel = product.badge_label || (product.is_featured ? "Nổi bật" : product.category_name);
+        const totalStock = getProductAggregateStock(product);
+        const isOutOfStock = totalStock <= 0;
+        const requiresSelection = productRequiresSelection(product);
+        const primaryVariant = getPrimaryDisplayVariant(product);
+        const stockText = totalStock > 0
+          ? (requiresSelection ? `Có ${totalStock} sản phẩm` : `Còn ${totalStock} sản phẩm`)
+          : "Tạm hết hàng";
+        const detailHref = getProductDetailHref(product);
+        const imageMarkup = `
+          <img alt="${product.name}" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" src="${primaryVariant?.image_url || product.image_url || "../assets/images/weight-room.jpg"}"/>
+        `;
+        const titleMarkup = detailHref
+          ? `<a class="transition-colors hover:text-primary" href="${detailHref}">${product.name}</a>`
+          : product.name;
+        const imageWrapperStart = detailHref
+          ? `<a class="block h-full w-full" href="${detailHref}">`
+          : "";
+        const imageWrapperEnd = detailHref ? `</a>` : "";
+
+        return `
+          <article class="group relative overflow-hidden rounded-[24px] border border-white/5 bg-surface-container-low">
+            <div class="relative aspect-[4/5] overflow-hidden">
+              ${imageWrapperStart}
+              ${imageMarkup}
+              ${imageWrapperEnd}
+              <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent opacity-70"></div>
+              <span class="pointer-events-none absolute left-4 top-4 rounded-full bg-primary px-3 py-1 text-[10px] font-bold uppercase tracking-tighter text-on-primary">${badgeLabel}</span>
+            </div>
+            <div class="space-y-4 p-6">
+              <div>
+                <p class="mb-2 text-xs font-bold uppercase tracking-widest text-secondary">${product.category_name}</p>
+                <h3 class="font-headline text-2xl text-on-background transition-colors group-hover:text-primary">${titleMarkup}</h3>
+                <p class="mt-3 text-sm leading-relaxed text-gray-400">${product.short_description || "Sản phẩm bổ sung phù hợp cho người tập luyện tại BigGym."}</p>
+                ${renderProductRating(product)}
+              </div>
+              <div class="flex flex-col gap-4">
+                <div class="min-w-0 flex-1">
+                  <div class="flex flex-wrap items-center gap-x-3 gap-y-1">
+                    <span class="text-2xl font-light tracking-tight text-on-background">${formatCurrency(displayPrice)}</span>
+                    ${hasSalePrice ? `<span class="text-sm text-gray-500 line-through">${formatCurrency(originalPrice)}</span>` : ""}
+                  </div>
+                  ${(primaryVariant?.flavor_label || primaryVariant?.size_label) ? `<p class="mt-2 text-[11px] uppercase tracking-[0.08em] text-gray-500">${[primaryVariant.flavor_label, primaryVariant.size_label].filter(Boolean).join(" • ")}</p>` : ""}
+                  <p class="mt-2 text-[11px] leading-relaxed tracking-[0.08em] ${totalStock > 0 ? "text-gray-500" : "text-red-300"}">${stockText}</p>
+                </div>
+                <button class="add-to-cart inline-flex w-full items-center justify-center gap-2 rounded-full border border-primary/20 px-5 py-3 text-[11px] font-bold uppercase tracking-[0.16em] text-primary transition-all ${isOutOfStock ? "cursor-not-allowed opacity-40" : "hover:border-primary hover:bg-primary/10"}" data-product-id="${product.id}" data-out-of-stock="${isOutOfStock ? "1" : "0"}" data-requires-selection="${requiresSelection ? "1" : "0"}" data-product-variant-id="${primaryVariant ? primaryVariant.id : ""}" data-detail-href="${detailHref || ""}" type="button" aria-disabled="${isOutOfStock ? "true" : "false"}">
+                  ${isOutOfStock ? "Hết hàng" : (requiresSelection ? "Chọn phiên bản" : "Thêm vào giỏ")} <span class="material-symbols-outlined text-sm">${isOutOfStock ? "info" : (requiresSelection ? "tune" : "add_shopping_cart")}</span>
+                </button>
+              </div>
+            </div>
+          </article>
+        `;
+      }).join("");
+
+      document.querySelectorAll(".add-to-cart").forEach((button) => {
+        button.addEventListener("click", () => addToCart(
+          Number(button.dataset.productId),
+          button.dataset.productVariantId ? Number(button.dataset.productVariantId) : null,
+          button.dataset.requiresSelection === "1",
+          button.dataset.detailHref || "",
+          button.dataset.outOfStock === "1"
+        ));
+      });
+    }
+
+    async function addToCart(productId, productVariantId = null, requiresSelection = false, detailHref = "", isOutOfStock = false) {
+      const product = products.find((item) => item.id === productId);
+      if (!product) {
+        return;
+      }
+
+      if (isOutOfStock) {
+        setStatus(`Sản phẩm "${product.name}" hiện đã hết hàng.`, "error");
+        return;
+      }
+
+      if (requiresSelection) {
+        if (detailHref) {
+          window.location.href = detailHref;
+        } else {
+          setStatus("Sản phẩm này cần chọn hương vị hoặc quy cách trước khi thêm vào giỏ.", "error");
+        }
+        return;
+      }
+
+      const variant = productVariantId ? getVariantById(product, productVariantId) : getPrimaryDisplayVariant(product);
+
+      if (!variant) {
+        setStatus("Không tìm thấy phiên bản bán hàng hợp lệ của sản phẩm này.", "error");
+        return;
+      }
+
+      const availableStock = Number(variant.stock_quantity) || 0;
+
+      if (availableStock <= 0) {
+        setStatus(`Phiên bản đã chọn của "${product.name}" hiện đã hết hàng.`, "error");
+        return;
+      }
+
+      const existingItem = cart.find((item) => Number(item.product_variant_id) === Number(variant.id));
+      const nextQuantity = existingItem ? existingItem.quantity + 1 : 1;
+
+      if (nextQuantity > availableStock) {
+        setStatus(
+          availableStock === 1
+            ? `Phiên bản đã chọn của "${product.name}" chỉ còn 1 sản phẩm trong kho.`
+            : `Phiên bản đã chọn của "${product.name}" chỉ còn ${availableStock} sản phẩm trong kho.`,
+          "error"
+        );
+        return;
+      }
+
+      if (isLoggedIn()) {
+        try {
+          const serverItems = await syncCartItemToServer(product.id, variant.id, nextQuantity);
+          cart = mapServerCartItemsToLocal(serverItems);
+          saveCart();
+          renderCart();
+        } catch (error) {
+          setStatus(error.message || "Không thể cập nhật giỏ hàng.", "error");
+        }
+        return;
+      }
+
+      if (existingItem) {
+        existingItem.quantity = nextQuantity;
+      } else {
+        cart.push(buildCartSnapshot(product, variant, 1));
+      }
+
+      saveCart();
+      renderCart();
+    }
+
+    async function removeFromCart(productVariantId) {
+      if (isLoggedIn()) {
+        try {
+          const serverItems = await removeCartItemFromServer(productVariantId);
+          cart = mapServerCartItemsToLocal(serverItems);
+          saveCart();
+          renderCart();
+        } catch (error) {
+          setStatus(error.message || "Không thể xóa sản phẩm khỏi giỏ hàng.", "error");
+        }
+        return;
+      }
+
+      cart = cart.filter((item) => Number(item.product_variant_id) !== Number(productVariantId));
+      saveCart();
+      renderCart();
+    }
+
+    async function updateQuantity(productVariantId, nextQuantity) {
+      const item = cart.find((entry) => Number(entry.product_variant_id) === Number(productVariantId));
+      if (!item) return;
+
+      if (nextQuantity <= 0) {
+        await removeFromCart(productVariantId);
+        return;
+      }
+
+      const resolvedItem = resolveCartItem(item);
+      const availableStock = Number(resolvedItem.stock_quantity) || 0;
+
+      if (!resolvedItem.product_id) {
+        setStatus("Không thể xác định phiên bản sản phẩm trong giỏ.", "error");
+        return;
+      }
+
+      if (availableStock <= 0) {
+        setStatus(`Phiên bản đã chọn của "${resolvedItem.name}" hiện đã hết hàng.`, "error");
+        return;
+      }
+
+      if (nextQuantity > availableStock) {
+        setStatus(
+          availableStock === 1
+            ? `Phiên bản đã chọn của "${resolvedItem.name}" chỉ còn 1 sản phẩm trong kho.`
+            : `Phiên bản đã chọn của "${resolvedItem.name}" chỉ còn ${availableStock} sản phẩm trong kho.`,
+          "error"
+        );
+        return;
+      }
+
+      const safeQuantity = nextQuantity;
+
+      if (isLoggedIn()) {
+        try {
+          const serverItems = await syncCartItemToServer(resolvedItem.product_id, productVariantId, safeQuantity);
+          cart = mapServerCartItemsToLocal(serverItems);
+          saveCart();
+          renderCart();
+        } catch (error) {
+          setStatus(error.message || "Không thể cập nhật số lượng sản phẩm.", "error");
+        }
+        return;
+      }
+
+      item.quantity = safeQuantity;
+      saveCart();
+      renderCart();
+    }
+
+    function renderCart() {
+      loadCart();
+      cart = cart.map(normalizeLocalCartItem).filter((item) => item.product_variant_id > 0 && item.quantity > 0);
+
+      const detailedItems = cart.map((item) => resolveCartItem(item)).filter(Boolean);
+      cart = detailedItems.map((item) => normalizeLocalCartItem(item));
+      saveCart();
+
+      const totalQuantity = detailedItems.reduce((sum, item) => sum + item.quantity, 0);
+      const subtotal = detailedItems.reduce((sum, item) => sum + Number(item.unit_price || 0) * item.quantity, 0);
+
+      cartBadge.textContent = `${totalQuantity} mục`;
+      cartSubtotal.textContent = formatCurrency(subtotal);
+      cartTotal.textContent = formatCurrency(subtotal);
+      updateMobileCartDock(totalQuantity, subtotal);
+
+      if (!detailedItems.length) {
+        cartItemsContainer.innerHTML = "";
+        cartItemsContainer.appendChild(cartEmptyState);
+        cartEmptyState.classList.remove("hidden");
+        return;
+      }
+
+      cartEmptyState.classList.add("hidden");
+      cartItemsContainer.innerHTML = detailedItems.map((item) => `
+        <div class="group flex gap-4 rounded-2xl border border-white/5 bg-white/[0.02] p-3">
+          <div class="h-16 w-16 flex-shrink-0 overflow-hidden rounded-xl">
+            <img alt="${item.name}" class="h-full w-full object-cover" src="${item.image_url || "../assets/images/weight-room.jpg"}"/>
+          </div>
+          <div class="min-w-0 flex-1">
+            <h4 class="text-sm font-bold leading-tight text-on-background">${item.name}</h4>
+            <p class="mt-1 text-[11px] uppercase tracking-[0.18em] text-gray-500">${[item.category_name, item.variant_flavor, item.variant_size].filter(Boolean).join(" • ")}</p>
+            <div class="mt-3 flex items-center justify-between gap-3">
+              <div class="flex items-center gap-2">
+                <button class="cart-qty h-7 w-7 rounded-full border border-white/10 text-sm transition-colors hover:border-primary/30 hover:text-primary" data-action="decrease" data-product-variant-id="${item.product_variant_id}" type="button">-</button>
+                <span class="text-sm font-semibold">${item.quantity}</span>
+                <button class="cart-qty h-7 w-7 rounded-full border border-white/10 text-sm transition-colors hover:border-primary/30 hover:text-primary" data-action="increase" data-product-variant-id="${item.product_variant_id}" type="button">+</button>
+              </div>
+              <span class="text-sm font-light text-primary">${formatCurrency(Number(item.unit_price || 0) * item.quantity)}</span>
+            </div>
+          </div>
+          <button class="cart-remove text-gray-600 transition-colors hover:text-error" data-product-variant-id="${item.product_variant_id}" type="button">
+            <span class="material-symbols-outlined text-lg">close</span>
+          </button>
+        </div>
+      `).join("");
+
+      document.querySelectorAll(".cart-remove").forEach((button) => {
+        button.addEventListener("click", () => {
+          removeFromCart(Number(button.dataset.productVariantId));
+        });
+      });
+
+      document.querySelectorAll(".cart-qty").forEach((button) => {
+        button.addEventListener("click", async () => {
+          const item = cart.find((entry) => Number(entry.product_variant_id) === Number(button.dataset.productVariantId));
+          if (!item) return;
+          const nextQuantity = button.dataset.action === "increase" ? item.quantity + 1 : item.quantity - 1;
+          await updateQuantity(Number(button.dataset.productVariantId), nextQuantity);
+        });
+      });
+    }
+
+    async function fetchProducts() {
+      setStatus("");
+
+      try {
+        const response = await fetch(`${API_BASE_URL}/products`, {
+          headers: {
+            Accept: "application/json"
+          }
+        });
+
+        const payload = await response.json();
+
+        if (!response.ok || !payload.success) {
+          throw new Error(payload.message || "Không thể tải danh sách sản phẩm");
+        }
+
+        products = payload.data || [];
+        setStatus("");
+        renderProducts();
+        renderCart();
+      } catch (error) {
+        products = [];
+        renderProducts();
+        renderCart();
+        setStatus(error.message || "Không thể kết nối backend sản phẩm.", "error");
+      }
+    }
+
+    categoryButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        activeCategory = button.dataset.category;
+
+        categoryButtons.forEach((entry) => {
+          const isActive = entry.dataset.category === activeCategory;
+          entry.classList.toggle("border-primary", isActive);
+          entry.classList.toggle("bg-primary", isActive);
+          entry.classList.toggle("text-on-primary", isActive);
+          entry.classList.toggle("border-white/10", !isActive);
+          entry.classList.toggle("text-gray-300", !isActive);
+        });
+
+        renderProducts();
+      });
+    });
+
+    sortSelect.addEventListener("change", renderProducts);
+
+    checkoutButton.addEventListener("click", () => {
+      if (!cart.length) {
+        alert("Giỏ hàng đang trống.");
+        return;
+      }
+
+      window.location.href = "checkout.html";
+    });
+
+    mobileCartDockButton?.addEventListener("click", () => {
+      cartPanel?.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+
+    window.addEventListener("storage", async (event) => {
+      if (event.key === "biggym_user" || event.key === "biggym_token" || event.key === cartStorageKey || event.key === "biggym_shop_cart_guest") {
+        await refreshCartState(true);
+      }
+    });
+
+    window.addEventListener("pageshow", () => {
+      refreshCartState(true);
+    });
+
+    window.addEventListener("focus", () => {
+      refreshCartState();
+    });
+
+    document.addEventListener("visibilitychange", () => {
+      if (document.visibilityState === "visible") {
+        refreshCartState();
+      }
+    });
+
+    (async function bootstrapShop() {
+      await refreshCartState(true);
+      await fetchProducts();
+    })();
+  </script>
+</body>
+</html>
+
+

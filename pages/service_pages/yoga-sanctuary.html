@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html class="dark page-preload" lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style id="page-preload-style">
+    html.page-preload body { opacity: 0; }
+    body { transition: opacity .14s ease; }
+  </style>
+  <script>
+    (() => {
+      const reveal = () => document.documentElement.classList.remove("page-preload");
+      window.addEventListener("DOMContentLoaded", reveal, { once: true });
+      window.addEventListener("load", reveal, { once: true });
+      setTimeout(reveal, 1200);
+    })();
+  </script>
+  <title>Yoga Sanctuary | THE BIG GYM</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            background: "#111214",
+            primary: "#f2ca50",
+            secondary: "#b8d9ff",
+            copy: "#ebe8e2"
+          },
+          boxShadow: {
+            cinematic: "0 30px 80px rgba(0,0,0,0.35)"
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    :root { --biggym-nav-height: 88px; }
+    html { scroll-behavior: smooth; }
+    body { font-family: "Manrope", sans-serif; background: #111214; color: #ebe8e2; }
+    .serif { font-family: "Noto Serif", serif; }
+    .material-symbols-outlined {
+      font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 24;
+      vertical-align: middle;
+    }
+    .mega-menu { opacity: 0; visibility: hidden; transition: all .28s ease; }
+    .group:hover .mega-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+    .soft-grid {
+      background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 44px 44px;
+    }
+    .image-frame {
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.02);
+    }
+    .image-frame img { transition: transform .8s ease; }
+    .image-frame:hover img { transform: scale(1.04); }
+    .section-rule {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(184, 217, 255, 0.35), transparent);
+    }
+  </style>
+</head>
+<body class="bg-background text-copy selection:bg-primary selection:text-[#2b2000]">
+  <nav class="fixed inset-x-0 top-0 z-50 bg-[#111214]/82 backdrop-blur-md shadow-2xl shadow-black/25">
+    <div class="mx-auto flex max-w-screen-2xl items-center justify-between px-4 py-4 sm:px-6 lg:px-12 lg:py-6">
+      <a class="serif text-lg font-bold uppercase tracking-tight text-primary sm:text-xl md:text-2xl" href="../../index.html">THE BIG GYM</a>
+      <div class="hidden items-center gap-10 font-['Noto_Serif'] text-sm uppercase tracking-[0.28em] md:flex">
+        <a class="text-gray-400 transition-colors hover:text-primary" href="../../index.html">Trang chủ</a>
+        <div class="group relative">
+          <a class="flex items-center gap-1 border-b border-primary pb-1 text-primary" href="../../index.html#premium-services">
+            Dịch vụ <span class="material-symbols-outlined text-sm">expand_more</span>
+          </a>
+          <div class="mega-menu absolute left-1/2 top-full mt-4 grid w-[860px] -translate-x-1/2 translate-y-2 grid-cols-3 gap-8 rounded-3xl border border-white/10 bg-[#181818] p-8 shadow-2xl shadow-black/40">
+            <div class="space-y-4">
+              <p class="text-xs font-bold uppercase tracking-[0.3em] text-primary">Khu vực nổi bật</p>
+              <a class="block text-sm text-gray-400 transition-colors hover:text-primary" href="private-gym-area.html">Private Gym Area</a>
+              <a class="block text-lg font-semibold text-white" href="yoga-sanctuary.html">Yoga Sanctuary</a>
+              <a class="block text-sm text-gray-400 transition-colors hover:text-primary" href="spa-recovery.html">Spa Recovery</a>
+              <a class="block text-sm text-gray-400 transition-colors hover:text-primary" href="premium-bathroom.html">Phòng tắm cao cấp</a>
+            </div>
+            <div class="space-y-4">
+              <p class="text-xs font-bold uppercase tracking-[0.3em] text-primary">Trạng thái không gian</p>
+              <p class="text-sm leading-7 text-gray-300">Ánh sáng dịu, nhịp chuyển chậm, khoảng thở rõ ràng và quy mô lớp đủ nhỏ để từng người được quan sát đúng lúc.</p>
+              <ul class="space-y-3 text-sm text-gray-400">
+                <li>Dành cho phục hồi tinh thần và tăng độ nhận biết cơ thể.</li>
+                <li>Phù hợp với mobility, breathwork và flow có dẫn dắt.</li>
+                <li>Kết nối tự nhiên với zone recovery sau buổi tập.</li>
+              </ul>
+            </div>
+            <div class="image-frame rounded-[28px]">
+              <img alt="Yoga Sanctuary" class="h-full min-h-[240px] w-full object-cover" src="../../assets/images/yoga-studio.jpg" />
+            </div>
+          </div>
+        </div>
+        <a class="text-gray-400 transition-colors hover:text-primary" href="../baitap.html">Bài tập</a>
+        <a class="text-gray-400 transition-colors hover:text-primary" href="../shop.html">Cửa hàng</a>
+        <a class="text-gray-400 transition-colors hover:text-primary" href="../congcu.html">Công cụ</a>
+      </div>
+      <div class="flex items-center gap-2 md:gap-3">
+        <a class="shrink-0 rounded-full bg-gradient-to-r from-primary to-[#d7ae2e] px-4 py-2.5 text-[10px] font-bold uppercase tracking-[0.18em] text-[#2e2200] sm:px-5 md:px-8 md:py-3 md:text-xs" href="../shop.html">Khám phá gói tập</a>
+        <a class="hidden min-h-[48px] min-w-[176px] items-center justify-center rounded-full border border-primary/40 px-6 py-3 text-xs font-bold uppercase tracking-widest text-primary transition-colors duration-300 hover:bg-primary hover:text-[#3c2f00] md:inline-flex" data-auth-link data-base-prefix="../../" href="../../pages/login.html">Đăng nhập</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <section class="relative overflow-hidden pt-[var(--biggym-nav-height)]">
+      <div class="absolute inset-0">
+        <img alt="Yoga Hero" class="h-full w-full object-cover object-center" src="../../assets/images/yoga-studio.jpg" />
+        <div class="absolute inset-0 bg-gradient-to-r from-[#111214] via-[#111214]/82 to-[#111214]/20"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-[#111214] via-transparent to-black/25"></div>
+      </div>
+      <div class="relative mx-auto flex min-h-[calc(100svh-var(--biggym-nav-height))] max-w-screen-2xl items-end px-4 pb-14 pt-10 sm:px-6 lg:items-center lg:px-12 lg:pb-0">
+        <div class="max-w-3xl space-y-6">
+          <p class="text-xs font-bold uppercase tracking-[0.36em] text-secondary sm:text-sm">Movement. Breath. Reset.</p>
+          <h1 class="serif text-5xl font-bold leading-[0.9] tracking-tight sm:text-6xl md:text-7xl xl:text-[6.3rem]">
+            YOGA SANCTUARY<br />
+            <span class="text-primary italic">Tĩnh tâm</span> giữa<br />
+            nhịp sống dày đặc
+          </h1>
+          <p class="max-w-2xl text-base leading-8 text-gray-300 sm:text-lg">
+            Đây không chỉ là một phòng yoga. Đây là một vùng chuyển trạng thái nơi cơ thể được giãn ra, hơi thở được kéo dài và hệ thần kinh được đưa về nhịp ổn định hơn. Sanctuary dành cho những người muốn tập chậm mà sâu, muốn rời buổi tập với cảm giác sáng đầu óc chứ không chỉ mỏi cơ.
+          </p>
+          <div class="flex flex-col items-start gap-4 pt-2 sm:flex-row sm:items-center">
+            <a class="rounded-full bg-primary px-7 py-3 text-xs font-bold uppercase tracking-[0.22em] text-[#342700] transition-colors hover:bg-[#ffd86d]" href="#sanctuary-flow">Xem hành trình</a>
+            <a class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.22em] text-white transition-colors hover:text-primary" href="../congcu.html">
+              <span class="material-symbols-outlined text-base">self_improvement</span>
+              Kết hợp cùng recovery
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-[#141618] py-24">
+      <div class="mx-auto grid max-w-screen-2xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.95fr_1.05fr] lg:px-12">
+        <div class="image-frame rounded-[32px] shadow-cinematic">
+          <img alt="Yoga detail" class="h-full min-h-[540px] w-full object-cover object-center" src="../../assets/images/customer-review-2.jpg" />
+        </div>
+        <div class="space-y-7">
+          <p class="text-xs font-bold uppercase tracking-[0.3em] text-primary">Không gian phục hồi chủ động</p>
+          <h2 class="serif text-4xl leading-tight sm:text-5xl">Sự linh hoạt của cơ thể bắt đầu từ trạng thái bình tĩnh của tâm trí</h2>
+          <p class="max-w-2xl text-base leading-8 text-gray-300">
+            Yoga Sanctuary được định vị như một nhịp chậm cần thiết trong tổng trải nghiệm tại THE BIG GYM. Tại đây, lớp học không chạy theo cường độ ồn ào. Không gian, âm thanh, ánh sáng và cách dẫn dắt đều được tiết chế để thành viên chú ý sâu hơn vào alignment, nhịp thở, biên độ chuyển động và cảm giác an trú trong cơ thể.
+          </p>
+          <div class="section-rule w-full"></div>
+          <div class="grid gap-8 md:grid-cols-3">
+            <div class="space-y-3">
+              <p class="text-xs font-bold uppercase tracking-[0.24em] text-secondary">Breathwork</p>
+              <p class="text-sm leading-7 text-gray-400">Mở đầu bằng việc đưa nhịp thở về đều để cơ thể tiếp nhận buổi tập trong trạng thái hiện diện hơn, ít căng phòng thủ hơn.</p>
+            </div>
+            <div class="space-y-3">
+              <p class="text-xs font-bold uppercase tracking-[0.24em] text-secondary">Mobility Flow</p>
+              <p class="text-sm leading-7 text-gray-400">Chuỗi chuyển động được xây để khai mở vai, hông, cột sống và cảm giác cân bằng, đặc biệt hữu ích sau các buổi strength nặng.</p>
+            </div>
+            <div class="space-y-3">
+              <p class="text-xs font-bold uppercase tracking-[0.24em] text-secondary">Stillness</p>
+              <p class="text-sm leading-7 text-gray-400">Phần cuối buổi tập đưa thành viên về trạng thái tĩnh hơn, giúp kết thúc session bằng sự nhẹ đầu thay vì chỉ đơn thuần tiêu hao năng lượng.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="soft-grid bg-background py-24" id="sanctuary-flow">
+      <div class="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-12">
+        <div class="mb-12 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
+          <div class="space-y-4">
+            <p class="text-xs font-bold uppercase tracking-[0.3em] text-primary">Một buổi sanctuary đi qua như thế nào</p>
+            <h2 class="serif text-4xl sm:text-5xl">Ba lớp cảm nhận từ yên tĩnh đến khai mở rồi trở về ổn định</h2>
+          </div>
+          <p class="max-w-2xl text-sm leading-7 text-gray-400">
+            Mục tiêu không phải phô diễn độ khó của posture mà là giúp cơ thể vận hành tinh gọn hơn trong ngày sống thực tế của bạn.
+          </p>
+        </div>
+        <div class="grid gap-6 lg:grid-cols-[1.05fr_0.95fr]">
+          <div class="grid gap-6">
+            <div class="image-frame rounded-[30px]">
+              <img alt="Yoga studio wide" class="h-[420px] w-full object-cover object-center" src="../../assets/images/yoga-studio.jpg" />
+            </div>
+            <div class="grid gap-6 md:grid-cols-2">
+              <div class="rounded-[28px] border border-white/10 bg-white/[0.03] p-6">
+                <p class="text-xs font-bold uppercase tracking-[0.24em] text-primary">01. Bước vào vùng yên</p>
+                <p class="mt-4 text-sm leading-7 text-gray-300">Ánh sáng dịu, nhịp lớp vừa phải và giọng dẫn rõ khiến thành viên rời khỏi trạng thái vội vã ngay từ vài phút đầu tiên.</p>
+              </div>
+              <div class="rounded-[28px] border border-white/10 bg-white/[0.03] p-6">
+                <p class="text-xs font-bold uppercase tracking-[0.24em] text-primary">02. Mở cơ thể có kiểm soát</p>
+                <p class="mt-4 text-sm leading-7 text-gray-300">Các chuỗi movement đi từ đơn giản đến sâu hơn, giúp cơ thể làm nóng, kéo giãn và tìm lại biên độ vận động bị co rút bởi làm việc hoặc tập nặng.</p>
+              </div>
+            </div>
+          </div>
+          <div class="grid gap-6">
+            <div class="image-frame rounded-[30px]">
+              <img alt="Recovery follow-up" class="h-[250px] w-full object-cover object-center" src="../../assets/images/spa-recovery.jpg" />
+            </div>
+            <div class="rounded-[30px] border border-primary/15 bg-primary/6 p-7">
+              <p class="text-xs font-bold uppercase tracking-[0.3em] text-primary">Sanctuary phù hợp với ai</p>
+              <ul class="mt-6 space-y-4 text-sm leading-7 text-gray-300">
+                <li>Người tập strength cần tăng mobility và reset hệ thần kinh sau buổi nặng.</li>
+                <li>Người làm việc trí óc nhiều, cơ thể căng và hơi thở nông.</li>
+                <li>Người muốn một lớp học ít ồn, không chạy theo đám đông và vẫn giữ được chuẩn thẩm mỹ của một premium club.</li>
+                <li>Người mới bắt đầu muốn tiếp cận yoga trong không gian dễ chịu, không bị áp lực phô diễn kỹ thuật.</li>
+              </ul>
+            </div>
+            <div class="image-frame rounded-[30px]">
+              <img alt="Yoga portrait" class="h-[250px] w-full object-cover object-center" src="../../assets/images/customer-review-2.jpg" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-[#141618] py-24">
+      <div class="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-12">
+        <div class="mb-14 max-w-3xl space-y-4">
+          <p class="text-xs font-bold uppercase tracking-[0.3em] text-primary">Chất lượng trải nghiệm</p>
+          <h2 class="serif text-4xl sm:text-5xl">Những chi tiết nhỏ quyết định cảm giác cao cấp của một lớp yoga</h2>
+        </div>
+        <div class="grid gap-px overflow-hidden rounded-[34px] border border-white/10 bg-white/10 lg:grid-cols-4">
+          <div class="bg-[#17191b] p-7">
+            <p class="text-sm font-bold uppercase tracking-[0.18em] text-primary">Ánh sáng dịu</p>
+            <p class="mt-4 text-sm leading-7 text-gray-400">Không gian tránh ánh sáng gắt để mắt, vai và hơi thở không phải giữ trạng thái phòng thủ.</p>
+          </div>
+          <div class="bg-[#17191b] p-7">
+            <p class="text-sm font-bold uppercase tracking-[0.18em] text-primary">Nhịp lớp chọn lọc</p>
+            <p class="mt-4 text-sm leading-7 text-gray-400">Thành viên có đủ thời gian để hiểu chuyển động và cảm nhận cơ thể, thay vì bị cuốn vào tốc độ trình diễn.</p>
+          </div>
+          <div class="bg-[#17191b] p-7">
+            <p class="text-sm font-bold uppercase tracking-[0.18em] text-primary">Không gian ít xao nhãng</p>
+            <p class="mt-4 text-sm leading-7 text-gray-400">Âm thanh được tiết chế, số người được giữ hợp lý để từng người còn giữ được vùng tập trung riêng.</p>
+          </div>
+          <div class="bg-[#17191b] p-7">
+            <p class="text-sm font-bold uppercase tracking-[0.18em] text-primary">Kết thúc trọn vẹn</p>
+            <p class="mt-4 text-sm leading-7 text-gray-400">Sanctuary được đặt như một phần trong hành trình wellness tổng thể, dễ kết nối sang recovery hoặc các tiện nghi thư giãn kế tiếp.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-background py-24">
+      <div class="mx-auto max-w-5xl px-4 text-center sm:px-6">
+        <p class="text-4xl text-primary">“</p>
+        <blockquote class="serif text-3xl leading-relaxed text-white sm:text-4xl">
+          Có những ngày, thứ cơ thể cần không phải thêm cường độ mà là một nơi đủ yên để bạn nghe lại chính nhịp thở của mình.
+        </blockquote>
+        <p class="mt-6 text-xs font-bold uppercase tracking-[0.28em] text-gray-500">THE BIG GYM SANCTUARY</p>
+      </div>
+    </section>
+
+    <section class="px-4 pb-24 sm:px-6 lg:px-12">
+      <div class="mx-auto grid max-w-screen-2xl gap-8 rounded-[36px] border border-primary/10 bg-gradient-to-r from-[#1c1f21] via-[#16181a] to-[#101113] p-8 shadow-cinematic lg:grid-cols-[1fr_auto] lg:items-center lg:p-12">
+        <div class="space-y-4">
+          <p class="text-xs font-bold uppercase tracking-[0.32em] text-primary">Một điểm dừng cần thiết trong tuần</p>
+          <h2 class="serif text-4xl sm:text-5xl">Hít sâu, kéo dài, rồi rời đi với một cơ thể sáng sủa hơn</h2>
+          <p class="max-w-2xl text-sm leading-7 text-gray-300">Nếu bạn muốn một dịch vụ wellness vừa tinh tế về thẩm mỹ, vừa có giá trị rõ về trạng thái cơ thể, Yoga Sanctuary là mảnh ghép nên có trong lịch tập của bạn.</p>
+        </div>
+        <div class="flex flex-col gap-3 sm:flex-row lg:flex-col">
+          <a class="inline-flex items-center justify-center rounded-full bg-primary px-6 py-3 text-xs font-bold uppercase tracking-[0.18em] text-[#352700]" href="../shop.html">Chọn gói thành viên</a>
+          <a class="inline-flex items-center justify-center rounded-full border border-white/10 px-6 py-3 text-xs font-bold uppercase tracking-[0.18em] text-white transition-colors hover:border-primary/30 hover:text-primary" href="../../index.html#premium-services">Xem khu vực khác</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-white/5 bg-[#101113] px-4 py-10 sm:px-6 lg:px-12">
+    <div class="mx-auto flex max-w-screen-2xl flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+      <div>
+        <p class="serif text-xl font-bold uppercase tracking-tight text-primary">THE BIG GYM HẢI PHÒNG</p>
+        <p class="mt-2 text-xs uppercase tracking-[0.18em] text-gray-500">Calm movement. Spacious breath. Premium reset.</p>
+      </div>
+      <div class="flex flex-wrap gap-5 text-xs uppercase tracking-[0.18em] text-gray-400">
+        <a class="transition-colors hover:text-primary" href="../../index.html">Trang chủ</a>
+        <a class="transition-colors hover:text-primary" href="../shop.html">Cửa hàng</a>
+        <a class="transition-colors hover:text-primary" href="../congcu.html">Công cụ</a>
+        <a class="transition-colors hover:text-primary" href="../baitap.html">Bài tập</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/auth-ui.js?v=20260413-footer1"></script>
+</body>
+</html>

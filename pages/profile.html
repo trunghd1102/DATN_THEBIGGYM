@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html class="dark page-preload" lang="vi">
+<head>
+  <meta charset="utf-8"/>
+  
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/><style id="page-preload-style">
+  html.page-preload body { opacity: 0; }
+  body { transition: opacity .12s ease; }
+</style>
+<script>
+  (() => {
+    const reveal = () => document.documentElement.classList.remove("page-preload");
+    window.addEventListener("DOMContentLoaded", reveal, { once: true });
+    window.addEventListener("load", reveal, { once: true });
+    setTimeout(reveal, 1200);
+  })();
+</script>
+<title>Hồ sơ người dùng - THE BIG GYM</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700;900&family=Manrope:wght@300;400;500;600;800&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: "#f2ca50",
+            background: "#131313",
+            "surface-container": "#201f1f",
+            "surface-container-low": "#1c1b1b",
+            "surface-container-high": "#2a2a2a",
+            "on-surface": "#e5e2e1",
+            "on-surface-variant": "#d0c5af",
+            secondary: "#ffb693"
+          },
+          fontFamily: {
+            headline: ["Noto Serif"],
+            body: ["Manrope"]
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 24;
+    }
+    body { font-family: "Manrope", sans-serif; background: #131313; color: #e5e2e1; }
+    .serif { font-family: "Noto Serif", serif; }
+    .mega-menu { opacity: 0; visibility: hidden; transition: all 0.3s ease; }
+    .group:hover .mega-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+  </style>
+</head>
+<body class="min-h-screen bg-background text-on-surface">
+  <nav class="fixed top-0 w-full z-50 bg-[#131313]/80 backdrop-blur-md shadow-2xl shadow-black/20">
+    <div class="flex justify-between items-center px-12 py-6 max-w-screen-2xl mx-auto">
+      <div class="text-2xl font-bold text-[#f2ca50] tracking-tighter serif uppercase">
+        THE BIG GYM
+      </div>
+      <div class="hidden md:flex items-center gap-10 font-['Noto_Serif'] uppercase tracking-widest text-sm">
+        <a class="text-gray-400 hover:text-[#f2ca50] transition-colors duration-300" href="../index.html">Trang chủ</a>
+        <div class="group relative">
+          <a class="text-gray-400 hover:text-[#f2ca50] transition-colors duration-300 pb-1 flex items-center gap-1" href="#">
+            Dịch vụ <span class="material-symbols-outlined text-xs">expand_more</span>
+          </a>
+          <div class="mega-menu absolute top-full left-1/2 -translate-x-1/2 w-[800px] mt-4 bg-surface-container-low p-8 grid grid-cols-3 gap-8 shadow-2xl rounded-lg translate-y-2">
+            <div>
+              <h4 class="text-primary mb-4 font-bold border-b border-white/10 pb-2">Huấn luyện</h4>
+              <ul class="space-y-3 text-gray-400 normal-case tracking-normal">
+                <li class="hover:text-primary cursor-pointer transition-colors">Personal Training 1:1</li>
+                <li class="hover:text-primary cursor-pointer transition-colors">Yoga Sanctuary</li>
+              </ul>
+            </div>
+            <div>
+              <h4 class="text-primary mb-4 font-bold border-b border-white/10 pb-2">Tiện nghi</h4>
+              <ul class="space-y-3 text-gray-400 normal-case tracking-normal">
+                <li class="hover:text-primary cursor-pointer transition-colors">Spa Recovery</li>
+                <li class="hover:text-primary cursor-pointer transition-colors">Tủ đồ thông minh</li>
+              </ul>
+            </div>
+            <div class="relative overflow-hidden rounded-md group/img">
+              <img alt="Gym Luxury" class="w-full h-full object-cover opacity-60 group-hover/img:scale-110 transition-transform duration-700" src="../assets/images/hero-training.jpg"/>
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-4">
+                <span class="text-white text-xs font-bold uppercase">Ưu đãi thành viên mới</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a class="text-gray-400 hover:text-[#f2ca50] transition-colors duration-300" href="baitap.html">Bài tập</a>
+        <a class="text-gray-400 hover:text-[#f2ca50] transition-colors duration-300" href="shop.html">Cửa hàng</a>
+        <a class="text-gray-400 hover:text-[#f2ca50] transition-colors duration-300" href="congcu.html">Công cụ</a>
+        <a class="text-gray-400 hover:text-[#f2ca50] transition-colors duration-300" href="contact.html">Liên hệ</a>
+      </div>
+      <div class="flex items-center gap-3">
+        <button class="bg-gradient-to-r from-[#f2ca50] to-[#d4af37] text-[#3c2f00] px-8 py-3 font-bold uppercase tracking-widest text-xs rounded-full hover:scale-105 transition-transform duration-300 shadow-lg shadow-[#f2ca50]/20">
+          Đặt lịch PT
+        </button>
+        <a class="border border-[#f2ca50]/40 text-[#f2ca50] px-6 py-3 font-bold uppercase tracking-widest text-xs rounded-full hover:bg-[#f2ca50] hover:text-[#3c2f00] transition-colors duration-300" data-auth-link="" data-base-prefix="../" href="login.html">
+          Đăng nhập
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="mx-auto max-w-7xl px-6 pb-20 pt-32 md:px-12">
+    <section class="grid gap-8 lg:grid-cols-[1.15fr_0.85fr]">
+      <div class="rounded-[28px] border border-white/5 bg-surface-container p-8 shadow-2xl shadow-black/30">
+        <div class="mb-8 flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+          <div>
+            <p class="mb-3 text-xs uppercase tracking-[0.35em] text-secondary">Tài khoản thành viên</p>
+            <h1 class="serif text-4xl font-black tracking-tight text-primary md:text-5xl">Hồ sơ người dùng</h1>
+            <p class="mt-4 max-w-2xl text-base leading-relaxed text-on-surface-variant">Quản lý thông tin cá nhân, đồng bộ dữ liệu và cập nhật bảo mật tài khoản.</p>
+          </div>
+          <div class="rounded-2xl border border-primary/15 bg-primary/5 px-5 py-4 text-sm text-on-surface-variant">
+            <p class="text-[10px] font-bold uppercase tracking-[0.25em] text-primary">Phiên hiện tại</p>
+            <p class="mt-2" id="profile-session-note">Đang tải thông tin phiên...</p>
+          </div>
+        </div>
+
+        <div class="grid gap-8 lg:grid-cols-[0.42fr_0.58fr]">
+          <aside class="rounded-[24px] border border-white/5 bg-surface-container-low p-6">
+            <div class="flex flex-col items-center text-center">
+              <div class="relative mb-4 flex h-28 w-28 cursor-grab items-center justify-center overflow-hidden rounded-full border border-primary/25 bg-primary/10 [touch-action:none]" id="profile-avatar-stage">
+                <span class="text-4xl font-black uppercase text-primary" id="profile-avatar-fallback">U</span>
+                <img alt="Avatar" class="hidden h-full w-full object-cover" id="profile-avatar-image"/>
+                <img alt="Avatar xem trước" class="pointer-events-none absolute left-0 top-0 hidden max-w-none select-none [transform-origin:top_left]" id="profile-avatar-preview"/>
+              </div>
+              <div class="mb-5 w-full max-w-[220px] space-y-3">
+                <label class="block cursor-pointer rounded-full border border-white/10 px-4 py-3 text-xs font-bold uppercase tracking-[0.18em] text-on-surface transition-colors hover:border-primary/30 hover:text-primary" for="profile-avatar-file">Chọn ảnh đại diện</label>
+                <input accept="image/*" class="hidden" id="profile-avatar-file" type="file"/>
+                <button class="w-full rounded-full bg-gradient-to-r from-[#f2ca50] to-[#d4af37] px-4 py-3 text-xs font-bold uppercase tracking-[0.18em] text-[#3c2f00]" id="profile-avatar-upload" type="button">Tải ảnh lên</button>
+                <div class="hidden space-y-3 rounded-2xl border border-white/10 bg-white/[0.02] px-4 py-4 text-left" id="profile-avatar-editor">
+                  <div>
+                    <p class="text-[10px] font-bold uppercase tracking-[0.18em] text-gray-500">Xem trước</p>
+                    <p class="mt-2 text-xs leading-relaxed text-on-surface-variant">Kéo ảnh trong khung tròn để căn vị trí trước khi tải lên.</p>
+                  </div>
+                  <button class="w-full rounded-full border border-white/10 px-4 py-3 text-xs font-bold uppercase tracking-[0.18em] text-on-surface transition-colors hover:border-primary/30 hover:text-primary" id="profile-avatar-cancel" type="button">Hủy ảnh mới</button>
+                </div>
+              </div>
+              <h2 class="text-xl font-extrabold" id="profile-name-card">Thành viên</h2>
+              <p class="mt-2 text-sm text-on-surface-variant" id="profile-email-card">email@example.com</p>
+              <span class="mt-4 rounded-full border border-primary/25 bg-primary/10 px-4 py-2 text-[11px] font-black uppercase tracking-[0.18em] text-primary" id="profile-role-card">Member</span>
+            </div>
+
+            <div class="mt-8 space-y-4">
+              <div class="rounded-2xl border border-white/5 bg-white/[0.02] px-4 py-4">
+                <p class="text-[10px] font-bold uppercase tracking-[0.22em] text-gray-500">Phương thức đăng nhập</p>
+                <p class="mt-2 text-sm" id="profile-provider-card">Đang tải...</p>
+              </div>
+              <div class="rounded-2xl border border-white/5 bg-white/[0.02] px-4 py-4">
+                <p class="text-[10px] font-bold uppercase tracking-[0.22em] text-gray-500">Số điện thoại</p>
+                <p class="mt-2 text-sm" id="profile-phone-card">Chưa cập nhật</p>
+              </div>
+            </div>
+          </aside>
+
+          <section class="space-y-6">
+            <div class="hidden rounded-2xl border px-4 py-4 text-sm" id="profile-feedback"></div>
+
+            <form class="space-y-6 rounded-[24px] border border-white/5 bg-surface-container-low p-6" id="profile-form">
+              <div class="grid gap-6 md:grid-cols-2">
+                <div class="space-y-2">
+                  <label class="ml-1 text-xs font-bold uppercase tracking-[0.15em] text-on-surface-variant" for="profile-full-name">Họ và tên</label>
+                  <input class="w-full rounded-xl border-none bg-surface-container-high px-4 py-4 placeholder:text-gray-500 focus:ring-1 focus:ring-primary/50" id="profile-full-name" required type="text"/>
+                </div>
+                <div class="space-y-2">
+                  <label class="ml-1 text-xs font-bold uppercase tracking-[0.15em] text-on-surface-variant" for="profile-phone">Số điện thoại</label>
+                  <input class="w-full rounded-xl border-none bg-surface-container-high px-4 py-4 placeholder:text-gray-500 focus:ring-1 focus:ring-primary/50" id="profile-phone" type="tel"/>
+                </div>
+              </div>
+
+              <div class="space-y-2">
+                <label class="ml-1 text-xs font-bold uppercase tracking-[0.15em] text-on-surface-variant" for="profile-email">Email</label>
+                <input class="w-full rounded-xl border-none bg-surface-container-high px-4 py-4 text-gray-400 focus:ring-0" id="profile-email" readonly type="email"/>
+              </div>
+
+              <div class="flex flex-wrap items-center gap-3">
+                <button class="rounded-full bg-gradient-to-r from-[#f2ca50] to-[#d4af37] px-6 py-3 text-xs font-bold uppercase tracking-widest text-[#3c2f00]" type="submit">Lưu thay đổi</button>
+                <button class="rounded-full border border-white/10 px-6 py-3 text-xs font-bold uppercase tracking-widest transition-colors hover:border-primary/30 hover:text-primary" id="profile-refresh" type="button">Tải lại dữ liệu</button>
+              </div>
+            </form>
+
+            <section class="rounded-[24px] border border-white/5 bg-surface-container-low p-6" id="password-panel">
+              <div class="mb-6">
+                <p class="text-xs uppercase tracking-[0.35em] text-secondary">Bảo mật</p>
+                <h3 class="mt-3 serif text-2xl font-bold">Đổi mật khẩu</h3>
+                <p class="mt-3 max-w-2xl text-sm leading-relaxed text-on-surface-variant" id="password-panel-note">Nhập mật khẩu hiện tại và mật khẩu mới để cập nhật ngay trong hệ thống.</p>
+              </div>
+
+              <div class="space-y-6">
+                <div class="space-y-2">
+                  <label class="ml-1 text-xs font-bold uppercase tracking-[0.15em] text-on-surface-variant" for="profile-current-password">Mật khẩu hiện tại</label>
+                  <input class="w-full rounded-xl border-none bg-surface-container-high px-4 py-4 placeholder:text-gray-500 focus:ring-1 focus:ring-primary/50 disabled:cursor-not-allowed disabled:opacity-50" id="profile-current-password" minlength="6" placeholder="••••••••" type="password"/>
+                </div>
+                <div class="space-y-2">
+                  <label class="ml-1 text-xs font-bold uppercase tracking-[0.15em] text-on-surface-variant" for="profile-new-password">Mật khẩu mới</label>
+                  <input class="w-full rounded-xl border-none bg-surface-container-high px-4 py-4 placeholder:text-gray-500 focus:ring-1 focus:ring-primary/50 disabled:cursor-not-allowed disabled:opacity-50" id="profile-new-password" minlength="6" placeholder="••••••••" type="password"/>
+                </div>
+                <div class="space-y-2">
+                  <label class="ml-1 text-xs font-bold uppercase tracking-[0.15em] text-on-surface-variant" for="profile-confirm-password">Xác nhận mật khẩu mới</label>
+                  <input class="w-full rounded-xl border-none bg-surface-container-high px-4 py-4 placeholder:text-gray-500 focus:ring-1 focus:ring-primary/50 disabled:cursor-not-allowed disabled:opacity-50" id="profile-confirm-password" minlength="6" placeholder="••••••••" type="password"/>
+                </div>
+              </div>
+            </section>
+          </section>
+        </div>
+      </div>
+
+      <aside class="space-y-6">
+        <div class="rounded-[28px] border border-white/5 bg-surface-container p-6 shadow-2xl shadow-black/30">
+          <p class="text-xs uppercase tracking-[0.35em] text-secondary">Gợi ý sử dụng</p>
+          <ul class="mt-5 space-y-4 text-sm leading-relaxed text-on-surface-variant">
+            <li>Giữ họ tên và số điện thoại chính xác để liên hệ khi đặt lịch PT.</li>
+            <li>Ảnh đại diện sẽ hiển thị trên nút tài khoản sau khi tải lên thành công.</li>
+            <li>Nếu bạn dùng đăng nhập Google, phần mật khẩu sẽ bị khóa để tránh nhầm lẫn.</li>
+          </ul>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <script src="../assets/js/auth-ui.js?v=20260413-footer1"></script>
+  <script>
+    const apiBaseUrl = window.BIGGYM_API_BASE_URL || (window.location.protocol === "file:" ? "http://localhost:4000/api" : `${window.location.origin}/api`);
+    const profileFeedback = document.getElementById("profile-feedback");
+    const profileForm = document.getElementById("profile-form");
+    const passwordPanel = document.getElementById("password-panel");
+    const passwordPanelNote = document.getElementById("password-panel-note");
+    const avatarFileInput = document.getElementById("profile-avatar-file");
+    const avatarUploadButton = document.getElementById("profile-avatar-upload");
+    const avatarStage = document.getElementById("profile-avatar-stage");
+    const avatarPreview = document.getElementById("profile-avatar-preview");
+    const avatarEditor = document.getElementById("profile-avatar-editor");
+    const avatarCancelButton = document.getElementById("profile-avatar-cancel");
+    const avatarImage = document.getElementById("profile-avatar-image");
+    const avatarFallback = document.getElementById("profile-avatar-fallback");
+    const avatarState = {
+      file: null,
+      image: null,
+      naturalWidth: 0,
+      naturalHeight: 0,
+      objectUrl: null,
+      scale: 1,
+      minScale: 1,
+      offsetX: 0,
+      offsetY: 0,
+      dragging: false,
+      dragStartX: 0,
+      dragStartY: 0,
+      startOffsetX: 0,
+      startOffsetY: 0
+    };
+
+    function getToken() {
+      return localStorage.getItem("biggym_token");
+    }
+
+    function setFeedback(type, message) {
+      const typeClasses = {
+        success: "border-emerald-500/30 bg-emerald-500/10 text-emerald-200",
+        error: "border-red-500/30 bg-red-500/10 text-red-200",
+        info: "border-primary/30 bg-primary/10 text-primary"
+      };
+
+      profileFeedback.className = `rounded-2xl border px-4 py-4 text-sm ${typeClasses[type] || typeClasses.info}`;
+      profileFeedback.textContent = message;
+      profileFeedback.classList.remove("hidden");
+    }
+
+    function roleLabel(role) {
+      if (role === "admin") return "Admin";
+      if (role === "coach") return "Coach";
+      return "Member";
+    }
+
+    function providerLabel(provider) {
+      return provider === "google" ? "Đăng nhập Google" : "Email & mật khẩu";
+    }
+
+    function renderAvatar(user) {
+      const seed = (user.full_name || user.email || "U").trim();
+
+      avatarFallback.textContent = seed.charAt(0).toUpperCase();
+
+      if (user.avatar_url) {
+        avatarImage.src = user.avatar_url;
+        avatarImage.classList.remove("hidden");
+        avatarFallback.classList.add("hidden");
+      } else {
+        avatarImage.removeAttribute("src");
+        avatarImage.classList.add("hidden");
+        avatarFallback.classList.remove("hidden");
+      }
+    }
+
+    function clampAvatarOffsets() {
+      if (!avatarState.image) return;
+
+      const stageSize = avatarStage.clientWidth;
+      const scaledWidth = avatarState.naturalWidth * avatarState.scale;
+      const scaledHeight = avatarState.naturalHeight * avatarState.scale;
+      const minX = Math.min(0, stageSize - scaledWidth);
+      const minY = Math.min(0, stageSize - scaledHeight);
+
+      avatarState.offsetX = Math.max(minX, Math.min(0, avatarState.offsetX));
+      avatarState.offsetY = Math.max(minY, Math.min(0, avatarState.offsetY));
+    }
+
+    function updateAvatarPreview() {
+      if (!avatarState.image) return;
+
+      const scaledWidth = avatarState.naturalWidth * avatarState.scale;
+      const scaledHeight = avatarState.naturalHeight * avatarState.scale;
+
+      clampAvatarOffsets();
+
+      avatarPreview.style.width = `${scaledWidth}px`;
+      avatarPreview.style.height = `${scaledHeight}px`;
+      avatarPreview.style.transform = `translate(${avatarState.offsetX}px, ${avatarState.offsetY}px)`;
+    }
+
+    function resetAvatarEditor() {
+      if (avatarState.objectUrl) {
+        URL.revokeObjectURL(avatarState.objectUrl);
+      }
+
+      avatarState.file = null;
+      avatarState.image = null;
+      avatarState.naturalWidth = 0;
+      avatarState.naturalHeight = 0;
+      avatarState.objectUrl = null;
+      avatarState.scale = 1;
+      avatarState.minScale = 1;
+      avatarState.offsetX = 0;
+      avatarState.offsetY = 0;
+      avatarState.dragging = false;
+
+      avatarPreview.removeAttribute("src");
+      avatarPreview.classList.add("hidden");
+      if (avatarImage.getAttribute("src")) {
+        avatarImage.classList.remove("hidden");
+        avatarFallback.classList.add("hidden");
+      } else {
+        avatarImage.classList.add("hidden");
+        avatarFallback.classList.remove("hidden");
+      }
+      avatarEditor.classList.add("hidden");
+      avatarFileInput.value = "";
+      avatarStage.style.cursor = "grab";
+    }
+
+    function openAvatarEditor(file) {
+      const objectUrl = URL.createObjectURL(file);
+      const image = new Image();
+
+      image.onload = () => {
+        if (avatarState.objectUrl) {
+          URL.revokeObjectURL(avatarState.objectUrl);
+        }
+
+        avatarState.file = file;
+        avatarState.image = image;
+        avatarState.naturalWidth = image.naturalWidth;
+        avatarState.naturalHeight = image.naturalHeight;
+        avatarState.objectUrl = objectUrl;
+
+        const stageSize = avatarStage.clientWidth;
+        avatarState.minScale = Math.max(stageSize / avatarState.naturalWidth, stageSize / avatarState.naturalHeight);
+        avatarState.scale = avatarState.minScale;
+        avatarState.offsetX = (stageSize - avatarState.naturalWidth * avatarState.scale) / 2;
+        avatarState.offsetY = (stageSize - avatarState.naturalHeight * avatarState.scale) / 2;
+
+        avatarPreview.src = objectUrl;
+        avatarPreview.classList.remove("hidden");
+        avatarImage.classList.add("hidden");
+        avatarFallback.classList.add("hidden");
+        avatarEditor.classList.remove("hidden");
+        updateAvatarPreview();
+      };
+
+      image.src = objectUrl;
+    }
+
+    async function buildAvatarBlob() {
+      const canvas = document.createElement("canvas");
+      const size = 400;
+      const stageSize = avatarStage.clientWidth;
+      const ratio = size / stageSize;
+
+      canvas.width = size;
+      canvas.height = size;
+
+      const context = canvas.getContext("2d");
+      context.drawImage(
+        avatarState.image,
+        avatarState.offsetX * ratio,
+        avatarState.offsetY * ratio,
+        avatarState.naturalWidth * avatarState.scale * ratio,
+        avatarState.naturalHeight * avatarState.scale * ratio
+      );
+
+      return new Promise((resolve, reject) => {
+        canvas.toBlob((blob) => {
+          if (!blob) {
+            reject(new Error("Không thể xử lý ảnh xem trước."));
+            return;
+          }
+
+          resolve(blob);
+        }, "image/jpeg", 0.92);
+      });
+    }
+
+    function populateProfile(user) {
+      document.getElementById("profile-session-note").textContent = `${providerLabel(user.auth_provider)} • ${roleLabel(user.role)}`;
+      document.getElementById("profile-name-card").textContent = user.full_name || "Thành viên";
+      document.getElementById("profile-email-card").textContent = user.email || "";
+      document.getElementById("profile-role-card").textContent = roleLabel(user.role);
+      document.getElementById("profile-provider-card").textContent = providerLabel(user.auth_provider);
+      document.getElementById("profile-phone-card").textContent = user.phone || "Chưa cập nhật";
+
+      document.getElementById("profile-full-name").value = user.full_name || "";
+      document.getElementById("profile-phone").value = user.phone || "";
+      document.getElementById("profile-email").value = user.email || "";
+      renderAvatar(user);
+
+      const passwordInputs = [
+        document.getElementById("profile-current-password"),
+        document.getElementById("profile-new-password"),
+        document.getElementById("profile-confirm-password")
+      ];
+      const isGoogleAccount = user.auth_provider === "google";
+
+      passwordPanelNote.textContent = isGoogleAccount
+        ? "Tài khoản Google không đổi mật khẩu tại đây. Hãy quản lý mật khẩu từ tài khoản Google của bạn."
+        : "Nhập mật khẩu hiện tại và mật khẩu mới để cập nhật ngay trong hệ thống.";
+
+      passwordInputs.forEach((input) => {
+        input.disabled = isGoogleAccount;
+        if (isGoogleAccount) {
+          input.value = "";
+        }
+      });
+    }
+
+    async function fetchProfile() {
+      const token = getToken();
+      if (!token) {
+        window.location.href = "login.html";
+        return;
+      }
+
+      const response = await fetch(`${apiBaseUrl}/auth/me`, {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      });
+      const result = await response.json();
+
+      if (!response.ok || !result.success) {
+        throw new Error(result.message || "Không thể tải hồ sơ người dùng.");
+      }
+
+      localStorage.setItem("biggym_user", JSON.stringify(result.data.user));
+      populateProfile(result.data.user);
+    }
+
+    async function handleProfileSubmit(event) {
+      event.preventDefault();
+
+      const token = getToken();
+      const full_name = document.getElementById("profile-full-name").value.trim();
+      const phone = document.getElementById("profile-phone").value.trim();
+      const current_password = document.getElementById("profile-current-password").value;
+      const new_password = document.getElementById("profile-new-password").value;
+      const confirm_password = document.getElementById("profile-confirm-password").value;
+      const submitButton = profileForm.querySelector('button[type="submit"]');
+
+      profileFeedback.classList.add("hidden");
+
+      if (new_password && new_password !== confirm_password) {
+        setFeedback("error", "Mật khẩu xác nhận không khớp.");
+        return;
+      }
+
+      submitButton.disabled = true;
+      submitButton.classList.add("opacity-70", "cursor-not-allowed");
+
+      try {
+        const response = await fetch(`${apiBaseUrl}/auth/me`, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`
+          },
+          body: JSON.stringify({
+            full_name,
+            phone,
+            current_password,
+            new_password
+          })
+        });
+        const result = await response.json();
+
+        if (!response.ok || !result.success) {
+          const errorMessage = result.message || result.errors?.[0]?.msg || "Cập nhật hồ sơ thất bại.";
+          throw new Error(errorMessage);
+        }
+
+        localStorage.setItem("biggym_token", result.data.token);
+        localStorage.setItem("biggym_user", JSON.stringify(result.data.user));
+        populateProfile(result.data.user);
+
+        document.getElementById("profile-current-password").value = "";
+        document.getElementById("profile-new-password").value = "";
+        document.getElementById("profile-confirm-password").value = "";
+
+        setFeedback("success", "Đã cập nhật hồ sơ người dùng.");
+      } catch (error) {
+        setFeedback("error", error.message || "Không thể cập nhật hồ sơ.");
+      } finally {
+        submitButton.disabled = false;
+        submitButton.classList.remove("opacity-70", "cursor-not-allowed");
+      }
+    }
+
+    async function handleAvatarUpload() {
+      const token = getToken();
+      const avatarFile = avatarState.file;
+
+      if (!avatarFile) {
+        setFeedback("error", "Hãy chọn một ảnh trước khi tải lên.");
+        return;
+      }
+
+      avatarUploadButton.disabled = true;
+      avatarUploadButton.classList.add("opacity-70", "cursor-not-allowed");
+
+      try {
+        const formData = new FormData();
+        const avatarBlob = await buildAvatarBlob();
+        formData.append("avatar", avatarBlob, avatarFile.name || "avatar.jpg");
+
+        const response = await fetch(`${apiBaseUrl}/auth/me/avatar`, {
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${token}`
+          },
+          body: formData
+        });
+        const result = await response.json();
+
+        if (!response.ok || !result.success) {
+          throw new Error(result.message || "Tải ảnh đại diện thất bại.");
+        }
+
+        localStorage.setItem("biggym_user", JSON.stringify(result.data.user));
+        populateProfile(result.data.user);
+        resetAvatarEditor();
+        setFeedback("success", "Đã cập nhật ảnh đại diện.");
+      } catch (error) {
+        setFeedback("error", error.message || "Không thể tải ảnh đại diện.");
+      } finally {
+        avatarUploadButton.disabled = false;
+        avatarUploadButton.classList.remove("opacity-70", "cursor-not-allowed");
+      }
+    }
+
+    document.getElementById("profile-refresh").addEventListener("click", async () => {
+      try {
+        await fetchProfile();
+        setFeedback("info", "Đã tải lại dữ liệu mới nhất từ server.");
+      } catch (error) {
+        setFeedback("error", error.message || "Không thể tải lại hồ sơ.");
+      }
+    });
+
+    profileForm.addEventListener("submit", handleProfileSubmit);
+    avatarUploadButton.addEventListener("click", handleAvatarUpload);
+    avatarFileInput.addEventListener("change", () => {
+      const nextFile = avatarFileInput.files[0];
+      if (!nextFile) return;
+      openAvatarEditor(nextFile);
+    });
+    avatarCancelButton.addEventListener("click", resetAvatarEditor);
+    avatarStage.addEventListener("pointerdown", (event) => {
+      if (!avatarState.image) return;
+      if (event.pointerType === "mouse" && event.button !== 0) return;
+
+      event.preventDefault();
+      avatarState.dragging = true;
+      avatarState.dragStartX = event.clientX;
+      avatarState.dragStartY = event.clientY;
+      avatarState.startOffsetX = avatarState.offsetX;
+      avatarState.startOffsetY = avatarState.offsetY;
+      avatarStage.setPointerCapture(event.pointerId);
+      avatarStage.style.cursor = "grabbing";
+    });
+    avatarStage.addEventListener("pointermove", (event) => {
+      if (!avatarState.dragging) return;
+
+      event.preventDefault();
+      avatarState.offsetX = avatarState.startOffsetX + (event.clientX - avatarState.dragStartX);
+      avatarState.offsetY = avatarState.startOffsetY + (event.clientY - avatarState.dragStartY);
+      updateAvatarPreview();
+    });
+    function endAvatarDrag(event) {
+      if (!avatarState.dragging) return;
+
+      avatarState.dragging = false;
+      avatarStage.style.cursor = "grab";
+      try {
+        avatarStage.releasePointerCapture(event.pointerId);
+      } catch (error) {
+        // no-op
+      }
+    }
+    avatarStage.addEventListener("pointerup", endAvatarDrag);
+    avatarStage.addEventListener("pointercancel", endAvatarDrag);
+
+    fetchProfile().catch((error) => {
+      setFeedback("error", error.message || "Không thể tải hồ sơ.");
+    });
+  </script>
+</body>
+</html>
+
+

@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html class="dark page-preload" lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style id="page-preload-style">
+    html.page-preload body { opacity: 0; }
+    body { transition: opacity .12s ease; }
+  </style>
+  <script>
+    (() => {
+      const reveal = () => document.documentElement.classList.remove("page-preload");
+      window.addEventListener("DOMContentLoaded", reveal, { once: true });
+      window.addEventListener("load", reveal, { once: true });
+      setTimeout(reveal, 1200);
+    })();
+  </script>
+  <title>Chi tiết sản phẩm | THE BIG GYM</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700;800&family=Manrope:wght@300;400;500;600;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            surface: "#131313", background: "#131313", primary: "#f2ca50", secondary: "#ffb693",
+            "on-primary": "#3c2f00", "on-background": "#e5e2e1", "on-surface": "#e5e2e1",
+            "surface-container-low": "#1c1b1b", "surface-container": "#201f1f",
+            "surface-container-high": "#2a2a2a", outline: "#99907c", error: "#ffb4ab"
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    .material-symbols-outlined { font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 24; vertical-align: middle; }
+    body { font-family: "Manrope", sans-serif; background: #131313; color: #e5e2e1; }
+    .serif { font-family: "Noto Serif", serif; }
+    .mega-menu { opacity: 0; visibility: hidden; transition: all .3s ease; }
+    .group:hover .mega-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+    .detail-surface {
+      background:
+        radial-gradient(circle at top right, rgba(242,202,80,.12), transparent 32%),
+        linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,0));
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background selection:bg-primary selection:text-on-primary">
+  <nav class="fixed top-0 z-50 w-full bg-[#131313]/80 backdrop-blur-md shadow-2xl shadow-black/20">
+    <div class="mx-auto flex max-w-screen-2xl items-center justify-between px-12 py-6">
+      <div class="serif text-2xl font-bold uppercase tracking-tighter text-primary">THE BIG GYM</div>
+      <div class="hidden items-center gap-10 font-['Noto_Serif'] text-sm uppercase tracking-widest md:flex">
+        <a class="text-gray-400 transition-colors duration-300 hover:text-primary" href="../../index.html">Trang chủ</a>
+        <div class="group relative">
+          <a class="flex items-center gap-1 pb-1 text-gray-400 transition-colors duration-300 hover:text-primary" href="#">
+            Dịch vụ <span class="material-symbols-outlined text-xs">expand_more</span>
+          </a>
+          <div class="mega-menu absolute left-1/2 top-full mt-4 grid w-[800px] -translate-x-1/2 translate-y-2 grid-cols-3 gap-8 rounded-lg bg-surface-container-low p-8 shadow-2xl">
+            <div>
+              <h4 class="mb-4 border-b border-white/10 pb-2 font-bold text-primary">Huấn luyện</h4>
+              <ul class="space-y-3 tracking-normal text-gray-400">
+                <li class="cursor-pointer transition-colors hover:text-primary">Personal Training 1:1</li>
+                <li class="cursor-pointer transition-colors hover:text-primary">Yoga Sanctuary</li>
+              </ul>
+            </div>
+            <div>
+              <h4 class="mb-4 border-b border-white/10 pb-2 font-bold text-primary">Tiện nghi</h4>
+              <ul class="space-y-3 tracking-normal text-gray-400">
+                <li class="cursor-pointer transition-colors hover:text-primary">Spa Recovery</li>
+                <li class="cursor-pointer transition-colors hover:text-primary">Tủ đồ thông minh</li>
+              </ul>
+            </div>
+            <div class="group/img relative overflow-hidden rounded-md">
+              <img alt="Ưu đãi hội viên" class="h-full w-full object-cover opacity-60 transition-transform duration-700 group-hover/img:scale-110" src="../../assets/images/hero-training.jpg" />
+              <div class="absolute inset-0 flex items-end bg-gradient-to-t from-black/80 to-transparent p-4">
+                <span class="text-xs font-bold uppercase text-white">Ưu đãi thành viên mới</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a class="text-gray-400 transition-colors duration-300 hover:text-primary" href="../baitap.html">Bài tập</a>
+        <a class="border-b-2 border-primary pb-1 text-primary" href="../shop.html">Cửa hàng</a>
+        <a class="text-gray-400 transition-colors duration-300 hover:text-primary" href="../congcu.html">Công cụ</a>
+        <a class="text-gray-400 transition-colors duration-300 hover:text-primary" href="../contact.html">Liên hệ</a>
+      </div>
+      <div class="flex items-center gap-3">
+        <button class="bg-gradient-to-r from-[#f2ca50] to-[#d4af37] px-8 py-3 text-xs font-bold uppercase tracking-widest text-[#3c2f00] rounded-full shadow-lg shadow-[#f2ca50]/20 transition-transform duration-300 hover:scale-105">Đặt lịch PT</button>
+        <a class="border border-[#f2ca50]/40 px-6 py-3 text-xs font-bold uppercase tracking-widest text-[#f2ca50] rounded-full transition-colors duration-300 hover:bg-[#f2ca50] hover:text-[#3c2f00]" data-auth-link data-base-prefix="../../" href="../login.html">Đăng nhập</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="mx-auto max-w-screen-2xl px-6 pb-24 pt-32 md:px-12">
+    <nav class="mb-10 flex flex-wrap items-center gap-3 text-[11px] uppercase tracking-[0.22em] text-outline">
+      <a class="transition-colors hover:text-primary" href="../shop.html">Cửa hàng</a>
+      <span class="opacity-30">/</span>
+      <span class="text-gray-400" id="detail-breadcrumb-category">Sản phẩm</span>
+      <span class="opacity-30">/</span>
+      <span class="text-on-background" id="detail-breadcrumb-name">Chi tiết sản phẩm</span>
+    </nav>
+
+    <section id="detail-shell" class="space-y-24">
+      <section class="detail-surface overflow-hidden rounded-[32px] border border-white/5">
+        <div class="grid gap-10 px-6 py-8 lg:grid-cols-[1.02fr_0.98fr] lg:px-10 lg:py-10">
+          <div class="space-y-5">
+            <div class="overflow-hidden rounded-[28px] border border-white/5 bg-surface-container-low">
+              <img id="detail-product-image" alt="Ảnh sản phẩm" class="aspect-[4/4.6] h-full w-full object-cover" src="../../assets/images/weight-room.jpg" />
+            </div>
+            <div id="detail-thumbnail-list" class="grid grid-cols-3 gap-4"></div>
+            <div id="detail-feature-cards" class="grid grid-cols-2 gap-4 lg:grid-cols-4"></div>
+          </div>
+
+          <div class="space-y-8">
+            <div class="space-y-4">
+              <p id="detail-product-category" class="text-xs font-bold uppercase tracking-[0.3em] text-secondary">Sản phẩm</p>
+              <h1 id="detail-product-name" class="serif text-5xl font-bold leading-[0.95] tracking-tighter md:text-6xl">Chi tiết sản phẩm</h1>
+              <div class="flex flex-wrap items-center gap-4">
+                <div data-review-stars class="flex text-primary"></div>
+                <span data-review-average class="text-sm font-semibold text-on-background">Chưa có đánh giá</span>
+                <span data-review-count class="text-[11px] uppercase tracking-[0.22em] text-gray-500">0 đánh giá</span>
+              </div>
+            </div>
+
+            <div class="space-y-4 border-y border-white/10 py-6">
+              <div class="flex flex-wrap items-end gap-4">
+                <span id="detail-product-price" class="text-5xl font-light tracking-tight text-on-background">0đ</span>
+                <span id="detail-product-original-price" class="hidden text-lg text-gray-500 line-through"></span>
+                <span id="detail-product-badge" class="rounded-full bg-primary/10 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-primary">Sản phẩm</span>
+              </div>
+              <p id="detail-product-description" class="max-w-xl text-base leading-relaxed text-gray-300">Dữ liệu sản phẩm đang được tải từ hệ thống cửa hàng.</p>
+              <p id="detail-product-stock" class="text-[11px] uppercase tracking-[0.2em] text-gray-500">Đang cập nhật tồn kho</p>
+            </div>
+
+            <div id="detail-option-panels" class="grid gap-6 md:grid-cols-2">
+              <div id="detail-flavors-shell" class="hidden space-y-3">
+                <p class="text-[10px] font-bold uppercase tracking-[0.28em] text-primary">Hương vị</p>
+                <div id="detail-flavor-options" class="flex flex-wrap gap-3"></div>
+              </div>
+              <div id="detail-sizes-shell" class="hidden space-y-3">
+                <p class="text-[10px] font-bold uppercase tracking-[0.28em] text-primary">Quy cách</p>
+                <div id="detail-size-options" class="flex flex-wrap gap-3"></div>
+              </div>
+            </div>
+
+            <div class="rounded-[28px] border border-primary/15 bg-primary/5 p-6">
+              <p id="detail-purchase-panel-title" class="hidden text-[10px] font-bold uppercase tracking-[0.24em] text-primary"></p>
+              <p id="detail-purchase-panel-body" class="hidden mt-3 text-sm leading-relaxed text-gray-300"></p>
+              <div class="mt-5 flex flex-col gap-3 sm:flex-row">
+                <button id="detail-add-to-cart" class="inline-flex items-center justify-center gap-2 rounded-full border border-white/10 px-6 py-4 text-xs font-bold uppercase tracking-[0.2em] text-gray-300 transition-colors hover:border-primary/40 hover:text-primary" type="button">Thêm vào giỏ <span class="material-symbols-outlined !text-base">add_shopping_cart</span></button>
+                <button id="detail-buy-now" class="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-8 py-4 text-xs font-bold uppercase tracking-[0.22em] text-on-primary shadow-lg shadow-primary/10 transition-all hover:shadow-primary/20" type="button">Mua ngay <span class="material-symbols-outlined !text-base">shopping_bag</span></button>
+              </div>
+              <p id="detail-action-message" class="hidden text-xs font-medium tracking-[0.08em]"></p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="grid grid-cols-1 gap-10 border-t border-white/10 pt-20 lg:grid-cols-2">
+        <div class="space-y-8">
+          <div data-detail-section class="rounded-[28px] border border-white/5 bg-surface-container-low p-8">
+            <h2 class="serif text-3xl text-primary">Thông tin nhanh</h2>
+            <div id="detail-quick-info" class="mt-8 space-y-4 text-sm text-gray-300"></div>
+          </div>
+          <div data-detail-section class="rounded-[28px] border border-white/5 bg-surface-container-low p-8">
+            <h2 class="serif text-3xl text-primary">Điểm nổi bật</h2>
+            <div id="detail-highlights" class="mt-8 grid gap-4"></div>
+          </div>
+        </div>
+        <div class="space-y-8">
+          <div data-detail-section class="rounded-[28px] border border-white/5 bg-surface-container-low p-8">
+            <h2 class="serif text-3xl text-primary">Cách dùng gợi ý</h2>
+            <div id="detail-usage-guide" class="mt-8 grid gap-4"></div>
+          </div>
+          <div data-detail-section class="rounded-[28px] border border-white/5 bg-surface-container-low p-8">
+            <h2 class="serif text-3xl text-primary">Lưu ý khi sử dụng</h2>
+            <ul id="detail-notes" class="mt-8 grid gap-4"></ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="border-t border-white/10 pt-20">
+        <div class="mb-10 flex items-end justify-between gap-4">
+          <div>
+            <p class="mb-2 text-xs uppercase tracking-[0.25em] text-secondary">Đánh giá thực tế</p>
+            <h2 class="serif text-4xl text-on-background">Nhận xét từ khách đã mua</h2>
+          </div>
+        </div>
+        <div class="grid gap-8 xl:grid-cols-[0.88fr_1.12fr]">
+          <div data-review-form class="rounded-[28px] border border-white/5 bg-surface-container-low p-8">
+            <p class="text-[10px] font-bold uppercase tracking-[0.22em] text-primary">Viết đánh giá</p>
+            <p data-review-form-note class="mt-4 text-sm leading-relaxed text-gray-300">Đăng nhập và mua sản phẩm này để gửi đánh giá.</p>
+            <div data-review-form-stars class="mt-6 flex flex-wrap gap-3"></div>
+            <textarea data-review-comment class="mt-6 min-h-[140px] w-full rounded-2xl border border-white/10 bg-surface-container px-5 py-4 text-sm text-on-surface placeholder:text-gray-500 focus:border-primary focus:ring-0" placeholder="Chia sẻ trải nghiệm thực tế của bạn về sản phẩm này..."></textarea>
+            <div class="mt-5 flex flex-col gap-3">
+              <button data-review-submit class="inline-flex items-center justify-center rounded-full bg-primary px-6 py-4 text-xs font-bold uppercase tracking-[0.2em] text-on-primary shadow-lg shadow-primary/10 transition-all hover:shadow-primary/20" type="button">Gửi đánh giá</button>
+              <p data-review-form-feedback class="hidden text-sm leading-relaxed"></p>
+            </div>
+          </div>
+          <div class="space-y-6">
+            <div data-review-empty class="hidden rounded-[24px] border border-white/5 bg-surface-container-low p-6 text-sm leading-relaxed text-gray-500">
+              Chưa có đánh giá nào cho sản phẩm này. Hãy là người đầu tiên chia sẻ trải nghiệm sau khi mua hàng.
+            </div>
+            <div data-review-list class="space-y-6"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="border-t border-white/10 pt-20">
+        <div class="mb-10 flex items-end justify-between gap-4">
+          <div>
+            <p class="mb-2 text-xs uppercase tracking-[0.25em] text-secondary">Gợi ý mua kèm</p>
+            <h2 class="serif text-4xl text-on-background">Sản phẩm liên quan</h2>
+          </div>
+          <a class="text-xs font-bold uppercase tracking-[0.2em] text-primary transition-colors hover:text-secondary" href="../shop.html">Xem toàn bộ</a>
+        </div>
+        <div id="detail-related-products" class="grid grid-cols-1 gap-8 md:grid-cols-3"></div>
+      </section>
+    </section>
+
+    <section id="detail-error-state" class="hidden rounded-[32px] border border-red-400/20 bg-red-500/10 px-6 py-12 text-center">
+      <p class="text-xs font-bold uppercase tracking-[0.25em] text-error">Không tải được sản phẩm</p>
+      <h1 class="serif mt-4 text-4xl text-on-background">Chi tiết sản phẩm hiện chưa sẵn sàng</h1>
+      <p id="detail-error-message" class="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-gray-300"></p>
+      <div class="mt-8 flex flex-wrap justify-center gap-3">
+        <a class="rounded-full border border-white/10 px-6 py-3 text-xs font-bold uppercase tracking-[0.2em] text-gray-200 transition-colors hover:border-primary/40 hover:text-primary" href="../shop.html">Quay lại cửa hàng</a>
+        <a class="rounded-full bg-primary px-6 py-3 text-xs font-bold uppercase tracking-[0.2em] text-on-primary" href="../../index.html">Về trang chủ</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="w-full border-t border-white/5 bg-[#131313] px-12 pb-10 pt-20">
+    <div class="mx-auto grid max-w-screen-2xl grid-cols-1 gap-12 md:grid-cols-4">
+      <div class="md:col-span-1">
+        <div class="font-['Noto_Serif'] mb-6 text-3xl font-bold uppercase tracking-tighter text-[#f2ca50]">The Big Gym</div>
+        <p class="font-['Manrope'] font-light leading-relaxed tracking-wide text-gray-400">Nâng tầm trải nghiệm thể hình tại Hải Phòng. Không gian đẳng cấp, dịch vụ thượng lưu.</p>
+      </div>
+      <div class="space-y-6">
+        <h5 class="text-xs font-bold uppercase tracking-widest text-white">Liên kết nhanh</h5>
+        <ul class="space-y-4 font-['Manrope'] font-light tracking-wide text-gray-400">
+          <li><a class="transition-colors duration-300 hover:text-[#ffb693]" href="#">Về chúng tôi</a></li>
+          <li><a class="transition-colors duration-300 hover:text-[#ffb693]" href="#">Tuyển dụng</a></li>
+          <li><a class="transition-colors duration-300 hover:text-[#ffb693]" href="#">Hỏi đáp</a></li>
+          <li><a class="transition-colors duration-300 hover:text-[#ffb693]" href="#">Điều khoản dịch vụ</a></li>
+        </ul>
+      </div>
+      <div class="space-y-6">
+        <h5 class="text-xs font-bold uppercase tracking-widest text-white">Địa điểm</h5>
+        <p class="font-['Manrope'] font-light leading-relaxed tracking-wide text-gray-400">219, Hồ Sen,<br />Phường Lê Chân, TP. Hải Phòng</p>
+        <p class="font-bold text-primary">Hotline: 1900 1009</p>
+      </div>
+      <div class="space-y-6">
+        <h5 class="text-xs font-bold uppercase tracking-widest text-white">Đăng ký nhận tin</h5>
+        <div class="flex flex-col gap-4">
+          <input class="rounded-lg border-none bg-surface-container-high p-4 text-white placeholder:text-gray-600 focus:ring-1 focus:ring-primary" placeholder="Email của bạn" type="email" />
+          <button class="rounded-lg bg-primary py-4 text-xs font-bold uppercase tracking-widest text-on-primary transition-colors hover:bg-[#f7d36a]">Đăng ký ngay</button>
+        </div>
+      </div>
+    </div>
+    <div class="mx-auto mt-16 flex max-w-screen-2xl flex-col items-center justify-between gap-6 border-t border-white/5 pt-8 md:flex-row">
+      <span class="font-['Manrope'] text-xs font-light tracking-wide text-gray-400">© 2024 THE BIG GYM HẢI PHÒNG. ALL RIGHTS RESERVED.</span>
+      <div class="flex gap-6">
+        <a class="text-gray-500 transition-colors hover:text-primary" href="#"><span class="material-symbols-outlined">social_leaderboard</span></a>
+        <a class="text-gray-500 transition-colors hover:text-primary" href="#"><span class="material-symbols-outlined">photo_camera</span></a>
+        <a class="text-gray-500 transition-colors hover:text-primary" href="#"><span class="material-symbols-outlined">smart_display</span></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/auth-ui.js?v=20260413-footer1"></script>
+  <script src="../../assets/js/shop-detail-routing.js"></script>
+  <script src="../../assets/js/shop-product-detail.js"></script>
+  <script src="../../assets/js/product-reviews.js"></script>
+</body>
+</html>

@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+
+<html class="dark page-preload" lang="vi"><head>
+<meta charset="utf-8"/>
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/><style id="page-preload-style">
+  html.page-preload body { opacity: 0; }
+  body { transition: opacity .12s ease; }
+</style>
+<script>
+  (() => {
+    const reveal = () => document.documentElement.classList.remove("page-preload");
+    window.addEventListener("DOMContentLoaded", reveal, { once: true });
+    window.addEventListener("load", reveal, { once: true });
+    setTimeout(reveal, 1200);
+  })();
+</script>
+<title>THE BIG GYM | Gym Cao Cấp Hải Phòng</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&amp;family=Manrope:wght@200;300;400;600;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container": "#201f1f",
+                    "primary-container": "#d4af37",
+                    "on-primary-container": "#554300",
+                    "on-primary-fixed": "#241a00",
+                    "surface": "#131313",
+                    "secondary-fixed": "#ffdbcc",
+                    "surface-dim": "#131313",
+                    "on-secondary-container": "#4b1b00",
+                    "primary": "#f2ca50",
+                    "outline": "#99907c",
+                    "inverse-on-surface": "#313030",
+                    "surface-container-highest": "#353534",
+                    "on-tertiary-container": "#673a0c",
+                    "primary-fixed": "#ffe088",
+                    "outline-variant": "#4d4635",
+                    "secondary-container": "#ea6b1e",
+                    "error-container": "#93000a",
+                    "surface-bright": "#393939",
+                    "background": "#131313",
+                    "surface-container-high": "#2a2a2a",
+                    "on-error": "#690005",
+                    "on-tertiary": "#4c2700",
+                    "surface-tint": "#e9c349",
+                    "on-primary": "#3c2f00",
+                    "on-secondary-fixed": "#351000",
+                    "secondary-fixed-dim": "#ffb693",
+                    "on-tertiary-fixed": "#2e1500",
+                    "tertiary": "#ffc290",
+                    "error": "#ffb4ab",
+                    "surface-variant": "#353534",
+                    "inverse-primary": "#735c00",
+                    "tertiary-fixed": "#ffdcc1",
+                    "on-background": "#e5e2e1",
+                    "surface-container-lowest": "#0e0e0e",
+                    "surface-container-low": "#1c1b1b",
+                    "on-primary-fixed-variant": "#574500",
+                    "on-tertiary-fixed-variant": "#693c0e",
+                    "tertiary-fixed-dim": "#fbb980",
+                    "secondary": "#ffb693",
+                    "on-secondary": "#562000",
+                    "on-surface": "#e5e2e1",
+                    "primary-fixed-dim": "#e9c349",
+                    "on-secondary-fixed-variant": "#7a3000",
+                    "on-surface-variant": "#d0c5af",
+                    "tertiary-container": "#e5a66f",
+                    "on-error-container": "#ffdad6",
+                    "inverse-surface": "#e5e2e1"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Noto Serif"],
+                    "body": ["Manrope"],
+                    "label": ["Manrope"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        :root { --biggym-nav-height: 88px; }
+        html { scroll-behavior: smooth; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Manrope', sans-serif; background-color: #131313; color: #e5e2e1; }
+        .serif { font-family: 'Noto Serif', serif; }
+        .glass-nav { background: rgba(19, 19, 19, 0.8); backdrop-filter: blur(12px); }
+        .mega-menu { opacity: 0; visibility: hidden; transition: all 0.3s ease; }
+        .group:hover .mega-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+        .asymmetric-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 2rem; }
+        .testimonial-fade { opacity: 0; transform: translateY(10px); }
+    </style>
+</head>
+<body class="bg-background text-on-background selection:bg-primary selection:text-on-primary">
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 w-full z-50 bg-[#131313]/80 backdrop-blur-md shadow-2xl shadow-black/20">
+<div class="flex justify-between items-center px-12 py-6 max-w-screen-2xl mx-auto">
+<div class="text-2xl font-bold text-[#f2ca50] tracking-tighter serif uppercase">
+                THE BIG GYM
+            </div>
+<div class="hidden md:flex items-center gap-10 font-['Noto_Serif'] uppercase tracking-widest text-sm">
+<a class="text-[#f2ca50] border-b-2 border-[#f2ca50] pb-1" href="index.html">Trang chủ</a>
+<div class="group relative">
+<a class="text-gray-400 hover:text-[#f2ca50] transition-colors duration-300 pb-1 flex items-center gap-1" href="#">
+                        Dịch vụ <span class="material-symbols-outlined text-xs">expand_more</span>
+</a>
+<!-- Mega Menu Content -->
+<div class="mega-menu absolute top-full left-1/2 -translate-x-1/2 w-[800px] mt-4 bg-surface-container-low p-8 grid grid-cols-3 gap-8 shadow-2xl rounded-lg translate-y-2">
+<div>
+<h4 class="text-primary mb-4 font-bold border-b border-white/10 pb-2">Huấn luyện</h4>
+<ul class="space-y-3 text-gray-400 normal-case tracking-normal">
+<li><a class="hover:text-primary transition-colors" href="pages/service_pages/private-gym-area.html">Personal Training 1:1</a></li>
+<li><a class="hover:text-primary transition-colors" href="pages/service_pages/yoga-sanctuary.html">Yoga Sanctuary</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-primary mb-4 font-bold border-b border-white/10 pb-2">Tiện nghi</h4>
+<ul class="space-y-3 text-gray-400 normal-case tracking-normal">
+<li><a class="hover:text-primary transition-colors" href="pages/service_pages/spa-recovery.html">Spa Recovery</a></li>
+<li><a class="hover:text-primary transition-colors" href="pages/service_pages/premium-bathroom.html">Phòng tắm cao cấp</a></li>
+</ul>
+</div>
+<div class="relative overflow-hidden rounded-md group/img">
+<img alt="Gym Luxury" class="w-full h-full object-cover opacity-60 group-hover/img:scale-110 transition-transform duration-700" data-alt="dramatic lighting inside a luxury gym showing high-end equipment with golden metal accents and dark textures" src="assets/images/mega-menu.jpg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-4">
+<span class="text-white text-xs font-bold uppercase">Ưu đãi thành viên mới</span>
+</div>
+</div>
+</div>
+</div>
+<a class="text-gray-400 hover:text-[#f2ca50] transition-colors duration-300" href="pages/baitap.html">Bài tập</a>
+<a class="text-gray-400 hover:text-[#f2ca50] transition-colors duration-300" href="pages/shop.html">Cửa hàng</a>
+<a class="text-gray-400 hover:text-[#f2ca50] transition-colors duration-300" href="pages/congcu.html">Công cụ</a>
+<a class="text-gray-400 hover:text-[#f2ca50] transition-colors duration-300" href="pages/contact.html">Liên hệ</a>
+</div>
+<div class="flex items-center gap-3">
+<button class="bg-gradient-to-r from-[#f2ca50] to-[#d4af37] text-[#3c2f00] px-8 py-3 font-bold uppercase tracking-widest text-xs rounded-full hover:scale-105 transition-transform duration-300 shadow-lg shadow-[#f2ca50]/20">
+                Đặt lịch PT
+            </button>
+<a class="border border-[#f2ca50]/40 text-[#f2ca50] px-6 py-3 font-bold uppercase tracking-widest text-xs rounded-full hover:bg-[#f2ca50] hover:text-[#3c2f00] transition-colors duration-300" data-auth-link="" data-base-prefix="" href="pages/login.html">
+                Đăng nhập
+            </a>
+</div>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="relative overflow-hidden pt-[var(--biggym-nav-height)]">
+<div class="absolute inset-0 z-0">
+<img alt="Hero Training" class="w-full h-full object-cover scale-105" data-alt="atmospheric cinematic photo of an athlete training with ropes in a dark gym with golden spotlights and smoke effects" src="assets/images/hero-training.jpg"/>
+<div class="absolute inset-0 bg-gradient-to-r from-background via-background/60 to-transparent"></div>
+</div>
+<div class="relative z-10 mx-auto flex min-h-[calc(100svh-var(--biggym-nav-height))] w-full max-w-screen-2xl items-start px-4 pb-24 pt-6 sm:px-6 sm:pt-8 lg:items-center lg:px-12 lg:pb-0 lg:pt-0">
+<div class="max-w-3xl space-y-6 sm:space-y-8">
+<span class="inline-block text-xs font-medium uppercase tracking-[0.32em] text-secondary sm:text-sm sm:tracking-[0.4em]">Hải Phòng • The Premium Experience</span>
+<h1 class="serif text-5xl font-bold leading-[0.92] tracking-tighter sm:text-6xl md:text-7xl lg:text-8xl lg:leading-tight">
+                    Đánh thức <span class="text-primary italic">bản lĩnh</span>,<br/>Chinh phục đỉnh cao
+                </h1>
+<p class="max-w-xl text-base font-light leading-relaxed text-gray-300 sm:text-lg lg:text-xl">
+                    Hành trình biến đổi thể chất và tinh thần tại không gian tập luyện sang trọng bậc nhất. Nơi kỷ luật tạo nên sự tự do.
+                </p>
+<div class="flex flex-col items-start gap-4 pt-2 sm:flex-row sm:items-center sm:gap-6 sm:pt-4">
+<a class="rounded-lg bg-primary px-8 py-4 text-xs font-extrabold uppercase tracking-[0.22em] text-on-primary shadow-xl shadow-primary/10 transition-colors hover:bg-primary-fixed sm:px-10 sm:py-5 sm:text-sm sm:tracking-widest" href="pages/shop.html">
+                        Bắt đầu ngay
+                    </a>
+<a class="group flex items-center gap-3 text-xs font-bold uppercase tracking-[0.22em] text-white transition-colors hover:text-primary sm:tracking-widest" href="#premium-services">
+<span class="flex h-11 w-11 items-center justify-center rounded-full border border-white/20 group-hover:border-primary sm:h-12 sm:w-12">
+<span class="material-symbols-outlined fill-1" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</span>
+                        Khám phá không gian
+                    </a>
+</div>
+</div>
+</div>
+<!-- Scroll Indicator -->
+<div class="absolute bottom-12 left-12 hidden items-center gap-4 text-[10px] uppercase tracking-widest text-gray-500 md:flex">
+<span>Scroll</span>
+<div class="w-12 h-[1px] bg-gray-500"></div>
+</div>
+</section>
+<!-- Bento Grid Section (Services) -->
+<section class="py-32 bg-surface-container-low" id="premium-services">
+<div class="max-w-screen-2xl mx-auto px-12">
+<div class="text-center mb-20 space-y-4">
+<span class="text-primary text-xs uppercase tracking-[0.5em] font-bold">Dịch vụ đẳng cấp</span>
+<h2 class="serif text-6xl font-bold">Trải nghiệm không giới hạn</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 grid-rows-2 gap-6 h-[800px]">
+<a class="md:col-span-8 md:row-span-1 relative overflow-hidden rounded-xl bg-surface-container-highest group block" href="pages/service_pages/private-gym-area.html">
+<img alt="Weight Room" class="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:scale-110 transition-transform duration-1000" data-alt="luxury weight room with high-end polished equipment and golden accents under soft warm lighting" src="assets/images/weight-room.jpg"/>
+<div class="absolute inset-0 p-10 flex flex-col justify-end">
+<h3 class="serif text-4xl font-bold mb-2">Private Gym Area</h3>
+<p class="text-gray-300 max-w-sm">Không gian tập luyện riêng tư, hạn chế số lượng khách nhằm đảm bảo chất lượng phục vụ tốt nhất.</p>
+</div>
+</a>
+<a class="md:col-span-4 md:row-span-2 relative overflow-hidden rounded-xl bg-surface-container-highest group block" href="pages/service_pages/yoga-sanctuary.html">
+<img alt="Yoga Studio" class="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:scale-110 transition-transform duration-1000" data-alt="serene yoga studio with dark wood floors and large windows showing a lush green background at dusk" src="assets/images/yoga-studio.jpg"/>
+<div class="absolute inset-0 p-10 flex flex-col justify-end">
+<h3 class="serif text-4xl font-bold mb-2">Yoga Sanctuary</h3>
+<p class="text-gray-300">Tĩnh tại tâm hồn trong không gian thiền định yên tĩnh và tinh tế giữa lòng thành phố.</p>
+</div>
+</a>
+<a class="md:col-span-4 md:row-span-1 relative overflow-hidden rounded-xl bg-surface-container-highest group block" href="pages/service_pages/spa-recovery.html">
+<img alt="Spa &amp; Recovery" class="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:scale-110 transition-transform duration-1000" data-alt="luxurious spa area with a marble pool and dim golden lights reflecting on the water surface" src="assets/images/spa-recovery.jpg"/>
+<div class="absolute inset-0 p-8 flex flex-col justify-end">
+<h3 class="serif text-3xl font-bold mb-2">Spa Recovery</h3>
+<p class="text-gray-400 text-sm">Xông hơi đá muối và trị liệu phục hồi sau tập luyện.</p>
+</div>
+</a>
+<a class="md:col-span-4 md:row-span-1 relative overflow-hidden rounded-xl bg-surface-container-highest group block" href="pages/service_pages/premium-bathroom.html">
+<img alt="Premium Locker Room" class="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:scale-110 transition-transform duration-1000" data-alt="luxury locker room with warm lighting, premium showers, and modern dark wood accents" src="assets/images/bath-room.jpg"/>
+<div class="absolute inset-0 p-8 flex flex-col justify-end">
+<h3 class="serif text-3xl font-bold mb-2">Phòng tắm cao cấp</h3>
+<p class="text-gray-400 text-sm">Không gian phòng tắm &amp; thay đồ riêng tư, tiện nghi và sạch sẽ chuẩn spa.</p>
+</div>
+</a>
+</div>
+</div>
+</section>
+<!-- Testimonials Carousel Section -->
+<section class="py-32 px-12 bg-background overflow-hidden">
+<div class="max-w-screen-2xl mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
+<div class="relative">
+<div class="w-full aspect-[4/5] rounded-2xl overflow-hidden ring-1 ring-white/10 relative z-10">
+<img alt="Customer Review" class="w-full h-full object-cover transition-opacity duration-500" data-alt="portrait of a successful middle aged business man in athletic wear looking confident in a high-end gym setting" id="testimonial-image" src="assets/images/customer-review.jpg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+</div>
+<!-- Decorative Element -->
+<div class="absolute -top-10 -left-10 w-40 h-40 border-t-2 border-l-2 border-primary/30 z-0"></div>
+</div>
+<div class="space-y-10">
+<div class="flex text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<blockquote class="serif text-4xl font-medium leading-relaxed italic text-on-surface transition-opacity duration-500" id="testimonial-quote">
+                        "The Golden Sanctuary không chỉ là một phòng gym, đó là nơi tôi tìm thấy sự cân bằng sau những giờ làm việc căng thẳng. Đội ngũ PT ở đây thực sự chuyên nghiệp và tinh tế."
+                    </blockquote>
+<div>
+<h5 class="text-xl font-bold text-primary">Nguyễn Minh Hoàng</h5>
+<p class="text-gray-500 uppercase tracking-widest text-xs mt-1">Giám đốc điều hành, Hải Phòng Logistics</p>
+</div>
+<div class="flex gap-4 pt-4">
+<button aria-label="Show review 1" class="testimonial-dot w-2 h-2 rounded-full bg-primary transition-colors" data-index="0" type="button"></button>
+<button aria-label="Show review 2" class="testimonial-dot w-2 h-2 rounded-full bg-white/10 transition-colors" data-index="1" type="button"></button>
+<button aria-label="Show review 3" class="testimonial-dot w-2 h-2 rounded-full bg-white/10 transition-colors" data-index="2" type="button"></button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="w-full pt-20 pb-10 px-12 border-t border-white/5 bg-[#131313]">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 max-w-screen-2xl mx-auto">
+<div class="md:col-span-1">
+<div class="font-['Noto_Serif'] text-3xl text-[#f2ca50] mb-6 font-bold uppercase tracking-tighter">
+                    The Big Gym
+                </div>
+<p class="font-['Manrope'] text-gray-400 font-light tracking-wide leading-relaxed">
+                    Nâng tầm trải nghiệm thực hành tại Hải Phòng. Không gian đẳng cấp, dịch vụ thượng lưu.
+                </p>
+</div>
+<div class="space-y-6">
+<h5 class="text-white font-bold uppercase text-xs tracking-widest">Liên kết nhanh</h5>
+<ul class="font-['Manrope'] text-gray-400 font-light tracking-wide space-y-4">
+<li><a class="hover:text-[#ffb693] transition-colors duration-300" href="#">Về chúng tôi</a></li>
+<li><a class="hover:text-[#ffb693] transition-colors duration-300" href="#">Tuyển dụng</a></li>
+<li><a class="hover:text-[#ffb693] transition-colors duration-300" href="#">Hỏi đáp</a></li>
+<li><a class="hover:text-[#ffb693] transition-colors duration-300" href="#">Điều khoản dịch vụ</a></li>
+</ul>
+</div>
+<div class="space-y-6">
+<h5 class="text-white font-bold uppercase text-xs tracking-widest">Địa điểm</h5>
+<p class="font-['Manrope'] text-gray-400 font-light tracking-wide leading-relaxed">
+                    219, Hồ Sen,<br/>Phường Lê Chân, TP. Hải Phòng
+                </p>
+<p class="text-primary font-bold">Hotline: 1900 1009</p>
+</div>
+<div class="space-y-6">
+<h5 class="text-white font-bold uppercase text-xs tracking-widest">Đăng ký nhận tin</h5>
+<div class="flex flex-col gap-4">
+<input class="bg-surface-container-high border-none rounded-lg p-4 text-white placeholder:text-gray-600 focus:ring-1 focus:ring-primary" placeholder="Email của bạn" type="email"/>
+<button class="bg-primary text-on-primary font-bold py-4 rounded-lg uppercase text-xs tracking-widest hover:bg-primary-fixed transition-colors">Đăng ký ngay</button>
+</div>
+</div>
+</div>
+<div class="max-w-screen-2xl mx-auto mt-20 pt-8 border-t border-white/5 flex flex-col md:row justify-between items-center gap-4">
+<span class="font-['Manrope'] text-gray-400 font-light tracking-wide text-xs">© 2024 THE BIG GYM HẢI PHÒNG. ALL RIGHTS RESERVED.</span>
+<div class="flex gap-6">
+<a class="text-gray-500 hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">social_leaderboard</span></a>
+<a class="text-gray-500 hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">photo_camera</span></a>
+<a class="text-gray-500 hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">smart_display</span></a>
+</div>
+</div>
+</footer>
+<script>
+      const testimonials = [
+        {
+          image: "assets/images/customer-review-1.jpg",
+          alt: "portrait of a successful middle aged business man in athletic wear looking confident in a high-end gym setting",
+          quote: '"The Big Gym không chỉ là một phòng tập, mà còn là nơi tôi lấy lại sự cân bằng sau những ngày làm việc căng thẳng. Đội ngũ huấn luyện viên ở đây rất chuyên nghiệp và theo sát từng buổi tập."',
+          name: "Đặng Phương Phúc",
+          role: "Nhân viên, Đức Trung Group"
+        },
+        {
+          image: "assets/images/customer-review-2.jpg",
+          alt: "portrait of a female entrepreneur in elegant activewear standing in a luxury gym",
+          quote: '"Tôi chọn The Big Gym vì không gian tập luyện cao cấp và riêng tư. Sau một thời gian gắn bó, tôi thấy lộ trình rõ ràng, PT tận tâm và kết quả đến nhanh hơn mong đợi."',
+          name: "Trần Quế Dương",
+          role: "CMO, Đức Trung Group"
+        },
+        {
+          image: "assets/images/customer-review-3.jpg",
+          alt: "portrait of a young male athlete in a premium fitness club with warm dramatic lighting",
+          quote: '"Điều tôi đánh giá cao nhất là chất lượng thiết bị, không gian sạch sẽ và dịch vụ phục hồi sau tập rất chỉn chu. Mỗi lần đến đây đều mang lại cảm giác đáng giá và khác biệt."',
+          name: "Nguyễn Sáng Sao",
+          role: "CEO, Đức Trung Group"
+        }
+      ];
+
+      const testimonialImage = document.getElementById("testimonial-image");
+      const testimonialQuote = document.getElementById("testimonial-quote");
+      const testimonialInfo = testimonialQuote.nextElementSibling;
+      const testimonialName = testimonialInfo.querySelector("h5");
+      const testimonialRole = testimonialInfo.querySelector("p");
+      const testimonialDots = document.querySelectorAll(".testimonial-dot");
+      let testimonialIntervalId;
+      let activeTestimonialIndex = 0;
+
+      function renderTestimonial(index) {
+        const testimonial = testimonials[index];
+        const animatedElements = [
+          testimonialImage,
+          testimonialQuote,
+          testimonialName,
+          testimonialRole
+        ];
+
+        animatedElements.forEach((element) => {
+          element.classList.add("testimonial-fade");
+        });
+
+        setTimeout(() => {
+          testimonialImage.src = testimonial.image;
+          testimonialImage.alt = testimonial.alt;
+          testimonialQuote.textContent = testimonial.quote;
+          testimonialName.textContent = testimonial.name;
+          testimonialRole.textContent = testimonial.role;
+          activeTestimonialIndex = index;
+
+          testimonialDots.forEach((dot, dotIndex) => {
+            dot.classList.toggle("bg-primary", dotIndex === index);
+            dot.classList.toggle("bg-white/10", dotIndex !== index);
+          });
+
+          animatedElements.forEach((element) => {
+            element.classList.remove("testimonial-fade");
+          });
+        }, 220);
+      }
+
+      function startTestimonialAutoplay() {
+        clearInterval(testimonialIntervalId);
+        testimonialIntervalId = setInterval(() => {
+          const nextIndex = (activeTestimonialIndex + 1) % testimonials.length;
+          renderTestimonial(nextIndex);
+        }, 5000);
+      }
+
+      testimonialDots.forEach((dot) => {
+        dot.addEventListener("click", () => {
+          renderTestimonial(Number(dot.dataset.index));
+          startTestimonialAutoplay();
+        });
+      });
+
+      renderTestimonial(0);
+      startTestimonialAutoplay();
+    </script>
+<script src="assets/js/auth-ui.js?v=20260413-footer1"></script>
+</body></html>
+
+

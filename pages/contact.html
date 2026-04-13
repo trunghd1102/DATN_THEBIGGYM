@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html class="dark page-preload" lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style id="page-preload-style">
+    html.page-preload body { opacity: 0; }
+    body { transition: opacity .12s ease; }
+  </style>
+  <script>
+    (() => {
+      const reveal = () => document.documentElement.classList.remove("page-preload");
+      window.addEventListener("DOMContentLoaded", reveal, { once: true });
+      window.addEventListener("load", reveal, { once: true });
+      setTimeout(reveal, 1200);
+    })();
+  </script>
+  <title>Liên hệ | THE BIG GYM</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700;800&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            surface: "#131313",
+            background: "#131313",
+            primary: "#f2ca50",
+            secondary: "#ffb693",
+            "on-primary": "#3c2f00",
+            "on-background": "#e5e2e1",
+            "on-surface": "#e5e2e1",
+            "surface-container-low": "#1c1b1b",
+            "surface-container": "#201f1f",
+            "surface-container-high": "#2a2a2a",
+            outline: "#99907c",
+            success: "#9ce7ae",
+            error: "#ffb4ab"
+          },
+          boxShadow: {
+            atmospheric: "0 30px 80px rgba(0,0,0,0.38)"
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 24;
+    }
+    body {
+      font-family: "Manrope", sans-serif;
+      background: #131313;
+      color: #e5e2e1;
+    }
+    .serif { font-family: "Noto Serif", serif; }
+    .mega-menu {
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+    .group:hover .mega-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    .contact-shell {
+      background:
+        radial-gradient(circle at top left, rgba(242, 202, 80, 0.08), transparent 25%),
+        linear-gradient(180deg, rgba(255,255,255,0.02), transparent 18%),
+        #131313;
+    }
+    .contact-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+      border: 1px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(12px);
+    }
+    .contact-item {
+      display: grid;
+      grid-template-columns: 52px minmax(0, 1fr);
+      gap: 1rem;
+      align-items: start;
+    }
+    .map-surface {
+      position: relative;
+      overflow: hidden;
+      background: #111111;
+    }
+    .map-surface::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.08)),
+        radial-gradient(circle at center, rgba(0,0,0,0), rgba(0,0,0,0.12) 76%);
+      pointer-events: none;
+    }
+    .map-embed {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      filter: grayscale(0.32) saturate(0.98) contrast(1.01) brightness(1.02);
+    }
+    .quote-image img {
+      filter: grayscale(1) contrast(1.04) brightness(0.78);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background selection:bg-primary selection:text-on-primary">
+  <nav class="fixed top-0 z-50 w-full bg-[#131313]/80 backdrop-blur-md shadow-2xl shadow-black/20">
+    <div class="mx-auto flex max-w-screen-2xl items-center justify-between px-4 py-4 sm:px-6 lg:px-12 lg:py-6">
+      <a class="serif text-lg font-bold uppercase tracking-tighter text-primary sm:text-xl md:text-2xl" href="../index.html">THE BIG GYM</a>
+      <div class="hidden items-center gap-10 font-['Noto_Serif'] text-sm uppercase tracking-widest md:flex">
+        <a class="text-gray-400 transition-colors duration-300 hover:text-primary" href="../index.html">Trang chủ</a>
+        <div class="group relative">
+          <a class="flex items-center gap-1 pb-1 text-gray-400 transition-colors duration-300 hover:text-primary" href="../index.html#premium-services">
+            Dịch vụ <span class="material-symbols-outlined text-xs">expand_more</span>
+          </a>
+          <div class="mega-menu absolute left-1/2 top-full mt-4 grid w-[820px] -translate-x-1/2 translate-y-2 grid-cols-3 gap-8 rounded-[24px] border border-white/10 bg-surface-container-low p-8 shadow-2xl">
+            <div>
+              <h4 class="mb-4 border-b border-white/10 pb-2 font-bold text-primary">Huấn luyện</h4>
+              <ul class="space-y-3 text-gray-400">
+                <li><a class="transition-colors hover:text-primary" href="service_pages/private-gym-area.html">Private Gym Area</a></li>
+                <li><a class="transition-colors hover:text-primary" href="service_pages/yoga-sanctuary.html">Yoga Sanctuary</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4 class="mb-4 border-b border-white/10 pb-2 font-bold text-primary">Tiện nghi</h4>
+              <ul class="space-y-3 text-gray-400">
+                <li><a class="transition-colors hover:text-primary" href="service_pages/spa-recovery.html">Spa Recovery</a></li>
+                <li><a class="transition-colors hover:text-primary" href="service_pages/premium-bathroom.html">Phòng tắm cao cấp</a></li>
+              </ul>
+            </div>
+            <div class="relative overflow-hidden rounded-[18px]">
+              <img alt="Contact preview" class="h-full min-h-[220px] w-full object-cover opacity-65" src="../assets/images/hero-training.jpg" />
+              <div class="absolute inset-0 flex items-end bg-gradient-to-t from-black/80 to-transparent p-4">
+                <span class="text-xs font-bold uppercase tracking-[0.2em] text-white">Premium Contact Desk</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a class="text-gray-400 transition-colors duration-300 hover:text-primary" href="baitap.html">Bài tập</a>
+        <a class="text-gray-400 transition-colors duration-300 hover:text-primary" href="shop.html">Cửa hàng</a>
+        <a class="text-gray-400 transition-colors duration-300 hover:text-primary" href="congcu.html">Công cụ</a>
+        <a class="border-b-2 border-primary pb-1 text-primary" href="contact.html">Liên hệ</a>
+      </div>
+      <div class="flex items-center gap-2 md:gap-3">
+        <a class="shrink-0 rounded-full bg-gradient-to-r from-[#f2ca50] to-[#d4af37] px-4 py-2.5 text-[10px] font-bold uppercase tracking-widest text-[#3c2f00] shadow-lg shadow-[#f2ca50]/20 transition-transform duration-300 hover:scale-105 sm:px-5 md:px-8 md:py-3 md:text-xs" href="shop.html">Join Elite</a>
+        <a class="hidden min-h-[48px] min-w-[176px] items-center justify-center rounded-full border border-[#f2ca50]/40 px-6 py-3 text-xs font-bold uppercase tracking-widest text-[#f2ca50] transition-colors duration-300 hover:bg-[#f2ca50] hover:text-[#3c2f00] md:inline-flex" data-auth-link data-base-prefix="../" href="login.html">Đăng nhập</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="contact-shell min-h-screen px-4 pb-20 pt-28 sm:px-6 lg:px-12 lg:pt-32">
+    <section class="mx-auto max-w-screen-2xl">
+      <div class="grid gap-10 lg:grid-cols-[0.92fr_1.08fr]">
+        <div class="space-y-8">
+          <div class="space-y-5">
+            <p class="text-xs font-bold uppercase tracking-[0.36em] text-secondary">Thành đường của sức mạnh</p>
+            <h1 class="serif text-5xl font-extrabold leading-[0.9] tracking-tight sm:text-6xl lg:text-7xl">
+              LIÊN HỆ VỚI<br />
+              <span class="text-primary">CHÚNG TÔI</span>
+            </h1>
+            <p id="contact-hero-subtitle" class="max-w-xl text-base leading-8 text-gray-300">
+              Khi cần hành trình tập luyện bài bản hơn, không gian cao cấp hơn hoặc chỉ đơn giản là một nơi đủ nghiêm túc để bắt đầu, đội ngũ THE BIG GYM luôn sẵn sàng hỗ trợ bạn.
+            </p>
+          </div>
+
+          <div class="space-y-5">
+            <div class="contact-item contact-card rounded-[24px] p-5">
+              <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary">
+                <span class="material-symbols-outlined">location_on</span>
+              </div>
+              <div>
+                <p class="text-[10px] font-bold uppercase tracking-[0.26em] text-gray-500">Địa chỉ trụ sở</p>
+                <p id="contact-address" class="mt-2 text-lg font-semibold text-white">Lê Hồng Phong, Hải Phòng</p>
+                <p class="mt-1 text-sm leading-7 text-gray-400">Không gian được bố trí để việc tập luyện, recovery và nghỉ ngơi diễn ra trong cùng một nhịp trải nghiệm.</p>
+              </div>
+            </div>
+
+            <div class="contact-item contact-card rounded-[24px] p-5">
+              <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary">
+                <span class="material-symbols-outlined">call</span>
+              </div>
+              <div>
+                <p class="text-[10px] font-bold uppercase tracking-[0.26em] text-gray-500">Hotline 24/7</p>
+                <p id="contact-phone" class="mt-2 text-lg font-semibold text-white">1900 8888</p>
+                <p class="mt-1 text-sm leading-7 text-gray-400">Hỗ trợ tư vấn dịch vụ, khung giờ luyện tập và thông tin thành viên trong ngày.</p>
+              </div>
+            </div>
+
+            <div class="contact-item contact-card rounded-[24px] p-5">
+              <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary">
+                <span class="material-symbols-outlined">mail</span>
+              </div>
+              <div>
+                <p class="text-[10px] font-bold uppercase tracking-[0.26em] text-gray-500">Email liên hệ</p>
+                <p id="contact-email" class="mt-2 text-lg font-semibold text-white">thebiggym@phamductrung.id.vn</p>
+                <p class="mt-1 text-sm leading-7 text-gray-400">Để lại nội dung chi tiết và đội ngũ tư vấn sẽ phản hồi với ngữ cảnh rõ hơn thay vì trả lời ngắn gọn qua tin nhắn.</p>
+              </div>
+            </div>
+
+            <div class="grid gap-5 md:grid-cols-2">
+              <div class="contact-card rounded-[24px] p-5">
+                <p class="text-[10px] font-bold uppercase tracking-[0.26em] text-gray-500">Facebook</p>
+                <p class="mt-2 text-base font-semibold text-white">facebook.com/thebiggymhp</p>
+                <p class="mt-1 text-sm leading-7 text-gray-400">Cập nhật ưu đãi, lịch sự kiện và trải nghiệm hội viên.</p>
+              </div>
+              <div class="contact-card rounded-[24px] p-5">
+                <p class="text-[10px] font-bold uppercase tracking-[0.26em] text-gray-500">Giờ hoạt động</p>
+                <p class="mt-2 text-base font-semibold text-white">05:00 - 22:00</p>
+                <p class="mt-1 text-sm leading-7 text-gray-400">Vận hành liên tục để phù hợp với cả lịch trình sáng sớm lẫn cuối ngày.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="quote-image contact-card overflow-hidden rounded-[28px]">
+            <img alt="Luxury gym corridor" class="h-[280px] w-full object-cover" src="../assets/images/weight-room.jpg" />
+            <div class="p-6">
+              <p class="serif text-lg italic text-gray-200">"Nơi kỷ luật tạo nên sự tự do."</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid gap-6">
+          <div class="contact-card rounded-[32px] p-7 sm:p-9">
+            <div class="mb-8 max-w-xl space-y-4">
+              <p class="text-xs font-bold uppercase tracking-[0.32em] text-primary">Để lại lời nhắn</p>
+              <h2 class="serif text-3xl leading-tight sm:text-4xl">Chúng tôi sẽ phản hồi với đầy đủ thông tin thay vì một câu trả lời sơ sài</h2>
+              <p class="text-sm leading-7 text-gray-400">Gửi nhu cầu của bạn về gói tập, trải nghiệm club, PT hoặc lịch tham quan. Đội ngũ sẽ liên hệ lại trên đúng kênh bạn để lại.</p>
+            </div>
+
+            <form id="contact-form" class="space-y-5">
+              <div class="grid gap-5 sm:grid-cols-2">
+                <div>
+                  <label class="mb-2 block text-[11px] font-bold uppercase tracking-[0.22em] text-gray-500" for="contact-full-name">Họ và tên</label>
+                  <input id="contact-full-name" class="w-full rounded-2xl border border-white/10 bg-surface-container px-4 py-3 text-sm text-white focus:border-primary focus:ring-0" maxlength="120" placeholder="Nguyễn Văn A" required type="text" />
+                </div>
+                <div>
+                  <label class="mb-2 block text-[11px] font-bold uppercase tracking-[0.22em] text-gray-500" for="contact-phone-input">Số điện thoại</label>
+                  <input id="contact-phone-input" class="w-full rounded-2xl border border-white/10 bg-surface-container px-4 py-3 text-sm text-white focus:border-primary focus:ring-0" maxlength="30" placeholder="0900 000 000" type="text" />
+                </div>
+              </div>
+
+              <div class="grid gap-5 sm:grid-cols-2">
+                <div>
+                  <label class="mb-2 block text-[11px] font-bold uppercase tracking-[0.22em] text-gray-500" for="contact-email-input">Địa chỉ email</label>
+                  <input id="contact-email-input" class="w-full rounded-2xl border border-white/10 bg-surface-container px-4 py-3 text-sm text-white focus:border-primary focus:ring-0" maxlength="150" placeholder="you@example.com" required type="email" />
+                </div>
+                <div>
+                  <label class="mb-2 block text-[11px] font-bold uppercase tracking-[0.22em] text-gray-500" for="contact-subject">Chủ đề</label>
+                  <input id="contact-subject" class="w-full rounded-2xl border border-white/10 bg-surface-container px-4 py-3 text-sm text-white focus:border-primary focus:ring-0" maxlength="160" placeholder="Tư vấn gói tập / PT / tham quan club" type="text" />
+                </div>
+              </div>
+
+              <div>
+                <label class="mb-2 block text-[11px] font-bold uppercase tracking-[0.22em] text-gray-500" for="contact-message">Lời nhắn của bạn</label>
+                <textarea id="contact-message" class="min-h-[180px] w-full rounded-[24px] border border-white/10 bg-surface-container px-4 py-4 text-sm leading-7 text-white focus:border-primary focus:ring-0" maxlength="2000" placeholder="Ví dụ: Tôi muốn trải nghiệm club vào buổi tối và cần tư vấn gói phù hợp cho mục tiêu tăng cơ, tập với PT..." required></textarea>
+              </div>
+
+              <div class="flex flex-col gap-4 pt-2 sm:flex-row sm:items-center sm:justify-between">
+                <button id="contact-submit-button" class="inline-flex items-center justify-center rounded-full bg-primary px-7 py-3 text-xs font-bold uppercase tracking-[0.22em] text-[#372900] transition-colors hover:bg-[#ffd76a]" type="submit">
+                  Gửi lời nhắn ngay
+                </button>
+                <p class="text-xs leading-6 text-gray-500">Mọi dữ liệu được dùng để phản hồi nhu cầu tư vấn, không phục vụ mục đích spam.</p>
+              </div>
+              <p id="contact-form-feedback" class="hidden rounded-2xl border px-4 py-3 text-sm"></p>
+            </form>
+          </div>
+
+          <div class="contact-card rounded-[28px] p-6">
+            <p class="text-xs font-bold uppercase tracking-[0.28em] text-primary">Vì sao nên nhắn trước?</p>
+            <div class="mt-5 grid gap-4 md:grid-cols-3">
+              <div>
+                <p class="text-sm font-semibold text-white">Tiết kiệm thời gian</p>
+                <p class="mt-2 text-sm leading-7 text-gray-400">Đội ngũ chuẩn bị trước thông tin phù hợp thay vì tư vấn lại từ đầu khi bạn đến nơi.</p>
+              </div>
+              <div>
+                <p class="text-sm font-semibold text-white">Đúng người hỗ trợ</p>
+                <p class="mt-2 text-sm leading-7 text-gray-400">Nhu cầu về PT, membership, workout hay shop sẽ được chuyển tới đúng người phụ trách.</p>
+              </div>
+              <div>
+                <p class="text-sm font-semibold text-white">Đúng ngữ cảnh</p>
+                <p class="mt-2 text-sm leading-7 text-gray-400">Bạn nhận được phản hồi rõ ràng, đầy đủ hơn và không cần lặp lại cùng một thông tin nhiều lần.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mx-auto mt-20 max-w-screen-2xl">
+      <div class="map-surface rounded-[36px] border border-white/5 px-4 py-10 sm:px-6 lg:px-12 lg:py-12">
+        <iframe
+          id="contact-map-embed"
+          class="map-embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps?q=L%C3%AA%20H%E1%BB%93ng%20Phong%2C%20H%E1%BA%A3i%20Ph%C3%B2ng&z=15&output=embed"
+          title="Bản đồ THE BIG GYM"
+        ></iframe>
+        <div class="relative z-10 min-h-[360px]"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="w-full border-t border-white/5 bg-[#131313] px-12 pb-10 pt-20">
+    <div class="mx-auto grid max-w-screen-2xl grid-cols-1 gap-12 md:grid-cols-4">
+      <div class="md:col-span-1">
+        <div class="mb-6 font-['Noto_Serif'] text-3xl font-bold uppercase tracking-tighter text-[#f2ca50]">
+          The Big Gym
+        </div>
+        <p class="font-['Manrope'] font-light leading-relaxed tracking-wide text-gray-400">
+          Nâng tầm trải nghiệm thể hình tại Hải Phòng. Không gian đẳng cấp, dịch vụ thượng lưu.
+        </p>
+      </div>
+      <div class="space-y-6">
+        <h5 class="text-xs font-bold uppercase tracking-widest text-white">Liên kết nhanh</h5>
+        <ul class="space-y-4 font-['Manrope'] font-light tracking-wide text-gray-400">
+          <li><a class="transition-colors duration-300 hover:text-[#ffb693]" href="../index.html">Trang chủ</a></li>
+          <li><a class="transition-colors duration-300 hover:text-[#ffb693]" href="shop.html">Cửa hàng</a></li>
+          <li><a class="transition-colors duration-300 hover:text-[#ffb693]" href="baitap.html">Bài tập</a></li>
+          <li><a class="transition-colors duration-300 hover:text-[#ffb693]" href="congcu.html">Công cụ</a></li>
+        </ul>
+      </div>
+      <div class="space-y-6">
+        <h5 class="text-xs font-bold uppercase tracking-widest text-white">Địa điểm</h5>
+        <p id="contact-footer-address" class="font-['Manrope'] font-light leading-relaxed tracking-wide text-gray-400">
+          Lê Hồng Phong,<br />Hải Phòng
+        </p>
+        <p id="contact-footer-phone" class="font-bold text-primary">Hotline: 1900 8888</p>
+      </div>
+      <div class="space-y-6">
+        <h5 class="text-xs font-bold uppercase tracking-widest text-white">Đăng ký nhận tin</h5>
+        <div class="flex flex-col gap-4">
+          <input class="rounded-lg border-none bg-surface-container-high p-4 text-white placeholder:text-gray-600 focus:ring-1 focus:ring-primary" placeholder="Email của bạn" type="email" />
+          <button class="rounded-lg bg-primary py-4 text-xs font-bold uppercase tracking-widest text-on-primary transition-colors hover:bg-[#ffd76a]">Đăng ký ngay</button>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/auth-ui.js?v=20260413-footer1"></script>
+  <script>
+    (() => {
+      const API_BASE_URL = window.BIGGYM_API_BASE_URL || (window.location.protocol === "file:" ? "http://localhost:4000/api" : `${window.location.origin}/api`);
+      const defaults = {
+        shop_name: "THE BIG GYM",
+        contact_email: "thebiggym@phamductrung.id.vn",
+        contact_phone: "1900 8888",
+        address: "Lê Hồng Phong, Hải Phòng",
+        hero_subtitle: "Khi cần hành trình tập luyện bài bản hơn, không gian cao cấp hơn hoặc chỉ đơn giản là một nơi đủ nghiêm túc để bắt đầu, đội ngũ THE BIG GYM luôn sẵn sàng hỗ trợ bạn."
+      };
+      const storedUser = (() => {
+        try {
+          return JSON.parse(localStorage.getItem("biggym_user") || "null");
+        } catch (_error) {
+          return null;
+        }
+      })();
+      const storedToken = localStorage.getItem("biggym_token");
+
+      const form = document.getElementById("contact-form");
+      const feedback = document.getElementById("contact-form-feedback");
+      const submitButton = document.getElementById("contact-submit-button");
+
+      function prefillContactFormFromAccount() {
+        if (!storedUser) return;
+
+        const fullNameInput = document.getElementById("contact-full-name");
+        const emailInput = document.getElementById("contact-email-input");
+        const phoneInput = document.getElementById("contact-phone-input");
+
+        if (fullNameInput && !fullNameInput.value.trim()) {
+          fullNameInput.value = storedUser.full_name || "";
+        }
+        if (emailInput && !emailInput.value.trim()) {
+          emailInput.value = storedUser.email || "";
+        }
+        if (phoneInput && !phoneInput.value.trim()) {
+          phoneInput.value = storedUser.phone || "";
+        }
+      }
+
+      function setFeedback(type, message) {
+        feedback.className = "rounded-2xl border px-4 py-3 text-sm";
+        feedback.classList.remove("hidden");
+        if (type === "success") {
+          feedback.classList.add("border-success/30", "bg-success/10", "text-success");
+        } else {
+          feedback.classList.add("border-error/30", "bg-error/10", "text-error");
+        }
+        feedback.textContent = message;
+      }
+
+      function setText(id, value) {
+        const element = document.getElementById(id);
+        if (element && value) {
+          element.textContent = value;
+        }
+      }
+
+      function updateMapLink(address) {
+        const embed = document.getElementById("contact-map-embed");
+        if (!address) return;
+        if (embed) {
+          embed.src = `https://www.google.com/maps?q=${encodeURIComponent(address)}&z=15&output=embed`;
+        }
+      }
+
+      async function loadContactMeta() {
+        try {
+          const response = await fetch(`${API_BASE_URL}/contacts/meta`);
+          if (!response.ok) {
+            throw new Error("Khong the tai thong tin lien he");
+          }
+          const result = await response.json();
+          const meta = { ...defaults, ...(result.data || {}) };
+          setText("contact-hero-subtitle", meta.hero_subtitle || defaults.hero_subtitle);
+          setText("contact-address", meta.address || defaults.address);
+          setText("contact-phone", meta.contact_phone || defaults.contact_phone);
+          setText("contact-email", meta.contact_email || defaults.contact_email);
+          setText("contact-footer-address", meta.address || defaults.address);
+          setText("contact-footer-phone", `Hotline: ${meta.contact_phone || defaults.contact_phone}`);
+          updateMapLink(meta.address || defaults.address);
+        } catch (_error) {
+          setText("contact-address", defaults.address);
+          setText("contact-phone", defaults.contact_phone);
+          setText("contact-email", defaults.contact_email);
+          setText("contact-footer-address", defaults.address);
+          setText("contact-footer-phone", `Hotline: ${defaults.contact_phone}`);
+          updateMapLink(defaults.address);
+        }
+      }
+
+      form.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        feedback.classList.add("hidden");
+        submitButton.disabled = true;
+        submitButton.textContent = "Đang gửi...";
+
+        const payload = {
+          full_name: document.getElementById("contact-full-name").value.trim(),
+          phone: document.getElementById("contact-phone-input").value.trim(),
+          email: document.getElementById("contact-email-input").value.trim(),
+          subject: document.getElementById("contact-subject").value.trim(),
+          message: document.getElementById("contact-message").value.trim()
+        };
+
+        if (!payload.full_name || !payload.email || !payload.message) {
+          setFeedback("error", "Vui lòng điền họ tên, email và nội dung liên hệ.");
+          submitButton.disabled = false;
+          submitButton.textContent = "Gửi lời nhắn ngay";
+          return;
+        }
+
+        try {
+          const headers = { "Content-Type": "application/json" };
+          if (storedToken) {
+            headers.Authorization = `Bearer ${storedToken}`;
+          }
+
+          const response = await fetch(`${API_BASE_URL}/contacts`, {
+            method: "POST",
+            headers,
+            body: JSON.stringify(payload)
+          });
+
+          if (!response.ok) {
+            throw new Error("Gui lien he that bai");
+          }
+
+          form.reset();
+          setFeedback("success", "Đã gửi lời nhắn thành công. Đội ngũ THE BIG GYM sẽ phản hồi bạn sớm nhất có thể.");
+        } catch (_error) {
+          setFeedback("error", "Không thể gửi lời nhắn lúc này. Vui lòng thử lại sau hoặc liên hệ trực tiếp qua hotline.");
+        } finally {
+          submitButton.disabled = false;
+          submitButton.textContent = "Gửi lời nhắn ngay";
+        }
+      });
+
+      prefillContactFormFromAccount();
+      loadContactMeta();
+    })();
+  </script>
+</body>
+</html>

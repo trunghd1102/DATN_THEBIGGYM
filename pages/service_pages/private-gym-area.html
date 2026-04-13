@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html class="dark page-preload" lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style id="page-preload-style">
+    html.page-preload body { opacity: 0; }
+    body { transition: opacity .14s ease; }
+  </style>
+  <script>
+    (() => {
+      const reveal = () => document.documentElement.classList.remove("page-preload");
+      window.addEventListener("DOMContentLoaded", reveal, { once: true });
+      window.addEventListener("load", reveal, { once: true });
+      setTimeout(reveal, 1200);
+    })();
+  </script>
+  <title>Private Gym Area | THE BIG GYM</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            background: "#121212",
+            panel: "#22201e",
+            primary: "#f2ca50",
+            secondary: "#ffb693",
+            copy: "#ece8e2"
+          },
+          boxShadow: {
+            cinematic: "0 30px 80px rgba(0,0,0,0.35)"
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    :root { --biggym-nav-height: 88px; }
+    html { scroll-behavior: smooth; }
+    body { font-family: "Manrope", sans-serif; background: #121212; color: #ece8e2; }
+    .serif { font-family: "Noto Serif", serif; }
+    .material-symbols-outlined {
+      font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 24;
+      vertical-align: middle;
+    }
+    .mega-menu { opacity: 0; visibility: hidden; transition: all .28s ease; }
+    .group:hover .mega-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+    .soft-grid {
+      background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 44px 44px;
+    }
+    .section-rule {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(242, 202, 80, 0.5), transparent);
+    }
+    .image-frame {
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.02);
+    }
+    .image-frame img { transition: transform .8s ease; }
+    .image-frame:hover img { transform: scale(1.04); }
+  </style>
+</head>
+<body class="bg-background text-copy selection:bg-primary selection:text-[#2b2000]">
+  <nav class="fixed inset-x-0 top-0 z-50 bg-[#121212]/82 backdrop-blur-md shadow-2xl shadow-black/25">
+    <div class="mx-auto flex max-w-screen-2xl items-center justify-between px-4 py-4 sm:px-6 lg:px-12 lg:py-6">
+      <a class="serif text-lg font-bold uppercase tracking-tight text-primary sm:text-xl md:text-2xl" href="../../index.html">THE BIG GYM</a>
+      <div class="hidden items-center gap-10 font-['Noto_Serif'] text-sm uppercase tracking-[0.28em] md:flex">
+        <a class="text-gray-400 transition-colors hover:text-primary" href="../../index.html">Trang chủ</a>
+        <div class="group relative">
+          <a class="flex items-center gap-1 border-b border-primary pb-1 text-primary" href="../../index.html#premium-services">
+            Dịch vụ <span class="material-symbols-outlined text-sm">expand_more</span>
+          </a>
+          <div class="mega-menu absolute left-1/2 top-full mt-4 grid w-[860px] -translate-x-1/2 translate-y-2 grid-cols-3 gap-8 rounded-3xl border border-white/10 bg-[#181818] p-8 shadow-2xl shadow-black/40">
+            <div class="space-y-4">
+              <p class="text-xs font-bold uppercase tracking-[0.3em] text-primary">Khu vực nổi bật</p>
+              <a class="block text-lg font-semibold text-white" href="private-gym-area.html">Private Gym Area</a>
+              <a class="block text-sm text-gray-400 transition-colors hover:text-primary" href="yoga-sanctuary.html">Yoga Sanctuary</a>
+              <a class="block text-sm text-gray-400 transition-colors hover:text-primary" href="spa-recovery.html">Spa Recovery</a>
+              <a class="block text-sm text-gray-400 transition-colors hover:text-primary" href="premium-bathroom.html">Phòng tắm cao cấp</a>
+            </div>
+            <div class="space-y-4">
+              <p class="text-xs font-bold uppercase tracking-[0.3em] text-primary">Điểm nhấn</p>
+              <p class="text-sm leading-7 text-gray-300">Không gian riêng theo khung giờ, PT chuẩn bị giáo án trước buổi tập và lưu thông tin vận động cho từng thành viên.</p>
+              <ul class="space-y-3 text-sm text-gray-400">
+                <li>Giới hạn lưu lượng để giữ nhịp tập tập trung.</li>
+                <li>Thiết bị chọn lọc cho strength và body recomposition.</li>
+                <li>Chuyển tiếp liền mạch sang recovery và phòng tắm.</li>
+              </ul>
+            </div>
+            <div class="image-frame rounded-[28px]">
+              <img alt="Private Gym Area" class="h-full min-h-[240px] w-full object-cover" src="../../assets/images/weight-room.jpg" />
+            </div>
+          </div>
+        </div>
+        <a class="text-gray-400 transition-colors hover:text-primary" href="../baitap.html">Bài tập</a>
+        <a class="text-gray-400 transition-colors hover:text-primary" href="../shop.html">Cửa hàng</a>
+        <a class="text-gray-400 transition-colors hover:text-primary" href="../congcu.html">Công cụ</a>
+      </div>
+      <div class="flex items-center gap-2 md:gap-3">
+        <a class="shrink-0 rounded-full bg-gradient-to-r from-primary to-[#d7ae2e] px-4 py-2.5 text-[10px] font-bold uppercase tracking-[0.18em] text-[#2e2200] sm:px-5 md:px-8 md:py-3 md:text-xs" href="../shop.html">Khám phá gói tập</a>
+        <a class="hidden min-h-[48px] min-w-[176px] items-center justify-center rounded-full border border-primary/40 px-6 py-3 text-xs font-bold uppercase tracking-widest text-primary transition-colors duration-300 hover:bg-primary hover:text-[#3c2f00] md:inline-flex" data-auth-link data-base-prefix="../../" href="../../pages/login.html">Đăng nhập</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <section class="relative overflow-hidden pt-[var(--biggym-nav-height)]">
+      <div class="absolute inset-0">
+        <img alt="Private Gym Hero" class="h-full w-full object-cover object-center" src="../../assets/images/weight-room.jpg" />
+        <div class="absolute inset-0 bg-gradient-to-r from-[#121212] via-[#121212]/84 to-[#121212]/30"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-[#121212] via-transparent to-black/20"></div>
+      </div>
+      <div class="relative mx-auto flex min-h-[calc(100svh-var(--biggym-nav-height))] max-w-screen-2xl items-end px-4 pb-14 pt-10 sm:px-6 lg:items-center lg:px-12 lg:pb-0">
+        <div class="max-w-3xl space-y-6">
+          <p class="text-xs font-bold uppercase tracking-[0.36em] text-secondary sm:text-sm">Private Training Suite</p>
+          <h1 class="serif text-5xl font-bold leading-[0.9] tracking-tight sm:text-6xl md:text-7xl xl:text-[6.5rem]">
+            PRIVATE GYM AREA<br />
+            <span class="text-primary italic">Đặc quyền riêng tư</span><br />
+            tuyệt đối
+          </h1>
+          <p class="max-w-2xl text-base leading-8 text-gray-300 sm:text-lg">
+            Một không gian tập luyện được điều tiết theo lịch hẹn, giới hạn người dùng trong từng khung giờ và tối ưu cho những buổi tập cần sự tập trung cao. Tại đây, từng buổi kéo, đẩy, squat hay conditioning đều được bao bọc bởi sự yên tĩnh, kiểm soát và tiêu chuẩn phục vụ của một gym cao cấp.
+          </p>
+          <div class="flex flex-col items-start gap-4 pt-2 sm:flex-row sm:items-center">
+            <a class="rounded-full bg-primary px-7 py-3 text-xs font-bold uppercase tracking-[0.22em] text-[#342700] transition-colors hover:bg-[#ffd86d]" href="#private-journey">Xem trải nghiệm</a>
+            <a class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.22em] text-white transition-colors hover:text-primary" href="../shop.html">
+              <span class="material-symbols-outlined text-base">north_east</span>
+              Chọn gói phù hợp
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-[#141414] py-24">
+      <div class="mx-auto grid max-w-screen-2xl gap-10 px-4 sm:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:px-12">
+        <div class="space-y-7">
+          <p class="text-xs font-bold uppercase tracking-[0.3em] text-primary">Một buổi private không chỉ là một buổi tập</p>
+          <h2 class="serif text-4xl leading-tight sm:text-5xl">Thành đường của hiệu suất, kỷ luật và sự kín đáo</h2>
+          <p class="max-w-2xl text-base leading-8 text-gray-300">
+            Private Gym Area được thiết kế cho những thành viên muốn chủ động nhịp tập, hạn chế hoàn toàn cảm giác chen chúc và đặt chất lượng vận động lên trên số lượng máy móc. Khu vực này phù hợp với người mới cần được kèm sát, người bận rộn cần lịch hẹn chính xác, và cả những người tập lâu năm đang theo đuổi các mục tiêu sức mạnh hoặc body recomposition ở cấp độ nghiêm túc.
+          </p>
+          <div class="section-rule w-full"></div>
+          <div class="grid gap-8 md:grid-cols-3">
+            <div class="space-y-3">
+              <p class="text-xs font-bold uppercase tracking-[0.24em] text-secondary">Trước buổi tập</p>
+              <p class="text-sm leading-7 text-gray-400">PT rà lại mục tiêu, chuẩn bị giáo án và điều chỉnh khu vực dụng cụ để thành viên bước vào buổi tập mà không bị ngắt nhịp.</p>
+            </div>
+            <div class="space-y-3">
+              <p class="text-xs font-bold uppercase tracking-[0.24em] text-secondary">Trong buổi tập</p>
+              <p class="text-sm leading-7 text-gray-400">Động tác được sửa trực tiếp, tiến độ được kiểm soát theo set và mức tải, đồng thời toàn bộ không gian vẫn giữ được sự yên tĩnh cần thiết.</p>
+            </div>
+            <div class="space-y-3">
+              <p class="text-xs font-bold uppercase tracking-[0.24em] text-secondary">Sau buổi tập</p>
+              <p class="text-sm leading-7 text-gray-400">Thành viên có thể chuyển mượt sang khu recovery hoặc phòng tắm cao cấp mà không rời khỏi trải nghiệm sang trọng chung.</p>
+            </div>
+          </div>
+        </div>
+        <div class="image-frame rounded-[32px] shadow-cinematic">
+          <img alt="Hero Training" class="h-full min-h-[540px] w-full object-cover object-center" src="../../assets/images/hero-training.jpg" />
+        </div>
+      </div>
+    </section>
+
+    <section class="soft-grid bg-background py-24" id="private-journey">
+      <div class="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-12">
+        <div class="mb-12 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
+          <div class="space-y-4">
+            <p class="text-xs font-bold uppercase tracking-[0.3em] text-primary">Không gian chi tiết</p>
+            <h2 class="serif text-4xl sm:text-5xl">Mọi góc nhìn đều phục vụ cho cảm giác chuyên biệt</h2>
+          </div>
+          <p class="max-w-2xl text-sm leading-7 text-gray-400">
+            Trang thiết bị, ánh sáng, mật độ người dùng và chuỗi tiện nghi hậu tập được sắp đặt để khu vực này khác hoàn toàn cảm giác của một floor gym đại trà.
+          </p>
+        </div>
+        <div class="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
+          <div class="grid gap-6">
+            <div class="image-frame rounded-[30px]">
+              <img alt="Private room overview" class="h-[420px] w-full object-cover object-center" src="../../assets/images/weight-room.jpg" />
+            </div>
+            <div class="grid gap-6 md:grid-cols-2">
+              <div class="image-frame rounded-[28px]">
+                <img alt="Training detail" class="h-[280px] w-full object-cover object-center" src="../../assets/images/hero-training.jpg" />
+              </div>
+              <div class="rounded-[28px] border border-white/10 bg-white/[0.03] p-6">
+                <p class="text-xs font-bold uppercase tracking-[0.24em] text-primary">Điều làm nên khác biệt</p>
+                <ul class="mt-6 space-y-4 text-sm leading-7 text-gray-300">
+                  <li>Giới hạn lưu lượng trong khung giờ để đảm bảo không gian tập không bị phá nhịp.</li>
+                  <li>PT có thể theo dõi sát tốc độ và form mà không phải cạnh tranh âm thanh với không gian đông người.</li>
+                  <li>Thiết bị được chọn lọc theo mục tiêu hiệu suất thay vì dàn trải cho số đông.</li>
+                  <li>Thành viên phù hợp với phong cách tập kín đáo, chính xác và không bị xao nhãng.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="grid gap-6">
+            <div class="rounded-[30px] border border-primary/15 bg-primary/6 p-7">
+              <p class="text-xs font-bold uppercase tracking-[0.3em] text-primary">Chuẩn private session</p>
+              <div class="mt-7 space-y-6">
+                <div>
+                  <p class="text-lg font-semibold text-white">1. Tiếp nhận mục tiêu</p>
+                  <p class="mt-2 text-sm leading-7 text-gray-300">Từ giảm mỡ, tăng cơ đến cải thiện movement pattern, mọi buổi tập đều có mục đích được nhắc lại rõ ràng trước khi bắt đầu.</p>
+                </div>
+                <div>
+                  <p class="text-lg font-semibold text-white">2. Thực thi có giám sát</p>
+                  <p class="mt-2 text-sm leading-7 text-gray-300">Các nhóm bài chính được đặt đúng trình tự để thành viên tiết kiệm năng lượng ra quyết định và tập trung hoàn toàn vào hiệu suất.</p>
+                </div>
+                <div>
+                  <p class="text-lg font-semibold text-white">3. Hoàn tất trong trạng thái gọn gàng</p>
+                  <p class="mt-2 text-sm leading-7 text-gray-300">Kết thúc buổi tập là sự chuyển tiếp mượt từ floor sang recovery hoặc phòng tắm, thay vì rời đi trong cảm giác vội vã.</p>
+                </div>
+              </div>
+            </div>
+            <div class="image-frame rounded-[30px]">
+              <img alt="Member portrait" class="h-[330px] w-full object-cover object-center" src="../../assets/images/customer-review-1.jpg" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-[#151515] py-24">
+      <div class="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-12">
+        <div class="mb-14 max-w-3xl space-y-4">
+          <p class="text-xs font-bold uppercase tracking-[0.3em] text-primary">Tiện nghi thượng lưu</p>
+          <h2 class="serif text-4xl sm:text-5xl">Một chuỗi trải nghiệm khép kín chứ không chỉ là một căn phòng nhiều máy</h2>
+        </div>
+        <div class="grid gap-px overflow-hidden rounded-[34px] border border-white/10 bg-white/10 lg:grid-cols-4">
+          <div class="bg-[#171717] p-7">
+            <p class="text-sm font-bold uppercase tracking-[0.18em] text-primary">Lịch hẹn tinh gọn</p>
+            <p class="mt-4 text-sm leading-7 text-gray-400">Khung giờ vận hành giúp thành viên vào tập, hoàn tất và rời đi đúng nhịp của một lịch trình bận rộn.</p>
+          </div>
+          <div class="bg-[#171717] p-7">
+            <p class="text-sm font-bold uppercase tracking-[0.18em] text-primary">PT đồng hành sâu</p>
+            <p class="mt-4 text-sm leading-7 text-gray-400">Một buổi private cho phép sửa chi tiết kỹ thuật, xây lịch tăng tải và bám mục tiêu dài hạn chặt hơn hẳn hình thức tập đông.</p>
+          </div>
+          <div class="bg-[#171717] p-7">
+            <p class="text-sm font-bold uppercase tracking-[0.18em] text-primary">Không gian kín đáo</p>
+            <p class="mt-4 text-sm leading-7 text-gray-400">Phù hợp với người cần sự riêng tư, không muốn quá nhiều ánh nhìn hoặc tiếng ồn làm gãy sự tập trung.</p>
+          </div>
+          <div class="bg-[#171717] p-7">
+            <p class="text-sm font-bold uppercase tracking-[0.18em] text-primary">Liên kết recovery</p>
+            <p class="mt-4 text-sm leading-7 text-gray-400">Sau buổi tập, thành viên có thể đi tiếp sang các dịch vụ thư giãn và chăm sóc mà không làm đứt quãng trải nghiệm cao cấp.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-background py-24">
+      <div class="mx-auto max-w-5xl px-4 text-center sm:px-6">
+        <p class="text-4xl text-primary">“</p>
+        <blockquote class="serif text-3xl leading-relaxed text-white sm:text-4xl">
+          Private Gym Area dành cho những người muốn buổi tập của mình được điều hành với cùng mức nghiêm túc như cách họ điều hành công việc.
+        </blockquote>
+        <p class="mt-6 text-xs font-bold uppercase tracking-[0.28em] text-gray-500">THE BIG GYM EXPERIENCE</p>
+      </div>
+    </section>
+
+    <section class="px-4 pb-24 sm:px-6 lg:px-12">
+      <div class="mx-auto grid max-w-screen-2xl gap-8 rounded-[36px] border border-primary/10 bg-gradient-to-r from-[#2a2618] via-[#1f1d17] to-[#131313] p-8 shadow-cinematic lg:grid-cols-[1fr_auto] lg:items-center lg:p-12">
+        <div class="space-y-4">
+          <p class="text-xs font-bold uppercase tracking-[0.32em] text-primary">Bắt đầu hành trình riêng của bạn</p>
+          <h2 class="serif text-4xl sm:text-5xl">Đặt một trải nghiệm tập có chủ đích, kín đáo và đúng chuẩn cao cấp</h2>
+          <p class="max-w-2xl text-sm leading-7 text-gray-300">Nếu bạn muốn tập trong một không gian được kiểm soát tốt hơn, ít xao nhãng hơn và có người đồng hành sát hơn, Private Gym Area là điểm khởi đầu hợp lý nhất.</p>
+        </div>
+        <div class="flex flex-col gap-3 sm:flex-row lg:flex-col">
+          <a class="inline-flex items-center justify-center rounded-full bg-primary px-6 py-3 text-xs font-bold uppercase tracking-[0.18em] text-[#352700]" href="../shop.html">Xem gói tập</a>
+          <a class="inline-flex items-center justify-center rounded-full border border-white/10 px-6 py-3 text-xs font-bold uppercase tracking-[0.18em] text-white transition-colors hover:border-primary/30 hover:text-primary" href="../../index.html#premium-services">Khám phá khu vực khác</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-white/5 bg-[#111111] px-4 py-10 sm:px-6 lg:px-12">
+    <div class="mx-auto flex max-w-screen-2xl flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+      <div>
+        <p class="serif text-xl font-bold uppercase tracking-tight text-primary">THE BIG GYM HẢI PHÒNG</p>
+        <p class="mt-2 text-xs uppercase tracking-[0.18em] text-gray-500">Private performance. Premium recovery. Intentional living.</p>
+      </div>
+      <div class="flex flex-wrap gap-5 text-xs uppercase tracking-[0.18em] text-gray-400">
+        <a class="transition-colors hover:text-primary" href="../../index.html">Trang chủ</a>
+        <a class="transition-colors hover:text-primary" href="../shop.html">Cửa hàng</a>
+        <a class="transition-colors hover:text-primary" href="../congcu.html">Công cụ</a>
+        <a class="transition-colors hover:text-primary" href="../baitap.html">Bài tập</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/auth-ui.js?v=20260413-footer1"></script>
+</body>
+</html>

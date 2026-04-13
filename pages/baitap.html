@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html class="dark page-preload" lang="vi">
+<head>
+<meta charset="utf-8"/>
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/><style id="page-preload-style">
+  html.page-preload body { opacity: 0; }
+  body { transition: opacity .12s ease; }
+</style>
+<script>
+  (() => {
+    const reveal = () => document.documentElement.classList.remove("page-preload");
+    window.addEventListener("DOMContentLoaded", reveal, { once: true });
+    window.addEventListener("load", reveal, { once: true });
+    setTimeout(reveal, 1200);
+  })();
+</script>
+<title>THE BIG GYM | Bài Tập</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&amp;family=Manrope:wght@200;300;400;600;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container": "#201f1f",
+              "primary-container": "#d4af37",
+              "on-primary-container": "#554300",
+              "on-primary-fixed": "#241a00",
+              "surface": "#131313",
+              "secondary-fixed": "#ffdbcc",
+              "surface-dim": "#131313",
+              "on-secondary-container": "#4b1b00",
+              "primary": "#f2ca50",
+              "outline": "#99907c",
+              "inverse-on-surface": "#313030",
+              "surface-container-highest": "#353534",
+              "on-tertiary-container": "#673a0c",
+              "primary-fixed": "#ffe088",
+              "outline-variant": "#4d4635",
+              "secondary-container": "#ea6b1e",
+              "error-container": "#93000a",
+              "surface-bright": "#393939",
+              "background": "#131313",
+              "surface-container-high": "#2a2a2a",
+              "on-error": "#690005",
+              "on-tertiary": "#4c2700",
+              "surface-tint": "#e9c349",
+              "on-primary": "#3c2f00",
+              "on-secondary-fixed": "#351000",
+              "secondary-fixed-dim": "#ffb693",
+              "on-tertiary-fixed": "#2e1500",
+              "tertiary": "#ffc290",
+              "error": "#ffb4ab",
+              "surface-variant": "#353534",
+              "inverse-primary": "#735c00",
+              "tertiary-fixed": "#ffdcc1",
+              "on-background": "#e5e2e1",
+              "surface-container-lowest": "#0e0e0e",
+              "surface-container-low": "#1c1b1b",
+              "on-primary-fixed-variant": "#574500",
+              "on-tertiary-fixed-variant": "#693c0e",
+              "tertiary-fixed-dim": "#fbb980",
+              "secondary": "#ffb693",
+              "on-secondary": "#562000",
+              "on-surface": "#e5e2e1",
+              "primary-fixed-dim": "#e9c349",
+              "on-secondary-fixed-variant": "#7a3000",
+              "on-surface-variant": "#d0c5af",
+              "tertiary-container": "#e5a66f",
+              "on-error-container": "#ffdad6",
+              "inverse-surface": "#e5e2e1"
+            },
+            borderRadius: {
+              DEFAULT: "0.125rem",
+              lg: "0.25rem",
+              xl: "0.5rem",
+              full: "0.75rem"
+            },
+            fontFamily: {
+              headline: ["Noto Serif"],
+              body: ["Manrope"],
+              label: ["Manrope"]
+            }
+          }
+        }
+      };
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Manrope', sans-serif; background-color: #131313; color: #e5e2e1; }
+        .serif { font-family: 'Noto Serif', serif; }
+        .mega-menu { opacity: 0; visibility: hidden; transition: all 0.3s ease; }
+        .group:hover .mega-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+        .editorial-shadow { box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.5); }
+    </style>
+</head>
+<body class="bg-background text-on-background selection:bg-primary selection:text-on-primary">
+<nav class="fixed top-0 w-full z-50 bg-[#131313]/80 backdrop-blur-md shadow-2xl shadow-black/20">
+<div class="flex justify-between items-center px-12 py-6 max-w-screen-2xl mx-auto">
+<div class="text-2xl font-bold text-[#f2ca50] tracking-tighter serif uppercase">
+                THE BIG GYM
+            </div>
+<div class="hidden md:flex items-center gap-10 font-['Noto_Serif'] uppercase tracking-widest text-sm">
+<a class="text-gray-400 hover:text-[#f2ca50] transition-colors duration-300" href="../index.html">Trang chủ</a>
+<div class="group relative">
+<a class="text-gray-400 hover:text-[#f2ca50] transition-colors duration-300 pb-1 flex items-center gap-1" href="#">
+                        Dịch vụ <span class="material-symbols-outlined text-xs">expand_more</span>
+</a>
+<div class="mega-menu absolute top-full left-1/2 -translate-x-1/2 w-[800px] mt-4 bg-surface-container-low p-8 grid grid-cols-3 gap-8 shadow-2xl rounded-lg translate-y-2">
+<div>
+<h4 class="text-primary mb-4 font-bold border-b border-white/10 pb-2">Huấn luyện</h4>
+<ul class="space-y-3 text-gray-400 normal-case tracking-normal">
+<li class="hover:text-primary cursor-pointer transition-colors">Personal Training 1:1</li>
+<li class="hover:text-primary cursor-pointer transition-colors">Yoga Sanctuary</li>
+</ul>
+</div>
+<div>
+<h4 class="text-primary mb-4 font-bold border-b border-white/10 pb-2">Tiện nghi</h4>
+<ul class="space-y-3 text-gray-400 normal-case tracking-normal">
+<li class="hover:text-primary cursor-pointer transition-colors">Spa Recovery</li>
+<li class="hover:text-primary cursor-pointer transition-colors">Tủ đồ thông minh</li>
+</ul>
+</div>
+<div class="relative overflow-hidden rounded-md group/img">
+<img alt="Gym Luxury" class="w-full h-full object-cover opacity-60 group-hover/img:scale-110 transition-transform duration-700" src="../assets/images/mega-menu.jpg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-4">
+<span class="text-white text-xs font-bold uppercase">Ưu đãi thành viên mới</span>
+</div>
+</div>
+</div>
+</div>
+<a class="text-[#f2ca50] border-b-2 border-[#f2ca50] pb-1" href="baitap.html">Bài tập</a>
+<a class="text-gray-400 hover:text-[#f2ca50] transition-colors duration-300" href="shop.html">Cửa hàng</a>
+<a class="text-gray-400 hover:text-[#f2ca50] transition-colors duration-300" href="congcu.html">Công cụ</a>
+<a class="text-gray-400 hover:text-[#f2ca50] transition-colors duration-300" href="contact.html">Liên hệ</a>
+</div>
+<div class="flex items-center gap-3">
+<button class="bg-gradient-to-r from-[#f2ca50] to-[#d4af37] text-[#3c2f00] px-8 py-3 font-bold uppercase tracking-widest text-xs rounded-full hover:scale-105 transition-transform duration-300 shadow-lg shadow-[#f2ca50]/20">
+                Đặt lịch PT
+            </button>
+<a class="border border-[#f2ca50]/40 text-[#f2ca50] px-6 py-3 font-bold uppercase tracking-widest text-xs rounded-full hover:bg-[#f2ca50] hover:text-[#3c2f00] transition-colors duration-300" data-auth-link="" data-base-prefix="../" href="login.html">
+                Đăng nhập
+            </a>
+</div>
+</div>
+</nav>
+
+<main class="pt-32">
+<section class="max-w-screen-2xl mx-auto px-12 mb-24 grid md:grid-cols-2 gap-12 items-center">
+<div class="relative">
+<span class="text-secondary font-medium tracking-[0.3em] uppercase text-xs mb-4 block">Thư viện chuyển động</span>
+<h1 class="serif text-6xl md:text-8xl font-bold leading-tight mb-8">Kỷ luật <br/><span class="text-primary italic">khoa học</span></h1>
+<p class="text-on-surface-variant max-w-md text-lg leading-relaxed font-light">
+                    Tại The Big Gym, mỗi bài tập đều được tuyển chọn theo mục tiêu rõ ràng: tăng cơ, giảm mỡ, cải thiện kỹ thuật và phục hồi bền vững. Đây là thư viện động tác cốt lõi để bạn xây dựng một chương trình tập đúng chuẩn.
+                </p>
+</div>
+<div class="relative aspect-[4/4.2] max-h-[560px] overflow-hidden rounded-xl editorial-shadow">
+<img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000" data-alt="dramatic low-key lighting of a professional athlete performing a heavy deadlift in a luxury dark gym setting with golden highlights" src="../assets/images/exercise/exercises-hero.jpg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent"></div>
+</div>
+</section>
+
+<section class="max-w-screen-2xl mx-auto px-12 mb-16">
+<div class="bg-surface-container-low p-8 rounded-xl flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
+<div>
+<h2 class="serif text-2xl mb-2 text-primary">Bộ lọc chuyên sâu</h2>
+<p class="text-on-surface-variant text-sm uppercase tracking-widest">Lựa chọn lộ trình tối ưu cho mục tiêu của bạn</p>
+</div>
+<div class="flex-1 space-y-5">
+<div>
+<p class="mb-3 text-[10px] font-bold uppercase tracking-[0.22em] text-gray-500">Nhóm bài tập</p>
+<div class="flex flex-wrap gap-4" id="exercise-category-filters"></div>
+</div>
+<div>
+<p class="mb-3 text-[10px] font-bold uppercase tracking-[0.22em] text-gray-500">Cấp độ</p>
+<div class="flex flex-wrap items-center gap-4">
+<div class="flex flex-wrap gap-4" id="exercise-level-filters"></div>
+<span class="text-xs font-bold uppercase tracking-[0.2em] text-primary" id="exercise-results-count">Đang tải...</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="max-w-screen-2xl mx-auto px-12 mb-32">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12" id="exercise-grid"></div>
+<div class="hidden rounded-2xl border border-white/10 bg-surface-container-low px-6 py-8 text-center" id="exercise-empty-state">
+<p class="serif text-3xl text-primary">Chưa có bài tập phù hợp</p>
+<p class="mt-4 text-sm leading-relaxed text-gray-400">Thay đổi bộ lọc hoặc kiểm tra lại dữ liệu bài tập từ hệ thống.</p>
+</div>
+</section>
+</main>
+
+<footer class="w-full pt-20 pb-10 px-12 border-t border-white/5 bg-[#131313]">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 max-w-screen-2xl mx-auto">
+<div class="md:col-span-1">
+<div class="font-['Noto_Serif'] text-3xl text-[#f2ca50] mb-6 font-bold uppercase tracking-tighter">
+                    The Big Gym
+                </div>
+<p class="font-['Manrope'] text-gray-400 font-light tracking-wide leading-relaxed">
+                    Nâng tầm trải nghiệm thực hành tại Hải Phòng. Không gian đẳng cấp, dịch vụ thượng lưu.
+                </p>
+</div>
+<div class="space-y-6">
+<h5 class="text-white font-bold uppercase text-xs tracking-widest">Liên kết nhanh</h5>
+<ul class="font-['Manrope'] text-gray-400 font-light tracking-wide space-y-4">
+<li><a class="hover:text-[#ffb693] transition-colors duration-300" href="../index.html">Trang chủ</a></li>
+<li><a class="hover:text-[#ffb693] transition-colors duration-300" href="baitap.html">Bài tập</a></li>
+<li><a class="hover:text-[#ffb693] transition-colors duration-300" href="#">Hỏi đáp</a></li>
+<li><a class="hover:text-[#ffb693] transition-colors duration-300" href="#">Điều khoản dịch vụ</a></li>
+</ul>
+</div>
+<div class="space-y-6">
+<h5 class="text-white font-bold uppercase text-xs tracking-widest">Địa điểm</h5>
+<p class="font-['Manrope'] text-gray-400 font-light tracking-wide leading-relaxed">
+                    219, Hồ Sen,<br/>Phường Lê Chân, TP. Hải Phòng
+                </p>
+<p class="text-primary font-bold">Hotline: 1900 1009</p>
+</div>
+<div class="space-y-6">
+<h5 class="text-white font-bold uppercase text-xs tracking-widest">Đăng ký nhận tin</h5>
+<div class="flex flex-col gap-4">
+<input class="bg-surface-container-high border-none rounded-lg p-4 text-white placeholder:text-gray-600 focus:ring-1 focus:ring-primary" placeholder="Email của bạn" type="email"/>
+<button class="bg-primary text-on-primary font-bold py-4 rounded-lg uppercase text-xs tracking-widest hover:bg-primary-fixed transition-colors">Đăng ký ngay</button>
+</div>
+</div>
+</div>
+<div class="max-w-screen-2xl mx-auto mt-20 pt-8 border-t border-white/5 flex flex-col md:row justify-between items-center gap-4">
+<span class="font-['Manrope'] text-gray-400 font-light tracking-wide text-xs">© 2024 THE BIG GYM HẢI PHÒNG. ALL RIGHTS RESERVED.</span>
+<div class="flex gap-6">
+<a class="text-gray-500 hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">social_leaderboard</span></a>
+<a class="text-gray-500 hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">photo_camera</span></a>
+<a class="text-gray-500 hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">smart_display</span></a>
+</div>
+</div>
+</footer>
+
+<script src="../assets/js/exercise-listing.js"></script>
+<script src="../assets/js/auth-ui.js?v=20260413-footer1"></script>
+</body>
+</html>
+
+

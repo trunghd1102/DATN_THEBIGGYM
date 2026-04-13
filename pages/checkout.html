@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html class="dark page-preload" lang="vi">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <style id="page-preload-style">
+    html.page-preload body { opacity: 0; }
+    body { transition: opacity .12s ease; }
+  </style>
+  <script>
+    (() => {
+      const reveal = () => document.documentElement.classList.remove("page-preload");
+      window.addEventListener("DOMContentLoaded", reveal, { once: true });
+      window.addEventListener("load", reveal, { once: true });
+      setTimeout(reveal, 1200);
+    })();
+  </script>
+  <title>Thanh toán | THE BIG GYM</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&family=Manrope:wght@300;400;500;600;800&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            surface: "#131313",
+            background: "#131313",
+            primary: "#f2ca50",
+            secondary: "#ffb693",
+            "on-primary": "#3c2f00",
+            "on-background": "#e5e2e1",
+            "on-surface": "#e5e2e1",
+            "on-surface-variant": "#d0c5af",
+            "surface-container-low": "#1c1b1b",
+            "surface-container": "#201f1f",
+            "surface-container-high": "#2a2a2a",
+            "outline-variant": "#4d4635",
+            outline: "#99907c",
+            error: "#ffb4ab",
+            success: "#86efac"
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 24;
+      vertical-align: middle;
+    }
+    body { font-family: "Manrope", sans-serif; background: #131313; color: #e5e2e1; }
+    .serif { font-family: "Noto Serif", serif; }
+    .mega-menu { opacity: 0; visibility: hidden; transition: all 0.3s ease; }
+    .group:hover .mega-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+    .checkout-hero {
+      background:
+        radial-gradient(circle at top right, rgba(242, 202, 80, 0.12), transparent 32%),
+        linear-gradient(135deg, rgba(255,255,255,0.04), rgba(255,255,255,0));
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background selection:bg-primary selection:text-on-primary">
+  <nav class="fixed top-0 z-50 w-full bg-[#131313]/80 backdrop-blur-md shadow-2xl shadow-black/20">
+    <div class="mx-auto flex max-w-screen-2xl items-center justify-between px-12 py-6">
+      <div class="serif text-2xl font-bold uppercase tracking-tighter text-primary">THE BIG GYM</div>
+      <div class="hidden items-center gap-10 font-['Noto_Serif'] text-sm uppercase tracking-widest md:flex">
+        <a class="text-gray-400 transition-colors duration-300 hover:text-primary" href="../index.html">Trang chủ</a>
+        <div class="group relative">
+          <a class="flex items-center gap-1 pb-1 text-gray-400 transition-colors duration-300 hover:text-primary" href="#">
+            Dịch vụ <span class="material-symbols-outlined text-xs">expand_more</span>
+          </a>
+          <div class="mega-menu absolute left-1/2 top-full mt-4 grid w-[800px] -translate-x-1/2 translate-y-2 grid-cols-3 gap-8 rounded-lg bg-surface-container-low p-8 shadow-2xl">
+            <div>
+              <h4 class="mb-4 border-b border-white/10 pb-2 font-bold text-primary">Huấn luyện</h4>
+              <ul class="space-y-3 tracking-normal text-gray-400">
+                <li class="cursor-pointer transition-colors hover:text-primary">Personal Training 1:1</li>
+                <li class="cursor-pointer transition-colors hover:text-primary">Yoga Sanctuary</li>
+              </ul>
+            </div>
+            <div>
+              <h4 class="mb-4 border-b border-white/10 pb-2 font-bold text-primary">Tiện nghi</h4>
+              <ul class="space-y-3 tracking-normal text-gray-400">
+                <li class="cursor-pointer transition-colors hover:text-primary">Spa Recovery</li>
+                <li class="cursor-pointer transition-colors hover:text-primary">Tủ đồ thông minh</li>
+              </ul>
+            </div>
+            <div class="group/img relative overflow-hidden rounded-md">
+              <img alt="Ưu đãi hội viên" class="h-full w-full object-cover opacity-60 transition-transform duration-700 group-hover/img:scale-110" src="../assets/images/hero-training.jpg"/>
+              <div class="absolute inset-0 flex items-end bg-gradient-to-t from-black/80 to-transparent p-4">
+                <span class="text-xs font-bold uppercase text-white">Ưu đãi thành viên mới</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a class="text-gray-400 transition-colors duration-300 hover:text-primary" href="baitap.html">Bài tập</a>
+        <a class="border-b-2 border-primary pb-1 text-primary" href="shop.html">Cửa hàng</a>
+        <a class="text-gray-400 transition-colors duration-300 hover:text-primary" href="congcu.html">Công cụ</a>
+        <a class="text-gray-400 transition-colors duration-300 hover:text-primary" href="contact.html">Liên hệ</a>
+      </div>
+      <div class="flex items-center gap-3">
+        <button class="bg-gradient-to-r from-[#f2ca50] to-[#d4af37] text-[#3c2f00] px-8 py-3 font-bold uppercase tracking-widest text-xs rounded-full hover:scale-105 transition-transform duration-300 shadow-lg shadow-[#f2ca50]/20">
+          Đặt lịch PT
+        </button>
+        <a class="border border-[#f2ca50]/40 text-[#f2ca50] px-6 py-3 font-bold uppercase tracking-widest text-xs rounded-full hover:bg-[#f2ca50] hover:text-[#3c2f00] transition-colors duration-300" data-auth-link="" data-base-prefix="../" href="login.html">
+          Đăng nhập
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="mx-auto max-w-screen-2xl px-6 pb-20 pt-32 md:px-12">
+    <section class="checkout-hero mb-12 overflow-hidden rounded-[32px] border border-white/5 p-8 md:p-12">
+      <div class="grid items-end gap-10 lg:grid-cols-[1.1fr_0.9fr]">
+        <div>
+          <p class="mb-4 text-xs font-medium uppercase tracking-[0.35em] text-secondary">BigGym Checkout</p>
+          <h1 class="serif text-5xl font-bold leading-[0.95] tracking-tighter md:text-7xl">
+            Thanh toán <span class="italic text-primary">đơn hàng</span>
+          </h1>
+          <p class="mt-6 max-w-2xl text-lg font-light leading-relaxed text-gray-300">
+            Hoàn tất thông tin giao nhận, kiểm tra lại đơn hàng và xác nhận thanh toán an toàn cho sản phẩm bạn đã chọn.
+          </p>
+        </div>
+        <div class="rounded-[28px] border border-primary/10 bg-primary/5 p-6">
+          <p class="text-[10px] font-bold uppercase tracking-[0.24em] text-primary">Thanh toán an toàn</p>
+          <div class="mt-4 flex items-start gap-4">
+            <span class="material-symbols-outlined text-4xl text-primary">qr_code_2</span>
+            <div>
+              <h2 class="text-xl font-semibold text-on-surface">Quét mã thanh toán</h2>
+              <p class="mt-2 text-sm leading-relaxed text-gray-300">
+                Xác nhận đơn hàng để nhận mã thanh toán và hoàn tất giao dịch nhanh chóng trên ứng dụng ngân hàng của bạn.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div id="checkout-status-panel" class="hidden mb-8 rounded-[24px] border px-6 py-5"></div>
+
+    <div class="grid grid-cols-1 gap-8 xl:grid-cols-[minmax(0,1fr)_420px]">
+      <section class="space-y-8">
+        <form class="space-y-8" id="checkout-form">
+          <div class="rounded-[28px] border border-white/5 bg-surface-container-low p-8">
+            <div class="mb-6 flex items-center gap-4">
+              <span class="flex h-9 w-9 items-center justify-center rounded-full border border-primary text-xs font-bold text-primary">01</span>
+              <div>
+                <h2 class="serif text-3xl text-primary">Thông tin nhận hàng</h2>
+                <p class="mt-1 text-sm text-gray-400">Thông tin này sẽ được lưu cùng đơn hàng để BigGym xác nhận và giao hàng chính xác.</p>
+              </div>
+            </div>
+            <div class="grid gap-5 md:grid-cols-2">
+              <div class="space-y-2">
+                <label class="text-[11px] font-bold uppercase tracking-[0.2em] text-gray-500" for="checkout-full-name">Họ và tên</label>
+                <input class="w-full rounded-2xl border border-white/10 bg-surface-container px-5 py-4 text-sm text-on-surface focus:border-primary focus:ring-0" id="checkout-full-name" name="full_name" placeholder="Nguyễn Văn A" required type="text"/>
+              </div>
+              <div class="space-y-2">
+                <label class="text-[11px] font-bold uppercase tracking-[0.2em] text-gray-500" for="checkout-phone">Số điện thoại</label>
+                <input class="w-full rounded-2xl border border-white/10 bg-surface-container px-5 py-4 text-sm text-on-surface focus:border-primary focus:ring-0" id="checkout-phone" name="phone" placeholder="0901 234 567" required type="tel"/>
+              </div>
+              <div class="space-y-2 md:col-span-2">
+                <label class="text-[11px] font-bold uppercase tracking-[0.2em] text-gray-500" for="checkout-email">Email</label>
+                <input class="w-full rounded-2xl border border-white/10 bg-surface-container px-5 py-4 text-sm text-on-surface focus:border-primary focus:ring-0" id="checkout-email" name="email" placeholder="ban@email.com" type="email"/>
+              </div>
+              <div class="space-y-2 md:col-span-2">
+                <label class="text-[11px] font-bold uppercase tracking-[0.2em] text-gray-500" for="checkout-address">Địa chỉ giao hàng</label>
+                <input class="w-full rounded-2xl border border-white/10 bg-surface-container px-5 py-4 text-sm text-on-surface focus:border-primary focus:ring-0" id="checkout-address" name="address" placeholder="Số nhà, đường, phường/xã, quận/huyện, tỉnh/thành phố" required type="text"/>
+              </div>
+              <div class="space-y-2 md:col-span-2">
+                <label class="text-[11px] font-bold uppercase tracking-[0.2em] text-gray-500" for="checkout-note">Ghi chú đơn hàng</label>
+                <textarea class="w-full rounded-2xl border border-white/10 bg-surface-container px-5 py-4 text-sm text-on-surface focus:border-primary focus:ring-0" id="checkout-note" name="note" placeholder="Ví dụ: giao giờ hành chính, gọi trước khi giao..." rows="4"></textarea>
+              </div>
+            </div>
+          </div>
+
+          <div class="rounded-[28px] border border-white/5 bg-surface-container-low p-8">
+            <div class="mb-6 flex items-center gap-4">
+              <span class="flex h-9 w-9 items-center justify-center rounded-full border border-primary text-xs font-bold text-primary">02</span>
+              <div>
+                <h2 class="serif text-3xl text-primary">Xác nhận thanh toán</h2>
+                <p class="mt-1 text-sm text-gray-400">Sau khi xác nhận, bạn sẽ được chuyển tới trang thanh toán bảo mật để hoàn tất giao dịch.</p>
+              </div>
+            </div>
+
+            <div class="rounded-[24px] border border-primary/15 bg-primary/5 p-6">
+              <div class="flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
+                <div class="flex items-start gap-4">
+                  <span class="material-symbols-outlined text-4xl text-primary">payments</span>
+                  <div>
+                    <p class="text-xs font-bold uppercase tracking-[0.2em] text-primary">Thanh toán bảo mật</p>
+                    <h3 class="mt-2 text-xl font-semibold text-on-surface">Quét mã ngân hàng</h3>
+                    <p class="mt-2 max-w-xl text-sm leading-relaxed text-gray-300">
+                      Mã thanh toán sẽ được tạo ngay sau khi bạn xác nhận đơn hàng để tiếp tục giao dịch an toàn và liền mạch.
+                    </p>
+                  </div>
+                </div>
+                <div class="rounded-2xl border border-white/10 bg-black/20 px-5 py-4 text-right">
+                  <p class="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-500">Trạng thái phiên</p>
+                  <p class="mt-2 text-sm font-semibold text-primary" id="payos-availability-label">Sẵn sàng thanh toán</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </section>
+
+      <aside class="h-fit rounded-[28px] border border-white/5 bg-surface-container-low p-6 xl:sticky xl:top-32">
+        <div class="border-b border-white/10 pb-5">
+          <p class="text-xs uppercase tracking-[0.25em] text-gray-500">Tóm tắt đơn hàng</p>
+          <h2 class="serif mt-2 text-3xl text-primary">Đơn của bạn</h2>
+        </div>
+
+        <div id="checkout-empty-state" class="py-8 text-sm leading-relaxed text-gray-500">
+          Giỏ hàng đang trống. Hãy quay lại cửa hàng để thêm sản phẩm trước khi thanh toán.
+        </div>
+
+        <div class="hidden" id="checkout-summary-content">
+          <div class="max-h-[360px] space-y-4 overflow-y-auto py-6" id="checkout-items"></div>
+
+          <div class="space-y-3 border-t border-white/10 pt-5">
+            <div class="flex items-center justify-between text-sm">
+              <span class="text-gray-500">Tạm tính</span>
+              <span id="checkout-subtotal">0đ</span>
+            </div>
+            <div class="flex items-center justify-between text-sm">
+              <span class="text-gray-500">Vận chuyển</span>
+              <span>Miễn phí</span>
+            </div>
+            <div class="flex items-center justify-between text-sm">
+              <span class="text-gray-500">Giảm giá</span>
+              <span id="checkout-discount">0đ</span>
+            </div>
+            <div class="flex items-end justify-between pt-3">
+              <span class="serif text-lg text-on-surface">Tổng cộng</span>
+              <span class="text-3xl font-light tracking-tight text-primary" id="checkout-total">0đ</span>
+            </div>
+          </div>
+
+          <div class="mt-6 space-y-3">
+            <button class="w-full rounded-full bg-primary py-4 text-sm font-bold uppercase tracking-[0.2em] text-on-primary shadow-lg shadow-primary/10 transition-all hover:shadow-primary/20 disabled:cursor-not-allowed disabled:opacity-50" id="checkout-submit-button" type="submit" form="checkout-form">
+              Xác nhận thanh toán
+            </button>
+            <a class="inline-flex w-full items-center justify-center gap-2 rounded-full border border-white/10 px-6 py-4 text-sm font-bold uppercase tracking-[0.2em] text-gray-300 transition-colors hover:border-primary/30 hover:text-primary" href="shop.html">
+              Quay lại cửa hàng <span class="material-symbols-outlined text-base">arrow_forward</span>
+            </a>
+          </div>
+
+          <p class="mt-4 text-center text-[11px] uppercase tracking-[0.18em] text-gray-500" id="checkout-submit-note">
+            Bạn sẽ được chuyển tới trang thanh toán bảo mật để hoàn tất đơn hàng.
+          </p>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="w-full pt-20 pb-10 px-12 border-t border-white/5 bg-[#131313]">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-12 max-w-screen-2xl mx-auto">
+      <div class="md:col-span-1">
+        <div class="font-['Noto_Serif'] text-3xl text-[#f2ca50] mb-6 font-bold uppercase tracking-tighter">
+          The Big Gym
+        </div>
+        <p class="font-['Manrope'] text-gray-400 font-light tracking-wide leading-relaxed">
+          Nâng tầm trải nghiệm thể hình tại Hải Phòng. Không gian đẳng cấp, dịch vụ thượng lưu.
+        </p>
+      </div>
+      <div class="space-y-6">
+        <h5 class="text-white font-bold uppercase text-xs tracking-widest">Liên kết nhanh</h5>
+        <ul class="font-['Manrope'] text-gray-400 font-light tracking-wide space-y-4">
+          <li><a class="hover:text-[#ffb693] transition-colors duration-300" href="#">Về chúng tôi</a></li>
+          <li><a class="hover:text-[#ffb693] transition-colors duration-300" href="#">Tuyển dụng</a></li>
+          <li><a class="hover:text-[#ffb693] transition-colors duration-300" href="#">Hỏi đáp</a></li>
+          <li><a class="hover:text-[#ffb693] transition-colors duration-300" href="#">Điều khoản dịch vụ</a></li>
+        </ul>
+      </div>
+      <div class="space-y-6">
+        <h5 class="text-white font-bold uppercase text-xs tracking-widest">Địa điểm</h5>
+        <p class="font-['Manrope'] text-gray-400 font-light tracking-wide leading-relaxed">
+          219, Hồ Sen,<br />Phường Lê Chân, TP. Hải Phòng
+        </p>
+        <p class="text-primary font-bold">Hotline: 1900 1009</p>
+      </div>
+      <div class="space-y-6">
+        <h5 class="text-white font-bold uppercase text-xs tracking-widest">Đăng ký nhận tin</h5>
+        <div class="flex flex-col gap-4">
+          <input class="bg-surface-container-high border-none rounded-lg p-4 text-white placeholder:text-gray-600 focus:ring-1 focus:ring-primary" placeholder="Email của bạn" type="email" />
+          <button class="bg-primary text-on-primary font-bold py-4 rounded-lg uppercase text-xs tracking-widest hover:bg-primary-fixed transition-colors">Đăng ký ngay</button>
+        </div>
+      </div>
+    </div>
+    <div class="max-w-screen-2xl mx-auto mt-20 pt-8 border-t border-white/5 flex flex-col md:row justify-between items-center gap-4">
+      <span class="font-['Manrope'] text-gray-400 font-light tracking-wide text-xs">© 2024 THE BIG GYM HẢI PHÒNG. ALL RIGHTS RESERVED.</span>
+      <div class="flex gap-6">
+        <a class="text-gray-500 hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">social_leaderboard</span></a>
+        <a class="text-gray-500 hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">photo_camera</span></a>
+        <a class="text-gray-500 hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">smart_display</span></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/auth-ui.js?v=20260413-footer1"></script>
+  <script>
+    const API_BASE_URL = window.BIGGYM_API_BASE_URL || (window.location.protocol === "file:" ? "http://localhost:4000/api" : `${window.location.origin}/api`);
+    const checkoutForm = document.getElementById("checkout-form");
+    const fullNameInput = document.getElementById("checkout-full-name");
+    const phoneInput = document.getElementById("checkout-phone");
+    const emailInput = document.getElementById("checkout-email");
+    const addressInput = document.getElementById("checkout-address");
+    const noteInput = document.getElementById("checkout-note");
+    const checkoutEmptyState = document.getElementById("checkout-empty-state");
+    const checkoutSummaryContent = document.getElementById("checkout-summary-content");
+    const checkoutItemsContainer = document.getElementById("checkout-items");
+    const checkoutSubtotal = document.getElementById("checkout-subtotal");
+    const checkoutDiscount = document.getElementById("checkout-discount");
+    const checkoutTotal = document.getElementById("checkout-total");
+    const checkoutSubmitButton = document.getElementById("checkout-submit-button");
+    const checkoutSubmitNote = document.getElementById("checkout-submit-note");
+    const checkoutStatusPanel = document.getElementById("checkout-status-panel");
+    const payosAvailabilityLabel = document.getElementById("payos-availability-label");
+
+    let checkoutItems = [];
+    let currentOrder = null;
+
+    function getStoredUser() {
+      try {
+        return JSON.parse(localStorage.getItem("biggym_user") || "null");
+      } catch (_error) {
+        return null;
+      }
+    }
+
+    function getStoredToken() {
+      return localStorage.getItem("biggym_token");
+    }
+
+    function isLoggedIn() {
+      return Boolean(getStoredUser() && getStoredToken());
+    }
+
+    function formatCurrency(value) {
+      return `${Number(value || 0).toLocaleString("vi-VN")}đ`;
+    }
+
+    function buildHeaders(includeJson = false) {
+      const headers = {};
+      const token = getStoredToken();
+
+      if (includeJson) {
+        headers["Content-Type"] = "application/json";
+      }
+
+      if (token) {
+        headers.Authorization = `Bearer ${token}`;
+      }
+
+      return headers;
+    }
+
+    function storeLatestOrderContext(orderCode, phone = "") {
+      if (orderCode) {
+        sessionStorage.setItem("biggym_latest_order_code", String(orderCode));
+      }
+
+      const normalizedPhone = String(phone || "").trim();
+      if (normalizedPhone) {
+        sessionStorage.setItem("biggym_latest_order_phone", normalizedPhone);
+      }
+    }
+
+    function getStoredLatestOrderPhone() {
+      return String(sessionStorage.getItem("biggym_latest_order_phone") || "").trim();
+    }
+
+    function setSubmitState(isBusy, text) {
+      checkoutSubmitButton.disabled = isBusy;
+      checkoutSubmitButton.textContent = text;
+    }
+
+    function setStatusPanel(type, title, description, actionHtml = "") {
+      checkoutStatusPanel.classList.remove("hidden", "border-primary/15", "bg-primary/5", "text-gray-200", "border-green-400/20", "bg-green-500/10", "text-green-100", "border-red-400/20", "bg-red-500/10", "text-red-100");
+
+      if (type === "success") {
+        checkoutStatusPanel.classList.add("border-green-400/20", "bg-green-500/10", "text-green-100");
+      } else if (type === "error") {
+        checkoutStatusPanel.classList.add("border-red-400/20", "bg-red-500/10", "text-red-100");
+      } else {
+        checkoutStatusPanel.classList.add("border-primary/15", "bg-primary/5", "text-gray-200");
+      }
+
+      checkoutStatusPanel.innerHTML = `
+        <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+          <div>
+            <p class="text-[11px] font-bold uppercase tracking-[0.2em]">${title}</p>
+            <p class="mt-2 text-sm leading-relaxed">${description}</p>
+          </div>
+          ${actionHtml}
+        </div>
+      `;
+    }
+
+    function clearStatusPanel() {
+      checkoutStatusPanel.classList.add("hidden");
+      checkoutStatusPanel.innerHTML = "";
+    }
+
+    function fillFormFromUser() {
+      const user = getStoredUser();
+
+      if (!user) {
+        return;
+      }
+
+      fullNameInput.value = user.full_name || "";
+      phoneInput.value = user.phone || "";
+      emailInput.value = user.email || "";
+    }
+
+    function fillFormFromOrder(order) {
+      fullNameInput.value = order.buyer_name || "";
+      phoneInput.value = order.buyer_phone || "";
+      emailInput.value = order.buyer_email || "";
+      addressInput.value = order.shipping_address || "";
+      noteInput.value = order.note || "";
+    }
+
+    function normalizeCheckoutItem(item) {
+      const product = item.product || {};
+      const variant = item.variant || {};
+      const unitPrice = Number(
+        item.unit_price
+        ?? variant.price
+        ?? product.sale_price
+        ?? product.price
+        ?? item.sale_price
+        ?? item.price
+        ?? 0
+      );
+      const basePrice = Number(
+        item.base_price
+        ?? variant.original_price
+        ?? item.original_price
+        ?? product.price
+        ?? item.price
+        ?? unitPrice
+      );
+      const quantity = Number(item.quantity || 0);
+
+      return {
+        product_id: Number(item.product_id || item.id || product.id || 0),
+        product_variant_id: Number(item.product_variant_id || item.variant_id || variant.id || 0),
+        product_name: item.product_name || item.name || product.name || "",
+        product_slug: item.product_slug || item.slug || product.slug || "",
+        product_image_url: item.product_image_url || item.image_url || variant.image_url || product.image_url || "",
+        variant_flavor: item.variant_flavor || variant.flavor_label || "",
+        variant_size: item.variant_size || variant.size_label || "",
+        quantity,
+        unit_price: unitPrice,
+        base_price: basePrice,
+        line_total: Number(item.line_total ?? (unitPrice * quantity))
+      };
+    }
+
+    function buildVariantQuantityMap(items) {
+      return (Array.isArray(items) ? items : []).reduce((accumulator, item) => {
+        const normalizedItem = normalizeCheckoutItem(item);
+        const productVariantId = Number(normalizedItem.product_variant_id || 0);
+        const quantity = Number(normalizedItem.quantity || 0);
+
+        if (productVariantId > 0 && quantity > 0) {
+          accumulator.set(productVariantId, (accumulator.get(productVariantId) || 0) + quantity);
+        }
+
+        return accumulator;
+      }, new Map());
+    }
+
+    function subtractPurchasedItemsFromCart(cartItems, purchasedItems) {
+      const purchasedQuantities = buildVariantQuantityMap(purchasedItems);
+
+      return (Array.isArray(cartItems) ? cartItems : []).reduce((nextItems, item) => {
+        const normalizedItem = normalizeCheckoutItem(item);
+        const productVariantId = Number(normalizedItem.product_variant_id || 0);
+        const currentQuantity = Number(normalizedItem.quantity || 0);
+
+        if (productVariantId <= 0 || currentQuantity <= 0) {
+          return nextItems;
+        }
+
+        const purchasedQuantity = purchasedQuantities.get(productVariantId) || 0;
+        const remainingQuantity = Math.max(0, currentQuantity - purchasedQuantity);
+
+        if (remainingQuantity > 0) {
+          nextItems.push({
+            ...normalizedItem,
+            quantity: remainingQuantity,
+            line_total: Number(normalizedItem.unit_price || 0) * remainingQuantity
+          });
+        }
+
+        return nextItems;
+      }, []);
+    }
+
+    function buildCartReplacePayload(items) {
+      return (Array.isArray(items) ? items : [])
+        .map((item) => normalizeCheckoutItem(item))
+        .filter((item) => Number(item.product_variant_id || 0) > 0 && Number(item.quantity || 0) > 0)
+        .map((item) => ({
+          product_id: Number(item.product_id || 0),
+          product_variant_id: Number(item.product_variant_id || 0),
+          quantity: Number(item.quantity || 0)
+        }));
+    }
+
+    function buildLocalCartSnapshot(items) {
+      return (Array.isArray(items) ? items : [])
+        .map((item) => normalizeCheckoutItem(item))
+        .filter((item) => Number(item.product_variant_id || 0) > 0 && Number(item.quantity || 0) > 0)
+        .map((item) => ({
+          product_id: Number(item.product_id || 0),
+          product_variant_id: Number(item.product_variant_id || 0),
+          quantity: Number(item.quantity || 0),
+          product_name: item.product_name,
+          product_slug: item.product_slug,
+          product_image_url: item.product_image_url,
+          variant_flavor: item.variant_flavor,
+          variant_size: item.variant_size,
+          unit_price: Number(item.unit_price || 0),
+          base_price: Number(item.base_price || item.unit_price || 0)
+        }));
+    }
+
+    function renderSummary(items, totals) {
+      if (!items.length) {
+        checkoutSummaryContent.classList.add("hidden");
+        checkoutEmptyState.classList.remove("hidden");
+        return;
+      }
+
+      checkoutEmptyState.classList.add("hidden");
+      checkoutSummaryContent.classList.remove("hidden");
+
+      checkoutItemsContainer.innerHTML = items.map((item) => `
+        <article class="flex gap-4 rounded-[24px] border border-white/5 bg-surface-container p-4">
+          <div class="h-24 w-24 flex-shrink-0 overflow-hidden rounded-2xl bg-surface-container-high">
+            <img alt="${item.product_name}" class="h-full w-full object-cover" src="${item.product_image_url || "../assets/images/weight-room.jpg"}"/>
+          </div>
+          <div class="min-w-0 flex-1">
+            <p class="text-[10px] uppercase tracking-[0.18em] text-gray-500">${item.product_slug || "BigGym Store"}</p>
+            <h3 class="mt-2 text-sm font-semibold leading-relaxed text-on-surface">${item.product_name}</h3>
+            ${[item.variant_flavor, item.variant_size].filter(Boolean).length ? `<p class="mt-2 text-[11px] uppercase tracking-[0.18em] text-gray-500">${[item.variant_flavor, item.variant_size].filter(Boolean).join(" • ")}</p>` : ""}
+            <div class="mt-3 flex items-end justify-between gap-4">
+              <span class="text-sm text-gray-400">SL: ${item.quantity}</span>
+              <span class="text-lg font-semibold text-primary">${formatCurrency(item.line_total)}</span>
+            </div>
+          </div>
+        </article>
+      `).join("");
+
+      checkoutSubtotal.textContent = formatCurrency(totals.subtotal);
+      checkoutDiscount.textContent = totals.discount > 0 ? `- ${formatCurrency(totals.discount)}` : "0đ";
+      checkoutTotal.textContent = formatCurrency(totals.total);
+    }
+
+    function renderLiveCart(cartItems) {
+      currentOrder = null;
+      checkoutItems = cartItems
+        .map(normalizeCheckoutItem)
+        .filter((item) => item.product_variant_id > 0 && item.quantity > 0);
+
+      const subtotal = checkoutItems.reduce((sum, item) => sum + item.line_total, 0);
+      const discount = checkoutItems.reduce((sum, item) => sum + Math.max(0, ((item.base_price || item.unit_price) - item.unit_price) * item.quantity), 0);
+
+      renderSummary(checkoutItems, {
+        subtotal,
+        discount,
+        total: subtotal
+      });
+
+      payosAvailabilityLabel.textContent = "Sẵn sàng thanh toán";
+      checkoutSubmitNote.textContent = "Bạn sẽ được chuyển tới trang thanh toán bảo mật để hoàn tất đơn hàng.";
+      setSubmitState(false, "Xác nhận thanh toán");
+      checkoutSubmitButton.disabled = !checkoutItems.length;
+    }
+
+    function renderOrder(order) {
+      currentOrder = order;
+      checkoutItems = (order.items || []).map(normalizeCheckoutItem);
+      const items = checkoutItems.map((item) => ({
+        product_name: item.product_name,
+        product_slug: item.product_slug,
+        product_image_url: item.product_image_url,
+        variant_flavor: item.variant_flavor,
+        variant_size: item.variant_size,
+        quantity: item.quantity,
+        line_total: item.line_total
+      }));
+
+      renderSummary(items, {
+        subtotal: order.subtotal_amount,
+        discount: order.discount_amount,
+        total: order.total_amount
+      });
+      fillFormFromOrder(order);
+
+      if (order.payment_status === "PAID") {
+        setSubmitState(true, "Đã thanh toán");
+        checkoutSubmitNote.textContent = `Đơn hàng #${order.order_code} đã được xác nhận thanh toán thành công.`;
+        payosAvailabilityLabel.textContent = "Đã thanh toán thành công";
+      } else if (["PENDING", "PROCESSING", "UNDERPAID"].includes(order.payment_status) && order.checkout_url) {
+        setSubmitState(false, "Tiếp tục thanh toán");
+        checkoutSubmitNote.textContent = `Đơn hàng #${order.order_code} đã được tạo. Bạn có thể tiếp tục hoàn tất thanh toán.`;
+        payosAvailabilityLabel.textContent = "Có thể tiếp tục thanh toán";
+      } else {
+        setSubmitState(false, "Tạo lại phiên thanh toán");
+        checkoutSubmitNote.textContent = `Bạn có thể tạo lại một phiên thanh toán mới cho đơn #${order.order_code}.`;
+        payosAvailabilityLabel.textContent = "Cần tạo lại phiên thanh toán";
+      }
+    }
+
+    async function loadGuestCart() {
+      const guestCart = JSON.parse(localStorage.getItem("biggym_shop_cart_guest") || "[]")
+        .map(normalizeCheckoutItem)
+        .filter((item) => item.product_variant_id > 0 && item.quantity > 0);
+
+      if (!guestCart.length) {
+        renderLiveCart([]);
+        return;
+      }
+
+      renderLiveCart(guestCart);
+    }
+
+    async function loadServerCart() {
+      const response = await fetch(`${API_BASE_URL}/cart`, {
+        headers: buildHeaders()
+      });
+      const payload = await response.json();
+      if (!response.ok || !payload.success) {
+
+        throw new Error(payload.message || "Không thể tải giỏ hàng");
+      }
+
+      renderLiveCart(payload.data || []);
+    }
+
+    async function loadCurrentCart() {
+      try {
+        if (isLoggedIn()) {
+          await loadServerCart();
+          return;
+        }
+
+        await loadGuestCart();
+      } catch (error) {
+        renderLiveCart([]);
+        setStatusPanel("error", "Không tải được giỏ hàng", error.message || "Đã có lỗi xảy ra khi lấy dữ liệu giỏ hàng.");
+      }
+    }
+
+    async function clearCartAfterPaid(order) {
+      const orderCode = Number(order?.order_code || 0);
+
+      if (!orderCode) {
+        return;
+      }
+
+      const clearKey = `biggym_checkout_cleared_${orderCode}`;
+
+      if (sessionStorage.getItem(clearKey)) {
+        return;
+      }
+
+      const purchasedItems = Array.isArray(order?.items) ? order.items : [];
+      const guestCart = JSON.parse(localStorage.getItem("biggym_shop_cart_guest") || "[]");
+      const nextGuestCart = buildLocalCartSnapshot(subtractPurchasedItemsFromCart(guestCart, purchasedItems));
+
+      localStorage.setItem("biggym_shop_cart_guest", JSON.stringify(nextGuestCart));
+
+      if (isLoggedIn()) {
+        const currentCartResponse = await fetch(`${API_BASE_URL}/cart`, {
+          headers: buildHeaders()
+        });
+        const currentCartPayload = await currentCartResponse.json();
+
+        if (!currentCartResponse.ok || !currentCartPayload.success) {
+          throw new Error(currentCartPayload.message || "Khong the dong bo gio hang");
+        }
+
+        const nextServerCartItems = subtractPurchasedItemsFromCart(currentCartPayload.data || [], purchasedItems);
+        const syncResponse = await fetch(`${API_BASE_URL}/cart`, {
+          method: "PUT",
+          headers: buildHeaders(true),
+          body: JSON.stringify({
+            items: buildCartReplacePayload(nextServerCartItems)
+          })
+        });
+        const syncPayload = await syncResponse.json();
+
+        if (!syncResponse.ok || !syncPayload.success) {
+          throw new Error(syncPayload.message || "Khong the dong bo gio hang");
+        }
+
+        const user = getStoredUser();
+        if (user?.id) {
+          localStorage.setItem(
+            `biggym_shop_cart_user_${user.id}`,
+            JSON.stringify(buildLocalCartSnapshot(syncPayload.data || nextServerCartItems))
+          );
+        }
+      }
+
+      sessionStorage.setItem(clearKey, "1");
+      sessionStorage.setItem("biggym_shop_cart_dirty", "1");
+    }
+
+    function getStatusCopy(status) {
+      switch (status) {
+        case "PAID":
+          return {
+            type: "success",
+            title: "Thanh toán thành công",
+            description: "BigGym đã ghi nhận giao dịch và đang chuẩn bị xử lý đơn hàng của bạn."
+          };
+        case "CANCELLED":
+          return {
+            type: "error",
+            title: "Đơn hàng đã bị hủy",
+            description: "Phiên thanh toán đã bị hủy. Bạn có thể thử lại hoặc quay về cửa hàng."
+          };
+        case "FAILED":
+        case "EXPIRED":
+          return {
+            type: "error",
+            title: "Phiên thanh toán không còn hiệu lực",
+            description: "Phiên thanh toán không còn hiệu lực. Hãy tạo lại một phiên mới nếu bạn vẫn muốn hoàn tất đơn hàng."
+          };
+        case "PROCESSING":
+        case "UNDERPAID":
+          return {
+            type: "info",
+            title: "Đang chờ xác nhận",
+            description: "BigGym đã nhận được yêu cầu thanh toán. Hệ thống đang chờ xác nhận cuối cùng."
+          };
+        default:
+          return {
+            type: "info",
+            title: "Phiên thanh toán đang chờ",
+            description: "Đơn hàng đã được tạo. Bạn có thể tiếp tục bước thanh toán bất cứ lúc nào."
+          };
+      }
+    }
+
+    async function fetchOrderForAuthenticatedUser(orderCode) {
+      const response = await fetch(`${API_BASE_URL}/checkout/orders/${orderCode}`, {
+        headers: buildHeaders()
+      });
+      const payload = await response.json();
+
+      if (!response.ok || !payload.success) {
+        throw new Error(payload.message || "Khong the tai thong tin don hang");
+      }
+
+      return payload.data.order;
+    }
+
+    async function lookupOrderByPhone(orderCode, phone) {
+      const lookupPhone = String(phone || "").trim();
+
+      if (!lookupPhone) {
+        throw new Error("Khong the tu dong tra cuu don hang vi thieu so dien thoai");
+      }
+
+      const response = await fetch(`${API_BASE_URL}/checkout/orders/lookup`, {
+        method: "POST",
+        headers: buildHeaders(true),
+        body: JSON.stringify({
+          order_code: Number(orderCode),
+          phone: lookupPhone
+        })
+      });
+      const payload = await response.json();
+
+      if (!response.ok || !payload.success) {
+        throw new Error(payload.message || "Khong the tra cuu don hang");
+      }
+
+      return payload.data.order;
+    }
+
+    async function loadOrder(orderCode, phone = "") {
+      let order = null;
+      let authError = null;
+
+      if (isLoggedIn()) {
+        try {
+          order = await fetchOrderForAuthenticatedUser(orderCode);
+        } catch (error) {
+          authError = error;
+        }
+      }
+
+      if (!order) {
+        order = await lookupOrderByPhone(orderCode, phone || getStoredLatestOrderPhone() || phoneInput.value.trim());
+      }
+
+      if (!order && authError) {
+        throw authError;
+      }
+
+      storeLatestOrderContext(order.order_code, order.buyer_phone || phone);
+      /*
+
+      if (false) {
+        throw new Error(payload.message || "Không thể tải thông tin đơn hàng");
+      }
+
+      */
+      renderOrder(order);
+
+      const statusCopy = getStatusCopy(order.payment_status);
+      const canResumePayment = ["PENDING", "PROCESSING", "UNDERPAID"].includes(order.payment_status) && order.checkout_url;
+      const actionHtml = canResumePayment
+        ? `<a class="inline-flex items-center justify-center rounded-full bg-primary px-6 py-3 text-xs font-bold uppercase tracking-[0.18em] text-on-primary" href="${order.checkout_url}">Tiếp tục thanh toán</a>`
+        : `<a class="inline-flex items-center justify-center rounded-full border border-white/10 px-6 py-3 text-xs font-bold uppercase tracking-[0.18em] text-gray-300" href="shop.html">Quay lại shop</a>`;
+
+      setStatusPanel(statusCopy.type, statusCopy.title, statusCopy.description, actionHtml);
+
+      if (order.payment_status === "PAID") {
+        try {
+          await clearCartAfterPaid(order);
+        } catch (_error) {
+          // Không chặn luồng hiển thị đơn hàng nếu bước đồng bộ giỏ gặp lỗi.
+        }
+      }
+    }
+
+    checkoutForm.addEventListener("submit", async (event) => {
+      event.preventDefault();
+
+      if (!checkoutItems.length && !currentOrder) {
+        setStatusPanel("error", "Giỏ hàng đang trống", "Bạn cần có ít nhất một sản phẩm trong giỏ trước khi thanh toán.");
+        return;
+      }
+
+      if (currentOrder && ["PENDING", "PROCESSING", "UNDERPAID"].includes(currentOrder.payment_status) && currentOrder.checkout_url) {
+        window.location.href = currentOrder.checkout_url;
+        return;
+      }
+
+      const payload = {
+        full_name: fullNameInput.value.trim(),
+        phone: phoneInput.value.trim(),
+        email: emailInput.value.trim(),
+        address: addressInput.value.trim(),
+        note: noteInput.value.trim(),
+        items: checkoutItems.map((item) => ({
+          product_id: Number(item.product_id),
+          product_variant_id: Number(item.product_variant_id),
+          quantity: Number(item.quantity)
+        }))
+      };
+
+      if (!payload.full_name || !payload.phone || !payload.address || !payload.items.length) {
+        setStatusPanel("error", "Thiếu thông tin", "Vui lòng điền đủ họ tên, số điện thoại, địa chỉ và giữ ít nhất một sản phẩm trong đơn.");
+        return;
+      }
+
+      clearStatusPanel();
+      setSubmitState(true, "Đang khởi tạo thanh toán...");
+      payosAvailabilityLabel.textContent = "Đang khởi tạo thanh toán";
+
+      try {
+        const response = await fetch(`${API_BASE_URL}/checkout/payos/create`, {
+          method: "POST",
+          headers: buildHeaders(true),
+          body: JSON.stringify(payload)
+        });
+        const responsePayload = await response.json();
+        const backendErrorMessage = responsePayload.message
+          || (Array.isArray(responsePayload.errors) && responsePayload.errors.length
+            ? responsePayload.errors.map((item) => item.msg).filter(Boolean).join(". ")
+            : "");
+
+        if (!response.ok || !responsePayload.success) {
+          throw new Error(backendErrorMessage || "Không thể khởi tạo thanh toán trực tuyến");
+        }
+
+        storeLatestOrderContext(responsePayload.data.orderCode, payload.phone);
+        window.location.href = responsePayload.data.checkoutUrl;
+      } catch (error) {
+        const failureMessage = error.message || "Đã có lỗi khi khởi tạo thanh toán.";
+        setSubmitState(false, "Xác nhận thanh toán");
+        payosAvailabilityLabel.textContent = failureMessage;
+        setStatusPanel("error", "Không thể khởi tạo thanh toán", failureMessage);
+      }
+    });
+
+    (async function bootstrapCheckout() {
+      fillFormFromUser();
+
+      const url = new URL(window.location.href);
+      const orderCode = url.searchParams.get("orderCode")
+        || ((url.searchParams.has("cancelled")
+          || url.searchParams.has("cancel")
+          || url.searchParams.has("status")
+          || url.searchParams.has("code"))
+          ? sessionStorage.getItem("biggym_latest_order_code")
+          : null);
+
+      if (orderCode) {
+        try {
+          await loadOrder(orderCode, getStoredLatestOrderPhone());
+          return;
+        } catch (error) {
+          setStatusPanel("error", "Không tải được đơn hàng", error.message || "Đã có lỗi khi lấy trạng thái thanh toán.");
+        }
+      }
+
+      await loadCurrentCart();
+    })();
+  </script>
+</body>
+</html>

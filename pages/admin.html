@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html class="dark page-preload" lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style id="page-preload-style">
+    html.page-preload body { opacity: 0; }
+    body { transition: opacity .12s ease; }
+  </style>
+  <script>
+    (() => {
+      const reveal = () => document.documentElement.classList.remove("page-preload");
+      window.addEventListener("DOMContentLoaded", reveal, { once: true });
+      window.addEventListener("load", reveal, { once: true });
+      setTimeout(reveal, 1200);
+    })();
+  </script>
+  <title>Admin Dashboard | THE BIG GYM</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            surface: "#131313",
+            background: "#131313",
+            primary: "#f2ca50",
+            secondary: "#ffb693",
+            "on-primary": "#3c2f00",
+            "on-background": "#e5e2e1",
+            "on-surface": "#e5e2e1",
+            "on-surface-variant": "#d0c5af",
+            "surface-container-low": "#1c1b1b",
+            "surface-container": "#201f1f",
+            "surface-container-high": "#2a2a2a",
+            "surface-container-highest": "#353534",
+            "outline-variant": "#4d4635",
+            outline: "#99907c",
+            success: "#86efac",
+            error: "#ffb4ab"
+          },
+          boxShadow: {
+            admin: "0 24px 80px rgba(0,0,0,0.24)"
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 24;
+      vertical-align: middle;
+    }
+    body { font-family: "Manrope", sans-serif; background: #131313; color: #e5e2e1; }
+    .serif { font-family: "Noto Serif", serif; }
+    .admin-shell {
+      background:
+        radial-gradient(circle at top right, rgba(242, 202, 80, 0.09), transparent 22%),
+        radial-gradient(circle at bottom left, rgba(255, 182, 147, 0.08), transparent 22%),
+        linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+    }
+    .glass-card {
+      background: rgba(28, 27, 27, 0.75);
+      backdrop-filter: blur(14px);
+    }
+    .sidebar-link.is-active {
+      color: #f2ca50;
+      background: linear-gradient(90deg, rgba(242, 202, 80, 0.13), rgba(242, 202, 80, 0));
+      border-left-color: #f2ca50;
+    }
+    .chart-wrap {
+      position: relative;
+      min-height: 320px;
+    }
+    .data-table thead th {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #8f8a80;
+      font-weight: 700;
+    }
+    .data-table tbody tr:hover {
+      background: rgba(255, 255, 255, 0.02);
+    }
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      padding: 0.35rem 0.7rem;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .modal-shell.hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background">
+  <div class="admin-shell min-h-screen">
+    <div id="admin-mobile-overlay" class="fixed inset-0 z-40 hidden bg-black/60 lg:hidden"></div>
+
+    <aside id="admin-sidebar" class="fixed inset-y-0 left-0 z-50 flex w-[290px] -translate-x-full flex-col border-r border-white/5 bg-[#131313]/95 px-6 pb-6 pt-24 shadow-admin transition-transform duration-300 lg:translate-x-0">
+      <div class="mb-8">
+        <div class="flex items-center gap-3">
+          <div class="h-10 w-2 rounded-full bg-primary"></div>
+          <div>
+            <p class="serif text-2xl font-bold uppercase tracking-tighter text-primary">THE BIG GYM</p>
+            <p class="mt-1 text-[10px] uppercase tracking-[0.28em] text-gray-500">Admin Control Center</p>
+          </div>
+        </div>
+      </div>
+
+      <nav class="space-y-2" id="admin-sidebar-nav">
+        <button class="sidebar-link is-active flex w-full items-center gap-4 rounded-r-2xl border-l-4 border-transparent px-5 py-4 text-left text-gray-300 transition-all" data-section-trigger="overview" type="button">
+          <span class="material-symbols-outlined">dashboard</span>
+          <span class="text-[12px] font-bold uppercase tracking-[0.22em]">Tổng quan</span>
+        </button>
+        <button class="sidebar-link flex w-full items-center gap-4 rounded-r-2xl border-l-4 border-transparent px-5 py-4 text-left text-gray-300 transition-all" data-section-trigger="orders" type="button">
+          <span class="material-symbols-outlined">shopping_bag</span>
+          <span class="text-[12px] font-bold uppercase tracking-[0.22em]">Đơn hàng</span>
+        </button>
+        <button class="sidebar-link flex w-full items-center gap-4 rounded-r-2xl border-l-4 border-transparent px-5 py-4 text-left text-gray-300 transition-all" data-section-trigger="products" type="button">
+          <span class="material-symbols-outlined">inventory_2</span>
+          <span class="text-[12px] font-bold uppercase tracking-[0.22em]">Sản phẩm</span>
+        </button>
+        <button class="sidebar-link flex w-full items-center gap-4 rounded-r-2xl border-l-4 border-transparent px-5 py-4 text-left text-gray-300 transition-all" data-section-trigger="exercises" type="button">
+          <span class="material-symbols-outlined">fitness_center</span>
+          <span class="text-[12px] font-bold uppercase tracking-[0.22em]">Bài tập</span>
+        </button>
+        <button class="sidebar-link flex w-full items-center gap-4 rounded-r-2xl border-l-4 border-transparent px-5 py-4 text-left text-gray-300 transition-all" data-section-trigger="customers" type="button">
+          <span class="material-symbols-outlined">group</span>
+          <span class="text-[12px] font-bold uppercase tracking-[0.22em]">Khách hàng</span>
+        </button>
+        <button class="sidebar-link flex w-full items-center gap-4 rounded-r-2xl border-l-4 border-transparent px-5 py-4 text-left text-gray-300 transition-all" data-section-trigger="analytics" type="button">
+          <span class="material-symbols-outlined">query_stats</span>
+          <span class="text-[12px] font-bold uppercase tracking-[0.22em]">Phân tích</span>
+        </button>
+        <button class="sidebar-link flex w-full items-center gap-4 rounded-r-2xl border-l-4 border-transparent px-5 py-4 text-left text-gray-300 transition-all" data-section-trigger="alerts" type="button">
+          <span class="material-symbols-outlined">notifications</span>
+          <span class="text-[12px] font-bold uppercase tracking-[0.22em]">Thông báo</span>
+        </button>
+        <button class="sidebar-link flex w-full items-center gap-4 rounded-r-2xl border-l-4 border-transparent px-5 py-4 text-left text-gray-300 transition-all" data-section-trigger="settings" type="button">
+          <span class="material-symbols-outlined">settings</span>
+          <span class="text-[12px] font-bold uppercase tracking-[0.22em]">Cài đặt</span>
+        </button>
+      </nav>
+
+      <div class="mt-auto space-y-3 pt-8">
+        <a class="inline-flex w-full items-center justify-center gap-2 rounded-full border border-white/10 px-4 py-3 text-xs font-bold uppercase tracking-[0.18em] text-gray-300 transition-colors hover:border-primary/30 hover:text-primary" href="../index.html">
+          Xem website <span class="material-symbols-outlined text-base">north_east</span>
+        </a>
+        <button id="admin-logout-button" class="w-full rounded-full bg-primary px-4 py-3 text-xs font-black uppercase tracking-[0.18em] text-on-primary transition hover:brightness-105" type="button">
+          Đăng xuất
+        </button>
+      </div>
+    </aside>
+
+    <header class="fixed inset-x-0 top-0 z-30 border-b border-white/5 bg-[#131313]/80 backdrop-blur-md lg:left-[290px]">
+      <div class="flex items-center justify-between gap-4 px-5 py-4 md:px-8">
+        <div class="flex items-center gap-4">
+          <button id="admin-sidebar-toggle" class="inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-surface-container-low text-gray-200 lg:hidden" type="button">
+            <span class="material-symbols-outlined">menu</span>
+          </button>
+          <div>
+            <p class="text-[11px] font-bold uppercase tracking-[0.3em] text-primary">Admin Dashboard</p>
+            <h1 id="admin-header-title" class="serif mt-1 text-2xl font-bold tracking-tight text-on-surface md:text-3xl">Tổng quan vận hành</h1>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <button id="admin-open-alerts" class="relative inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-surface-container-low text-gray-200 transition hover:border-primary/30 hover:text-primary" type="button">
+            <span class="material-symbols-outlined">notifications</span>
+            <span id="admin-alert-count" class="absolute -right-1 -top-1 hidden min-w-[22px] rounded-full bg-primary px-1.5 py-1 text-[10px] font-black leading-none text-on-primary">0</span>
+          </button>
+
+          <div class="hidden items-center gap-3 rounded-2xl border border-white/10 bg-surface-container-low px-3 py-2 sm:flex">
+            <img id="admin-header-avatar" alt="Admin avatar" class="h-10 w-10 rounded-full object-cover" src="../assets/images/customer-review.jpg" />
+            <div class="text-right">
+              <p id="admin-header-name" class="text-sm font-bold text-on-surface">Admin</p>
+              <p id="admin-header-role" class="text-[10px] uppercase tracking-[0.22em] text-gray-500">Admin</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="px-4 pb-12 pt-24 lg:ml-[290px] lg:px-8">
+      <section id="admin-access-block" class="hidden">
+        <div class="mx-auto mt-16 max-w-2xl rounded-[28px] border border-red-400/20 bg-red-500/10 px-8 py-12 text-center">
+          <p class="text-[11px] font-black uppercase tracking-[0.28em] text-error">Truy cập bị từ chối</p>
+          <h2 class="serif mt-4 text-4xl text-on-surface">Tài khoản này không có quyền quản trị</h2>
+          <p class="mx-auto mt-4 max-w-xl text-sm leading-relaxed text-gray-300">
+            Chỉ tài khoản có vai trò <strong>admin</strong> mới được truy cập dashboard này.
+          </p>
+          <a class="mt-8 inline-flex items-center justify-center rounded-full bg-primary px-6 py-3 text-xs font-black uppercase tracking-[0.18em] text-on-primary" href="../index.html">Quay về trang chủ</a>
+        </div>
+      </section>
+
+      <section id="admin-app" class="space-y-8">
+        <section class="rounded-[32px] border border-white/5 bg-gradient-to-br from-surface-container-low to-surface-container p-8 shadow-admin">
+          <div class="grid gap-8 xl:grid-cols-[1.15fr_0.85fr]">
+            <div>
+              <p class="text-xs font-semibold uppercase tracking-[0.35em] text-secondary">BigGym Control</p>
+              <h2 id="admin-hero-title" class="serif mt-4 text-4xl font-bold leading-tight tracking-tight text-on-surface md:text-6xl">Bảng điều khiển quản trị</h2>
+              <p id="admin-hero-subtitle" class="mt-5 max-w-3xl text-base leading-relaxed text-gray-300 md:text-lg">
+                Theo dõi vận hành, đơn hàng và tăng trưởng toàn hệ thống BigGym.
+              </p>
+            </div>
+            <div class="grid gap-4 sm:grid-cols-3 xl:grid-cols-1">
+              <div class="rounded-[24px] border border-primary/10 bg-primary/5 p-5">
+                <p class="text-[10px] font-black uppercase tracking-[0.22em] text-primary">Đơn chờ xử lý</p>
+                <p id="admin-pending-orders-count" class="mt-3 text-3xl font-light tracking-tight text-on-surface">0</p>
+              </div>
+              <div class="rounded-[24px] border border-secondary/10 bg-secondary/5 p-5">
+                <p class="text-[10px] font-black uppercase tracking-[0.22em] text-secondary">Khách mới tháng này</p>
+                <p id="admin-new-customers-count" class="mt-3 text-3xl font-light tracking-tight text-on-surface">0</p>
+              </div>
+              <div class="rounded-[24px] border border-white/10 bg-white/[0.03] p-5">
+                <p class="text-[10px] font-black uppercase tracking-[0.22em] text-gray-400">Sắp hết hàng</p>
+                <p id="admin-low-stock-count" class="mt-3 text-3xl font-light tracking-tight text-on-surface">0</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="space-y-8" data-admin-section="overview">
+          <div class="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+            <article class="glass-card rounded-[28px] border border-white/5 p-6">
+              <div class="flex items-start justify-between gap-4">
+                <div>
+                  <p class="text-[11px] font-black uppercase tracking-[0.22em] text-gray-500">Doanh thu hôm nay</p>
+                  <p id="stat-revenue-today" class="mt-4 text-3xl font-light tracking-tight text-on-surface">0đ</p>
+                </div>
+                <span class="material-symbols-outlined text-4xl text-primary">payments</span>
+              </div>
+            </article>
+            <article class="glass-card rounded-[28px] border border-white/5 p-6">
+              <div class="flex items-start justify-between gap-4">
+                <div>
+                  <p class="text-[11px] font-black uppercase tracking-[0.22em] text-gray-500">Doanh thu tháng</p>
+                  <p id="stat-revenue-month" class="mt-4 text-3xl font-light tracking-tight text-on-surface">0đ</p>
+                </div>
+                <span class="material-symbols-outlined text-4xl text-primary">monitoring</span>
+              </div>
+            </article>
+            <article class="glass-card rounded-[28px] border border-white/5 p-6">
+              <div class="flex items-start justify-between gap-4">
+                <div>
+                  <p class="text-[11px] font-black uppercase tracking-[0.22em] text-gray-500">Đơn hàng tháng</p>
+                  <p id="stat-orders-month" class="mt-4 text-3xl font-light tracking-tight text-on-surface">0</p>
+                </div>
+                <span class="material-symbols-outlined text-4xl text-primary">shopping_bag</span>
+              </div>
+            </article>
+            <article class="glass-card rounded-[28px] border border-white/5 p-6">
+              <div class="flex items-start justify-between gap-4">
+                <div>
+                  <p class="text-[11px] font-black uppercase tracking-[0.22em] text-gray-500">Tăng trưởng</p>
+                  <p id="stat-growth-rate" class="mt-4 text-3xl font-light tracking-tight text-on-surface">0%</p>
+                </div>
+                <span class="material-symbols-outlined text-4xl text-primary">trending_up</span>
+              </div>
+            </article>
+          </div>
+
+          <div class="grid gap-6 xl:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
+            <article class="glass-card rounded-[30px] border border-white/5 p-6">
+              <div class="mb-6 flex items-center justify-between gap-4">
+                <div>
+                  <p class="text-[11px] font-black uppercase tracking-[0.22em] text-primary">Line chart</p>
+                  <h3 class="serif mt-2 text-3xl text-on-surface">Doanh thu theo thời gian</h3>
+                </div>
+              </div>
+              <div class="chart-wrap">
+                <canvas id="overview-revenue-chart"></canvas>
+              </div>
+            </article>
+
+            <article class="glass-card rounded-[30px] border border-white/5 p-6">
+              <div class="mb-6 flex items-center justify-between gap-4">
+                <div>
+                  <p class="text-[11px] font-black uppercase tracking-[0.22em] text-primary">Bar chart</p>
+                  <h3 class="serif mt-2 text-3xl text-on-surface">Sản phẩm bán chạy</h3>
+                </div>
+              </div>
+              <div class="chart-wrap">
+                <canvas id="overview-top-products-chart"></canvas>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="hidden space-y-6" data-admin-section="orders">
+          <div class="glass-card rounded-[30px] border border-white/5 p-6">
+            <div class="flex flex-col gap-4 xl:flex-row xl:items-end xl:justify-between">
+              <div>
+                <p class="text-[11px] font-black uppercase tracking-[0.22em] text-primary">Orders</p>
+                <h3 class="serif mt-2 text-3xl text-on-surface">Quản lý đơn hàng</h3>
+              </div>
+              <div class="grid gap-3 md:grid-cols-4">
+                <input id="orders-search-input" class="rounded-2xl border border-white/10 bg-surface-container px-4 py-3 text-sm text-on-surface focus:border-primary focus:ring-0 md:col-span-2" placeholder="Tìm theo mã đơn, khách hàng, email..." type="text" />
+                <select id="orders-status-filter" class="rounded-2xl border border-white/10 bg-surface-container px-4 py-3 text-sm text-on-surface focus:border-primary focus:ring-0">
+                  <option value="">Tất cả trạng thái xử lý</option>
+                  <option value="pending">Pending</option>
+                  <option value="shipping">Shipping</option>
+                  <option value="completed">Completed</option>
+                  <option value="cancelled">Cancelled</option>
+                </select>
+                <select id="orders-payment-filter" class="rounded-2xl border border-white/10 bg-surface-container px-4 py-3 text-sm text-on-surface focus:border-primary focus:ring-0">
+                  <option value="">Tất cả trạng thái thanh toán</option>
+                  <option value="PENDING">PENDING</option>
+                  <option value="PROCESSING">PROCESSING</option>
+                  <option value="PAID">PAID</option>
+                  <option value="CANCELLED">CANCELLED</option>
+                  <option value="FAILED">FAILED</option>
+                  <option value="EXPIRED">EXPIRED</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="glass-card overflow-hidden rounded-[30px] border border-white/5">
+            <div class="overflow-x-auto">
+              <table class="data-table min-w-full">
+                <thead class="border-b border-white/10 bg-white/[0.02]">
+                  <tr>
+                    <th class="px-6 py-4 text-left">Mã đơn</th>
+                    <th class="px-6 py-4 text-left">Khách hàng</th>
+                    <th class="px-6 py-4 text-left">Trạng thái</th>
+                    <th class="px-6 py-4 text-left">Thanh toán</th>
+                    <th class="px-6 py-4 text-left">Tổng tiền</th>
+                    <th class="px-6 py-4 text-left">Tạo lúc</th>
+                    <th class="px-6 py-4 text-right">Thao tác</th>
+                  </tr>
+                </thead>
+                <tbody id="orders-table-body"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <section class="hidden space-y-6" data-admin-section="products">
+          <div class="glass-card rounded-[30px] border border-white/5 p-6">
+            <div class="flex flex-col gap-4 xl:flex-row xl:items-end xl:justify-between">
+              <div>
+                <p class="text-[11px] font-black uppercase tracking-[0.22em] text-primary">Products</p>
+                <h3 class="serif mt-2 text-3xl text-on-surface">Quản lý sản phẩm</h3>
+              </div>
+              <div class="grid gap-3 md:grid-cols-4">
+                <input id="products-search-input" class="rounded-2xl border border-white/10 bg-surface-container px-4 py-3 text-sm text-on-surface focus:border-primary focus:ring-0 md:col-span-2" placeholder="Tìm theo tên, slug..." type="text" />
+                <select id="products-active-filter" class="rounded-2xl border border-white/10 bg-surface-container px-4 py-3 text-sm text-on-surface focus:border-primary focus:ring-0">
+                  <option value="all">Tất cả</option>
+                  <option value="active">Đang bán</option>
+                  <option value="inactive">Ẩn</option>
+                </select>
+                <button id="open-product-modal-button" class="rounded-full bg-primary px-5 py-3 text-xs font-black uppercase tracking-[0.18em] text-on-primary" type="button">
+                  Thêm sản phẩm
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="glass-card overflow-hidden rounded-[30px] border border-white/5">
+            <div class="overflow-x-auto">
+              <table class="data-table min-w-full">
+                <thead class="border-b border-white/10 bg-white/[0.02]">
+                  <tr>
+                    <th class="px-6 py-4 text-left">Sản phẩm</th>
+                    <th class="px-6 py-4 text-left">Danh mục</th>
+                    <th class="px-6 py-4 text-left">Giá</th>
+                    <th class="px-6 py-4 text-left">Tồn kho</th>
+                    <th class="px-6 py-4 text-left">Trạng thái</th>
+                    <th class="px-6 py-4 text-right">Thao tác</th>
+                  </tr>
+                </thead>
+                <tbody id="products-table-body"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <section class="hidden space-y-6" data-admin-section="exercises">
+          <div class="glass-card rounded-[30px] border border-white/5 p-6">
+            <div class="flex flex-col gap-4 xl:flex-row xl:items-end xl:justify-between">
+              <div>
+                <p class="text-[11px] font-black uppercase tracking-[0.22em] text-primary">Exercises</p>
+                <h3 class="serif mt-2 text-3xl text-on-surface">Quản lý bài tập</h3>
+              </div>
+              <div class="grid gap-3 md:grid-cols-4">
+                <input id="exercises-search-input" class="rounded-2xl border border-white/10 bg-surface-container px-4 py-3 text-sm text-on-surface focus:border-primary focus:ring-0 md:col-span-2" placeholder="Tìm theo tên, slug..." type="text" />
+                <select id="exercises-active-filter" class="rounded-2xl border border-white/10 bg-surface-container px-4 py-3 text-sm text-on-surface focus:border-primary focus:ring-0">
+                  <option value="all">Tất cả</option>
+                  <option value="active">Đang hiển thị</option>
+                  <option value="inactive">Ẩn</option>
+                </select>
+                <button id="open-exercise-modal-button" class="rounded-full bg-primary px-5 py-3 text-xs font-black uppercase tracking-[0.18em] text-on-primary" type="button">
+                  Thêm bài tập
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="glass-card overflow-hidden rounded-[30px] border border-white/5">
+            <div class="overflow-x-auto">
+              <table class="data-table min-w-full">
+                <thead class="border-b border-white/10 bg-white/[0.02]">
+                  <tr>
+                    <th class="px-6 py-4 text-left">Bài tập</th>
+                    <th class="px-6 py-4 text-left">Danh mục</th>
+                    <th class="px-6 py-4 text-left">Cấp độ</th>
+                    <th class="px-6 py-4 text-left">Trạng thái</th>
+                    <th class="px-6 py-4 text-left">Cập nhật</th>
+                    <th class="px-6 py-4 text-right">Thao tác</th>
+                  </tr>
+                </thead>
+                <tbody id="exercises-table-body"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <section class="hidden space-y-6" data-admin-section="customers">
+          <div class="glass-card rounded-[30px] border border-white/5 p-6">
+            <div class="flex flex-col gap-4 xl:flex-row xl:items-end xl:justify-between">
+              <div>
+                <p class="text-[11px] font-black uppercase tracking-[0.22em] text-primary">Customers</p>
+                <h3 class="serif mt-2 text-3xl text-on-surface">Khách hàng</h3>
+              </div>
+              <div class="grid gap-3 md:grid-cols-[minmax(0,1fr)_auto]">
+                <input id="customers-search-input" class="rounded-2xl border border-white/10 bg-surface-container px-4 py-3 text-sm text-on-surface focus:border-primary focus:ring-0" placeholder="Tìm theo tên, email, số điện thoại..." type="text" />
+                <button id="customers-search-button" class="rounded-full border border-primary/30 px-5 py-3 text-xs font-black uppercase tracking-[0.18em] text-primary" type="button">
+                  Làm mới
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="glass-card overflow-hidden rounded-[30px] border border-white/5">
+            <div class="overflow-x-auto">
+              <table class="data-table min-w-full">
+                <thead class="border-b border-white/10 bg-white/[0.02]">
+                  <tr>
+                    <th class="px-6 py-4 text-left">Khách hàng</th>
+                    <th class="px-6 py-4 text-left">Liên hệ</th>
+                    <th class="px-6 py-4 text-left">Vai trò</th>
+                    <th class="px-6 py-4 text-left">Số đơn</th>
+                    <th class="px-6 py-4 text-left">Tổng chi</th>
+                    <th class="px-6 py-4 text-right">Thao tác</th>
+                  </tr>
+                </thead>
+                <tbody id="customers-table-body"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <section class="hidden space-y-6" data-admin-section="analytics">
+          <div class="grid gap-6 xl:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)]">
+            <article class="glass-card rounded-[30px] border border-white/5 p-6">
+              <div class="mb-6">
+                <p class="text-[11px] font-black uppercase tracking-[0.22em] text-primary">Analytics</p>
+                <h3 class="serif mt-2 text-3xl text-on-surface">Doanh thu theo tháng</h3>
+              </div>
+              <div class="chart-wrap">
+                <canvas id="analytics-revenue-chart"></canvas>
+              </div>
+            </article>
+            <article class="glass-card rounded-[30px] border border-white/5 p-6">
+              <div class="mb-6">
+                <p class="text-[11px] font-black uppercase tracking-[0.22em] text-primary">Order mix</p>
+                <h3 class="serif mt-2 text-3xl text-on-surface">Thống kê đơn hàng</h3>
+              </div>
+              <div class="chart-wrap">
+                <canvas id="analytics-status-chart"></canvas>
+              </div>
+            </article>
+          </div>
+
+          <article class="glass-card rounded-[30px] border border-white/5 p-6">
+            <div class="mb-6">
+              <p class="text-[11px] font-black uppercase tracking-[0.22em] text-primary">Top products</p>
+              <h3 class="serif mt-2 text-3xl text-on-surface">Top sản phẩm bán chạy</h3>
+            </div>
+            <div class="chart-wrap">
+              <canvas id="analytics-top-products-chart"></canvas>
+            </div>
+          </article>
+        </section>
+
+        <section class="hidden grid gap-6 xl:grid-cols-3" data-admin-section="alerts">
+          <article class="glass-card rounded-[30px] border border-white/5 p-6">
+            <div class="mb-6">
+              <p class="text-[11px] font-black uppercase tracking-[0.22em] text-primary">New orders</p>
+              <h3 class="serif mt-2 text-3xl text-on-surface">Đơn hàng mới</h3>
+            </div>
+            <div id="alerts-new-orders" class="space-y-4"></div>
+          </article>
+          <article class="glass-card rounded-[30px] border border-white/5 p-6">
+            <div class="mb-6">
+              <p class="text-[11px] font-black uppercase tracking-[0.22em] text-primary">Low stock</p>
+              <h3 class="serif mt-2 text-3xl text-on-surface">Sản phẩm sắp hết hàng</h3>
+            </div>
+            <div id="alerts-low-stock" class="space-y-4"></div>
+          </article>
+          <article class="glass-card rounded-[30px] border border-white/5 p-6">
+            <div class="mb-6">
+              <p class="text-[11px] font-black uppercase tracking-[0.22em] text-primary">Contact inbox</p>
+              <h3 class="serif mt-2 text-3xl text-on-surface">Lời nhắn liên hệ</h3>
+            </div>
+            <div id="alerts-contact-messages" class="space-y-4"></div>
+          </article>
+        </section>
+
+        <section class="hidden grid gap-6 xl:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)]" data-admin-section="settings">
+          <article class="glass-card rounded-[30px] border border-white/5 p-6">
+            <div class="mb-6">
+              <p class="text-[11px] font-black uppercase tracking-[0.22em] text-primary">Shop settings</p>
+              <h3 class="serif mt-2 text-3xl text-on-surface">Thông tin shop</h3>
+            </div>
+            <form id="shop-settings-form" class="space-y-4">
+              <div>
+                <label class="mb-2 block text-[11px] font-black uppercase tracking-[0.18em] text-gray-500">Tên shop</label>
+                <input id="settings-shop-name" class="w-full rounded-2xl border border-white/10 bg-surface-container px-4 py-3 text-sm text-on-surface focus:border-primary focus:ring-0" type="text" />
+              </div>
+              <div>
+                <label class="mb-2 block text-[11px] font-black uppercase tracking-[0.18em] text-gray-500">Email liên hệ</label>
+                <input id="settings-contact-email" class="w-full rounded-2xl border border-white/10 bg-surface-container px-4 py-3 text-sm text-on-surface focus:border-primary focus:ring-0" type="email" />
+              </div>
+              <div>
+                <label class="mb-2 block text-[11px] font-black uppercase tracking-[0.18em] text-gray-500">Số điện thoại</label>
+                <input id="settings-contact-phone" class="w-full rounded-2xl border border-white/10 bg-surface-container px-4 py-3 text-sm text-on-surface focus:border-primary focus:ring-0" type="text" />
+              </div>
+              <div>
+                <label class="mb-2 block text-[11px] font-black uppercase tracking-[0.18em] text-gray-500">Địa chỉ</label>
+                <textarea id="settings-address" class="w-full rounded-2xl border border-white/10 bg-surface-container px-4 py-3 text-sm text-on-surface focus:border-primary focus:ring-0" rows="3"></textarea>
+              </div>
+              <div>
+                <label class="mb-2 block text-[11px] font-black uppercase tracking-[0.18em] text-gray-500">Hero title</label>
+                <input id="settings-hero-title" class="w-full rounded-2xl border border-white/10 bg-surface-container px-4 py-3 text-sm text-on-surface focus:border-primary focus:ring-0" type="text" />
+              </div>
+              <div>
+                <label class="mb-2 block text-[11px] font-black uppercase tracking-[0.18em] text-gray-500">Hero subtitle</label>
+                <textarea id="settings-hero-subtitle" class="w-full rounded-2xl border border-white/10 bg-surface-container px-4 py-3 text-sm text-on-surface focus:border-primary focus:ring-0" rows="3"></textarea>
+              </div>
+              <div>
+                <label class="mb-2 block text-[11px] font-black uppercase tracking-[0.18em] text-gray-500">Ngưỡng cảnh báo tồn kho</label>
+                <input id="settings-low-stock-threshold" class="w-full rounded-2xl border border-white/10 bg-surface-container px-4 py-3 text-sm text-on-surface focus:border-primary focus:ring-0" min="0" step="1" type="number" />
+              </div>
+              <button class="w-full rounded-full bg-primary px-5 py-3 text-xs font-black uppercase tracking-[0.18em] text-on-primary" type="submit">
+                Lưu cài đặt
+              </button>
+            </form>
+          </article>
+
+          <article class="glass-card rounded-[30px] border border-white/5 p-6">
+            <div class="mb-6">
+              <p class="text-[11px] font-black uppercase tracking-[0.22em] text-primary">Admin access</p>
+              <h3 class="serif mt-2 text-3xl text-on-surface">Quản lý tài khoản admin</h3>
+            </div>
+            <div class="overflow-x-auto">
+              <table class="data-table min-w-full">
+                <thead class="border-b border-white/10 bg-white/[0.02]">
+                  <tr>
+                    <th class="px-4 py-4 text-left">Tài khoản</th>
+                    <th class="px-4 py-4 text-left">Vai trò</th>
+                    <th class="px-4 py-4 text-left">Đăng ký</th>
+                    <th class="px-4 py-4 text-right">Cập nhật</th>
+                  </tr>
+                </thead>
+                <tbody id="settings-admin-accounts-body"></tbody>
+              </table>
+            </div>
+          </article>
+        </section>
+      </section>
+    </main>
+  </div>
+
+  <div id="order-detail-modal" class="modal-shell hidden fixed inset-0 z-[70] bg-black/60 p-4">
+    <div class="mx-auto max-w-6xl rounded-[30px] border border-white/10 bg-surface-container-low shadow-admin">
+      <div class="flex items-center justify-between border-b border-white/10 px-6 py-5">
+        <div>
+          <p class="text-[11px] font-black uppercase tracking-[0.18em] text-primary">Order detail</p>
+          <h3 class="serif mt-2 text-3xl text-on-surface">Chi tiết đơn hàng</h3>
+        </div>
+        <button class="inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10" data-close-modal="order-detail-modal" type="button">
+          <span class="material-symbols-outlined">close</span>
+        </button>
+      </div>
+      <div class="grid gap-8 p-6 lg:grid-cols-[0.9fr_1.1fr]">
+        <div class="space-y-6">
+          <div id="order-detail-summary" class="rounded-[24px] border border-white/5 bg-surface-container p-5"></div>
+          <div class="rounded-[24px] border border-white/5 bg-surface-container p-5">
+            <label class="mb-2 block text-[11px] font-black uppercase tracking-[0.18em] text-gray-500">Cập nhật trạng thái xử lý</label>
+            <div class="flex gap-3">
+              <select id="order-detail-status-select" class="flex-1 rounded-2xl border border-white/10 bg-surface-container-high px-4 py-3 text-sm text-on-surface focus:border-primary focus:ring-0">
+                <option value="pending">Pending</option>
+                <option value="shipping">Shipping</option>
+                <option value="completed">Completed</option>
+                <option value="cancelled">Cancelled</option>
+              </select>
+              <button id="order-detail-status-save" class="rounded-full bg-primary px-5 py-3 text-xs font-black uppercase tracking-[0.18em] text-on-primary" type="button">
+                Lưu
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="space-y-4">
+          <h4 class="text-sm font-black uppercase tracking-[0.2em] text-gray-500">Danh sách sản phẩm</h4>
+          <div id="order-detail-items" class="max-h-[420px] space-y-4 overflow-y-auto"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="product-modal" class="modal-shell hidden fixed inset-0 z-[70] overflow-y-auto bg-black/60 p-4">
+    <div class="mx-auto my-4 flex max-h-[calc(100vh-2rem)] w-full max-w-[min(96vw,1600px)] flex-col overflow-hidden rounded-[30px] border border-white/10 bg-surface-container-low shadow-admin">
+      <div class="flex shrink-0 items-center justify-between border-b border-white/10 px-6 py-5">
+        <div>
+          <p class="text-[11px] font-black uppercase tracking-[0.18em] text-primary">Product editor</p>
+          <h3 id="product-modal-title" class="serif mt-2 text-3xl text-on-surface">Thêm sản phẩm</h3>
+        </div>
+        <button class="inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10" data-close-modal="product-modal" type="button">
+          <span class="material-symbols-outlined">close</span>
+        </button>
+      </div>
+      <form id="product-form" class="grid min-h-0 flex-1 gap-8 overflow-y-auto p-6 xl:grid-cols-[440px_minmax(0,1fr)]">
+        <div class="space-y-4 xl:sticky xl:top-0 xl:self-start">
+          <div class="overflow-hidden rounded-[24px] border border-white/10 bg-surface-container-high">
+            <img id="product-image-preview" alt="Product preview" class="aspect-square w-full object-cover" src="../assets/images/weight-room.jpg" />
+          </div>
+          <div>
+            <label class="mb-2 block text-[11px] font-black uppercase tracking-[0.18em] text-gray-500">Tải ảnh sản phẩm</label>
+            <input id="product-image-file" accept="image/*" class="block w-full rounded-2xl border border-white/10 bg-surface-container px-4 py-3 text-sm text-on-surface file:mr-4 file:rounded-full file:border-0 file:bg-primary file:px-4 file:py-2 file:text-xs file:font-black file:uppercase file:tracking-[0.18em] file:text-on-primary" type="file" />
+          </div>
+          <div>
+            <label class="mb-2 block text-[11px] font-black uppercase tracking-[0.18em] text-gray-500">Tải gallery ảnh phụ</label>
+            <input id="product-gallery-files" accept="image/*" class="block w-full rounded-2xl border border-white/10 bg-surface-container px-4 py-3 text-sm text-on-surface file:mr-4 file:rounded-full file:border-0 file:bg-primary file:px-4 file:py-2 file:text-xs file:font-black file:uppercase file:tracking-[0.18em] file:text-on-primary" multiple type="file" />
+          </div>
+          <div>
+            <label class="mb-2 block text-[11px] font-black uppercase tracking-[0.18em] text-gray-500">Preview gallery</label>
+            <div id="product-gallery-preview" class="grid grid-cols-3 gap-3"></div>
+          </div>
+        </div>
+
+        <div class="grid gap-4 md:grid-cols-2">
+          <input id="product-id" type="hidden" />
+          <input id="product-image-url" type="hidden" />
+          <div class="md:col-span-2 grid gap-6">
+            <section class="rounded-[24px] border border-white/5 bg-surface-container-high/30 p-5">
+              <div class="mb-4 flex items-center justify-between gap-4">
+                <div>
+                  <p class="text-[11px] font-black uppercase tracking-[0.18em] text-primary">Gallery ảnh</p>
+                  <p class="mt-1 text-sm text-gray-400">Thêm nhiều ảnh hiển thị ở trang chi tiết.</p>
+                </div>
+                <button class="rounded-full border border-primary/20 px-4 py-2 text-[11px] font-black uppercase tracking-[0.16em] text-primary" data-repeater-add="gallery" type="button">Thêm dòng</button>
+              </div>
+              <div id="detail-repeater-gallery" class="space-y-3"></div>
+            </section>
+            <section class="rounded-[24px] border border-white/5 bg-surface-container-high/30 p-5">
+              <div class="mb-5 flex items-start justify-between gap-4">
+                <div>
+                  <p class="text-[11px] font-black uppercase tracking-[0.18em] text-primary">Tạo ma trận biến thể</p>
+                  <p class="mt-1 text-sm text-gray-400">Nhập danh sách hương vị và quy cách để sinh nhanh các tổ hợp bán hàng. Những dòng biến thể đang có sẽ được giữ lại và ghép theo đúng cặp hương vị + quy cách.</p>
+                </div>
+                <button id="generate-variant-matrix-button" class="rounded-full border border-primary/20 px-4 py-2 text-[11px] font-black uppercase tracking-[0.16em] text-primary" type="button">Sinh tổ hợp</button>
+              </div>
+              <div class="grid gap-4 xl:grid-cols-2">
+                <div class="space-y-2">
+                  <label class="block text-[11px] font-black uppercase tracking-[0.18em] text-gray-500" for="product-variant-generator-flavors">Danh sách hương vị</label>
+                  <textarea id="product-variant-generator-flavors" class="min-h-[132px] w-full rounded-2xl border border-white/10 bg-surface-container px-4 py-3 text-sm text-on-surface focus:border-primary focus:ring-0" placeholder="Mỗi dòng một hương vị&#10;Chocolate&#10;Vanilla&#10;Cafe Latte"></textarea>
+                </div>
+                <div class="space-y-2">
+                  <label class="block text-[11px] font-black uppercase tracking-[0.18em] text-gray-500" for="product-variant-generator-sizes">Danh sách quy cách</label>
+                  <textarea id="product-variant-generator-sizes" class="min-h-[132px] w-full rounded-2xl border border-white/10 bg-surface-container px-4 py-3 text-sm text-on-surface focus:border-primary focus:ring-0" placeholder="Mỗi dòng một quy cách&#10;700g&#10;1kg&#10;2kg"></textarea>
+                </div>
+              </div>
+              <div class="mt-4 grid gap-4 xl:grid-cols-4">
+                <div class="space-y-2">
+                  <label class="block text-[11px] font-black uppercase tracking-[0.18em] text-gray-500" for="product-variant-generator-price">Giá mặc định</label>
+                  <input id="product-variant-generator-price" class="w-full rounded-2xl border border-white/10 bg-surface-container px-4 py-3 text-sm text-on-surface focus:border-primary focus:ring-0" placeholder="Giá bán cho dòng mới" type="number" />
+                </div>
+                <div class="space-y-2">
+                  <label class="block text-[11px] font-black uppercase tracking-[0.18em] text-gray-500" for="product-variant-generator-original-price">Giá gốc mặc định</label>
+                  <input id="product-variant-generator-original-price" class="w-full rounded-2xl border border-white/10 bg-surface-container px-4 py-3 text-sm text-on-surface focus:border-primary focus:ring-0" placeholder="Giá gốc cho dòng mới" type="number" />
+                </div>
+                <div class="space-y-2">
+                  <label class="block text-[11px] font-black uppercase tracking-[0.18em] text-gray-500" for="product-variant-generator-stock">Tồn kho mặc định</label>
+                  <input id="product-variant-generator-stock" class="w-full rounded-2xl border border-white/10 bg-surface-container px-4 py-3 text-sm text-on-surface focus:border-primary focus:ring-0" min="0" placeholder="Tồn kho cho dòng mới" type="number" />
+                </div>
+                <div class="space-y-2">
+                  <label class="block text-[11px] font-black uppercase tracking-[0.18em] text-gray-500" for="product-variant-generator-image-url">Ảnh mặc định</label>
+                  <input id="product-variant-generator-image-url" class="w-full rounded-2xl border border-white/10 bg-surface-container px-4 py-3 text-sm text-on-surface focus:border-primary focus:ring-0" placeholder="URL ảnh mặc định cho dòng mới" type="text" />
+                </div>
+              </div>
+            </section>
+            <section class="rounded-[24px] border border-white/5 bg-surface-container-high/30 p-5">
+              <div class="mb-4 flex items-center justify-between gap-4">
+                <div>
+                  <p class="text-[11px] font-black uppercase tracking-[0.18em] text-primary">Biến thể bán hàng</p>
+                  <p class="mt-1 text-sm text-gray-400">Mỗi dòng là một tổ hợp hương vị + quy cách có giá, tồn kho và ảnh riêng.</p>
+                </div>
+                <button class="rounded-full border border-primary/20 px-4 py-2 text-[11px] font-black uppercase tracking-[0.16em] text-primary" data-repeater-add="variants" type="button">Thêm biến thể</button>
+              </div>
+              <div id="detail-repeater-variants" class="space-y-3"></div>
+            </section>
+            <div class="hidden grid gap-6 xl:grid-cols-2">
+              <section class="rounded-[24px] border border-white/5 bg-surface-container-high/30 p-5">
+                <div class="mb-4 flex items-center justify-between gap-4">
+                  <div>
+                    <p class="text-[11px] font-black uppercase tracking-[0.18em] text-primary">Hương vị</p>
+                    <p class="mt-1 text-sm text-gray-400">Tên vị và ảnh riêng cho từng vị.</p>
+                  </div>
+                  <button class="rounded-full border border-primary/20 px-4 py-2 text-[11px] font-black uppercase tracking-[0.16em] text-primary" data-repeater-add="flavors" type="button">Thêm dòng</button>
+                </div>
+                <div id="detail-repeater-flavors" class="space-y-3"></div>
+              </section>
+              <section class="rounded-[24px] border border-white/5 bg-surface-container-high/30 p-5">
+                <div class="mb-4 flex items-center justify-between gap-4">
+                  <div>
+                    <p class="text-[11px] font-black uppercase tracking-[0.18em] text-primary">Quy cách</p>
+                    <p class="mt-1 text-sm text-gray-400">Tên quy cách, giá hiển thị và giá gốc.</p>
+                  </div>
+                  <button class="rounded-full border border-primary/20 px-4 py-2 text-[11px] font-black uppercase tracking-[0.16em] text-primary" data-repeater-add="sizes" type="button">Thêm dòng</button>
+                </div>
+                <div id="detail-repeater-sizes" class="space-y-3"></div>
+              </section>
+            </div>
+            <div class="grid gap-6 xl:grid-cols-2">
+              <section class="rounded-[24px] border border-white/5 bg-surface-container-high/30 p-5">
+                <div class="mb-4 flex items-center justify-between gap-4">
+                  <div>
+                    <p class="text-[11px] font-black uppercase tracking-[0.18em] text-primary">Card dưới ảnh</p>
+                    <p class="mt-1 text-sm text-gray-400">Các ô ngắn hiển thị dưới ảnh chính.</p>
+                  </div>
+                  <button class="rounded-full border border-primary/20 px-4 py-2 text-[11px] font-black uppercase tracking-[0.16em] text-primary" data-repeater-add="feature_cards" type="button">Thêm dòng</button>
+                </div>
+                <div id="detail-repeater-feature-cards" class="space-y-3"></div>
+              </section>
+              <section class="rounded-[24px] border border-white/5 bg-surface-container-high/30 p-5">
+                <div class="mb-4 flex items-center justify-between gap-4">
+                  <div>
+                    <p class="text-[11px] font-black uppercase tracking-[0.18em] text-primary">Thông tin nhanh</p>
+                    <p class="mt-1 text-sm text-gray-400">Cặp nhãn và giá trị trong bảng thông tin nhanh.</p>
+                  </div>
+                  <button class="rounded-full border border-primary/20 px-4 py-2 text-[11px] font-black uppercase tracking-[0.16em] text-primary" data-repeater-add="quick_info" type="button">Thêm dòng</button>
+                </div>
+                <div id="detail-repeater-quick-info" class="space-y-3"></div>
+              </section>
+            </div>
+            <div class="grid gap-6 xl:grid-cols-2">
+              <section class="rounded-[24px] border border-white/5 bg-surface-container-high/30 p-5">
+                <div class="mb-4 flex items-center justify-between gap-4">
+                  <div>
+                    <p class="text-[11px] font-black uppercase tracking-[0.18em] text-primary">Điểm nổi bật</p>
+                    <p class="mt-1 text-sm text-gray-400">Các block nổi bật ở cột nội dung.</p>
+                  </div>
+                  <button class="rounded-full border border-primary/20 px-4 py-2 text-[11px] font-black uppercase tracking-[0.16em] text-primary" data-repeater-add="highlights" type="button">Thêm dòng</button>
+                </div>
+                <div id="detail-repeater-highlights" class="space-y-3"></div>
+              </section>
+              <section class="rounded-[24px] border border-white/5 bg-surface-container-high/30 p-5">
+                <div class="mb-4 flex items-center justify-between gap-4">
+                  <div>
+                    <p class="text-[11px] font-black uppercase tracking-[0.18em] text-primary">Cách dùng</p>
+                    <p class="mt-1 text-sm text-gray-400">Các block hướng dẫn sử dụng.</p>
+                  </div>
+                  <button class="rounded-full border border-primary/20 px-4 py-2 text-[11px] font-black uppercase tracking-[0.16em] text-primary" data-repeater-add="usage_guide" type="button">Thêm dòng</button>
+                </div>
+                <div id="detail-repeater-usage-guide" class="space-y-3"></div>
+              </section>
+            </div>
+            <section class="rounded-[24px] border border-white/5 bg-surface-container-high/30 p-5">
+              <div class="mb-4 flex items-center justify-between gap-4">
+                <div>
+                  <p class="text-[11px] font-black uppercase tracking-[0.18em] text-primary">Lưu ý</p>
+                  <p class="mt-1 text-sm text-gray-400">Các dòng lưu ý riêng cho sản phẩm.</p>
+                </div>
+                <button class="rounded-full border border-primary/20 px-4 py-2 text-[11px] font-black uppercase tracking-[0.16em] text-primary" data-repeater-add="notes" type="button">Thêm dòng</button>
+              </div>
+              <div id="detail-repeater-notes" class="space-y-3"></div>
+            </section>
+            <section class="rounded-[24px] border border-white/5 bg-surface-container-high/30 p-5">
+              <div class="mb-4">
+                <p class="text-[11px] font-black uppercase tracking-[0.18em] text-primary">Khối đặt hàng</p>
+                <p class="mt-1 text-sm text-gray-400">Tiêu đề và mô tả hiển thị phía trên nút mua ở trang chi tiết sản phẩm.</p>
+              </div>
+              <div class="grid gap-3">
+                <input id="product-purchase-panel-title" class="w-full rounded-2xl border border-white/10 bg-surface-container px-4 py-3 text-sm text-on-surface focus:border-primary focus:ring-0" placeholder="Ví dụ: Sẵn sàng đặt hàng" type="text" />
+                <textarea id="product-purchase-panel-body" class="w-full rounded-2xl border border-white/10 bg-surface-container px-4 py-3 text-sm text-on-surface focus:border-primary focus:ring-0" placeholder="Ví dụ: Chọn phiên bản phù hợp rồi thêm vào giỏ hoặc chuyển sang thanh toán ngay." rows="3"></textarea>
+              </div>
+            </section>
+          </div>
+          <div class="md:col-span-2">
+            <label class="mb-2 block text-[11px] font-black uppercase tracking-[0.18em] text-gray-500">Tên sản phẩm</label>
+            <input id="product-name" class="w-full rounded-2xl border border-white/10 bg-surface-container px-4 py-3 text-sm text-on-surface focus:border-primary focus:ring-0" required type="text" />
+          </div>
+          <div class="md:col-span-2">
+            <label class="mb-2 block text-[11px] font-black uppercase tracking-[0.18em] text-gray-500">Slug</label>
+            <input id="product-slug" class="w-full rounded-2xl border border-white/10 bg-surface-container px-4 py-3 text-sm text-on-surface focus:border-primary focus:ring-0" required type="text" />
+          </div>
+          <div>
+            <label class="mb-2 block text-[11px] font-black uppercase tracking-[0.18em] text-gray-500">Danh mục</label>
+            <input id="product-category-name" class="w-full rounded-2xl border border-white/10 bg-surface-container px-4 py-3 text-sm text-on-surface focus:border-primary focus:ring-0" required type="text" />
+          </div>
+          <div>
+            <label class="mb-2 block text-[11px] font-black uppercase tracking-[0.18em] text-gray-500">Category slug</label>
+            <input id="product-category-slug" class="w-full rounded-2xl border border-white/10 bg-surface-container px-4 py-3 text-sm text-on-surface focus:border-primary focus:ring-0" required type="text" />
+          </div>
+          <div class="hidden" data-product-aggregate-field>
+            <label class="mb-2 block text-[11px] font-black uppercase tracking-[0.18em] text-gray-500">Giá gốc</label>
+            <input id="product-price" class="w-full cursor-not-allowed rounded-2xl border border-white/10 bg-surface-container-high px-4 py-3 text-sm text-on-surface/90 focus:border-primary focus:ring-0" min="0" readonly step="1000" type="number" />
+            <p class="mt-2 text-xs leading-relaxed text-gray-500">Tự động lấy từ biến thể active đầu tiên.</p>
+          </div>
+          <div class="hidden" data-product-aggregate-field>
+            <label class="mb-2 block text-[11px] font-black uppercase tracking-[0.18em] text-gray-500">Giá sale</label>
+            <input id="product-sale-price" class="w-full cursor-not-allowed rounded-2xl border border-white/10 bg-surface-container-high px-4 py-3 text-sm text-on-surface/90 focus:border-primary focus:ring-0" min="0" readonly step="1000" type="number" />
+            <p class="mt-2 text-xs leading-relaxed text-gray-500">Tự động hiển thị nếu giá gốc lớn hơn giá bán.</p>
+          </div>
+          <div class="hidden" data-product-aggregate-field>
+            <label class="mb-2 block text-[11px] font-black uppercase tracking-[0.18em] text-gray-500">Tồn kho</label>
+            <input id="product-stock" class="w-full cursor-not-allowed rounded-2xl border border-white/10 bg-surface-container-high px-4 py-3 text-sm text-on-surface/90 focus:border-primary focus:ring-0" min="0" readonly step="1" type="number" />
+            <p class="mt-2 text-xs leading-relaxed text-gray-500">Tổng tồn kho được cộng tự động từ các biến thể active.</p>
+          </div>
+          <div>
+            <label class="mb-2 block text-[11px] font-black uppercase tracking-[0.18em] text-gray-500">Badge label</label>
+            <input id="product-badge-label" class="w-full rounded-2xl border border-white/10 bg-surface-container px-4 py-3 text-sm text-on-surface focus:border-primary focus:ring-0" type="text" />
+          </div>
+          <div>
+            <label class="mb-2 block text-[11px] font-black uppercase tracking-[0.18em] text-gray-500">Sort order</label>
+            <input id="product-sort-order" class="w-full rounded-2xl border border-white/10 bg-surface-container px-4 py-3 text-sm text-on-surface focus:border-primary focus:ring-0" min="0" step="1" type="number" />
+          </div>
+          <div class="flex items-center gap-6 pt-8">
+            <label class="inline-flex items-center gap-2 text-sm text-gray-300">
+              <input id="product-is-featured" class="rounded border-white/10 bg-surface-container text-primary focus:ring-primary" type="checkbox" />
+              Featured
+            </label>
+            <label class="inline-flex items-center gap-2 text-sm text-gray-300">
+              <input id="product-is-active" class="rounded border-white/10 bg-surface-container text-primary focus:ring-primary" type="checkbox" checked />
+              Active
+            </label>
+          </div>
+          <div class="md:col-span-2">
+            <label class="mb-2 block text-[11px] font-black uppercase tracking-[0.18em] text-gray-500">Mô tả ngắn</label>
+            <textarea id="product-short-description" class="w-full rounded-2xl border border-white/10 bg-surface-container px-4 py-3 text-sm text-on-surface focus:border-primary focus:ring-0" rows="4"></textarea>
+          </div>
+          <div class="hidden md:col-span-2 rounded-[24px] border border-white/5 bg-surface-container-high/40 p-5" data-legacy-advanced-field>
+            <p class="text-[11px] font-black uppercase tracking-[0.18em] text-primary">Chi tiết sản phẩm nâng cao</p>
+            <p class="mt-2 text-sm leading-relaxed text-gray-400">
+              Hương vị: <span class="text-gray-200">Tên vị|URL ảnh</span>. Quy cách:
+              <span class="text-gray-200">Tên quy cách|Giá hiển thị|Giá gốc</span>.
+              Các block khác: <span class="text-gray-200">Tiêu đề|Nội dung</span>.
+              Gallery ảnh: mỗi dòng một URL.
+            </p>
+          </div>
+          <div class="hidden md:col-span-2" data-legacy-advanced-field>
+            <label class="mb-2 block text-[11px] font-black uppercase tracking-[0.18em] text-gray-500">Gallery URL phụ</label>
+            <textarea id="product-gallery-urls" class="w-full rounded-2xl border border-white/10 bg-surface-container px-4 py-3 text-sm text-on-surface focus:border-primary focus:ring-0" placeholder="https://.../image-1.jpg&#10;https://.../image-2.jpg" rows="4"></textarea>
+          </div>
+          <div class="hidden md:col-span-2" data-legacy-advanced-field>
+            <textarea id="product-variants" class="hidden"></textarea>
+          </div>
+          <div class="hidden" data-legacy-advanced-field>
+            <label class="mb-2 block text-[11px] font-black uppercase tracking-[0.18em] text-gray-500">Hương vị</label>
+            <textarea id="product-flavors" class="w-full rounded-2xl border border-white/10 bg-surface-container px-4 py-3 text-sm text-on-surface focus:border-primary focus:ring-0" placeholder="Chocolate|https://.../chocolate.jpg&#10;Vanilla|https://.../vanilla.jpg" rows="5"></textarea>
+          </div>
+          <div class="hidden" data-legacy-advanced-field>
+            <label class="mb-2 block text-[11px] font-black uppercase tracking-[0.18em] text-gray-500">Quy cách</label>
+            <textarea id="product-sizes" class="w-full rounded-2xl border border-white/10 bg-surface-container px-4 py-3 text-sm text-on-surface focus:border-primary focus:ring-0" placeholder="700 g|1290000|1390000&#10;1800 g|2490000|2690000" rows="5"></textarea>
+          </div>
+          <div class="hidden" data-legacy-advanced-field>
+            <label class="mb-2 block text-[11px] font-black uppercase tracking-[0.18em] text-gray-500">Card dưới ảnh</label>
+            <textarea id="product-feature-cards" class="w-full rounded-2xl border border-white/10 bg-surface-container px-4 py-3 text-sm text-on-surface focus:border-primary focus:ring-0" placeholder="26g Protein|Nguồn đạm tinh gọn.&#10;0g Sugar|Hỗ trợ kiểm soát calo." rows="6"></textarea>
+          </div>
+          <div class="hidden" data-legacy-advanced-field>
+            <label class="mb-2 block text-[11px] font-black uppercase tracking-[0.18em] text-gray-500">Thông tin nhanh</label>
+            <textarea id="product-quick-info" class="w-full rounded-2xl border border-white/10 bg-surface-container px-4 py-3 text-sm text-on-surface focus:border-primary focus:ring-0" placeholder="Loại sản phẩm|Whey isolate cao cấp&#10;Mục tiêu|Tăng cơ nạc, phục hồi." rows="6"></textarea>
+          </div>
+          <div class="hidden" data-legacy-advanced-field>
+            <label class="mb-2 block text-[11px] font-black uppercase tracking-[0.18em] text-gray-500">Điểm nổi bật</label>
+            <textarea id="product-highlights" class="w-full rounded-2xl border border-white/10 bg-surface-container px-4 py-3 text-sm text-on-surface focus:border-primary focus:ring-0" placeholder="Protein sạch|Tỉ lệ đạm cao, ít tạp.&#10;Dễ dùng|Phù hợp sau tập hoặc bữa phụ." rows="6"></textarea>
+          </div>
+          <div class="hidden" data-legacy-advanced-field>
+            <label class="mb-2 block text-[11px] font-black uppercase tracking-[0.18em] text-gray-500">Cách dùng</label>
+            <textarea id="product-usage-guide" class="w-full rounded-2xl border border-white/10 bg-surface-container px-4 py-3 text-sm text-on-surface focus:border-primary focus:ring-0" placeholder="Sau tập|Pha với nước lạnh sau buổi tập.&#10;Bữa phụ|Dùng khi chưa ăn đủ đạm." rows="6"></textarea>
+          </div>
+          <div class="hidden md:col-span-2" data-legacy-advanced-field>
+            <label class="mb-2 block text-[11px] font-black uppercase tracking-[0.18em] text-gray-500">Lưu ý</label>
+            <textarea id="product-notes" class="w-full rounded-2xl border border-white/10 bg-surface-container px-4 py-3 text-sm text-on-surface focus:border-primary focus:ring-0" placeholder="Không thay thế hoàn toàn bữa ăn chính.&#10;Nên dùng cùng kế hoạch dinh dưỡng." rows="5"></textarea>
+          </div>
+          <div class="md:col-span-2 flex flex-wrap gap-3 pt-2">
+            <button class="rounded-full bg-primary px-6 py-3 text-xs font-black uppercase tracking-[0.18em] text-on-primary" type="submit">Lưu sản phẩm</button>
+            <button class="rounded-full border border-white/10 px-6 py-3 text-xs font-black uppercase tracking-[0.18em] text-gray-300" data-close-modal="product-modal" type="button">Đóng</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div id="exercise-modal" class="modal-shell hidden fixed inset-0 z-[70] overflow-y-auto bg-black/60 p-4">
+    <div class="mx-auto my-4 flex max-h-[calc(100vh-2rem)] w-full max-w-[min(96vw,1400px)] flex-col overflow-hidden rounded-[30px] border border-white/10 bg-surface-container-low shadow-admin">
+      <div class="flex shrink-0 items-center justify-between border-b border-white/10 px-6 py-5">
+        <div>
+          <p class="text-[11px] font-black uppercase tracking-[0.18em] text-primary">Exercise editor</p>
+          <h3 id="exercise-modal-title" class="serif mt-2 text-3xl text-on-surface">Thêm bài tập</h3>
+        </div>
+        <button class="inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10" data-close-modal="exercise-modal" type="button">
+          <span class="material-symbols-outlined">close</span>
+        </button>
+      </div>
+      <form id="exercise-form" class="grid min-h-0 flex-1 gap-8 overflow-y-auto p-6 xl:grid-cols-[420px_minmax(0,1fr)]">
+        <div class="space-y-4 xl:sticky xl:top-0 xl:self-start">
+          <input id="exercise-id" type="hidden" />
+          <input id="exercise-hero-image-url" type="hidden" />
+          <div class="overflow-hidden rounded-[24px] border border-white/10 bg-surface-container-high">
+            <img id="exercise-image-preview" alt="Exercise preview" class="aspect-[4/5] w-full object-cover" src="../assets/images/exercise/exercises-hero.jpg" />
+          </div>
+          <div>
+            <label class="mb-2 block text-[11px] font-black uppercase tracking-[0.18em] text-gray-500">Tải ảnh bài tập</label>
+            <input id="exercise-image-file" accept="image/*" class="block w-full rounded-2xl border border-white/10 bg-surface-container px-4 py-3 text-sm text-on-surface file:mr-4 file:rounded-full file:border-0 file:bg-primary file:px-4 file:py-2 file:text-xs file:font-black file:uppercase file:tracking-[0.18em] file:text-on-primary" type="file" />
+          </div>
+          
+        </div>
+
+        <div class="grid gap-4 md:grid-cols-2">
+          <div class="md:col-span-2">
+            <label class="mb-2 block text-[11px] font-black uppercase tracking-[0.18em] text-gray-500">Tên bài tập</label>
+            <input id="exercise-title" class="w-full rounded-2xl border border-white/10 bg-surface-container px-4 py-3 text-sm text-on-surface focus:border-primary focus:ring-0" required type="text" />
+          </div>
+          <div class="md:col-span-2">
+            <label class="mb-2 block text-[11px] font-black uppercase tracking-[0.18em] text-gray-500">Slug</label>
+            <input id="exercise-slug" class="w-full rounded-2xl border border-white/10 bg-surface-container px-4 py-3 text-sm text-on-surface focus:border-primary focus:ring-0" required type="text" />
+          </div>
+          <div>
+            <label class="mb-2 block text-[11px] font-black uppercase tracking-[0.18em] text-gray-500">Danh mục</label>
+            <input id="exercise-category-name" class="w-full rounded-2xl border border-white/10 bg-surface-container px-4 py-3 text-sm text-on-surface focus:border-primary focus:ring-0" required type="text" />
+          </div>
+          <div>
+            <label class="mb-2 block text-[11px] font-black uppercase tracking-[0.18em] text-gray-500">Category slug</label>
+            <input id="exercise-category-slug" class="w-full rounded-2xl border border-white/10 bg-surface-container px-4 py-3 text-sm text-on-surface focus:border-primary focus:ring-0" required type="text" />
+          </div>
+          <div>
+            <label class="mb-2 block text-[11px] font-black uppercase tracking-[0.18em] text-gray-500">Cấp độ</label>
+            <input id="exercise-level-name" class="w-full rounded-2xl border border-white/10 bg-surface-container px-4 py-3 text-sm text-on-surface focus:border-primary focus:ring-0" required type="text" />
+          </div>
+          <div>
+            <label class="mb-2 block text-[11px] font-black uppercase tracking-[0.18em] text-gray-500">Level slug</label>
+            <input id="exercise-level-slug" class="w-full rounded-2xl border border-white/10 bg-surface-container px-4 py-3 text-sm text-on-surface focus:border-primary focus:ring-0" required type="text" />
+          </div>
+          <div>
+            <label class="mb-2 block text-[11px] font-black uppercase tracking-[0.18em] text-gray-500">Focus label</label>
+            <input id="exercise-focus-label" class="w-full rounded-2xl border border-white/10 bg-surface-container px-4 py-3 text-sm text-on-surface focus:border-primary focus:ring-0" placeholder="Ví dụ: Lưng xô • Sức mạnh kéo" type="text" />
+          </div>
+          <div>
+            <label class="mb-2 block text-[11px] font-black uppercase tracking-[0.18em] text-gray-500">Calo tiêu thụ</label>
+            <input id="exercise-calorie-burn-text" class="w-full rounded-2xl border border-white/10 bg-surface-container px-4 py-3 text-sm text-on-surface focus:border-primary focus:ring-0" placeholder="Ví dụ: ~10-13 kcal / phút" type="text" />
+          </div>
+          <div>
+            <label class="mb-2 block text-[11px] font-black uppercase tracking-[0.18em] text-gray-500">Thiết bị</label>
+            <input id="exercise-equipment" class="w-full rounded-2xl border border-white/10 bg-surface-container px-4 py-3 text-sm text-on-surface focus:border-primary focus:ring-0" type="text" />
+          </div>
+          <div>
+            <label class="mb-2 block text-[11px] font-black uppercase tracking-[0.18em] text-gray-500">Nhóm cơ chính</label>
+            <input id="exercise-primary-muscles" class="w-full rounded-2xl border border-white/10 bg-surface-container px-4 py-3 text-sm text-on-surface focus:border-primary focus:ring-0" placeholder="Ví dụ: Ngực trên, vai trước" type="text" />
+          </div>
+          <div class="md:col-span-2">
+            <label class="mb-2 block text-[11px] font-black uppercase tracking-[0.18em] text-gray-500">Video URL</label>
+            <input id="exercise-video-url" class="w-full rounded-2xl border border-white/10 bg-surface-container px-4 py-3 text-sm text-on-surface focus:border-primary focus:ring-0" placeholder="https://www.youtube.com/embed/..." type="text" />
+          </div>
+          <div class="md:col-span-2">
+            <label class="mb-2 block text-[11px] font-black uppercase tracking-[0.18em] text-gray-500">Mô tả ngắn</label>
+            <textarea id="exercise-short-description" class="w-full rounded-2xl border border-white/10 bg-surface-container px-4 py-3 text-sm text-on-surface focus:border-primary focus:ring-0" rows="3"></textarea>
+          </div>
+          <div class="md:col-span-2">
+            <label class="mb-2 block text-[11px] font-black uppercase tracking-[0.18em] text-gray-500">Mô tả chi tiết</label>
+            <textarea id="exercise-long-description" class="w-full rounded-2xl border border-white/10 bg-surface-container px-4 py-3 text-sm text-on-surface focus:border-primary focus:ring-0" rows="4"></textarea>
+          </div>
+          <div class="md:col-span-2">
+            <label class="mb-2 block text-[11px] font-black uppercase tracking-[0.18em] text-gray-500">Mẹo từ chuyên gia</label>
+            <textarea id="exercise-expert-tip" class="w-full rounded-2xl border border-white/10 bg-surface-container px-4 py-3 text-sm text-on-surface focus:border-primary focus:ring-0" rows="3"></textarea>
+          </div>
+
+          <section class="md:col-span-2 rounded-[24px] border border-white/5 bg-surface-container-high/30 p-5">
+            <div class="mb-4 flex items-center justify-between gap-4">
+              <div>
+                <p class="text-[11px] font-black uppercase tracking-[0.18em] text-primary">Hướng dẫn thực hiện</p>
+                <p class="mt-1 text-sm text-gray-400"></p>
+              </div>
+              <button class="rounded-full border border-primary/20 px-4 py-2 text-[11px] font-black uppercase tracking-[0.16em] text-primary" data-exercise-repeater-add="execution_steps" type="button">Thêm bước</button>
+            </div>
+            <div id="exercise-execution-steps-repeater" class="space-y-3"></div>
+            <textarea id="exercise-execution-steps" class="hidden"></textarea>
+          </section>
+
+          <section class="rounded-[24px] border border-white/5 bg-surface-container-high/30 p-5">
+            <div class="mb-4">
+              <p class="text-[11px] font-black uppercase tracking-[0.18em] text-primary">Lỗi thường gặp</p>
+              <p class="mt-1 text-sm text-gray-400">Mỗi dòng một lỗi.</p>
+            </div>
+            <textarea id="exercise-common-mistakes" class="min-h-[160px] w-full rounded-2xl border border-white/10 bg-surface-container px-4 py-3 text-sm text-on-surface focus:border-primary focus:ring-0" placeholder="Dùng quán tính quá nhiều&#10;Không khóa core khi vào rep"></textarea>
+          </section>
+
+          <section class="rounded-[24px] border border-white/5 bg-surface-container-high/30 p-5">
+            <div class="mb-4">
+              <p class="text-[11px] font-black uppercase tracking-[0.18em] text-primary">Nhóm cơ tác động</p>
+              <p class="mt-1 text-sm text-gray-400">Mỗi dòng một tag cơ.</p>
+            </div>
+            <textarea id="exercise-muscle-tags" class="min-h-[160px] w-full rounded-2xl border border-white/10 bg-surface-container px-4 py-3 text-sm text-on-surface focus:border-primary focus:ring-0" placeholder="Lưng xô&#10;Tay trước&#10;Core"></textarea>
+          </section>
+
+          <section class="rounded-[24px] border border-white/5 bg-surface-container-high/30 p-5">
+            <div class="mb-4">
+              <p class="text-[11px] font-black uppercase tracking-[0.18em] text-primary">Khuyến nghị tập</p>
+              <p class="mt-1 text-sm text-gray-400">Mỗi dòng một gợi ý sets/reps hoặc lưu ý volume.</p>
+            </div>
+            <textarea id="exercise-recommended-sets" class="min-h-[160px] w-full rounded-2xl border border-white/10 bg-surface-container px-4 py-3 text-sm text-on-surface focus:border-primary focus:ring-0" placeholder="4 hiệp, 6-8 reps cho tăng cơ&#10;Nghỉ 90 giây giữa các hiệp"></textarea>
+          </section>
+
+          <section class="md:col-span-2 rounded-[24px] border border-white/5 bg-surface-container-high/30 p-5">
+            <div class="mb-4">
+              <p class="text-[11px] font-black uppercase tracking-[0.18em] text-primary">Bài tập liên quan</p>
+                  <p class="mt-1 text-sm text-gray-400">Có thể nhập tay để ưu tiên riêng. Nếu để trống hoặc chưa đủ, hệ thống sẽ tự lấy thêm bài cùng nhóm.</p>
+            </div>
+            <div class="mb-3 flex items-center justify-between gap-4">
+              <span class="text-[10px] uppercase tracking-[0.2em] text-gray-500">Danh sách liên quan</span>
+              <button class="rounded-full border border-primary/20 px-4 py-2 text-[11px] font-black uppercase tracking-[0.16em] text-primary" data-exercise-repeater-add="related_exercises" type="button">Thêm bài tập</button>
+            </div>
+            <div id="exercise-related-exercises-repeater" class="space-y-3"></div>
+            <textarea id="exercise-related-exercises" class="hidden"></textarea>
+          </section>
+
+          <div>
+            <label class="mb-2 block text-[11px] font-black uppercase tracking-[0.18em] text-gray-500">Sort order</label>
+            <input id="exercise-sort-order" class="w-full rounded-2xl border border-white/10 bg-surface-container px-4 py-3 text-sm text-on-surface focus:border-primary focus:ring-0" min="0" step="1" type="number" />
+          </div>
+          <div class="flex items-center gap-6 pt-8">
+            <label class="inline-flex items-center gap-2 text-sm text-gray-300">
+              <input id="exercise-is-active" class="rounded border-white/10 bg-surface-container text-primary focus:ring-primary" type="checkbox" checked />
+              Active
+            </label>
+          </div>
+
+          <div class="md:col-span-2 flex flex-wrap gap-3 pt-2">
+            <button class="rounded-full bg-primary px-6 py-3 text-xs font-black uppercase tracking-[0.18em] text-on-primary" type="submit">Lưu bài tập</button>
+            <button class="rounded-full border border-white/10 px-6 py-3 text-xs font-black uppercase tracking-[0.18em] text-gray-300" data-close-modal="exercise-modal" type="button">Đóng</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div id="customer-modal" class="modal-shell hidden fixed inset-0 z-[70] bg-black/60 p-4">
+    <div class="mx-auto max-w-4xl rounded-[30px] border border-white/10 bg-surface-container-low shadow-admin">
+      <div class="flex items-center justify-between border-b border-white/10 px-6 py-5">
+        <div>
+          <p class="text-[11px] font-black uppercase tracking-[0.18em] text-primary">Customer detail</p>
+          <h3 class="serif mt-2 text-3xl text-on-surface">Chi tiết khách hàng</h3>
+        </div>
+        <button class="inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10" data-close-modal="customer-modal" type="button">
+          <span class="material-symbols-outlined">close</span>
+        </button>
+      </div>
+      <div class="grid gap-8 p-6 lg:grid-cols-[0.9fr_1.1fr]">
+        <div id="customer-detail-summary" class="rounded-[24px] border border-white/5 bg-surface-container p-5"></div>
+        <div>
+          <h4 class="mb-4 text-[11px] font-black uppercase tracking-[0.18em] text-gray-500">Lịch sử mua hàng</h4>
+          <div id="customer-detail-orders" class="max-h-[420px] space-y-4 overflow-y-auto"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="contact-reply-modal" class="modal-shell hidden fixed inset-0 z-[70] overflow-y-auto bg-black/60 p-4">
+    <div class="mx-auto my-4 max-w-5xl rounded-[30px] border border-white/10 bg-surface-container-low shadow-admin">
+      <div class="flex items-center justify-between border-b border-white/10 px-6 py-5">
+        <div>
+          <p class="text-[11px] font-black uppercase tracking-[0.18em] text-primary">Contact reply</p>
+          <h3 class="serif mt-2 text-3xl text-on-surface">Phản hồi khách hàng</h3>
+        </div>
+        <button class="inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10" data-close-modal="contact-reply-modal" type="button">
+          <span class="material-symbols-outlined">close</span>
+        </button>
+      </div>
+      <div class="grid gap-8 p-6 lg:grid-cols-[0.92fr_1.08fr]">
+        <div id="contact-reply-summary" class="rounded-[24px] border border-white/5 bg-surface-container p-5"></div>
+        <div class="space-y-4">
+          <div>
+            <label class="mb-2 block text-[11px] font-black uppercase tracking-[0.18em] text-gray-500" for="contact-reply-message">Nội dung phản hồi</label>
+            <textarea id="contact-reply-message" class="min-h-[260px] w-full rounded-2xl border border-white/10 bg-surface-container-high px-4 py-4 text-sm leading-7 text-on-surface focus:border-primary focus:ring-0" maxlength="4000" placeholder="Nhập nội dung phản hồi để gửi trực tiếp tới email của khách hàng."></textarea>
+          </div>
+          <div id="contact-reply-feedback" class="hidden rounded-2xl border px-4 py-3 text-sm"></div>
+          <div class="flex flex-wrap gap-3">
+            <button id="contact-reply-send" class="rounded-full bg-primary px-6 py-3 text-xs font-black uppercase tracking-[0.18em] text-on-primary" type="button">
+              Gửi phản hồi
+            </button>
+            <button class="rounded-full border border-white/10 px-6 py-3 text-xs font-black uppercase tracking-[0.18em] text-gray-300" data-close-modal="contact-reply-modal" type="button">
+              Đóng
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="../assets/js/admin-dashboard.js"></script>
+  <script src="../assets/js/admin-exercises.js"></script>
+</body>
+</html>

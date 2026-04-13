@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html class="dark page-preload" lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style id="page-preload-style">
+    html.page-preload body { opacity: 0; }
+    body { transition: opacity .14s ease; }
+  </style>
+  <script>
+    (() => {
+      const reveal = () => document.documentElement.classList.remove("page-preload");
+      window.addEventListener("DOMContentLoaded", reveal, { once: true });
+      window.addEventListener("load", reveal, { once: true });
+      setTimeout(reveal, 1200);
+    })();
+  </script>
+  <title>Spa Recovery | THE BIG GYM</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            background: "#121110",
+            primary: "#f2ca50",
+            secondary: "#f5c3a5",
+            copy: "#eee9e1"
+          },
+          boxShadow: {
+            cinematic: "0 30px 80px rgba(0,0,0,0.35)"
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    :root { --biggym-nav-height: 88px; }
+    html { scroll-behavior: smooth; }
+    body { font-family: "Manrope", sans-serif; background: #121110; color: #eee9e1; }
+    .serif { font-family: "Noto Serif", serif; }
+    .material-symbols-outlined {
+      font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 24;
+      vertical-align: middle;
+    }
+    .mega-menu { opacity: 0; visibility: hidden; transition: all .28s ease; }
+    .group:hover .mega-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+    .image-frame {
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.02);
+    }
+    .image-frame img { transition: transform .8s ease; }
+    .image-frame:hover img { transform: scale(1.04); }
+    .section-rule {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(242, 202, 80, 0.45), transparent);
+    }
+  </style>
+</head>
+<body class="bg-background text-copy selection:bg-primary selection:text-[#2b2000]">
+  <nav class="fixed inset-x-0 top-0 z-50 bg-[#121110]/82 backdrop-blur-md shadow-2xl shadow-black/25">
+    <div class="mx-auto flex max-w-screen-2xl items-center justify-between px-4 py-4 sm:px-6 lg:px-12 lg:py-6">
+      <a class="serif text-lg font-bold uppercase tracking-tight text-primary sm:text-xl md:text-2xl" href="../../index.html">THE BIG GYM</a>
+      <div class="hidden items-center gap-10 font-['Noto_Serif'] text-sm uppercase tracking-[0.28em] md:flex">
+        <a class="text-gray-400 transition-colors hover:text-primary" href="../../index.html">Trang chủ</a>
+        <div class="group relative">
+          <a class="flex items-center gap-1 border-b border-primary pb-1 text-primary" href="../../index.html#premium-services">
+            Dịch vụ <span class="material-symbols-outlined text-sm">expand_more</span>
+          </a>
+          <div class="mega-menu absolute left-1/2 top-full mt-4 grid w-[860px] -translate-x-1/2 translate-y-2 grid-cols-3 gap-8 rounded-3xl border border-white/10 bg-[#181818] p-8 shadow-2xl shadow-black/40">
+            <div class="space-y-4">
+              <p class="text-xs font-bold uppercase tracking-[0.3em] text-primary">Khu vực nổi bật</p>
+              <a class="block text-sm text-gray-400 transition-colors hover:text-primary" href="private-gym-area.html">Private Gym Area</a>
+              <a class="block text-sm text-gray-400 transition-colors hover:text-primary" href="yoga-sanctuary.html">Yoga Sanctuary</a>
+              <a class="block text-lg font-semibold text-white" href="spa-recovery.html">Spa Recovery</a>
+              <a class="block text-sm text-gray-400 transition-colors hover:text-primary" href="premium-bathroom.html">Phòng tắm cao cấp</a>
+            </div>
+            <div class="space-y-4">
+              <p class="text-xs font-bold uppercase tracking-[0.3em] text-primary">Chức năng chính</p>
+              <p class="text-sm leading-7 text-gray-300">Một vùng phục hồi sau tập hoặc sau ngày làm việc kéo dài, nơi cơ thể được làm dịu, nhiệt độ cơ được hạ nhịp và tâm trí không còn phải giữ trạng thái căng.</p>
+              <ul class="space-y-3 text-sm text-gray-400">
+                <li>Phù hợp sau buổi strength, cardio dài hoặc giai đoạn căng thẳng cao.</li>
+                <li>Nhấn mạnh cảm giác thư giãn, thả lỏng và chuyển trạng thái.</li>
+                <li>Liên kết trực tiếp với hệ tiện nghi cao cấp trong club.</li>
+              </ul>
+            </div>
+            <div class="image-frame rounded-[28px]">
+              <img alt="Spa Recovery" class="h-full min-h-[240px] w-full object-cover" src="../../assets/images/spa-recovery.jpg" />
+            </div>
+          </div>
+        </div>
+        <a class="text-gray-400 transition-colors hover:text-primary" href="../baitap.html">Bài tập</a>
+        <a class="text-gray-400 transition-colors hover:text-primary" href="../shop.html">Cửa hàng</a>
+        <a class="text-gray-400 transition-colors hover:text-primary" href="../congcu.html">Công cụ</a>
+      </div>
+      <div class="flex items-center gap-2 md:gap-3">
+        <a class="shrink-0 rounded-full bg-gradient-to-r from-primary to-[#d7ae2e] px-4 py-2.5 text-[10px] font-bold uppercase tracking-[0.18em] text-[#2e2200] sm:px-5 md:px-8 md:py-3 md:text-xs" href="../shop.html">Khám phá gói tập</a>
+        <a class="hidden min-h-[48px] min-w-[176px] items-center justify-center rounded-full border border-primary/40 px-6 py-3 text-xs font-bold uppercase tracking-widest text-primary transition-colors duration-300 hover:bg-primary hover:text-[#3c2f00] md:inline-flex" data-auth-link data-base-prefix="../../" href="../../pages/login.html">Đăng nhập</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <section class="relative overflow-hidden pt-[var(--biggym-nav-height)]">
+      <div class="absolute inset-0">
+        <img alt="Spa Hero" class="h-full w-full object-cover object-center" src="../../assets/images/spa-recovery.jpg" />
+        <div class="absolute inset-0 bg-gradient-to-r from-[#121110] via-[#121110]/80 to-[#121110]/20"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-[#121110] via-transparent to-black/25"></div>
+      </div>
+      <div class="relative mx-auto flex min-h-[calc(100svh-var(--biggym-nav-height))] max-w-screen-2xl items-end px-4 pb-14 pt-10 sm:px-6 lg:items-center lg:px-12 lg:pb-0">
+        <div class="max-w-3xl space-y-6">
+          <p class="text-xs font-bold uppercase tracking-[0.36em] text-secondary sm:text-sm">Recovery Lounge</p>
+          <h1 class="serif text-5xl font-bold leading-[0.9] tracking-tight sm:text-6xl md:text-7xl xl:text-[6.3rem]">
+            SPA RECOVERY<br />
+            <span class="text-primary italic">Trị liệu &amp; phục hồi</span><br />
+            thân tâm
+          </h1>
+          <p class="max-w-2xl text-base leading-8 text-gray-300 sm:text-lg">
+            Sau những buổi tập nặng hoặc những ngày phải duy trì hiệu suất liên tục, cơ thể cần nhiều hơn một chiếc ghế nghỉ. Spa Recovery được xây như một lounge tái tạo năng lượng, nơi bạn làm chậm nhịp tim, thả bớt căng ở cơ thể và rời đi trong trạng thái nhẹ hơn, sạch hơn, sâu hơn.
+          </p>
+          <div class="flex flex-col items-start gap-4 pt-2 sm:flex-row sm:items-center">
+            <a class="rounded-full bg-primary px-7 py-3 text-xs font-bold uppercase tracking-[0.22em] text-[#342700] transition-colors hover:bg-[#ffd86d]" href="#recovery-ritual">Xem liệu trình</a>
+            <a class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.22em] text-white transition-colors hover:text-primary" href="../congcu.html">
+              <span class="material-symbols-outlined text-base">monitor_heart</span>
+              Kết hợp công cụ sức khỏe
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-[#151412] py-24">
+      <div class="mx-auto grid max-w-screen-2xl gap-10 px-4 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:px-12">
+        <div class="space-y-7">
+          <p class="text-xs font-bold uppercase tracking-[0.3em] text-primary">Nơi buổi tập được khép lại đúng cách</p>
+          <h2 class="serif text-4xl leading-tight sm:text-5xl">Phục hồi không phải phần phụ, mà là phần làm cho hiệu suất trở nên bền vững</h2>
+          <p class="max-w-2xl text-base leading-8 text-gray-300">
+            Recovery hiệu quả giúp bạn bước vào ngày kế tiếp với chất lượng cơ thể tốt hơn. Spa Recovery tại THE BIG GYM được định hướng như một trải nghiệm hậu tập tinh tế: giảm cảm giác bức nhiệt, hạ căng thần kinh, thả lỏng những vùng cơ đã làm việc nhiều và tạo một điểm dừng có chủ đích giữa nhịp sống cao áp.
+          </p>
+          <div class="section-rule w-full"></div>
+          <div class="grid gap-8 md:grid-cols-3">
+            <div class="space-y-3">
+              <p class="text-xs font-bold uppercase tracking-[0.24em] text-secondary">Hạ nhiệt</p>
+              <p class="text-sm leading-7 text-gray-400">Sau cường độ cao, cơ thể được đưa về nhịp bình tĩnh hơn thay vì rời khỏi phòng tập trong trạng thái quá tải kéo dài.</p>
+            </div>
+            <div class="space-y-3">
+              <p class="text-xs font-bold uppercase tracking-[0.24em] text-secondary">Thả căng</p>
+              <p class="text-sm leading-7 text-gray-400">Không gian và nhiệt độ được dùng như công cụ giúp vùng vai, lưng, hông và hệ thần kinh bớt giữ cứng quá mức.</p>
+            </div>
+            <div class="space-y-3">
+              <p class="text-xs font-bold uppercase tracking-[0.24em] text-secondary">Tái tạo</p>
+              <p class="text-sm leading-7 text-gray-400">Một session recovery tốt khiến bạn muốn quay lại tập luyện đều hơn vì cơ thể được tôn trọng đúng cách.</p>
+            </div>
+          </div>
+        </div>
+        <div class="image-frame rounded-[32px] shadow-cinematic">
+          <img alt="Recovery portrait" class="h-full min-h-[540px] w-full object-cover object-center" src="../../assets/images/customer-review-3.jpg" />
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-background py-24" id="recovery-ritual">
+      <div class="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-12">
+        <div class="mb-12 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
+          <div class="space-y-4">
+            <p class="text-xs font-bold uppercase tracking-[0.3em] text-primary">Trình tự recovery</p>
+            <h2 class="serif text-4xl sm:text-5xl">Một ritual phục hồi được thiết kế để bạn chậm lại thật sự</h2>
+          </div>
+          <p class="max-w-2xl text-sm leading-7 text-gray-400">
+            Không cần quá nhiều bước rối rắm. Quan trọng là từng bước đều có mục đích rõ về cảm giác và trạng thái cơ thể.
+          </p>
+        </div>
+        <div class="grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
+          <div class="grid gap-6">
+            <div class="image-frame rounded-[30px]">
+              <img alt="Spa recovery lounge" class="h-[410px] w-full object-cover object-center" src="../../assets/images/spa-recovery.jpg" />
+            </div>
+            <div class="grid gap-6 md:grid-cols-2">
+              <div class="rounded-[28px] border border-white/10 bg-white/[0.03] p-6">
+                <p class="text-xs font-bold uppercase tracking-[0.24em] text-primary">01. Bước vào vùng thư giãn</p>
+                <p class="mt-4 text-sm leading-7 text-gray-300">Từ âm thanh, màu ánh sáng đến nhịp di chuyển, mọi thứ đều khiến cơ thể tự hiểu rằng buổi làm việc đã xong.</p>
+              </div>
+              <div class="rounded-[28px] border border-white/10 bg-white/[0.03] p-6">
+                <p class="text-xs font-bold uppercase tracking-[0.24em] text-primary">02. Dẫn cơ thể về nhịp ổn định</p>
+                <p class="mt-4 text-sm leading-7 text-gray-300">Nhiệt độ ấm, môi trường yên và khoảng nghỉ đủ dài giúp bạn không còn giữ sự gồng của cả buổi tập lẫn cả ngày làm việc.</p>
+              </div>
+            </div>
+          </div>
+          <div class="grid gap-6">
+            <div class="rounded-[30px] border border-primary/15 bg-primary/6 p-7">
+              <p class="text-xs font-bold uppercase tracking-[0.3em] text-primary">Phù hợp nhất sau những trạng thái này</p>
+              <ul class="mt-6 space-y-4 text-sm leading-7 text-gray-300">
+                <li>Buổi strength nặng khiến vùng lưng, chân hoặc vai giữ căng lâu.</li>
+                <li>Cardio kéo dài hoặc nhiều ngày làm việc liên tục khiến nhịp sống luôn ở mức kích hoạt cao.</li>
+                <li>Giai đoạn siết cân, ngủ chưa sâu hoặc stress khiến cơ thể khó bước vào recovery tự nhiên.</li>
+                <li>Những ngày bạn không muốn rời club quá nhanh mà muốn thật sự “hạ cánh” trước khi quay lại nhịp sống bên ngoài.</li>
+              </ul>
+            </div>
+            <div class="image-frame rounded-[30px]">
+              <img alt="Warm bath zone" class="h-[240px] w-full object-cover object-center" src="../../assets/images/bath-room.jpg" />
+            </div>
+            <div class="image-frame rounded-[30px]">
+              <img alt="Recovery companion" class="h-[240px] w-full object-cover object-center" src="../../assets/images/customer-review-3.jpg" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-[#151412] py-24">
+      <div class="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-12">
+        <div class="mb-14 max-w-3xl space-y-4">
+          <p class="text-xs font-bold uppercase tracking-[0.3em] text-primary">Cảm giác cao cấp nằm ở những điều rất cụ thể</p>
+          <h2 class="serif text-4xl sm:text-5xl">Từ nhịp không gian đến cách bạn rời đi, mọi thứ đều phải dịu xuống đúng lúc</h2>
+        </div>
+        <div class="grid gap-px overflow-hidden rounded-[34px] border border-white/10 bg-white/10 lg:grid-cols-4">
+          <div class="bg-[#171513] p-7">
+            <p class="text-sm font-bold uppercase tracking-[0.18em] text-primary">Bầu không khí yên</p>
+            <p class="mt-4 text-sm leading-7 text-gray-400">Recovery không thể xảy ra trong một không gian vẫn còn quá nhiều kích thích thị giác và âm thanh.</p>
+          </div>
+          <div class="bg-[#171513] p-7">
+            <p class="text-sm font-bold uppercase tracking-[0.18em] text-primary">Nhiệt độ dễ chịu</p>
+            <p class="mt-4 text-sm leading-7 text-gray-400">Một trạng thái nhiệt phù hợp giúp cơ thể bớt giữ gồng và bắt đầu chuyển sang thư giãn sâu hơn.</p>
+          </div>
+          <div class="bg-[#171513] p-7">
+            <p class="text-sm font-bold uppercase tracking-[0.18em] text-primary">Kết nối với shower</p>
+            <p class="mt-4 text-sm leading-7 text-gray-400">Trải nghiệm hồi phục được nối tiếp mượt sang khu tắm và thay đồ thay vì dừng lại ở nửa chừng.</p>
+          </div>
+          <div class="bg-[#171513] p-7">
+            <p class="text-sm font-bold uppercase tracking-[0.18em] text-primary">Phục hồi để tiếp tục</p>
+            <p class="mt-4 text-sm leading-7 text-gray-400">Mục tiêu cuối cùng là giúp bạn quay lại làm việc, sinh hoạt và tập luyện tốt hơn chứ không chỉ nghỉ cho có.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-background py-24">
+      <div class="mx-auto max-w-5xl px-4 text-center sm:px-6">
+        <p class="text-4xl text-primary">“</p>
+        <blockquote class="serif text-3xl leading-relaxed text-white sm:text-4xl">
+          Một club cao cấp không kết thúc ở set cuối cùng. Nó kết thúc khi thành viên rời đi trong trạng thái tốt hơn lúc bước vào.
+        </blockquote>
+        <p class="mt-6 text-xs font-bold uppercase tracking-[0.28em] text-gray-500">THE BIG GYM RECOVERY STANDARD</p>
+      </div>
+    </section>
+
+    <section class="px-4 pb-24 sm:px-6 lg:px-12">
+      <div class="mx-auto grid max-w-screen-2xl gap-8 rounded-[36px] border border-primary/10 bg-gradient-to-r from-[#262016] via-[#1a1713] to-[#121110] p-8 shadow-cinematic lg:grid-cols-[1fr_auto] lg:items-center lg:p-12">
+        <div class="space-y-4">
+          <p class="text-xs font-bold uppercase tracking-[0.32em] text-primary">Tái tạo có chủ đích</p>
+          <h2 class="serif text-4xl sm:text-5xl">Để buổi tập của bạn kết thúc bằng sự thư giãn chứ không phải kiệt quệ</h2>
+          <p class="max-w-2xl text-sm leading-7 text-gray-300">Nếu bạn xem recovery là một phần thật sự của chất lượng sống, Spa Recovery là không gian khiến thói quen đó trở nên đáng mong đợi.</p>
+        </div>
+        <div class="flex flex-col gap-3 sm:flex-row lg:flex-col">
+          <a class="inline-flex items-center justify-center rounded-full bg-primary px-6 py-3 text-xs font-bold uppercase tracking-[0.18em] text-[#352700]" href="../shop.html">Xem gói thành viên</a>
+          <a class="inline-flex items-center justify-center rounded-full border border-white/10 px-6 py-3 text-xs font-bold uppercase tracking-[0.18em] text-white transition-colors hover:border-primary/30 hover:text-primary" href="../../index.html#premium-services">Khám phá khu vực khác</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-white/5 bg-[#121110] px-4 py-10 sm:px-6 lg:px-12">
+    <div class="mx-auto flex max-w-screen-2xl flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+      <div>
+        <p class="serif text-xl font-bold uppercase tracking-tight text-primary">THE BIG GYM HẢI PHÒNG</p>
+        <p class="mt-2 text-xs uppercase tracking-[0.18em] text-gray-500">Recover slower. Leave lighter. Return stronger.</p>
+      </div>
+      <div class="flex flex-wrap gap-5 text-xs uppercase tracking-[0.18em] text-gray-400">
+        <a class="transition-colors hover:text-primary" href="../../index.html">Trang chủ</a>
+        <a class="transition-colors hover:text-primary" href="../shop.html">Cửa hàng</a>
+        <a class="transition-colors hover:text-primary" href="../congcu.html">Công cụ</a>
+        <a class="transition-colors hover:text-primary" href="../baitap.html">Bài tập</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/auth-ui.js?v=20260413-footer1"></script>
+</body>
+</html>

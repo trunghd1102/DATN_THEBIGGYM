@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html class="dark page-preload" lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style id="page-preload-style">
+    html.page-preload body { opacity: 0; }
+    body { transition: opacity .12s ease; }
+  </style>
+  <script>
+    (() => {
+      const reveal = () => document.documentElement.classList.remove("page-preload");
+      window.addEventListener("DOMContentLoaded", reveal, { once: true });
+      window.addEventListener("load", reveal, { once: true });
+      setTimeout(reveal, 1200);
+    })();
+  </script>
+  <title>Chi tiết bài tập | THE BIG GYM</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700;800&family=Manrope:wght@200;300;400;500;600;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface-container": "#201f1f",
+            "primary": "#f2ca50",
+            "outline": "#99907c",
+            "outline-variant": "#4d4635",
+            "secondary": "#ffb693",
+            "background": "#131313",
+            "surface-container-high": "#2a2a2a",
+            "surface-container-low": "#1c1b1b",
+            "surface-container-lowest": "#0e0e0e",
+            "on-background": "#e5e2e1",
+            "on-surface": "#e5e2e1",
+            "on-surface-variant": "#d0c5af",
+            "on-primary": "#3c2f00",
+            "primary-fixed": "#ffe088"
+          },
+          fontFamily: {
+            headline: ["Noto Serif"],
+            body: ["Manrope"]
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+      vertical-align: middle;
+    }
+    body {
+      font-family: 'Manrope', sans-serif;
+      background: #131313;
+      color: #e5e2e1;
+    }
+    .serif {
+      font-family: 'Noto Serif', serif;
+    }
+    .mega-menu {
+      opacity: 0;
+      visibility: hidden;
+      transition: all .3s ease;
+    }
+    .group:hover .mega-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    .glass-panel {
+      background: rgba(42,42,42,.5);
+      backdrop-filter: blur(12px);
+    }
+    .step-rail {
+      position: relative;
+    }
+    .step-rail::before {
+      content: "";
+      position: absolute;
+      left: 18px;
+      top: 4px;
+      bottom: 4px;
+      width: 1px;
+      background: linear-gradient(180deg, rgba(242,202,80,0.35), rgba(255,255,255,0));
+      opacity: 0.6;
+    }
+    .step-card {
+      position: relative;
+      display: grid;
+      grid-template-columns: 40px 1fr;
+      gap: 18px;
+      padding: 18px 20px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.06);
+      background: linear-gradient(140deg, rgba(32,31,31,0.9), rgba(28,27,27,0.5));
+      transition: border-color .2s ease, transform .2s ease, box-shadow .2s ease;
+    }
+    .step-card:hover {
+      border-color: rgba(242,202,80,0.35);
+      box-shadow: 0 18px 40px rgba(0,0,0,0.25);
+      transform: translateY(-2px);
+    }
+    .step-index {
+      height: 40px;
+      width: 40px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: 0.2em;
+      color: #3c2f00;
+      background: linear-gradient(135deg, rgba(242,202,80,0.95), rgba(255,219,140,0.8));
+      box-shadow: 0 10px 20px rgba(242,202,80,0.2);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background selection:bg-primary selection:text-on-primary">
+  <nav class="fixed top-0 w-full z-50 bg-[#131313]/80 backdrop-blur-md shadow-2xl shadow-black/20">
+    <div class="flex justify-between items-center px-12 py-6 max-w-screen-2xl mx-auto">
+      <div class="text-2xl font-bold text-[#f2ca50] tracking-tighter serif uppercase">THE BIG GYM</div>
+      <div class="hidden md:flex items-center gap-10 font-['Noto_Serif'] uppercase tracking-widest text-sm">
+        <a class="text-gray-400 hover:text-[#f2ca50]" href="../../index.html">Trang chủ</a>
+        <div class="group relative">
+          <a class="text-gray-400 hover:text-[#f2ca50] pb-1 flex items-center gap-1" href="#">Dịch vụ <span class="material-symbols-outlined text-xs">expand_more</span></a>
+          <div class="mega-menu absolute top-full left-1/2 -translate-x-1/2 w-[800px] mt-4 bg-surface-container-low p-8 grid grid-cols-3 gap-8 shadow-2xl rounded-lg translate-y-2">
+            <div>
+              <h4 class="text-primary mb-4 font-bold border-b border-white/10 pb-2">Huấn luyện</h4>
+              <ul class="space-y-3 text-gray-400 normal-case tracking-normal">
+                <li class="hover:text-primary transition-colors">Personal Training 1:1</li>
+                <li class="hover:text-primary transition-colors">Kickboxing & MMA</li>
+                <li class="hover:text-primary transition-colors">Yoga Sanctuary</li>
+              </ul>
+            </div>
+            <div>
+              <h4 class="text-primary mb-4 font-bold border-b border-white/10 pb-2">Tiện nghi</h4>
+              <ul class="space-y-3 text-gray-400 normal-case tracking-normal">
+                <li class="hover:text-primary transition-colors">Spa Recovery</li>
+                <li class="hover:text-primary transition-colors">Tủ đồ thông minh</li>
+              </ul>
+            </div>
+            <div class="relative overflow-hidden rounded-md">
+              <img alt="Gym Luxury" class="w-full h-full object-cover opacity-60" src="../../assets/images/mega-menu.jpg" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-4">
+                <span class="text-white text-xs font-bold uppercase">Ưu đãi thành viên mới</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a class="text-[#f2ca50] border-b-2 border-[#f2ca50] pb-1" href="../baitap.html">Bài tập</a>
+        <a class="text-gray-400 hover:text-[#f2ca50]" href="../shop.html">Cửa hàng</a>
+        <a class="text-gray-400 hover:text-[#f2ca50]" href="../congcu.html">Công cụ</a>
+        <a class="text-gray-400 hover:text-[#f2ca50]" href="../contact.html">Liên hệ</a>
+      </div>
+      <div class="flex items-center gap-3">
+        <button class="bg-gradient-to-r from-[#f2ca50] to-[#d4af37] text-[#3c2f00] px-8 py-3 font-bold uppercase tracking-widest text-xs rounded-full">Đặt lịch PT</button>
+        <a class="border border-[#f2ca50]/40 text-[#f2ca50] px-6 py-3 font-bold uppercase tracking-widest text-xs rounded-full hover:bg-[#f2ca50] hover:text-[#3c2f00] transition-colors duration-300" data-auth-link="" data-base-prefix="../../" href="../login.html">Đăng nhập</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="pt-32 pb-20 px-6 md:px-12 lg:px-24 max-w-7xl mx-auto">
+    <div id="exercise-detail-shell">
+      <div class="mb-8 flex flex-wrap items-center gap-3 text-[11px] uppercase tracking-[0.22em] text-outline">
+        <a class="hover:text-primary transition-colors" href="../baitap.html">Thư viện bài tập</a>
+        <span class="opacity-30">/</span>
+        <span id="exercise-category-link" class="text-gray-400">Bài tập</span>
+        <span class="opacity-30">/</span>
+        <span id="exercise-breadcrumb-name" class="text-on-background">Chi tiết bài tập</span>
+      </div>
+
+      <a class="mb-8 inline-flex items-center gap-2 text-primary/70 hover:text-primary" href="../baitap.html">
+        <span class="material-symbols-outlined text-sm">arrow_back_ios</span>
+        <span class="uppercase tracking-widest text-[10px] font-bold">Quay lại danh sách bài tập</span>
+      </a>
+
+      <section id="exercise-media-shell" class="relative w-full aspect-video rounded-xl overflow-hidden shadow-2xl shadow-black mb-12 border border-outline-variant/10 bg-surface-container-lowest"></section>
+
+      <header class="mb-16 grid grid-cols-1 lg:grid-cols-3 gap-12 items-end">
+        <div class="lg:col-span-2">
+          <span id="exercise-focus-label" class="text-secondary tracking-[0.3em] uppercase text-xs mb-4 block">Kỹ thuật • Sức mạnh</span>
+          <h1 id="exercise-title" class="serif text-5xl md:text-7xl font-extrabold text-primary leading-tight tracking-tighter uppercase mb-6">Chi tiết bài tập</h1>
+          <p id="exercise-description" class="text-on-surface-variant font-light text-lg max-w-2xl leading-relaxed">Nội dung bài tập đang được tải từ hệ thống.</p>
+        </div>
+        <div class="flex flex-col gap-6 border-l border-outline-variant/30 pl-8">
+          <div><span class="block text-[10px] uppercase tracking-widest text-outline mb-1">Cấp độ</span><span id="exercise-level" class="font-medium text-on-surface">Đang cập nhật</span></div>
+          <div><span class="block text-[10px] uppercase tracking-widest text-outline mb-1">Thiết bị</span><span id="exercise-equipment" class="font-medium text-on-surface">Đang cập nhật</span></div>
+          <div><span class="block text-[10px] uppercase tracking-widest text-outline mb-1">Calo tiêu thụ</span><span id="exercise-calories" class="font-medium text-on-surface">Đang cập nhật</span></div>
+        </div>
+      </header>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+        <div class="lg:col-span-8 space-y-16">
+          <section>
+            <h2 class="serif text-2xl text-primary-fixed uppercase tracking-widest mb-10 flex items-center gap-4"><span class="h-[1px] w-12 bg-primary/30"></span>Hướng dẫn thực hiện</h2>
+            <div id="exercise-steps" class="step-rail space-y-5"></div>
+          </section>
+
+          <section class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div id="exercise-expert-tip-shell" class="hidden bg-surface-container-high p-8 rounded-xl border border-outline-variant/10 relative overflow-hidden group">
+              <span class="material-symbols-outlined absolute -right-4 -bottom-4 text-8xl text-primary/5 group-hover:text-primary/10">verified</span>
+              <h4 class="font-bold text-primary mb-4 flex items-center gap-2"><span class="material-symbols-outlined text-sm">lightbulb</span>Mẹo từ chuyên gia</h4>
+              <p id="exercise-expert-tip" class="text-on-surface-variant text-sm leading-relaxed italic"></p>
+            </div>
+            <div id="exercise-common-mistakes-shell" class="hidden bg-surface-container-low p-8 rounded-xl border border-outline-variant/5">
+              <h4 class="font-bold text-secondary mb-4 flex items-center gap-2"><span class="material-symbols-outlined text-sm">warning</span>Lỗi thường gặp</h4>
+              <ul id="exercise-common-mistakes" class="text-on-surface-variant text-sm space-y-3"></ul>
+            </div>
+          </section>
+        </div>
+
+        <aside class="lg:col-span-4 space-y-8">
+          <div id="exercise-muscle-tags-shell" class="hidden glass-panel rounded-xl p-8 border border-white/5">
+            <h3 class="serif text-2xl text-primary mb-6">Nhóm cơ tác động</h3>
+            <div id="exercise-muscle-tags" class="flex flex-wrap gap-3"></div>
+          </div>
+
+          <div id="exercise-recommendations-shell" class="hidden bg-surface-container-low rounded-xl p-8 border border-white/5">
+            <h3 class="serif text-2xl text-primary mb-6">Khuyến nghị tập</h3>
+            <ul id="exercise-recommendations" class="space-y-4 text-on-surface-variant list-disc pl-5"></ul>
+          </div>
+
+        </aside>
+      </div>
+
+      <section id="exercise-related-shell" class="hidden border-t border-white/10 pt-20">
+        <div class="mb-10 flex items-end justify-between gap-4">
+          <div>
+            <p class="mb-2 text-xs uppercase tracking-[0.25em] text-secondary">Gợi ý tập tiếp</p>
+            <h2 class="serif text-4xl text-on-background">Bài tập liên quan</h2>
+          </div>
+          <a class="text-xs font-bold uppercase tracking-[0.2em] text-primary transition-colors hover:text-secondary" href="../baitap.html">Xem toàn bộ</a>
+        </div>
+        <div id="exercise-related" class="grid grid-cols-1 gap-8 md:grid-cols-3"></div>
+      </section>
+    </div>
+
+    <section id="exercise-detail-error" class="hidden rounded-[32px] border border-red-400/20 bg-red-500/10 px-6 py-12 text-center">
+      <p class="text-xs font-bold uppercase tracking-[0.25em] text-red-200">Không tải được bài tập</p>
+      <h1 class="serif mt-4 text-4xl text-on-background">Chi tiết bài tập hiện chưa sẵn sàng</h1>
+      <p id="exercise-detail-error-message" class="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-gray-300"></p>
+      <div class="mt-8 flex flex-wrap justify-center gap-3">
+        <a class="rounded-full border border-white/10 px-6 py-3 text-xs font-bold uppercase tracking-[0.2em] text-gray-200 transition-colors hover:border-primary/40 hover:text-primary" href="../baitap.html">Quay lại thư viện bài tập</a>
+        <a class="rounded-full bg-primary px-6 py-3 text-xs font-bold uppercase tracking-[0.2em] text-on-primary" href="../../index.html">Về trang chủ</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="w-full pt-20 pb-10 px-12 border-t border-white/5 bg-[#131313]">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-12 max-w-screen-2xl mx-auto">
+      <div class="md:col-span-1">
+        <div class="font-['Noto_Serif'] text-3xl text-[#f2ca50] mb-6 font-bold uppercase tracking-tighter">The Big Gym</div>
+        <p class="font-['Manrope'] text-gray-400 font-light tracking-wide leading-relaxed">Nâng tầm trải nghiệm thể hình tại Hải Phòng. Không gian đẳng cấp, dịch vụ thượng lưu.</p>
+      </div>
+      <div class="space-y-6">
+        <h5 class="text-white font-bold uppercase text-xs tracking-widest">Liên kết nhanh</h5>
+        <ul class="font-['Manrope'] text-gray-400 font-light tracking-wide space-y-4">
+          <li><a class="hover:text-[#ffb693]" href="../../index.html">Trang chủ</a></li>
+          <li><a class="hover:text-[#ffb693]" href="../baitap.html">Bài tập</a></li>
+          <li><a class="hover:text-[#ffb693]" href="#">Hỏi đáp</a></li>
+          <li><a class="hover:text-[#ffb693]" href="#">Điều khoản dịch vụ</a></li>
+        </ul>
+      </div>
+      <div class="space-y-6">
+        <h5 class="text-white font-bold uppercase text-xs tracking-widest">Địa điểm</h5>
+        <p class="font-['Manrope'] text-gray-400 font-light tracking-wide leading-relaxed">219, Hồ Sen,<br />Phường Lê Chân, TP. Hải Phòng</p>
+        <p class="text-primary font-bold">Hotline: 1900 1009</p>
+      </div>
+      <div class="space-y-6">
+        <h5 class="text-white font-bold uppercase text-xs tracking-widest">Đăng ký nhận tin</h5>
+        <div class="flex flex-col gap-4">
+          <input class="bg-surface-container-high border-none rounded-lg p-4 text-white placeholder:text-gray-600" placeholder="Email của bạn" type="email" />
+          <button class="bg-primary text-on-primary font-bold py-4 rounded-lg uppercase text-xs tracking-widest">Đăng ký ngay</button>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/auth-ui.js?v=20260413-footer1"></script>
+  <script src="../../assets/js/exercise-detail.js"></script>
+</body>
+</html>

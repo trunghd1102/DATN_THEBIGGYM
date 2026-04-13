@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html class="dark page-preload" lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style id="page-preload-style">
+    html.page-preload body { opacity: 0; }
+    body { transition: opacity .14s ease; }
+  </style>
+  <script>
+    (() => {
+      const reveal = () => document.documentElement.classList.remove("page-preload");
+      window.addEventListener("DOMContentLoaded", reveal, { once: true });
+      window.addEventListener("load", reveal, { once: true });
+      setTimeout(reveal, 1200);
+    })();
+  </script>
+  <title>Phòng Tắm Cao Cấp | THE BIG GYM</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            background: "#121212",
+            primary: "#f2ca50",
+            secondary: "#ffcfac",
+            copy: "#eee8df"
+          },
+          boxShadow: {
+            cinematic: "0 30px 80px rgba(0,0,0,0.35)"
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    :root { --biggym-nav-height: 88px; }
+    html { scroll-behavior: smooth; }
+    body { font-family: "Manrope", sans-serif; background: #121212; color: #eee8df; }
+    .serif { font-family: "Noto Serif", serif; }
+    .material-symbols-outlined {
+      font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 24;
+      vertical-align: middle;
+    }
+    .mega-menu { opacity: 0; visibility: hidden; transition: all .28s ease; }
+    .group:hover .mega-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+    .image-frame {
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.02);
+    }
+    .image-frame img { transition: transform .8s ease; }
+    .image-frame:hover img { transform: scale(1.04); }
+    .section-rule {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(242, 202, 80, 0.45), transparent);
+    }
+  </style>
+</head>
+<body class="bg-background text-copy selection:bg-primary selection:text-[#2b2000]">
+  <nav class="fixed inset-x-0 top-0 z-50 bg-[#121212]/82 backdrop-blur-md shadow-2xl shadow-black/25">
+    <div class="mx-auto flex max-w-screen-2xl items-center justify-between px-4 py-4 sm:px-6 lg:px-12 lg:py-6">
+      <a class="serif text-lg font-bold uppercase tracking-tight text-primary sm:text-xl md:text-2xl" href="../../index.html">THE BIG GYM</a>
+      <div class="hidden items-center gap-10 font-['Noto_Serif'] text-sm uppercase tracking-[0.28em] md:flex">
+        <a class="text-gray-400 transition-colors hover:text-primary" href="../../index.html">Trang chủ</a>
+        <div class="group relative">
+          <a class="flex items-center gap-1 border-b border-primary pb-1 text-primary" href="../../index.html#premium-services">
+            Dịch vụ <span class="material-symbols-outlined text-sm">expand_more</span>
+          </a>
+          <div class="mega-menu absolute left-1/2 top-full mt-4 grid w-[860px] -translate-x-1/2 translate-y-2 grid-cols-3 gap-8 rounded-3xl border border-white/10 bg-[#181818] p-8 shadow-2xl shadow-black/40">
+            <div class="space-y-4">
+              <p class="text-xs font-bold uppercase tracking-[0.3em] text-primary">Khu vực nổi bật</p>
+              <a class="block text-sm text-gray-400 transition-colors hover:text-primary" href="private-gym-area.html">Private Gym Area</a>
+              <a class="block text-sm text-gray-400 transition-colors hover:text-primary" href="yoga-sanctuary.html">Yoga Sanctuary</a>
+              <a class="block text-sm text-gray-400 transition-colors hover:text-primary" href="spa-recovery.html">Spa Recovery</a>
+              <a class="block text-lg font-semibold text-white" href="premium-bathroom.html">Phòng tắm cao cấp</a>
+            </div>
+            <div class="space-y-4">
+              <p class="text-xs font-bold uppercase tracking-[0.3em] text-primary">Trải nghiệm sạch và riêng</p>
+              <p class="text-sm leading-7 text-gray-300">Không gian shower và thay đồ được đặt ngang tầm một luxury club, để việc kết thúc buổi tập không bị phá bởi cảm giác vội, ẩm hoặc thiếu chỉn chu.</p>
+              <ul class="space-y-3 text-sm text-gray-400">
+                <li>Từ locker, bench đến shower đều ưu tiên cảm giác gọn gàng.</li>
+                <li>Là bước chuyển mượt giữa tập luyện và nhịp sống tiếp theo.</li>
+                <li>Phù hợp cho những người xem sự chỉn chu là một tiêu chuẩn sống.</li>
+              </ul>
+            </div>
+            <div class="image-frame rounded-[28px]">
+              <img alt="Premium Bathroom" class="h-full min-h-[240px] w-full object-cover" src="../../assets/images/bath-room.jpg" />
+            </div>
+          </div>
+        </div>
+        <a class="text-gray-400 transition-colors hover:text-primary" href="../baitap.html">Bài tập</a>
+        <a class="text-gray-400 transition-colors hover:text-primary" href="../shop.html">Cửa hàng</a>
+        <a class="text-gray-400 transition-colors hover:text-primary" href="../congcu.html">Công cụ</a>
+      </div>
+      <div class="flex items-center gap-2 md:gap-3">
+        <a class="shrink-0 rounded-full bg-gradient-to-r from-primary to-[#d7ae2e] px-4 py-2.5 text-[10px] font-bold uppercase tracking-[0.18em] text-[#2e2200] sm:px-5 md:px-8 md:py-3 md:text-xs" href="../shop.html">Khám phá gói tập</a>
+        <a class="hidden min-h-[48px] min-w-[176px] items-center justify-center rounded-full border border-primary/40 px-6 py-3 text-xs font-bold uppercase tracking-widest text-primary transition-colors duration-300 hover:bg-primary hover:text-[#3c2f00] md:inline-flex" data-auth-link data-base-prefix="../../" href="../../pages/login.html">Đăng nhập</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <section class="relative overflow-hidden pt-[var(--biggym-nav-height)]">
+      <div class="absolute inset-0">
+        <img alt="Bathroom hero" class="h-full w-full object-cover object-center" src="../../assets/images/bath-room.jpg" />
+        <div class="absolute inset-0 bg-gradient-to-r from-[#121212] via-[#121212]/82 to-[#121212]/20"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-[#121212] via-transparent to-black/20"></div>
+      </div>
+      <div class="relative mx-auto flex min-h-[calc(100svh-var(--biggym-nav-height))] max-w-screen-2xl items-end px-4 pb-14 pt-10 sm:px-6 lg:items-center lg:px-12 lg:pb-0">
+        <div class="max-w-3xl space-y-6">
+          <p class="text-xs font-bold uppercase tracking-[0.36em] text-secondary sm:text-sm">Luxury Shower & Locker</p>
+          <h1 class="serif text-5xl font-bold leading-[0.9] tracking-tight sm:text-6xl md:text-7xl xl:text-[6.1rem]">
+            PHÒNG TẮM<br />
+            <span class="text-primary italic">cao cấp, khép kín</span><br />
+            và sạch sẽ
+          </h1>
+          <p class="max-w-2xl text-base leading-8 text-gray-300 sm:text-lg">
+            Một premium club không thể chỉ đẹp ở floor tập. Trải nghiệm được hoàn thiện khi thành viên có thể tắm, thay đồ, chỉnh trang và rời đi trong trạng thái chỉn chu. Phòng tắm cao cấp tại THE BIG GYM được định hình như một vùng riêng tư, sạch sẽ và sáng sủa để buổi tập khép lại đúng chuẩn.
+          </p>
+          <div class="flex flex-col items-start gap-4 pt-2 sm:flex-row sm:items-center">
+            <a class="rounded-full bg-primary px-7 py-3 text-xs font-bold uppercase tracking-[0.22em] text-[#342700] transition-colors hover:bg-[#ffd86d]" href="#bathroom-details">Xem tiện nghi</a>
+            <a class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.22em] text-white transition-colors hover:text-primary" href="../shop.html">
+              <span class="material-symbols-outlined text-base">diamond</span>
+              Khám phá thành viên premium
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-[#141414] py-24">
+      <div class="mx-auto grid max-w-screen-2xl gap-10 px-4 sm:px-6 lg:grid-cols-[1fr_1fr] lg:px-12">
+        <div class="image-frame rounded-[32px] shadow-cinematic">
+          <img alt="Bathroom space" class="h-full min-h-[540px] w-full object-cover object-center" src="../../assets/images/bath-room.jpg" />
+        </div>
+        <div class="space-y-7">
+          <p class="text-xs font-bold uppercase tracking-[0.3em] text-primary">Cảm giác khác biệt bắt đầu ở sự sạch và riêng</p>
+          <h2 class="serif text-4xl leading-tight sm:text-5xl">Từ lúc cất đồ cho tới khi bước ra ngoài, mọi thứ đều cần gọn gàng</h2>
+          <p class="max-w-2xl text-base leading-8 text-gray-300">
+            Phòng tắm cao cấp phục vụ cho một nhu cầu rất thực: thành viên cần một nơi đủ tử tế để chuyển từ trạng thái vận động sang trạng thái làm việc, gặp gỡ hay di chuyển tiếp. Điều đó đòi hỏi không gian riêng, ánh sáng phù hợp, vật liệu sạch, nhịp sử dụng mượt và cảm giác được chăm chút chứ không chỉ “đủ dùng”.
+          </p>
+          <div class="section-rule w-full"></div>
+          <div class="grid gap-8 md:grid-cols-3">
+            <div class="space-y-3">
+              <p class="text-xs font-bold uppercase tracking-[0.24em] text-secondary">Locker</p>
+              <p class="text-sm leading-7 text-gray-400">Bắt đầu bằng khu cất đồ gọn và đủ riêng để thành viên chủ động thay đổi trạng thái nhanh chóng.</p>
+            </div>
+            <div class="space-y-3">
+              <p class="text-xs font-bold uppercase tracking-[0.24em] text-secondary">Shower</p>
+              <p class="text-sm leading-7 text-gray-400">Tắm sau tập không chỉ để sạch mà còn là một khoảnh khắc làm dịu cơ thể trước khi quay lại nhịp sống bên ngoài.</p>
+            </div>
+            <div class="space-y-3">
+              <p class="text-xs font-bold uppercase tracking-[0.24em] text-secondary">Grooming</p>
+              <p class="text-sm leading-7 text-gray-400">Không gian chỉnh trang cho phép bạn rời club ở trạng thái chỉn chu, không còn cảm giác vội vàng hay cẩu thả.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-background py-24" id="bathroom-details">
+      <div class="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-12">
+        <div class="mb-12 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
+          <div class="space-y-4">
+            <p class="text-xs font-bold uppercase tracking-[0.3em] text-primary">Đi từ buổi tập sang phần còn lại của ngày sống</p>
+            <h2 class="serif text-4xl sm:text-5xl">Một hành trình khép kín từ sweat đến fresh</h2>
+          </div>
+          <p class="max-w-2xl text-sm leading-7 text-gray-400">
+            Phòng tắm tốt không phô trương. Nó khiến mọi thao tác sau tập trở nên trơn tru và khiến thành viên gần như không phải nghĩ về nó nữa.
+          </p>
+        </div>
+        <div class="grid gap-6 lg:grid-cols-[1.05fr_0.95fr]">
+          <div class="grid gap-6">
+            <div class="image-frame rounded-[30px]">
+              <img alt="Bathroom wide" class="h-[410px] w-full object-cover object-center" src="../../assets/images/bath-room.jpg" />
+            </div>
+            <div class="grid gap-6 md:grid-cols-2">
+              <div class="rounded-[28px] border border-white/10 bg-white/[0.03] p-6">
+                <p class="text-xs font-bold uppercase tracking-[0.24em] text-primary">01. Thay đồ gọn</p>
+                <p class="mt-4 text-sm leading-7 text-gray-300">Khu vực thay đồ và cất giữ được bố trí để việc chuyển từ trang phục tập sang trang phục thường ngày diễn ra nhanh mà vẫn riêng tư.</p>
+              </div>
+              <div class="rounded-[28px] border border-white/10 bg-white/[0.03] p-6">
+                <p class="text-xs font-bold uppercase tracking-[0.24em] text-primary">02. Tắm và làm mới</p>
+                <p class="mt-4 text-sm leading-7 text-gray-300">Sau buổi tập, nước, nhiệt độ và không gian đủ dễ chịu để biến việc tắm thành một phần recovery chứ không chỉ là vệ sinh cơ bản.</p>
+              </div>
+            </div>
+          </div>
+          <div class="grid gap-6">
+            <div class="image-frame rounded-[30px]">
+              <img alt="Bathroom to recovery" class="h-[250px] w-full object-cover object-center" src="../../assets/images/spa-recovery.jpg" />
+            </div>
+            <div class="rounded-[30px] border border-primary/15 bg-primary/6 p-7">
+              <p class="text-xs font-bold uppercase tracking-[0.3em] text-primary">Vì sao khu này quan trọng</p>
+              <ul class="mt-6 space-y-4 text-sm leading-7 text-gray-300">
+                <li>Nó quyết định cảm giác kết thúc buổi tập có gọn hay không.</li>
+                <li>Nó cho phép thành viên đi thẳng tới cuộc hẹn tiếp theo mà không mất thêm điểm dừng trung gian.</li>
+                <li>Nó nâng tổng thể câu chuyện premium của club lên mức trọn vẹn, thay vì chỉ đẹp ở khu tập.</li>
+                <li>Nó giữ cho trải nghiệm luyện tập chuyên nghiệp hơn với những người có lịch trình dày và tiêu chuẩn sống cao.</li>
+              </ul>
+            </div>
+            <div class="image-frame rounded-[30px]">
+              <img alt="Member luxury detail" class="h-[250px] w-full object-cover object-center" src="../../assets/images/customer-review-1.jpg" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-[#141414] py-24">
+      <div class="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-12">
+        <div class="mb-14 max-w-3xl space-y-4">
+          <p class="text-xs font-bold uppercase tracking-[0.3em] text-primary">Tiêu chuẩn của một premium finish</p>
+          <h2 class="serif text-4xl sm:text-5xl">Chi tiết nhỏ nhưng không thể cẩu thả</h2>
+        </div>
+        <div class="grid gap-px overflow-hidden rounded-[34px] border border-white/10 bg-white/10 lg:grid-cols-4">
+          <div class="bg-[#171717] p-7">
+            <p class="text-sm font-bold uppercase tracking-[0.18em] text-primary">Ánh sáng ấm</p>
+            <p class="mt-4 text-sm leading-7 text-gray-400">Giúp thành viên cảm nhận được sự thư giãn và chỉnh trang trong điều kiện dễ chịu hơn.</p>
+          </div>
+          <div class="bg-[#171717] p-7">
+            <p class="text-sm font-bold uppercase tracking-[0.18em] text-primary">Lưu thông gọn</p>
+            <p class="mt-4 text-sm leading-7 text-gray-400">Không gian vận hành hợp lý để mọi thao tác sau tập không tạo cảm giác đông, bí hoặc va chạm nhịp sử dụng.</p>
+          </div>
+          <div class="bg-[#171717] p-7">
+            <p class="text-sm font-bold uppercase tracking-[0.18em] text-primary">Sạch sẽ nhất quán</p>
+            <p class="mt-4 text-sm leading-7 text-gray-400">Tiêu chuẩn cao cấp được cảm nhận đầu tiên bằng sự sạch và chỉn chu trong từng góc nhỏ.</p>
+          </div>
+          <div class="bg-[#171717] p-7">
+            <p class="text-sm font-bold uppercase tracking-[0.18em] text-primary">Kết nối premium</p>
+            <p class="mt-4 text-sm leading-7 text-gray-400">Khu tắm cao cấp hoàn thiện trọn vẹn chuỗi tập luyện, recovery và chỉnh trang trong cùng một hệ sinh thái.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-background py-24">
+      <div class="mx-auto max-w-5xl px-4 text-center sm:px-6">
+        <p class="text-4xl text-primary">“</p>
+        <blockquote class="serif text-3xl leading-relaxed text-white sm:text-4xl">
+          Một club cao cấp thể hiện bản lĩnh của mình ở cách thành viên bước ra khỏi đó: sạch, gọn, thơm, và vẫn giữ được thần thái của cả ngày.
+        </blockquote>
+        <p class="mt-6 text-xs font-bold uppercase tracking-[0.28em] text-gray-500">THE BIG GYM PREMIUM STANDARD</p>
+      </div>
+    </section>
+
+    <section class="px-4 pb-24 sm:px-6 lg:px-12">
+      <div class="mx-auto grid max-w-screen-2xl gap-8 rounded-[36px] border border-primary/10 bg-gradient-to-r from-[#262016] via-[#1b1813] to-[#121212] p-8 shadow-cinematic lg:grid-cols-[1fr_auto] lg:items-center lg:p-12">
+        <div class="space-y-4">
+          <p class="text-xs font-bold uppercase tracking-[0.32em] text-primary">Kết thúc buổi tập một cách đàng hoàng</p>
+          <h2 class="serif text-4xl sm:text-5xl">Khi sự riêng tư và sạch sẽ cũng là một phần của chất lượng sống</h2>
+          <p class="max-w-2xl text-sm leading-7 text-gray-300">Nếu bạn không muốn buổi tập kết thúc trong vội vàng, khu phòng tắm cao cấp là mảnh ghép khiến toàn bộ trải nghiệm tại THE BIG GYM trở nên trọn vẹn hơn hẳn.</p>
+        </div>
+        <div class="flex flex-col gap-3 sm:flex-row lg:flex-col">
+          <a class="inline-flex items-center justify-center rounded-full bg-primary px-6 py-3 text-xs font-bold uppercase tracking-[0.18em] text-[#352700]" href="../shop.html">Khám phá thành viên</a>
+          <a class="inline-flex items-center justify-center rounded-full border border-white/10 px-6 py-3 text-xs font-bold uppercase tracking-[0.18em] text-white transition-colors hover:border-primary/30 hover:text-primary" href="../../index.html#premium-services">Xem khu vực khác</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-white/5 bg-[#111111] px-4 py-10 sm:px-6 lg:px-12">
+    <div class="mx-auto flex max-w-screen-2xl flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+      <div>
+        <p class="serif text-xl font-bold uppercase tracking-tight text-primary">THE BIG GYM HẢI PHÒNG</p>
+        <p class="mt-2 text-xs uppercase tracking-[0.18em] text-gray-500">Clean finish. Quiet luxury. Smooth transition.</p>
+      </div>
+      <div class="flex flex-wrap gap-5 text-xs uppercase tracking-[0.18em] text-gray-400">
+        <a class="transition-colors hover:text-primary" href="../../index.html">Trang chủ</a>
+        <a class="transition-colors hover:text-primary" href="../shop.html">Cửa hàng</a>
+        <a class="transition-colors hover:text-primary" href="../congcu.html">Công cụ</a>
+        <a class="transition-colors hover:text-primary" href="../baitap.html">Bài tập</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../assets/js/auth-ui.js?v=20260413-footer1"></script>
+</body>
+</html>
