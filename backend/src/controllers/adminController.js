@@ -9,6 +9,7 @@ const { isMailConfigured, sendContactReplyMail } = require("../services/mailServ
 
 const ORDER_STATUSES = ["pending", "shipping", "completed", "cancelled"];
 const USER_ROLES = ["admin", "coach", "member"];
+const OVERVIEW_REVENUE_DAYS = 30;
 
 function handleValidation(req, res) {
   const errors = validationResult(req);
@@ -135,20 +136,66 @@ function normalizeExercise(row) {
   });
 }
 
-function buildDateSeries(rows, days) {
+function formatDateKey(date) {
+  return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")}`;
+}
+
+function normalizeDateKey(value) {
+  if (!value) {
+    return "";
+  }
+
+  if (value instanceof Date && !Number.isNaN(value.getTime())) {
+    return formatDateKey(value);
+  }
+
+  const normalized = String(value).trim();
+  const match = normalized.match(/^(\d{4}-\d{2}-\d{2})/);
+  return match ? match[1] : normalized;
+}
+
+function normalizeMonthKey(value) {
+  if (!value) {
+    return "";
+  }
+
+  if (value instanceof Date && !Number.isNaN(value.getTime())) {
+    return `${value.getFullYear()}-${String(value.getMonth() + 1).padStart(2, "0")}`;
+  }
+
+  const normalized = String(value).trim();
+  const match = normalized.match(/^(\d{4}-\d{2})/);
+  return match ? match[1] : normalized;
+}
+
+function buildDateSeries(rows, days, options = {}) {
+  const { startFromToday = false } = options;
   const today = new Date();
-  const rowMap = new Map(rows.map((row) => [row.day_key, toNumber(row.revenue)]));
+  const rowMap = new Map(rows.map((row) => [normalizeDateKey(row.day_key), toNumber(row.revenue)]));
   const data = [];
 
-  for (let offset = days - 1; offset >= 0; offset -= 1) {
-    const date = new Date(today);
-    date.setDate(today.getDate() - offset);
-    const dayKey = date.toISOString().slice(0, 10);
-    data.push({
-      label: `${String(date.getDate()).padStart(2, "0")}/${String(date.getMonth() + 1).padStart(2, "0")}`,
-      value: rowMap.get(dayKey) || 0,
-      day_key: dayKey
-    });
+  if (startFromToday) {
+    for (let offset = 0; offset < days; offset += 1) {
+      const date = new Date(today);
+      date.setDate(today.getDate() - offset);
+      const dayKey = formatDateKey(date);
+      data.push({
+        label: `${String(date.getDate()).padStart(2, "0")}/${String(date.getMonth() + 1).padStart(2, "0")}`,
+        value: rowMap.get(dayKey) || 0,
+        day_key: dayKey
+      });
+    }
+  } else {
+    for (let offset = days - 1; offset >= 0; offset -= 1) {
+      const date = new Date(today);
+      date.setDate(today.getDate() - offset);
+      const dayKey = formatDateKey(date);
+      data.push({
+        label: `${String(date.getDate()).padStart(2, "0")}/${String(date.getMonth() + 1).padStart(2, "0")}`,
+        value: rowMap.get(dayKey) || 0,
+        day_key: dayKey
+      });
+    }
   }
 
   return data;
@@ -156,7 +203,7 @@ function buildDateSeries(rows, days) {
 
 function buildMonthSeries(rows, months) {
   const now = new Date();
-  const rowMap = new Map(rows.map((row) => [row.month_key, toNumber(row.revenue)]));
+  const rowMap = new Map(rows.map((row) => [normalizeMonthKey(row.month_key), toNumber(row.revenue)]));
   const data = [];
 
   for (let offset = months - 1; offset >= 0; offset -= 1) {
@@ -192,7 +239,13 @@ async function getAdminOverviewPayload() {
     ordersCountRows,
     newCustomersRows,
     revenueByDayRows,
-    topProductsRows
+    topProductsRows,
+    todayRevenueAllRows,
+    monthRevenueAllRows,
+    prevMonthRevenueAllRows,
+    revenueByDayAllRows,
+    topProductsAllRows,
+    revenueByDayCreatedRows
   ] = await Promise.all([
     query(
       `SELECT COALESCE(SUM(total_amount), 0) AS total
@@ -227,12 +280,12 @@ async function getAdminOverviewPayload() {
          AND MONTH(created_at) = MONTH(CURDATE())`
     ),
     query(
-      `SELECT DATE(COALESCE(paid_at, updated_at, created_at)) AS day_key,
+      `SELECT DATE_FORMAT(COALESCE(paid_at, updated_at, created_at), '%Y-%m-%d') AS day_key,
               COALESCE(SUM(total_amount), 0) AS revenue
        FROM orders
        WHERE payment_status = 'PAID'
-         AND COALESCE(paid_at, updated_at, created_at) >= DATE_SUB(CURDATE(), INTERVAL 13 DAY)
-       GROUP BY DATE(COALESCE(paid_at, updated_at, created_at))
+         AND COALESCE(paid_at, updated_at, created_at) >= DATE_SUB(CURDATE(), INTERVAL 29 DAY)
+       GROUP BY DATE_FORMAT(COALESCE(paid_at, updated_at, created_at), '%Y-%m-%d')
        ORDER BY day_key ASC`
     ),
     query(
@@ -247,13 +300,84 @@ async function getAdminOverviewPayload() {
        GROUP BY oi.product_name, oi.product_slug, oi.product_image_url
        ORDER BY units_sold DESC, revenue DESC
        LIMIT 6`
+    ),
+    query(
+      `SELECT COALESCE(SUM(total_amount), 0) AS total
+       FROM orders
+       WHERE payment_status NOT IN ('CANCELLED', 'FAILED', 'EXPIRED')
+         AND DATE(COALESCE(paid_at, updated_at, created_at)) = CURDATE()`
+    ),
+    query(
+      `SELECT COALESCE(SUM(total_amount), 0) AS total
+       FROM orders
+       WHERE payment_status NOT IN ('CANCELLED', 'FAILED', 'EXPIRED')
+         AND YEAR(COALESCE(paid_at, updated_at, created_at)) = YEAR(CURDATE())
+         AND MONTH(COALESCE(paid_at, updated_at, created_at)) = MONTH(CURDATE())`
+    ),
+    query(
+      `SELECT COALESCE(SUM(total_amount), 0) AS total
+       FROM orders
+       WHERE payment_status NOT IN ('CANCELLED', 'FAILED', 'EXPIRED')
+         AND YEAR(COALESCE(paid_at, updated_at, created_at)) = YEAR(DATE_SUB(CURDATE(), INTERVAL 1 MONTH))
+         AND MONTH(COALESCE(paid_at, updated_at, created_at)) = MONTH(DATE_SUB(CURDATE(), INTERVAL 1 MONTH))`
+    ),
+    query(
+      `SELECT DATE_FORMAT(COALESCE(paid_at, updated_at, created_at), '%Y-%m-%d') AS day_key,
+              COALESCE(SUM(total_amount), 0) AS revenue
+       FROM orders
+       WHERE payment_status NOT IN ('CANCELLED', 'FAILED', 'EXPIRED')
+         AND COALESCE(paid_at, updated_at, created_at) >= DATE_SUB(CURDATE(), INTERVAL 29 DAY)
+       GROUP BY DATE_FORMAT(COALESCE(paid_at, updated_at, created_at), '%Y-%m-%d')
+       ORDER BY day_key ASC`
+    ),
+    query(
+      `SELECT oi.product_name,
+              oi.product_slug,
+              oi.product_image_url,
+              SUM(oi.quantity) AS units_sold,
+              SUM(oi.line_total) AS revenue
+       FROM order_items oi
+       INNER JOIN orders o ON o.id = oi.order_id
+       WHERE o.payment_status NOT IN ('CANCELLED', 'FAILED', 'EXPIRED')
+       GROUP BY oi.product_name, oi.product_slug, oi.product_image_url
+       ORDER BY units_sold DESC, revenue DESC
+       LIMIT 6`
+    ),
+    query(
+      `SELECT DATE_FORMAT(created_at, '%Y-%m-%d') AS day_key,
+              COALESCE(SUM(total_amount), 0) AS revenue
+       FROM orders
+       WHERE payment_status NOT IN ('CANCELLED', 'FAILED', 'EXPIRED')
+         AND created_at >= DATE_SUB(CURDATE(), INTERVAL 29 DAY)
+       GROUP BY DATE_FORMAT(created_at, '%Y-%m-%d')
+       ORDER BY day_key ASC`
     )
   ]);
 
-  const todayRevenue = toNumber(todayRevenueRows[0]?.total);
-  const monthRevenue = toNumber(monthRevenueRows[0]?.total);
-  const previousMonthRevenue = toNumber(prevMonthRevenueRows[0]?.total);
+  const paidTodayRevenue = toNumber(todayRevenueRows[0]?.total);
+  const paidMonthRevenue = toNumber(monthRevenueRows[0]?.total);
+  const paidPreviousMonthRevenue = toNumber(prevMonthRevenueRows[0]?.total);
+  const paidSeries = buildDateSeries(revenueByDayRows, OVERVIEW_REVENUE_DAYS, { startFromToday: true });
+  const paidSeriesTotal = paidSeries.reduce((sum, item) => sum + toNumber(item.value), 0);
+
+  const allTodayRevenue = toNumber(todayRevenueAllRows[0]?.total);
+  const allMonthRevenue = toNumber(monthRevenueAllRows[0]?.total);
+  const allPreviousMonthRevenue = toNumber(prevMonthRevenueAllRows[0]?.total);
+  const allSeries = buildDateSeries(revenueByDayAllRows, OVERVIEW_REVENUE_DAYS, { startFromToday: true });
+  const allSeriesTotal = allSeries.reduce((sum, item) => sum + toNumber(item.value), 0);
+  const createdSeries = buildDateSeries(revenueByDayCreatedRows, OVERVIEW_REVENUE_DAYS, { startFromToday: true });
+  const createdSeriesTotal = createdSeries.reduce((sum, item) => sum + toNumber(item.value), 0);
+
+  const shouldUsePaidSeries = paidSeriesTotal > 0 || paidMonthRevenue > 0 || paidTodayRevenue > 0;
+  const todayRevenue = shouldUsePaidSeries ? paidTodayRevenue : allTodayRevenue;
+  const monthRevenue = shouldUsePaidSeries ? paidMonthRevenue : allMonthRevenue;
+  const previousMonthRevenue = shouldUsePaidSeries ? paidPreviousMonthRevenue : allPreviousMonthRevenue;
   const growthRate = buildGrowthRate(monthRevenue, previousMonthRevenue);
+  let revenueSeries = shouldUsePaidSeries ? paidSeries : allSeries;
+  if (revenueSeries.reduce((sum, item) => sum + toNumber(item.value), 0) === 0 && createdSeriesTotal > 0) {
+    revenueSeries = createdSeries;
+  }
+  const topProductsSource = shouldUsePaidSeries ? topProductsRows : topProductsAllRows;
 
   return {
     stats: {
@@ -263,8 +387,8 @@ async function getAdminOverviewPayload() {
       new_customers_month: Number(newCustomersRows[0]?.total || 0),
       growth_rate: growthRate
     },
-    revenue_series: buildDateSeries(revenueByDayRows, 14),
-    top_products: topProductsRows.map((row) => ({
+    revenue_series: revenueSeries,
+    top_products: topProductsSource.map((row) => ({
       product_name: row.product_name,
       product_slug: row.product_slug,
       product_image_url: normalizeNullableMediaPath(row.product_image_url),
@@ -674,12 +798,12 @@ exports.getCustomerDetail = asyncHandler(async (req, res) => {
 exports.getAnalytics = asyncHandler(async (_req, res) => {
   const [dailyRows, monthlyRows, topProductRows, statusRows] = await Promise.all([
     query(
-      `SELECT DATE(COALESCE(paid_at, updated_at, created_at)) AS day_key,
+      `SELECT DATE_FORMAT(COALESCE(paid_at, updated_at, created_at), '%Y-%m-%d') AS day_key,
               COALESCE(SUM(total_amount), 0) AS revenue
        FROM orders
        WHERE payment_status = 'PAID'
          AND COALESCE(paid_at, updated_at, created_at) >= DATE_SUB(CURDATE(), INTERVAL 29 DAY)
-       GROUP BY DATE(COALESCE(paid_at, updated_at, created_at))
+       GROUP BY DATE_FORMAT(COALESCE(paid_at, updated_at, created_at), '%Y-%m-%d')
        ORDER BY day_key ASC`
     ),
     query(

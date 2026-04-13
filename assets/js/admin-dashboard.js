@@ -18,6 +18,7 @@
 
   const PRODUCT_DRAFT_KEY = "biggym_admin_product_draft";
   const PRODUCT_DRAFT_RESTORE_KEY = "biggym_admin_product_draft_restore";
+  const OVERVIEW_REVENUE_DAYS = 30;
 
   const sectionTitleMap = {
     overview: "Tổng quan vận hành",
@@ -1198,24 +1199,66 @@
     return true;
   }
 
+  function buildOverviewFallbackSeries(days = OVERVIEW_REVENUE_DAYS) {
+    const today = new Date();
+    const data = [];
+
+    for (let offset = days - 1; offset >= 0; offset -= 1) {
+      const date = new Date(today);
+      date.setDate(today.getDate() - offset);
+      const dayKey = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")}`;
+      data.push({
+        label: `${String(date.getDate()).padStart(2, "0")}/${String(date.getMonth() + 1).padStart(2, "0")}`,
+        value: 0,
+        day_key: dayKey
+      });
+    }
+
+    return data;
+  }
+
+  function buildCompactOverviewLabels(series = []) {
+    return series.map((item, index) => {
+      const dayKey = String(item?.day_key || "").trim();
+      const previousDayKey = String(series[index - 1]?.day_key || "").trim();
+
+      if (/^\d{4}-\d{2}-\d{2}$/.test(dayKey)) {
+        const [, month, day] = dayKey.split("-");
+        const previousMonth = /^\d{4}-\d{2}-\d{2}$/.test(previousDayKey)
+          ? previousDayKey.split("-")[1]
+          : null;
+        return index === 0 || month !== previousMonth ? `${day}/${month}` : day;
+      }
+
+      const [day = "", month = ""] = String(item?.label || "").split("/");
+      const previousMonth = String(series[index - 1]?.label || "").split("/")[1] || null;
+      return index === 0 || month !== previousMonth ? `${day}/${month}` : day;
+    });
+  }
+
   async function loadOverview() {
     const overview = await apiFetch("/admin/overview", {
       headers: buildHeaders()
     });
 
-    document.getElementById("stat-revenue-today").textContent = formatCurrency(overview.stats.revenue_today);
-    document.getElementById("stat-revenue-month").textContent = formatCurrency(overview.stats.revenue_month);
-    document.getElementById("stat-orders-month").textContent = Number(overview.stats.orders_month || 0).toLocaleString("vi-VN");
-    document.getElementById("stat-growth-rate").textContent = `${overview.stats.growth_rate > 0 ? "+" : ""}${overview.stats.growth_rate}%`;
-    document.getElementById("admin-new-customers-count").textContent = Number(overview.stats.new_customers_month || 0).toLocaleString("vi-VN");
+    const stats = overview?.stats || {};
+    const revenueSeries = Array.isArray(overview?.revenue_series) ? overview.revenue_series : [];
+    const chartSeries = revenueSeries.length ? revenueSeries : buildOverviewFallbackSeries();
+    const topProducts = Array.isArray(overview?.top_products) ? overview.top_products : [];
+
+    document.getElementById("stat-revenue-today").textContent = formatCurrency(stats.revenue_today);
+    document.getElementById("stat-revenue-month").textContent = formatCurrency(stats.revenue_month);
+    document.getElementById("stat-orders-month").textContent = Number(stats.orders_month || 0).toLocaleString("vi-VN");
+    document.getElementById("stat-growth-rate").textContent = `${Number(stats.growth_rate || 0) > 0 ? "+" : ""}${Number(stats.growth_rate || 0)}%`;
+    document.getElementById("admin-new-customers-count").textContent = Number(stats.new_customers_month || 0).toLocaleString("vi-VN");
 
     createOrUpdateChart("overviewRevenue", "overview-revenue-chart", {
       type: "line",
       data: {
-        labels: overview.revenue_series.map((item) => item.label),
+        labels: buildCompactOverviewLabels(chartSeries),
         datasets: [{
           label: "Doanh thu",
-          data: overview.revenue_series.map((item) => item.value),
+          data: chartSeries.map((item) => item.value),
           borderColor: "#f2ca50",
           backgroundColor: "rgba(242, 202, 80, 0.14)",
           fill: true,
@@ -1229,7 +1272,18 @@
         maintainAspectRatio: false,
         plugins: { legend: { display: false } },
         scales: {
-          x: { ticks: { color: "#8f8a80" }, grid: { color: "rgba(255,255,255,0.04)" } },
+          x: {
+            ticks: {
+              color: "#8f8a80",
+              autoSkip: false,
+              maxRotation: 0,
+              minRotation: 0,
+              font: {
+                size: 10
+              }
+            },
+            grid: { color: "rgba(255,255,255,0.04)" }
+          },
           y: {
             ticks: {
               color: "#8f8a80",
@@ -1244,10 +1298,10 @@
     createOrUpdateChart("overviewTopProducts", "overview-top-products-chart", {
       type: "bar",
       data: {
-        labels: overview.top_products.map((item) => item.product_name),
+        labels: topProducts.map((item) => item.product_name),
         datasets: [{
           label: "Đã bán",
-          data: overview.top_products.map((item) => item.units_sold),
+          data: topProducts.map((item) => item.units_sold),
           backgroundColor: ["#f2ca50", "#f0bc6a", "#eba37f", "#d4af37", "#c58d4b", "#ffb693"]
         }]
       },
