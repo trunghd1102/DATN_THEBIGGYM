@@ -1,9 +1,11 @@
 const express = require("express");
 const adminController = require("../controllers/adminController");
+const adminPtController = require("../controllers/adminPtController");
 const auth = require("../middleware/auth");
 const authorizeRole = require("../middleware/authorizeRole");
 const uploadProductImage = require("../middleware/uploadProductImage");
 const uploadExerciseImage = require("../middleware/uploadExerciseImage");
+const uploadPtImage = require("../middleware/uploadPtImage");
 
 const router = express.Router();
 
@@ -12,6 +14,37 @@ router.use(auth, authorizeRole("admin"));
 router.get("/overview", adminController.getOverview);
 router.get("/analytics", adminController.getAnalytics);
 router.get("/alerts", adminController.getAlerts);
+router.get("/pt/dashboard", adminPtController.getDashboard);
+router.post(
+  "/pt/upload-image",
+  uploadPtImage.single("image"),
+  adminPtController.uploadTrainerImage
+);
+router.post(
+  "/pt/trainers",
+  adminPtController.validators.saveTrainer,
+  adminPtController.saveTrainer
+);
+router.put(
+  "/pt/trainers/:id",
+  adminPtController.validators.saveTrainer,
+  adminPtController.saveTrainer
+);
+router.post(
+  "/pt/slots",
+  adminPtController.validators.saveSlot,
+  adminPtController.saveSlot
+);
+router.put(
+  "/pt/slots/:id",
+  adminPtController.validators.saveSlot,
+  adminPtController.saveSlot
+);
+router.patch(
+  "/pt/bookings/:id",
+  adminPtController.validators.updateBookingStatus,
+  adminPtController.updateBookingStatus
+);
 router.post(
   "/contact-messages/:id/reply",
   adminController.validators.replyContactMessage,

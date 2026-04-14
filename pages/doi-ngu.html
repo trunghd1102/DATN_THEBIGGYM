@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html class="dark page-preload" lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style id="page-preload-style">
+    html.page-preload body { opacity: 0; }
+    body { transition: opacity .12s ease; }
+  </style>
+  <script>
+    (() => {
+      const reveal = () => document.documentElement.classList.remove("page-preload");
+      window.addEventListener("DOMContentLoaded", reveal, { once: true });
+      window.addEventListener("load", reveal, { once: true });
+      setTimeout(reveal, 1200);
+    })();
+  </script>
+  <title>Đội ngũ PT | THE BIG GYM</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700;800&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            background: "#111111",
+            surface: "#171717",
+            panel: "#1d1b1a",
+            primary: "#f2ca50",
+            secondary: "#ffb693",
+            copy: "#ece8e2"
+          },
+          boxShadow: {
+            cinematic: "0 32px 80px rgba(0,0,0,0.42)"
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    :root { --biggym-nav-height: 88px; }
+    html { scroll-behavior: smooth; }
+    body { font-family: "Manrope", sans-serif; background: #111111; color: #ece8e2; }
+    .serif { font-family: "Noto Serif", serif; }
+    .material-symbols-outlined {
+      font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 24;
+      vertical-align: middle;
+    }
+    .mega-menu { opacity: 0; visibility: hidden; transition: all 0.3s ease; }
+    .group:hover .mega-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+    .pt-shell {
+      background:
+        radial-gradient(circle at top right, rgba(242, 202, 80, 0.08), transparent 22%),
+        radial-gradient(circle at bottom left, rgba(255, 182, 147, 0.06), transparent 18%),
+        linear-gradient(180deg, rgba(255,255,255,0.02), transparent 12%),
+        #111111;
+    }
+    .panel-surface {
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.015));
+      border: 1px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(14px);
+    }
+    .section-rule {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(242, 202, 80, 0.45), transparent);
+    }
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      padding: 0.38rem 0.75rem;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .slot-chip.is-active {
+      border-color: rgba(242, 202, 80, 0.55);
+      background: rgba(242, 202, 80, 0.12);
+      color: #f2ca50;
+    }
+  </style>
+</head>
+<body class="bg-background text-copy selection:bg-primary selection:text-[#312500]">
+  <nav class="fixed top-0 z-50 w-full bg-[#131313]/80 backdrop-blur-md shadow-2xl shadow-black/20">
+    <div class="mx-auto flex max-w-screen-2xl items-center justify-between px-12 py-6">
+      <a class="serif text-2xl font-bold uppercase tracking-tighter text-primary" href="../index.html">THE BIG GYM</a>
+      <div class="hidden items-center gap-10 font-['Noto_Serif'] text-sm uppercase tracking-widest md:flex">
+        <a class="text-gray-400 transition-colors duration-300 hover:text-primary" href="../index.html">Trang chủ</a>
+        <div class="group relative">
+          <a class="flex items-center gap-1 pb-1 text-gray-400 transition-colors duration-300 hover:text-primary" href="#">
+            Dịch vụ <span class="material-symbols-outlined text-xs">expand_more</span>
+          </a>
+          <div class="mega-menu absolute left-1/2 top-full mt-4 grid w-[800px] -translate-x-1/2 translate-y-2 grid-cols-3 gap-8 rounded-lg bg-surface p-8 shadow-2xl">
+            <div>
+              <h4 class="mb-4 border-b border-white/10 pb-2 font-bold text-primary">Huấn luyện</h4>
+              <ul class="space-y-3 tracking-normal text-gray-400">
+                <li><a class="transition-colors duration-300 hover:text-primary" href="service_pages/private-gym-area.html">Private Gym Area</a></li>
+                <li><a class="transition-colors duration-300 hover:text-primary" href="service_pages/yoga-sanctuary.html">Yoga Sanctuary</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4 class="mb-4 border-b border-white/10 pb-2 font-bold text-primary">Tiện nghi</h4>
+              <ul class="space-y-3 tracking-normal text-gray-400">
+                <li><a class="transition-colors duration-300 hover:text-primary" href="service_pages/spa-recovery.html">Spa Recovery</a></li>
+                <li><a class="transition-colors duration-300 hover:text-primary" href="service_pages/premium-bathroom.html">Phòng tắm cao cấp</a></li>
+              </ul>
+            </div>
+            <div class="group/img relative overflow-hidden rounded-md">
+              <img alt="Ưu đãi hội viên" class="h-full w-full object-cover opacity-60 transition-transform duration-700 group-hover/img:scale-110" src="../assets/images/logo.png" />
+              <div class="absolute inset-0 flex items-end bg-gradient-to-t from-black/80 to-transparent p-4">
+                <span class="text-xs font-bold uppercase text-white">Ưu đãi thành viên mới</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a class="text-gray-400 transition-colors duration-300 hover:text-primary" href="baitap.html">Bài tập</a>
+        <a class="text-gray-400 transition-colors duration-300 hover:text-primary" href="shop.html">Cửa hàng</a>
+        <a class="text-gray-400 transition-colors duration-300 hover:text-primary" href="congcu.html">Công cụ</a>
+        <a class="border-b-2 border-primary pb-1 text-primary" href="doi-ngu.html">Đội ngũ</a>
+        <a class="text-gray-400 transition-colors duration-300 hover:text-primary" href="contact.html">Liên hệ</a>
+      </div>
+      <div class="flex items-center gap-3">
+        <button class="bg-gradient-to-r from-[#f2ca50] to-[#d4af37] text-[#3c2f00] px-8 py-3 font-bold uppercase tracking-widest text-xs rounded-full hover:scale-105 transition-transform duration-300 shadow-lg shadow-[#f2ca50]/20" type="button">
+          Đặt lịch PT
+        </button>
+        <a class="border border-[#f2ca50]/40 text-[#f2ca50] px-6 py-3 font-bold uppercase tracking-widest text-xs rounded-full hover:bg-[#f2ca50] hover:text-[#3c2f00] transition-colors duration-300" data-auth-link data-base-prefix="../" href="login.html">
+          Đăng nhập
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="pt-shell">
+    <section class="relative overflow-hidden pt-[var(--biggym-nav-height)]">
+      <div class="mx-auto grid min-h-[calc(100svh-var(--biggym-nav-height))] max-w-screen-2xl gap-10 px-4 pb-14 pt-10 sm:px-6 lg:grid-cols-[1.08fr_0.92fr] lg:items-end lg:px-12 lg:pb-16 lg:pt-0">
+        <div class="space-y-6 self-end lg:pb-10">
+          <p class="text-xs font-bold uppercase tracking-[0.36em] text-primary sm:text-sm">Elite Training Force</p>
+          <h1 class="serif text-5xl font-bold leading-[0.92] tracking-tight sm:text-6xl md:text-7xl xl:text-[6rem]">Những người kiến tạo<br /><span class="italic text-primary">hình thể</span></h1>
+          <p class="max-w-2xl text-base leading-8 text-gray-300 sm:text-lg">Chọn huấn luyện viên, khóa slot thật đang mở và gửi yêu cầu PT ngay trên cùng một luồng. Dữ liệu đội ngũ, lịch trống và lịch sử đặt đều lấy trực tiếp từ hệ thống.</p>
+          <div class="flex flex-col items-start gap-4 pt-2 sm:flex-row sm:items-center">
+            <a class="rounded-full bg-primary px-7 py-3 text-xs font-bold uppercase tracking-[0.22em] text-[#342700] transition-colors hover:bg-[#ffd86d]" href="#pt-trainers">Xem đội ngũ PT</a>
+            <a class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.22em] text-white transition-colors hover:text-primary" href="#pt-booking"><span class="material-symbols-outlined text-base">event_available</span>Đặt lịch ngay</a>
+          </div>
+          <div class="grid max-w-2xl gap-4 pt-4 sm:grid-cols-3">
+            <div class="panel-surface rounded-[22px] px-5 py-4"><p class="text-[10px] font-bold uppercase tracking-[0.24em] text-gray-500">HLV khả dụng</p><p id="pt-hero-trainer-count" class="mt-3 text-3xl font-light tracking-tight text-white">0</p></div>
+            <div class="panel-surface rounded-[22px] px-5 py-4"><p class="text-[10px] font-bold uppercase tracking-[0.24em] text-gray-500">Slot đang mở</p><p id="pt-hero-slot-count" class="mt-3 text-3xl font-light tracking-tight text-white">0</p></div>
+            <div class="panel-surface rounded-[22px] px-5 py-4"><p class="text-[10px] font-bold uppercase tracking-[0.24em] text-gray-500">Phong cách</p><p class="mt-3 text-lg font-semibold text-primary">1:1 chuyên sâu</p></div>
+          </div>
+        </div>
+        <div class="relative self-end pb-4 lg:pb-0">
+          <div class="overflow-hidden rounded-[34px] border border-white/10 bg-[#171717] shadow-cinematic">
+            <img id="pt-hero-image" alt="Featured trainer" class="h-[520px] w-full object-cover object-top sm:h-[620px]" src="../assets/images/customer-review-1.jpg" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
+            <div class="absolute inset-x-0 bottom-0 p-6 sm:p-8">
+              <p class="text-[10px] font-bold uppercase tracking-[0.28em] text-gray-400">Đội ngũ nổi bật</p>
+              <h2 id="pt-hero-name" class="serif mt-3 text-4xl text-white sm:text-5xl">Đang tải huấn luyện viên</h2>
+              <div class="mt-4 flex flex-wrap items-center gap-3 text-xs uppercase tracking-[0.18em] text-gray-200">
+                <span id="pt-hero-role" class="rounded-full border border-primary/20 bg-primary/10 px-3 py-2 text-primary">THE BIG GYM</span>
+                <span id="pt-hero-expertise" class="rounded-full border border-white/10 px-3 py-2">PT Premium</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="px-4 py-20 sm:px-6 lg:px-12" id="pt-trainers">
+      <div class="mx-auto max-w-screen-2xl">
+        <div class="mb-10 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
+          <div class="space-y-4">
+            <p class="text-xs font-bold uppercase tracking-[0.3em] text-primary">Personal Training Roster</p>
+            <h2 class="serif text-4xl sm:text-5xl">Chọn đúng người đồng hành cho mục tiêu của bạn</h2>
+          </div>
+          <p class="max-w-2xl text-sm leading-7 text-gray-400">Khu này lấy trực tiếp hồ sơ HLV và số slot còn mở để người dùng chuyển thẳng từ lúc xem đội ngũ sang lúc khóa lịch.</p>
+        </div>
+        <div id="pt-page-feedback" class="mb-6 hidden rounded-[22px] border px-5 py-4 text-sm"></div>
+        <div id="pt-trainer-grid" class="grid gap-8 md:grid-cols-2 xl:grid-cols-3"></div>
+      </div>
+    </section>
+
+    <section class="px-4 pb-20 sm:px-6 lg:px-12">
+      <div class="mx-auto grid max-w-screen-2xl gap-8 rounded-[34px] border border-white/8 bg-[#171717] p-8 shadow-cinematic lg:grid-cols-[0.92fr_1.08fr] lg:p-10">
+        <div class="space-y-5">
+          <p class="text-xs font-bold uppercase tracking-[0.3em] text-primary">Trải nghiệm cá nhân hóa tuyệt đối</p>
+          <h2 class="serif text-4xl leading-tight sm:text-5xl">Mỗi lịch hẹn PT là một phiên làm việc có chuẩn bị, có nhịp, có mục tiêu</h2>
+          <p class="max-w-2xl text-base leading-8 text-gray-300">HLV tiếp nhận mục tiêu, khóa lịch trống phù hợp, dẫn dắt buổi tập đúng nhịp độ hiện tại của bạn và giữ toàn bộ trải nghiệm ở cùng một tiêu chuẩn cao cấp.</p>
+          <div class="section-rule w-full"></div>
+          <div class="grid gap-6 sm:grid-cols-2">
+            <div><p class="text-3xl font-light text-primary">1-on-1</p><p class="mt-2 text-xs uppercase tracking-[0.22em] text-gray-500">Privately focused</p></div>
+            <div><p class="text-3xl font-light text-primary">24/7</p><p class="mt-2 text-xs uppercase tracking-[0.22em] text-gray-500">Support access</p></div>
+          </div>
+        </div>
+        <div class="grid gap-4 sm:grid-cols-2">
+          <div class="overflow-hidden rounded-[28px] border border-white/8"><img alt="Training zone" class="h-full min-h-[220px] w-full object-cover" src="../assets/images/hero-training.jpg" /></div>
+          <div class="overflow-hidden rounded-[28px] border border-white/8"><img alt="Weight room" class="h-full min-h-[220px] w-full object-cover" src="../assets/images/weight-room.jpg" /></div>
+          <div class="overflow-hidden rounded-[28px] border border-white/8"><img alt="Recovery space" class="h-full min-h-[220px] w-full object-cover" src="../assets/images/spa-recovery.jpg" /></div>
+          <div class="overflow-hidden rounded-[28px] border border-white/8"><img alt="Premium bathroom" class="h-full min-h-[220px] w-full object-cover" src="../assets/images/bath-room.jpg" /></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="px-4 pb-20 sm:px-6 lg:px-12" id="pt-booking">
+      <div class="mx-auto max-w-screen-2xl">
+        <div class="mb-10 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
+          <div class="space-y-4">
+            <p class="text-xs font-bold uppercase tracking-[0.3em] text-primary">Booking Studio</p>
+            <h2 class="serif text-4xl sm:text-5xl">Khóa lịch PT theo slot thật đang mở</h2>
+          </div>
+          <p class="max-w-2xl text-sm leading-7 text-gray-400">Danh sách slot dưới đây được lấy trực tiếp từ hệ thống PT, nên mỗi lựa chọn đều là lịch còn trống thực tế.</p>
+        </div>
+        <div class="grid gap-8 xl:grid-cols-[0.88fr_1.12fr]">
+          <article class="panel-surface rounded-[34px] p-6 sm:p-8"><div id="pt-selected-trainer-panel" class="space-y-6"></div></article>
+          <article class="panel-surface rounded-[34px] p-6 sm:p-8">
+            <div class="grid gap-8 xl:grid-cols-[0.95fr_1.05fr]">
+              <div class="space-y-6">
+                <div><p class="text-[11px] font-bold uppercase tracking-[0.24em] text-primary">Chọn ngày</p><div id="pt-date-filters" class="mt-4 flex flex-wrap gap-3"></div></div>
+                <div><div class="flex items-center justify-between gap-3"><p class="text-[11px] font-bold uppercase tracking-[0.24em] text-primary">Slot khả dụng</p><span id="pt-slot-count-label" class="text-[11px] uppercase tracking-[0.16em] text-gray-500">0 slot</span></div><div id="pt-slot-list" class="mt-4 grid gap-3"></div></div>
+              </div>
+              <div class="space-y-5">
+                <div><p class="text-[11px] font-bold uppercase tracking-[0.24em] text-primary">Thông tin buổi hẹn</p><h3 class="serif mt-2 text-3xl text-white">Gửi yêu cầu đặt lịch</h3></div>
+                <div id="pt-booking-feedback" class="hidden rounded-[20px] border px-4 py-3 text-sm"></div>
+                <form id="pt-booking-form" class="grid gap-4">
+                  <div class="rounded-[22px] border border-primary/12 bg-primary/5 px-4 py-4"><p class="text-[10px] font-bold uppercase tracking-[0.22em] text-gray-500">Slot đã chọn</p><p id="pt-selected-slot-label" class="mt-2 text-sm leading-7 text-gray-200">Chưa chọn khung giờ.</p></div>
+                  <div class="grid gap-4 md:grid-cols-2">
+                    <div><label class="mb-2 block text-[11px] font-bold uppercase tracking-[0.18em] text-gray-500" for="pt-full-name">Họ và tên</label><input id="pt-full-name" class="w-full rounded-2xl border border-white/10 bg-[#151515] px-4 py-3 text-sm text-white focus:border-primary focus:ring-0" type="text" /></div>
+                    <div><label class="mb-2 block text-[11px] font-bold uppercase tracking-[0.18em] text-gray-500" for="pt-phone">Số điện thoại</label><input id="pt-phone" class="w-full rounded-2xl border border-white/10 bg-[#151515] px-4 py-3 text-sm text-white focus:border-primary focus:ring-0" type="text" /></div>
+                  </div>
+                  <div><label class="mb-2 block text-[11px] font-bold uppercase tracking-[0.18em] text-gray-500" for="pt-email">Email</label><input id="pt-email" class="w-full rounded-2xl border border-white/10 bg-[#151515] px-4 py-3 text-sm text-white focus:border-primary focus:ring-0" type="email" /></div>
+                  <div><label class="mb-2 block text-[11px] font-bold uppercase tracking-[0.18em] text-gray-500" for="pt-goal-label">Mục tiêu chính</label><input id="pt-goal-label" class="w-full rounded-2xl border border-white/10 bg-[#151515] px-4 py-3 text-sm text-white focus:border-primary focus:ring-0" placeholder="Ví dụ: Giảm mỡ, tăng cơ, sửa form squat..." type="text" /></div>
+                  <div class="grid gap-4 md:grid-cols-2">
+                    <div><label class="mb-2 block text-[11px] font-bold uppercase tracking-[0.18em] text-gray-500" for="pt-fitness-level">Trình độ hiện tại</label><select id="pt-fitness-level" class="w-full rounded-2xl border border-white/10 bg-[#151515] px-4 py-3 text-sm text-white focus:border-primary focus:ring-0"><option value="">Chọn mức phù hợp</option><option value="Mới bắt đầu">Mới bắt đầu</option><option value="Đã tập cơ bản">Đã tập cơ bản</option><option value="Tập đều 6 tháng+">Tập đều 6 tháng+</option><option value="Nâng cao">Nâng cao</option></select></div>
+                    <div><label class="mb-2 block text-[11px] font-bold uppercase tracking-[0.18em] text-gray-500" for="pt-preferred-focus">Trọng tâm buổi đầu</label><input id="pt-preferred-focus" class="w-full rounded-2xl border border-white/10 bg-[#151515] px-4 py-3 text-sm text-white focus:border-primary focus:ring-0" placeholder="Ví dụ: Upper body, mobility..." type="text" /></div>
+                  </div>
+                  <div><label class="mb-2 block text-[11px] font-bold uppercase tracking-[0.18em] text-gray-500" for="pt-note">Ghi chú thêm</label><textarea id="pt-note" class="min-h-[132px] w-full rounded-2xl border border-white/10 bg-[#151515] px-4 py-3 text-sm leading-7 text-white focus:border-primary focus:ring-0" placeholder="Lịch rảnh, lưu ý chấn thương cũ, mong muốn về nhịp độ tập..." rows="5"></textarea></div>
+                  <button id="pt-booking-submit" class="inline-flex items-center justify-center rounded-full bg-primary px-6 py-4 text-xs font-bold uppercase tracking-[0.22em] text-[#332700] transition-colors hover:bg-[#ffd86d]" type="submit">Gửi yêu cầu đặt lịch</button>
+                </form>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="px-4 pb-24 sm:px-6 lg:px-12" id="pt-bookings-history">
+      <div class="mx-auto max-w-screen-2xl">
+        <div class="mb-10 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
+          <div class="space-y-4">
+            <p class="text-xs font-bold uppercase tracking-[0.3em] text-primary">My PT Bookings</p>
+            <h2 class="serif text-4xl sm:text-5xl">Lịch sử các lần đặt của bạn</h2>
+          </div>
+          <p class="max-w-2xl text-sm leading-7 text-gray-400">Nếu đang đăng nhập, bạn sẽ thấy ngay các lịch PT gần nhất cùng trạng thái xác nhận, hoàn tất, hủy hoặc từ chối.</p>
+        </div>
+        <div id="pt-bookings-shell" class="panel-surface rounded-[34px] p-6 sm:p-8"><div id="pt-bookings-content" class="grid gap-4"></div></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-white/5 bg-[#111111]"></footer>
+
+  <script src="../assets/js/auth-ui.js?v=20260413-footer1"></script>
+  <script src="../assets/js/pt-booking.js"></script>
+</body>
+</html>

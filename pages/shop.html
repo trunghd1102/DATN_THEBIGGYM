@@ -1054,7 +1054,6 @@
     categoryButtons.forEach((button) => {
       button.addEventListener("click", () => {
         activeCategory = button.dataset.category;
-
         categoryButtons.forEach((entry) => {
           const isActive = entry.dataset.category === activeCategory;
           entry.classList.toggle("border-primary", isActive);

@@ -10,6 +10,7 @@ const metricRoutes = require("./metricRoutes");
 const tdeeRoutes = require("./tdeeRoutes");
 const planRoutes = require("./planRoutes");
 const contactRoutes = require("./contactRoutes");
+const ptRoutes = require("./ptRoutes");
 
 const router = express.Router();
 
@@ -24,5 +25,6 @@ router.use("/metrics", metricRoutes);
 router.use("/tdee-logs", tdeeRoutes);
 router.use("/plans", planRoutes);
 router.use("/contacts", contactRoutes);
+router.use("/pt", ptRoutes);
 
 module.exports = router;

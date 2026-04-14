@@ -21,6 +21,7 @@
   const OVERVIEW_REVENUE_DAYS = 30;
 
   const sectionTitleMap = {
+    pt: "Quản lý lịch PT",
     overview: "Tổng quan vận hành",
     orders: "Quản lý đơn hàng",
     products: "Quản lý sản phẩm",

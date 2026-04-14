@@ -514,6 +514,33 @@
     return (text || "").replace(/\s+/g, " ").trim();
   }
 
+  function wirePtBookingCtas(basePrefix) {
+    const targetHref = buildPageHref(basePrefix, "pages/doi-ngu.html#pt-booking");
+
+    Array.from(document.querySelectorAll("[data-pt-booking-link], button, a")).forEach((element) => {
+      if (element.dataset.ptBookingWired === "true") {
+        return;
+      }
+
+      const label = normalizeLabel(element.textContent);
+      const isPtTrigger = element.hasAttribute("data-pt-booking-link") || label === "Đặt lịch PT";
+
+      if (!isPtTrigger) {
+        return;
+      }
+
+      if (element.tagName === "A") {
+        element.href = targetHref;
+      } else {
+        element.addEventListener("click", () => {
+          window.location.href = targetHref;
+        });
+      }
+
+      element.dataset.ptBookingWired = "true";
+    });
+  }
+
   function isLinkActive(element) {
     return element.classList.contains("text-primary")
       || element.classList.contains("text-[#f2ca50]")
@@ -957,6 +984,7 @@
   tightenHeaderForMobile();
   updateNavHeightVar();
   renderSharedFooter(basePrefix);
+  wirePtBookingCtas(basePrefix);
   ensureMobileMenuScaffold();
   bindGlobalHandlers();
 

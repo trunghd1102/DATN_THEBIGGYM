@@ -19,6 +19,10 @@ function getExercisesUploadDirectory() {
   return path.join(getExternalUploadsRoot(), "exercises");
 }
 
+function getPtUploadDirectory() {
+  return path.join(getExternalUploadsRoot(), "pt");
+}
+
 function getLegacyUploadsRoot() {
   return path.join(__dirname, "..", "..", "uploads");
 }
@@ -26,6 +30,7 @@ function getLegacyUploadsRoot() {
 module.exports = {
   getExternalUploadsRoot,
   getExercisesUploadDirectory,
+  getPtUploadDirectory,
   getProductsUploadDirectory,
   getLegacyUploadsRoot
 };
