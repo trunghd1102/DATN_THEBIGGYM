@@ -10,6 +10,7 @@ const { isMailConfigured, sendContactReplyMail } = require("../services/mailServ
 const ORDER_STATUSES = ["pending", "shipping", "completed", "cancelled"];
 const USER_ROLES = ["admin", "coach", "member"];
 const OVERVIEW_REVENUE_DAYS = 30;
+const ANALYTICS_REVENUE_MONTHS = 12;
 
 function handleValidation(req, res) {
   const errors = validationResult(req);
@@ -811,7 +812,7 @@ exports.getAnalytics = asyncHandler(async (_req, res) => {
               COALESCE(SUM(total_amount), 0) AS revenue
        FROM orders
        WHERE payment_status = 'PAID'
-         AND COALESCE(paid_at, updated_at, created_at) >= DATE_SUB(CURDATE(), INTERVAL 5 MONTH)
+         AND COALESCE(paid_at, updated_at, created_at) >= DATE_SUB(CURDATE(), INTERVAL ${ANALYTICS_REVENUE_MONTHS - 1} MONTH)
        GROUP BY DATE_FORMAT(COALESCE(paid_at, updated_at, created_at), '%Y-%m')
        ORDER BY month_key ASC`
     ),
@@ -838,7 +839,7 @@ exports.getAnalytics = asyncHandler(async (_req, res) => {
     success: true,
     data: {
       revenue_by_day: buildDateSeries(dailyRows, 30),
-      revenue_by_month: buildMonthSeries(monthlyRows, 6),
+      revenue_by_month: buildMonthSeries(monthlyRows, ANALYTICS_REVENUE_MONTHS),
       top_products: topProductRows.map((row) => ({
         product_name: row.product_name,
         product_slug: row.product_slug,

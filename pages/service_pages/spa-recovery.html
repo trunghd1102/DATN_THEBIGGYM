@@ -16,6 +16,7 @@
     })();
   </script>
   <title>Spa Recovery | THE BIG GYM</title>
+  <link rel="icon" type="image/png" href="../../assets/images/logo.png" />
   <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
@@ -49,11 +50,12 @@
     .mega-menu { opacity: 0; visibility: hidden; transition: all .28s ease; }
     .group:hover .mega-menu { opacity: 1; visibility: visible; transform: translateY(0); }
     .image-frame {
+      position: relative;
       overflow: hidden;
       border: 1px solid rgba(255,255,255,0.08);
       background: rgba(255,255,255,0.02);
     }
-    .image-frame img { transition: transform .8s ease; }
+    .image-frame img { display: block; width: 100%; transition: transform .8s ease; }
     .image-frame:hover img { transform: scale(1.04); }
     .section-rule {
       height: 1px;
@@ -62,46 +64,52 @@
   </style>
 </head>
 <body class="bg-background text-copy selection:bg-primary selection:text-[#2b2000]">
-  <nav class="fixed inset-x-0 top-0 z-50 bg-[#121110]/82 backdrop-blur-md shadow-2xl shadow-black/25">
-    <div class="mx-auto flex max-w-screen-2xl items-center justify-between px-4 py-4 sm:px-6 lg:px-12 lg:py-6">
-      <a class="serif text-lg font-bold uppercase tracking-tight text-primary sm:text-xl md:text-2xl" href="../../index.html">THE BIG GYM</a>
-      <div class="hidden items-center gap-10 font-['Noto_Serif'] text-sm uppercase tracking-[0.28em] md:flex">
-        <a class="text-gray-400 transition-colors hover:text-primary" href="../../index.html">Trang chủ</a>
+  <nav class="fixed top-0 z-50 w-full bg-[#131313]/80 backdrop-blur-md shadow-2xl shadow-black/20">
+    <div class="mx-auto flex max-w-screen-2xl items-center justify-between px-12 py-6">
+      <a class="serif text-2xl font-bold uppercase tracking-tighter text-[#f2ca50]" href="../../index.html">
+        THE BIG GYM
+      </a>
+      <div class="hidden items-center gap-10 font-['Noto_Serif'] text-sm uppercase tracking-widest md:flex">
+        <a class="border-b-2 border-[#f2ca50] pb-1 text-[#f2ca50]" href="../../index.html">Trang chủ</a>
         <div class="group relative">
-          <a class="flex items-center gap-1 border-b border-primary pb-1 text-primary" href="../../index.html#premium-services">
-            Dịch vụ <span class="material-symbols-outlined text-sm">expand_more</span>
+          <a class="flex items-center gap-1 pb-1 text-gray-400 transition-colors duration-300 hover:text-[#f2ca50]" href="../../index.html#premium-services">
+            Dịch vụ <span class="material-symbols-outlined text-xs">expand_more</span>
           </a>
-          <div class="mega-menu absolute left-1/2 top-full mt-4 grid w-[820px] -translate-x-1/2 translate-y-2 grid-cols-3 gap-8 rounded-3xl border border-white/10 bg-[#181818] p-8 shadow-2xl shadow-black/40">
+          <div class="mega-menu absolute left-1/2 top-full mt-4 grid w-[800px] -translate-x-1/2 translate-y-2 grid-cols-3 gap-8 rounded-lg bg-[#1c1b1b] p-8 shadow-2xl">
             <div>
-              <h4 class="mb-4 border-b border-white/10 pb-2 text-xs font-bold uppercase tracking-[0.3em] text-primary">Huấn luyện</h4>
-              <ul class="space-y-3 text-sm tracking-normal text-gray-400">
+              <h4 class="mb-4 border-b border-white/10 pb-2 font-bold text-primary">Huấn luyện</h4>
+              <ul class="space-y-3 text-gray-400 normal-case tracking-normal">
                 <li><a class="transition-colors hover:text-primary" href="private-gym-area.html">Private Gym Area</a></li>
                 <li><a class="transition-colors hover:text-primary" href="yoga-sanctuary.html">Yoga Sanctuary</a></li>
               </ul>
             </div>
             <div>
-              <h4 class="mb-4 border-b border-white/10 pb-2 text-xs font-bold uppercase tracking-[0.3em] text-primary">Tiện nghi</h4>
-              <ul class="space-y-3 text-sm tracking-normal text-gray-400">
-                <li><a class="font-semibold text-primary" href="spa-recovery.html">Spa Recovery</a></li>
+              <h4 class="mb-4 border-b border-white/10 pb-2 font-bold text-primary">Tiện nghi</h4>
+              <ul class="space-y-3 text-gray-400 normal-case tracking-normal">
+                <li><a class="transition-colors hover:text-primary" href="spa-recovery.html">Spa Recovery</a></li>
                 <li><a class="transition-colors hover:text-primary" href="premium-bathroom.html">Phòng tắm cao cấp</a></li>
               </ul>
             </div>
-            <div class="group/img relative overflow-hidden rounded-[28px]">
-              <img alt="Ưu đãi thành viên mới" class="h-full min-h-[240px] w-full object-cover opacity-65 transition-transform duration-700 group-hover/img:scale-110" src="../../assets/images/logo.png" />
-              <div class="absolute inset-0 flex items-end bg-gradient-to-t from-black/80 to-transparent p-5">
-                <span class="text-xs font-bold uppercase tracking-[0.24em] text-white">Ưu đãi thành viên mới</span>
+            <div class="group/img relative overflow-hidden rounded-md">
+              <img alt="Gym Luxury" class="h-full w-full object-cover opacity-60 transition-transform duration-700 group-hover/img:scale-110" src="../../assets/images/logo.png" />
+              <div class="absolute inset-0 flex items-end bg-gradient-to-t from-black/80 to-transparent p-4">
+                <span class="text-xs font-bold uppercase text-white">Ưu đãi thành viên mới</span>
               </div>
             </div>
           </div>
         </div>
-        <a class="text-gray-400 transition-colors hover:text-primary" href="../baitap.html">Bài tập</a>
-        <a class="text-gray-400 transition-colors hover:text-primary" href="../shop.html">Cửa hàng</a>
-        <a class="text-gray-400 transition-colors hover:text-primary" href="../congcu.html">Công cụ</a>
-        <a class="text-gray-400 transition-colors hover:text-primary" href="../contact.html">Liên hệ</a>
+        <a class="text-gray-400 transition-colors duration-300 hover:text-[#f2ca50]" href="../baitap.html">Bài tập</a>
+        <a class="text-gray-400 transition-colors duration-300 hover:text-[#f2ca50]" href="../shop.html">Cửa hàng</a>
+        <a class="text-gray-400 transition-colors duration-300 hover:text-[#f2ca50]" href="../congcu.html">Công cụ</a>
+        <a class="text-gray-400 transition-colors duration-300 hover:text-[#f2ca50]" href="../contact.html">Liên hệ</a>
       </div>
-      <div class="flex items-center gap-2 md:gap-3">
-        <a class="shrink-0 rounded-full bg-gradient-to-r from-primary to-[#d7ae2e] px-4 py-2.5 text-[10px] font-bold uppercase tracking-[0.18em] text-[#2e2200] sm:px-5 md:px-8 md:py-3 md:text-xs" href="../shop.html">Khám phá gói tập</a>
-        <a class="hidden min-h-[48px] min-w-[176px] items-center justify-center rounded-full border border-primary/40 px-6 py-3 text-xs font-bold uppercase tracking-widest text-primary transition-colors duration-300 hover:bg-primary hover:text-[#3c2f00] md:inline-flex" data-auth-link data-base-prefix="../../" href="../../pages/login.html">Đăng nhập</a>
+      <div class="flex items-center gap-3">
+        <button class="rounded-full bg-gradient-to-r from-[#f2ca50] to-[#d4af37] px-8 py-3 text-xs font-bold uppercase tracking-widest text-[#3c2f00] shadow-lg shadow-[#f2ca50]/20 transition-transform duration-300 hover:scale-105">
+          Đặt lịch PT
+        </button>
+        <a class="rounded-full border border-[#f2ca50]/40 px-6 py-3 text-xs font-bold uppercase tracking-widest text-[#f2ca50] transition-colors duration-300 hover:bg-[#f2ca50] hover:text-[#3c2f00]" data-auth-link data-base-prefix="../../" href="../login.html">
+          Đăng nhập
+        </a>
       </div>
     </div>
   </nav>
@@ -109,7 +117,7 @@
   <main>
     <section class="relative overflow-hidden pt-[var(--biggym-nav-height)]">
       <div class="absolute inset-0">
-        <img alt="Spa Hero" class="h-full w-full object-cover object-center" src="../../assets/images/spa-recovery.jpg" />
+        <img alt="Spa Hero" class="block h-full w-full object-cover object-center" src="../../assets/images/service-spa-hero.jpg" />
         <div class="absolute inset-0 bg-gradient-to-r from-[#121110] via-[#121110]/80 to-[#121110]/20"></div>
         <div class="absolute inset-0 bg-gradient-to-t from-[#121110] via-transparent to-black/25"></div>
       </div>
@@ -159,8 +167,8 @@
             </div>
           </div>
         </div>
-        <div class="image-frame rounded-[32px] shadow-cinematic">
-          <img alt="Recovery portrait" class="h-full min-h-[540px] w-full object-cover object-center" src="../../assets/images/customer-review-3.jpg" />
+        <div class="image-frame relative min-h-[540px] rounded-[32px] shadow-cinematic">
+          <img alt="Recovery portrait" class="absolute inset-0 block h-full w-full object-cover object-center" src="../../assets/images/service-spa-main.jpg" />
         </div>
       </div>
     </section>
@@ -178,8 +186,8 @@
         </div>
         <div class="grid gap-6 lg:grid-cols-[0.95fr_1.05fr]">
           <div class="grid gap-6">
-            <div class="image-frame rounded-[30px]">
-              <img alt="Spa recovery lounge" class="h-[410px] w-full object-cover object-center" src="../../assets/images/spa-recovery.jpg" />
+            <div class="image-frame h-[410px] rounded-[30px]">
+              <img alt="Spa recovery lounge" class="absolute inset-0 block h-full w-full object-cover object-center" src="../../assets/images/service-spa-lounge.jpg" />
             </div>
             <div class="grid gap-6 md:grid-cols-2">
               <div class="rounded-[28px] border border-white/10 bg-white/[0.03] p-6">
@@ -202,11 +210,11 @@
                 <li>Những ngày bạn không muốn rời club quá nhanh mà muốn thật sự “hạ cánh” trước khi quay lại nhịp sống bên ngoài.</li>
               </ul>
             </div>
-            <div class="image-frame rounded-[30px]">
-              <img alt="Warm bath zone" class="h-[240px] w-full object-cover object-center" src="../../assets/images/bath-room.jpg" />
+            <div class="image-frame h-[240px] rounded-[30px]">
+              <img alt="Warm bath zone" class="absolute inset-0 block h-full w-full object-cover object-center" src="../../assets/images/service-spa-bath.jpg" />
             </div>
-            <div class="image-frame rounded-[30px]">
-              <img alt="Recovery companion" class="h-[240px] w-full object-cover object-center" src="../../assets/images/customer-review-3.jpg" />
+            <div class="image-frame h-[240px] rounded-[30px]">
+              <img alt="Recovery companion" class="absolute inset-0 block h-full w-full object-cover object-center" src="../../assets/images/service-spa-detail.jpg" />
             </div>
           </div>
         </div>

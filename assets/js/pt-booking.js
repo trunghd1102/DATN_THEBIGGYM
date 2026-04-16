@@ -8,6 +8,7 @@
     heroExpertise: document.getElementById("pt-hero-expertise"),
     trainerGrid: document.getElementById("pt-trainer-grid"),
     pageFeedback: document.getElementById("pt-page-feedback"),
+    bookingSection: document.getElementById("pt-booking"),
     selectedTrainerPanel: document.getElementById("pt-selected-trainer-panel"),
     dateFilters: document.getElementById("pt-date-filters"),
     slotList: document.getElementById("pt-slot-list"),
@@ -158,6 +159,23 @@
     }
 
     element.classList.add("border-primary/20", "bg-primary/10", "text-gray-100");
+  }
+
+  function scrollToBookingSection() {
+    if (!dom.bookingSection) {
+      return;
+    }
+
+    const navHeight = Number.parseInt(
+      getComputedStyle(document.documentElement).getPropertyValue("--biggym-nav-height"),
+      10
+    ) || 88;
+    const targetTop = dom.bookingSection.getBoundingClientRect().top + window.scrollY - navHeight - 24;
+
+    window.scrollTo({
+      top: Math.max(targetTop, 0),
+      behavior: "smooth"
+    });
   }
 
   function getStatusBadge(status) {
@@ -477,6 +495,10 @@
     updateHero();
     setFeedback(dom.bookingFeedback, "info", "");
 
+    if (scrollToBooking) {
+      scrollToBookingSection();
+    }
+
     try {
       await loadSlotsForTrainer(trainerId);
     } catch (error) {
@@ -488,9 +510,6 @@
       setFeedback(dom.pageFeedback, "error", error.message || "Không thể tải slot của huấn luyện viên.");
     }
 
-    if (scrollToBooking) {
-      document.getElementById("pt-booking")?.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
   }
 
   function getInitialTrainerId() {

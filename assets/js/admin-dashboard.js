@@ -1877,7 +1877,16 @@
         maintainAspectRatio: false,
         plugins: { legend: { display: false } },
         scales: {
-          x: { ticks: { color: "#8f8a80" }, grid: { color: "rgba(255,255,255,0.04)" } },
+          x: {
+            ticks: {
+              color: "#8f8a80",
+              autoSkip: false,
+              maxRotation: 0,
+              minRotation: 0,
+              font: { size: 11 }
+            },
+            grid: { color: "rgba(255,255,255,0.04)" }
+          },
           y: { ticks: { color: "#8f8a80" }, grid: { color: "rgba(255,255,255,0.04)" } }
         }
       }

@@ -611,7 +611,7 @@ exports.createPayOSCheckout = asyncHandler(async (req, res) => {
     }
 
     if (!orderId) {
-      const error = new Error("Khong the tao ma don hang moi");
+      const error = new Error("Không thể tạo mã đơn hàng mới");
       error.statusCode = 500;
       throw error;
     }
@@ -728,7 +728,7 @@ exports.getOrderDetail = asyncHandler(async (req, res) => {
   if (!order) {
     return res.status(404).json({
       success: false,
-      message: "Khong tim thay don hang"
+      message: "Không tìm thấy đơn hàng"
     });
   }
 
@@ -738,7 +738,7 @@ exports.getOrderDetail = asyncHandler(async (req, res) => {
   if (!isAdmin && (!requesterId || requesterId !== Number(order.user_id || 0))) {
     return res.status(404).json({
       success: false,
-      message: "Khong tim thay don hang"
+      message: "Không tìm thấy đơn hàng"
     });
   }
 
@@ -764,7 +764,7 @@ exports.lookupOrder = asyncHandler(async (req, res) => {
   if (!order || normalizePhone(order.buyer_phone) !== phone) {
     return res.status(404).json({
       success: false,
-      message: "Khong tim thay don hang phu hop voi thong tin tra cuu"
+      message: "Không tìm thấy đơn hàng phù hợp với thông tin tra cứu"
     });
   }
 
@@ -802,7 +802,7 @@ exports.handlePayOSWebhook = asyncHandler(async (req, res) => {
   if (!isPayOSConfigured()) {
     return res.status(500).json({
       error: -1,
-      message: "PayOS chua duoc cau hinh"
+      message: "PayOS chưa được cấu hình"
     });
   }
 
