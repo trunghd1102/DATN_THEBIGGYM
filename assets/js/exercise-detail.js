@@ -1,6 +1,6 @@
 (function () {
   const API_BASE_URL = window.BIGGYM_API_BASE_URL || (window.location.protocol === "file:" ? "http://localhost:4000/api" : `${window.location.origin}/api`);
-  const DEFAULT_HERO_IMAGE = "../../assets/images/exercise/exercises-hero.jpg";
+  const DEFAULT_HERO_IMAGE = "../../assets/images/weight-room.jpg";
 
   const dom = {
     shell: document.getElementById("exercise-detail-shell"),

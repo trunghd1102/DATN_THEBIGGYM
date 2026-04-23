@@ -1,6 +1,6 @@
 (function () {
   const API_BASE_URL = window.BIGGYM_API_BASE_URL || (window.location.protocol === "file:" ? "http://localhost:4000/api" : `${window.location.origin}/api`);
-  const DEFAULT_PREVIEW_IMAGE = "../assets/images/exercise/exercises-hero.jpg";
+  const DEFAULT_PREVIEW_IMAGE = "../assets/images/weight-room.jpg";
 
   const dom = {
     section: document.querySelector('[data-admin-section="exercises"]'),
