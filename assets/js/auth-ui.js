@@ -515,7 +515,7 @@
   }
 
   function wirePtBookingCtas(basePrefix) {
-    const targetHref = buildPageHref(basePrefix, "pages/doi-ngu.html#pt-booking");
+    const targetHref = buildPageHref(basePrefix, "pages/doi-ngu.html");
 
     Array.from(document.querySelectorAll("[data-pt-booking-link], button, a")).forEach((element) => {
       if (element.dataset.ptBookingWired === "true") {
